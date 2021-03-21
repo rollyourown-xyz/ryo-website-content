@@ -1,15 +1,11 @@
-# For private development of the site, use development webserver
-baseURL = "http://10.10.11.111/"
-#
-# For production, use production webserver
-#baseURL = "https://rollyourown.xyz/"
-#
 languageCode = "en-gb"
 #
 # For private development of the site, use development webserver
+baseURL = "http://10.10.11.111/"
 title = "DEVELOPMENT rollyourown.xyz"
 #
 # For production, use production webserver
+#baseURL = "https://rollyourown.xyz/"
 #title = "rollyourown.xyz"
 #
 theme = "rollyourown-theme"
