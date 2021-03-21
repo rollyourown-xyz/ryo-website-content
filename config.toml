@@ -1,6 +1,16 @@
-baseURL = "https://rollyourown.xyz/"
+# For private development of the site, use development webserver
+baseURL = "http://10.10.11.111/"
+#
+# For production, use production webserver
+#baseURL = "https://rollyourown.xyz/"
+#
 languageCode = "en-us"
-title = "rollyourown.xyz"
+#
+# For private development of the site, use development webserver
+title = "DEVELOPMENT rollyourown.xyz"
+#
+# For production, use production webserver
+#title = "rollyourown.xyz"
 
 [params]
   dateFormat = "Jan 2, 2006"
@@ -20,13 +30,13 @@ title = "rollyourown.xyz"
     pre = "home"
     url = "/"
     weight = 1
-#  [[menu.main]]
-#    name = "rollyourown..."
-#    #pre = "folder"
-#    #pre = "chevrons-down"
-#    pre = "code"
-#    url = "/rollyourown/"
-#    weight = 2
+  [[menu.main]]
+    name = "rollyourown..."
+    #pre = "folder"
+    #pre = "chevrons-down"
+    pre = "code"
+    url = "/rollyourown/"
+    weight = 2
 #  [[menu.main]]
 #    name = "collaborate"
 #    #pre = "code"
