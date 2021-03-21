@@ -11,6 +11,8 @@ title = "DEVELOPMENT rollyourown.xyz"
 #
 # For production, use production webserver
 #title = "rollyourown.xyz"
+#
+theme = "rollyourown-theme"
 
 [params]
   dateFormat = "Jan 2, 2006"
