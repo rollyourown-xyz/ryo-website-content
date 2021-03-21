@@ -34,7 +34,6 @@ defaultContentLanguageInSubdir = "false"
 [languages]
   
   [languages.en]
-    title = "rollyourown.xyz"
     weight = 1
     [[languages.en.menu.main]]
       name = "Home"
@@ -58,7 +57,6 @@ defaultContentLanguageInSubdir = "false"
       weight = 4
 
   [languages.de]
-    title = "rollyourown.xyz"
     weight = 2
     [[languages.de.menu.main]]
       name = "Start"
