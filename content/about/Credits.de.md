@@ -1,5 +1,5 @@
 ---
-title: "Credits"
+title: "Anerkennung"
 tags: []
 draft: false
 ---
