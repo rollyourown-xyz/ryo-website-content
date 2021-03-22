@@ -6,6 +6,8 @@ draft: false
 
 This project builds on and would not be possible without a number of other open source projects. We are intensely grateful to the communities developing and maintaining these amazing projects.
 
+<!--more-->
+
 In alphabetical order, the projects powering rollyourown.xyz are:
 
 | Project | Used for... | Project homepage |
