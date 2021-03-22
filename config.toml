@@ -42,15 +42,20 @@ defaultContentLanguageInSubdir = "false"
       url = "/rollyourown/"
       weight = 2
     [[languages.en.menu.main]]
-      name = "About"
-      pre = "grid"
-      url = "/about/"
+      name = "collaborate"
+      pre = "git-pull-request"
+      url = "/collaborate/"
       weight = 3
     [[languages.en.menu.main]]
-      name = "Tags"
+      name = "about"
+      pre = "grid"
+      url = "/about/"
+      weight = 4
+    [[languages.en.menu.main]]
+      name = "tags"
       pre = "tag"
       url = "/tags/"
-      weight = 4
+      weight = 5
 
   [languages.de]
     weight = 2
@@ -65,12 +70,17 @@ defaultContentLanguageInSubdir = "false"
       url = "/de/rollyourown/"
       weight = 2
     [[languages.de.menu.main]]
-      name = "Über"
-      pre = "grid"
-      url = "/de/about/"
+      name = "mitwirken"
+      pre = "git-pull-request"
+      url = "/de/collaborate/"
       weight = 3
     [[languages.de.menu.main]]
-      name = "Themen"
+      name = "über"
+      pre = "grid"
+      url = "/de/about/"
+      weight = 4
+    [[languages.de.menu.main]]
+      name = "themen"
       pre = "tag"
       url = "/de/tags/"
-      weight = 4
+      weight = 5
