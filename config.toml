@@ -37,22 +37,22 @@ defaultContentLanguageInSubdir = "false"
       url = "/"
       weight = 1
     [[languages.en.menu.main]]
-      name = "rollyourown..."
+      name = "Rollyourown..."
       pre = "code"
       url = "/rollyourown/"
       weight = 2
     [[languages.en.menu.main]]
-      name = "collaborate"
+      name = "Collaborate"
       pre = "git-pull-request"
       url = "/collaborate/"
       weight = 3
     [[languages.en.menu.main]]
-      name = "about"
+      name = "About"
       pre = "grid"
       url = "/about/"
       weight = 4
     [[languages.en.menu.main]]
-      name = "tags"
+      name = "Tags"
       pre = "tag"
       url = "/tags/"
       weight = 5
@@ -65,22 +65,22 @@ defaultContentLanguageInSubdir = "false"
       url = "/de/"
       weight = 1
     [[languages.de.menu.main]]
-      name = "rollyourown..."
+      name = "Rollyourown..."
       pre = "code"
       url = "/de/rollyourown/"
       weight = 2
     [[languages.de.menu.main]]
-      name = "mitwirken"
+      name = "Mitwirken"
       pre = "git-pull-request"
       url = "/de/collaborate/"
       weight = 3
     [[languages.de.menu.main]]
-      name = "über"
+      name = "Über"
       pre = "grid"
       url = "/de/about/"
       weight = 4
     [[languages.de.menu.main]]
-      name = "themen"
+      name = "Themen"
       pre = "tag"
       url = "/de/tags/"
       weight = 5
