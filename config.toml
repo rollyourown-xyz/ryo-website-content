@@ -51,11 +51,6 @@ defaultContentLanguageInSubdir = "false"
       pre = "grid"
       url = "/about/"
       weight = 4
-    [[languages.en.menu.main]]
-      name = "Tags"
-      pre = "tag"
-      url = "/tags/"
-      weight = 5
 
   [languages.de]
     weight = 2
@@ -79,8 +74,3 @@ defaultContentLanguageInSubdir = "false"
       pre = "grid"
       url = "/de/about/"
       weight = 4
-    [[languages.de.menu.main]]
-      name = "Themen"
-      pre = "tag"
-      url = "/de/tags/"
-      weight = 5
