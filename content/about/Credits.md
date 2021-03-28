@@ -24,6 +24,7 @@ In alphabetical order, the projects powering rollyourown.xyz are:
 | HAProxy | TLS termination, reverse proxying and loadbalancing | [https://www.haproxy.org/](https://www.haproxy.org/) |
 | Hugo | Static site generation for the [rollyourown.xyz](https://rollyourown.xyz) website | [https://gohugo.io/](https://gohugo.io/) |
 | Jitsi | Video conferencing for our team and collaborators | [https://jitsi.org/](https://jitsi.org/) |
+| jQuery | Javascript library used by the bootstrap framework | [https://jquery.com/](https://jquery.com/) |
 | Keycloak | Identity management and SSO | [https://www.keycloak.org/](https://www.keycloak.org/) |
 | Let's Encrypt | SSL/TLS certificates for our websites | [https://letsencrypt.org/](https://letsencrypt.org/) |
 | LXD | Deploying system containers to our servers | [https://linuxcontainers.org/lxd/](https://linuxcontainers.org/lxd/) |
