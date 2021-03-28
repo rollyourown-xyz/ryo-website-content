@@ -74,3 +74,17 @@ defaultContentLanguageInSubdir = "false"
       pre = "grid"
       url = "/de/about/"
       weight = 4
+
+[privacy]
+  [privacy.disqus]
+    disable = true
+  [privacy.googleAnalytics]
+    disable = true
+  [privacy.instagram]
+    disable = true
+  [privacy.twitter]
+    disable = true
+  [privacy.vimeo]
+    disable = true
+  [privacy.youtube]
+    disable = true
