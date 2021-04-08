@@ -1,5 +1,5 @@
 ---
-title: "RYO Base Server"
+title: "Base Host Server"
 tags: [ ]
 draft: false
 ---

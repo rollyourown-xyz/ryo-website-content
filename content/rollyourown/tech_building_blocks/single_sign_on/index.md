@@ -1,5 +1,5 @@
 ---
-title: "RYO MariaDB Cluster"
+title: "Single Sign On"
 tags: [ ]
 draft: false
 ---

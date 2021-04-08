@@ -1,6 +1,6 @@
 ---
-title: "RYO Single Sign On"
-tags: [ ]
+title: "Tech Project Example"
+tags: ["messaging", "privacy"]
 draft: false
 ---
 
