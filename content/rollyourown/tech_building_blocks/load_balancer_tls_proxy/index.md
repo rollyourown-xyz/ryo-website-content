@@ -1,5 +1,5 @@
 ---
-title: "Load Balancer and TLS Proxy Building Block"
+title: "Load Balancer and TLS Proxy"
 date: "2021–03–21"
 draft: "false"
 ---
