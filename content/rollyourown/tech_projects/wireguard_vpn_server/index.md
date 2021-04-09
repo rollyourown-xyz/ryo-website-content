@@ -1,5 +1,5 @@
 ---
-title: "Wireguard VPN Server"
+title: "Roll Your Own Wireguard VPN Server"
 tags: ["privacy", "vpn"]
 draft: false
 ---
