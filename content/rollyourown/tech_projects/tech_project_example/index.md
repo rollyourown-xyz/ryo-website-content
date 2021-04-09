@@ -1,5 +1,5 @@
 ---
-title: "Tech Project Example"
+title: "Roll Your Own Example Tech Project"
 tags: ["messaging", "privacy"]
 draft: false
 ---
