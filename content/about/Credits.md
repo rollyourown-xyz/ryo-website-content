@@ -11,6 +11,7 @@ This project builds on and would not be possible without a number of other open 
 In alphabetical order, the projects powering rollyourown.xyz are:
 
 {{< table tableclass="table table-bordered table-striped" theadclass="thead-dark" >}}
+
 | Project | Used for... | Project homepage |
 | :------ | :----------- | :--------------- |
 | Ansible | Configuring our host servers and container images | [https://www.ansible.com/](https://www.ansible.com/) |
@@ -35,7 +36,9 @@ In alphabetical order, the projects powering rollyourown.xyz are:
 | PostgreSQL | Databases behind various services | [https://www.postgresql.org/](https://www.postgresql.org/) |
 | Terraform | Deploying our services | [https://www.terraform.io/](https://www.terraform.io/) |
 | Ubuntu Linux | Running our servers and system containers | [https://ubuntu.com/](https://ubuntu.com/) |
+| Webhook | Triggering automatic website updates | [https://github.com/adnanh/webhook](https://github.com/adnanh/webhook) |
 | Wireguard | Secure networking between our servers and control machines | [https://www.wireguard.com/](https://www.wireguard.com/) |
+
 {{< /table >}}
 
 Gratitude is also due for the tutorial at [https://retrolog.io/blog/creating-a-hugo-theme-from-scratch/](https://retrolog.io/blog/creating-a-hugo-theme-from-scratch/) for helping us get started with our hugo website theme.
