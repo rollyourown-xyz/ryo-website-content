@@ -6,18 +6,14 @@ draft: "false"
 
 ## Overview
 
-Here are the tech projects!
+TODO: Here are the tech projects!
 
 ## What is in a tech project?
 
-About the structure of the page and repository.
+TODO: About the structure of the page and repository.
 
-About the underlying deployment philosophy / process (incl. immutable infrastructure).
+TODO: About the underlying deployment philosophy / process (incl. immutable infrastructure).
 
-## How to use: automation scripts
+## How to use
 
-Basic, generic instructions on cloning reop, setting configuration parameters and running scripts.
-
-## How to use: manual steps
-
-Step-by-step instructions: Local setup, host setup, image build, deployment.
+Browse our projects and [deploy](/rollyourown/tech_projects/how_to_deploy/) using our automation scripts.
