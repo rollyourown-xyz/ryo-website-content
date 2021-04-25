@@ -1,5 +1,5 @@
 ---
-title: "Rollyourown tech projects"
+title: "Projects"
 tags: [ ]
 draft: false
 ---
