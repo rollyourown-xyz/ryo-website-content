@@ -1,7 +1,7 @@
 ---
 title: "Base Host Server"
 tags: [ ]
-draft: false
+draft: true
 ---
 
 Testing, testing
