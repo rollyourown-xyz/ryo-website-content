@@ -1,7 +1,7 @@
 ---
 title: "Other Projects"
 tags: [ ]
-draft: false
+draft: true
 ---
 
 Here are the other projects!
