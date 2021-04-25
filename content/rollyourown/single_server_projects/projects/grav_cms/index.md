@@ -30,7 +30,7 @@ A terminal-based [control machine](/rollyourown/tech_building_blocks/control_mac
 
 The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-grav-cms.git](https://git.rollyourown.xyz/ryo-projects/ryo-grav-cms.git)
 
-The [github](https://github.com/) mirror repository for this project is here: [https://github.com/rollyourown-xyz/ryo-projects-grav-cms.git](https://github.com/rollyourown-xyz/ryo-projects-grav-cms.git)
+The [github](https://github.com/) mirror repository for this project is here: [https://github.com/rollyourown-xyz/ryo-grav-cms.git](https://github.com/rollyourown-xyz/ryo-grav-cms.git)
 
 ## Project components
 
@@ -64,7 +64,7 @@ The webserver container hosts an [nginx](https://nginx.org/) web server, configu
 
 ### Deploying the project
 
-To deploy the project, follow the generic [project deployment instructions](/rollyourown/tech_projects/how_to_deploy/), using the [project's github mirror repository](https://github.com/rollyourown-xyz/ryo-projects-grav-cms/)
+To deploy the project, follow the generic [project deployment instructions](/rollyourown/tech_projects/how_to_deploy/), using the [project's github mirror repository](https://github.com/rollyourown-xyz/ryo-grav-cms/)
 
 ### After deployment
 
