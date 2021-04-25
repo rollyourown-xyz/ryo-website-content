@@ -1,7 +1,7 @@
 ---
 title: "Load Balancer and TLS Proxy"
-date: "2021–03–21"
-draft: "false"
+tags: [ ]
+draft: true
 ---
 
 Description of the load balancer and proxy function and TLS termination with LE certificates.
