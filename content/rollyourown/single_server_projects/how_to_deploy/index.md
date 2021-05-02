@@ -162,13 +162,20 @@ As an alternative to a virtual machine, a dedicated computer (e.g. laptop, deskt
 
 After a [control node has been set up](rollyourown/project_modules/control_node/), then the host server needs to be set up, container images for the project need to be built and uploaded to the host and, finally, the project's components need to be deployed on the host.
 
-### Getting the project repository
+### Getting the project repositories
 
 Log in to the control node as the non-root user, enter the `ryo-projects` directory and clone the **project repository** to your control node. The repository used depends on the project to deploy and is linked from the project's page. For example:
 
 ```console
 cd ~/ryo-projects
 git clone https://github.com/rollyourown-xyz/<project_to_deploy>.git
+```
+
+Then use the `get-modules.sh` script in the project directory to fetch additional modules. This script clones the relevant rollyourown.xyz repositories into the `modules` directory.
+
+```console
+cd ~/ryo-projects/<project_to_deploy>
+./get-modules.sh
 ```
 
 The project can now be configured.
@@ -252,7 +259,7 @@ Over time, the software packages used for the project deployment need to be kept
 
 ## What do these scripts do?
 
-### The `local-setup.sh` scripts
+### The `local-setup.sh` script
 
 The `local-setup.sh` script prepares the control node for managing the project deployment. This script simply calls an [ansible](https://www.ansible.com/) playbook that executes tasks on the control node itself.
 
@@ -272,13 +279,27 @@ In detail, the following tasks are performed by the local-setup playbook:
 
 {{< /more >}}
 
-### The `host-setup.sh` script
+### The `get-modules.sh` script
 
-The `host-setup.sh` script uses the host server's initial root password to secure the server, set it up to be controlled by the control node and to host [LXD](https://linuxcontainers.org/lxd/) containers for the project deployment. This script simply calls an [ansible](https://www.ansible.com/) playbook that executes tasks on the host server.
+The `get-modules.sh` script loads additional modules needed by the project, which are retrieved from dedicated rollyourown.xyz repositories.
 
 {{< more "secondary">}}
 
-In detail, the following tasks are performed by the host-setup playbook:
+In detail, the following tasks are performed by the get-modules script:
+
+- For all projects, the repository [https://github.com/rollyourown-xyz/ryo-host-setup-generic](https://github.com/rollyourown-xyz/ryo-host-setup-generic) is added as a git submodule and cloned to the modules directory. This repository contains generic setup scripts for any rollyourown.xyz host
+
+- Depending on the project, additional re-usable modules are fetched from dedicated rollyourown.xyz repositories
+
+{{< /more >}}
+
+### The `host-setup.sh` script
+
+The `host-setup.sh` uses the host server's initial root password to secure the server, set it up to be controlled by the control node and to host [LXD](https://linuxcontainers.org/lxd/) containers for the project deployment. This script simply calls generic and project-specific [ansible](https://www.ansible.com/) playbooks that execute tasks on the host server.
+
+{{< more "secondary">}}
+
+In detail, the following tasks are performed by the host-setup playbooks:
 
 - A non-root user account is created, the SSH public key created on the control machine by the [local-setup playbook](#the-local-setupsh-script) is added to the user's account and the account is added to the sudo group and configured for password-less sudo. The non-root user account is then used with [SSH public key authetication](https://help.ubuntu.com/community/SSH/OpenSSH/Keys) for all further communication to the server and all further setup steps
 
@@ -304,7 +325,7 @@ In detail, the following tasks are performed by the host-setup playbook:
 
 - Both the control node and the host are configured as mutual [LXD remote servers](https://linuxcontainers.org/lxd/advanced-guide/#remote-servers) to enable image uploading and management from the control node
 
-- In some projects, additional needed host configuration is performed
+- In some projects, additional host configuration is performed as needed
 
 {{< /more >}}
 
