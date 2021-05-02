@@ -122,8 +122,8 @@ If your internet connection does not have a public IP address (e.g. your provide
 
 The "size" of the server needed depends on a number of parameters:
 
-- The complexity of the project you want to deploy - the project page should give you an idea of the minimum resources the project needs to run well 
-- For a project providing a service for multiple people (e.g. a messaging server, a cloud service), the resources needed will depend on the number of persons you want to support with your deployment. A project providing a service for a family or small group of friends will need fewer resources than a large deployment for hundreds or thousands of people. 
+- The complexity of the project you want to deploy - the project page should give you an idea of the minimum resources the project needs to run well
+- For a project providing a service for multiple people (e.g. a messaging server, a cloud service), the resources needed will depend on the number of persons you want to support with your deployment. A project providing a service for a family or small group of friends will need fewer resources than a large deployment for hundreds or thousands of people.
 - The traffic you expect. This will depend on the number of people you want to support or, for a blog or internet site, on the number of visitors you expect
 
 The first projects published on rollyourown.xyz are simple projects intended for a small number of users. In future, we plan to publish more complex projects with architectures that can scale up to larger numbers of users or higher traffic by using multiple servers.
