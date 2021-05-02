@@ -24,12 +24,13 @@ This page describes how to use these resources to prepare a control machine, set
 When you have chosen your [rollyourown.xyz](https://rollyourown.xyz) project to deploy, these are the steps to deploy the project:
 
 1. Order or set up a server to host your project, running Ubuntu 20.04 LTS
-2. [Prepare a control node](/rollyourown/tech_building_blocks/control_node/) to deploy and manage your projects
+2. [Prepare a control node](/rollyourown/project_modules/control_node/) to deploy and manage your projects
 3. Clone the [project's repository](https://github.com/rollyourown-xyz/) to the control machine
-4. Copy the project configuration files and add settings
-5. Run `./host-setup.sh` from the project directory
-6. Run `./build-images.sh` from the project directory
-7. Run `./deploy-project.sh` from the project directory
+4. Run `./get-modules.sh` from the project directory
+5. Copy the project configuration files and add settings
+6. Run `./host-setup.sh` from the project directory
+7. Run `./build-images.sh` from the project directory
+8. Run `./deploy-project.sh` from the project directory
 
 Now read on to understand each of these steps.
 
@@ -55,11 +56,13 @@ Deploying a rollyourown.xyz project to a host server consists of a few steps:
 
 3. Cloning the [project's repository](https://github.com/rollyourown-xyz/) to the control node to obtain all scripts, configuration code and infrastructure code needed to deploy the project
 
-4. Running the `host-setup.sh` script on the control node to prepare the host server for running containers and to set up the server to be securely controlled by the control node
+4. Running the `get-modules.sh` script on the control node fetches additional modules needed for the project by cloning their rollyourown.xyz repositories into the project's directory
 
-5. Running the `build-images.sh` script on the control node to prepare the various container images needed for the project and to upload them to the host server ready for deployment
+5. Running the `host-setup.sh` script on the control node to prepare the host server for running containers and to set up the server to be securely controlled by the control node
 
-6. Finally, running the `deploy-project.sh` script on the control node to deploy the various containers on the host server
+6. Running the `build-images.sh` script on the control node to prepare the various container images needed for the project and to upload them to the host server ready for deployment
+
+7. Finally, running the `deploy-project.sh` script on the control node to deploy the various containers on the host server
 
 {{< highlight "info">}}
 
@@ -143,7 +146,7 @@ You will need a control node to run the automation scripts to deploy your rollyo
 
 A control node should be run as a virtual machine (VM), running Ubuntu 20.04 LTS, on your personal computer or on a dedicated machine running Ubuntu 20.04 LTS. The `local-setup.sh` scripts are written and tested for Ubuntu 20.04 LTS and will set up all needed software for you.
 
-A guide to setting up a control node is [here](/rollyourown/tech_building_blocks/control_node/).
+A guide to setting up a control node is [here](/rollyourown/project_modules/control_node/).
 
 {{< highlight "warning" "Control node as LXD container?">}}
 
@@ -157,7 +160,7 @@ As an alternative to a virtual machine, a dedicated computer (e.g. laptop, deskt
 
 ## Preparing to deploy the project
 
-After a [control node has been set up](rollyourown/tech_building_blocks/control_node/), then the host server needs to be set up, container images for the project need to be built and uploaded to the host and, finally, the project's components need to be deployed on the host.
+After a [control node has been set up](rollyourown/project_modules/control_node/), then the host server needs to be set up, container images for the project need to be built and uploaded to the host and, finally, the project's components need to be deployed on the host.
 
 ### Getting the project repository
 
@@ -211,7 +214,7 @@ The next step is to build container images for the project deployment.
 
 {{< highlight "info" "Advanced">}}
 
-After setting up a control node with the script `local-setup.sh` and adding a project host server with `host-setup.sh`, you now have a permanent, secure connection from the control node to the host server via a wireguard tunnel. Users familiar with the Linux command line can log in to the server for advanced diagnostics. A few useful commands can be found [here](/rollyourown/tech_building_blocks/control_node_advanced/).
+After setting up a control node with the script `local-setup.sh` and adding a project host server with `host-setup.sh`, you now have a permanent, secure connection from the control node to the host server via a wireguard tunnel. Users familiar with the Linux command line can log in to the server for advanced diagnostics. A few useful commands can be found [here](/rollyourown/project_modules/control_node_advanced/).
 
 {{< /highlight >}}
 
