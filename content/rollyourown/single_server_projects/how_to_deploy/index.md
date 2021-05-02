@@ -177,7 +177,7 @@ The project can now be configured.
 
 Before running the project's automation scripts, some configuration is needed.
 
-First, log in to the control node as the non-root user, copy and edit the inventory template file and enter your host server's IP address.
+First, log in to the control node as the non-root user, copy and edit the inventory template file and enter your host server's public and private wireguard IP addresses.
 
 ```console
 cd ~/ryo-projects/<project_to_deploy>/
