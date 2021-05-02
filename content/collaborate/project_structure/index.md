@@ -10,15 +10,42 @@ To maximise code reuse, a rollyourown.xyz project has a modular structure... (_m
 
 ## Project directory structure
 
-A rollyourown.xyz project **must** be structured with the following top-level directories:
+Link to project template repository...
 
-```bash
+A rollyourown.xyz project **must** be structured with the following top-level directories and scripts:
+
+```console
 project_name
+|-- configuration
+|   |-- ...
+|-- host-setup-project
+|   |-- ...
+|-- image-build
+|   |-- ...
+|-- modules
+|   |-- ...
+|-- project-deployment
+|   |-- ...
+|-- build-images.sh
+|-- deploy-project.sh
+|-- get-modules.sh
+|-- host-setup.sh
+|-- LICENSE
+|-- README.md
+```
+
+### The configuration directory
+
+```console
 |-- configuration
 |   |-- configuration.yml
 |   |-- inventory
-|
-|-- host-setup (optional)
+```
+
+### The host-setup-project directory
+
+```console
+|-- host-setup-project
 |   |-- roles
 |   |   |-- ansible-role
 |   |   |-- ansible-role
@@ -27,7 +54,11 @@ project_name
 |   |-- ansible-playbook.yml
 |   |-- ...
 |   |-- master.yml
-|
+```
+
+### The image-build directory
+
+```console
 |-- image-build
 |   |-- playbooks
 |   |   |-- roles
@@ -41,11 +72,19 @@ project_name
 |   |-- packer-template.pkr.hcl
 |   |-- packer-template.pkr.hcl
 |   |-- ...
-|
+```
+
+### The modules directory
+
+```console
 |-- modules   <<-- TODO!!!
 |   |-- 
 |   |-- 
-|
+```
+
+### The project-deployment directory
+
+```console
 |-- project-deployment
 |   |-- cloud-init
 |   |   |-- cloud-init-file.yml
@@ -58,7 +97,11 @@ project_name
 |   |-- terraform-file.tf
 |   |-- terraform-file.tf
 |   |-- ...
-|
+```
+
+### The scripts
+
+```console
 |-- build-images.sh
 |-- deploy-project.sh
 |-- get-modules.sh
@@ -66,11 +109,3 @@ project_name
 |-- LICENSE
 |-- README.md
 ```
-
-Description of each part here...
-
-Link to project template repository...
-
-## Use of modules
-
-Description here...
