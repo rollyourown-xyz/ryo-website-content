@@ -108,7 +108,7 @@ During setup of Ubuntu 20.04 LTS, you will either have been asked to specifiy a 
 1. Log in to the control node as the non-root user, upgrade the system and then reboot to apply any system changes:
 
     ```console
-    sudo apt update && sudo apt upgrade
+    sudo apt update && sudo apt upgrade -y
     sudo reboot -n
     ```
 
