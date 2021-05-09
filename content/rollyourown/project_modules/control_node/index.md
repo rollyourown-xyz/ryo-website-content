@@ -117,7 +117,7 @@ During setup of Ubuntu 20.04 LTS, you will either have been asked to specifiy a 
     ```console
     sudo apt install software-properties-common
     sudo apt-add-repository --yes --update ppa:ansible/ansible
-    sudo apt install ansible git nano
+    sudo apt install ansible git nano -y
     ```
 
 3. Log in to the control node as the non-root user, create a working directory, enter the directory and clone the **control node repository** to your control node:
