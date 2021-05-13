@@ -50,9 +50,9 @@ Every rollyourown.xyz project follows the principles of **Configuration as code*
 
 Deploying a rollyourown.xyz project to a host server consists of a few steps:
 
-1. Preparing a control node with the basic software to run the automation scripts, or use an existing control node you have previously set up
+1. Preparing a [control node](/rollyourown/project_modules/control_node/) with the basic software to run the automation scripts, or use an existing control node you have previously set up
 
-2. If you are setting up a new control node, cloning the [control node setup repository](https://github.com/rollyourown-xyz/ryo-control-node) to the control node and running the `local-setup.sh` script to install further software and prepare the machine to securely connect to the host server. This setp can be skipped if you have already set up a control node (e.g. for a different project)
+2. If you are [setting up a new control node](/rollyourown/project_modules/control_node/), cloning the [control node setup repository](https://github.com/rollyourown-xyz/ryo-control-node) to the control node and running the `local-setup.sh` script to install further software and prepare the machine to securely connect to the host server. This setp can be skipped if you have already set up a control node (e.g. for a different project)
 
 3. Cloning the [project's repository](https://github.com/rollyourown-xyz/) to the control node to obtain all scripts, configuration code and infrastructure code needed to deploy the project
 
