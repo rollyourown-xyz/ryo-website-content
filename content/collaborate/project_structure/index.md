@@ -15,7 +15,7 @@ Link to project template repository...
 A rollyourown.xyz project **must** be structured with the following top-level directories and scripts:
 
 ```console
-project_name
+project_id
 |-- configuration
 |   |-- ...
 |-- host-setup-project

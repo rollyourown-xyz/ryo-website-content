@@ -27,7 +27,7 @@ Follow these steps to update your deployed [rollyourown.xyz](https://rollyourown
 2. Run `./build-images.sh` from the project directory to build new images for deployment
 3. Run `./deploy-project.sh` from the project directory to deploy the new images and update the deployment
 
-Back up the directory `/var/containers/<project_name>` on your host server to backup all project components.
+Back up the directory `/var/containers/<project_id>` on your host server to backup all project components.
 
 Now read on to understand each of these steps.
 
@@ -59,7 +59,6 @@ These techniques are used to manage very large deployments in commercial situati
 With rollyourown.xyz, we bring a subset of these practices within the reach of private users and smaller organisations. We aim to lower the knowledge and effort needed to use self-hosted, open-source projects by providing the configuration and infrastructure code needed to deploy them. By doing this, we aim to promote the use and propagation of open-source software.
 
 {{< /more >}}
-
 
 ## Updating a project deployment
 
