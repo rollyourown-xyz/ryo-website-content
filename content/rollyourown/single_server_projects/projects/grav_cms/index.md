@@ -28,9 +28,9 @@ A terminal-based [control machine](/rollyourown/tech_building_blocks/control_mac
 
 ## Repository links
 
-The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-grav-cms.git](https://git.rollyourown.xyz/ryo-projects/ryo-grav-cms.git)
+The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-grav-cms](https://git.rollyourown.xyz/ryo-projects/ryo-grav-cms)
 
-The [github](https://github.com/) mirror repository for this project is here: [https://github.com/rollyourown-xyz/ryo-grav-cms.git](https://github.com/rollyourown-xyz/ryo-grav-cms.git)
+The [github](https://github.com/) mirror repository for this project is here: [https://github.com/rollyourown-xyz/ryo-grav-cms](https://github.com/rollyourown-xyz/ryo-grav-cms)
 
 ## Project components
 
@@ -54,7 +54,13 @@ The HAProxy container terminates HTTP and HTTPS connections and distributes traf
 
 The certbot container uses the [ACME protocol](https://tools.ietf.org/html/rfc8555) to request and renew [letsencrypt](https://letsencrypt.org/) certificates for the project domain. Certificates are then made available to the HAProxy container to terminate HTTPS requests for the project.
 
-The combination of HAProxy and Certbot containers is a key building block for rollyourown.xyz projects. Further details can be found [here](/rollyourown/tech_building_blocks/load_balancer_tls_proxy/).
+The combination of HAProxy and Certbot containers is a key building block for rollyourown.xyz projects. Further details can be found [here](/rollyourown/project_modules/load_balancer_tls_proxy/).
+
+#### Consul container
+
+The consul container provides a service registry for HAProxy backends and a key-value store for HAProxy and certbot configuration. This allows HAProxy and certbot to be deployed as generic containers, with the project-specific configuration provisioned on project deployment.
+
+The Consul container is a key building block for rollyourown.xyz projects. Further details can be found [here](rollyourown/project_modules/service_registry_kv_store/).
 
 #### Webserver container
 
@@ -72,7 +78,9 @@ For a full overview of how to use [Grav](https://getgrav.org), see the excellent
 
 For example, your first steps after deployment could be:
 
-- Log in as admin at `https://<your_domain>/admin`
+- Log in using the grav_admin account at `https://<your_domain>/admin` (password configured in the project's `configuration.yml`)
+
+- Recommended: Set up 2FA for your grav_admin account
 
 - **TODO:** Create one or more user(s) with editor permissions
 
@@ -103,6 +111,7 @@ The open source software deployed by the project is:
 | Project | What is it? | Homepage | License |
 | :------ | :---------- | :------- | :------ |
 | Certbot | Open source [letsencrypt](https://letsencrypt.org/) certificate manager | [https://certbot.eff.org/](https://certbot.eff.org/) | [Apache 2.0](https://raw.githubusercontent.com/certbot/certbot/master/LICENSE.txt) |
+| Consul | Open source service registry and key-value store | [https://www.consul.io/](https://www.consul.io/) | [Mozilla Public License 2.0](https://github.com/hashicorp/consul/blob/master/LICENSE) |
 | Grav | Open source flat-file CMS | [https://getgrav.org/](https://getgrav.org/) | [MIT](https://github.com/getgrav/grav/blob/develop/LICENSE.txt) |
 | HAProxy | Open source load balancer, TCP and HTTP proxy | [https://www.haproxy.org/](https://www.haproxy.org/) | [GPL/LGPL](https://github.com/haproxy/haproxy/blob/master/LICENSE) |
 | nginx | Open source webserver for the [Grav](https://getgrav.org/) installation | [https://nginx.org/](https://nginx.org/) | [2-clause BSD license](http://nginx.org/LICENSE) |
