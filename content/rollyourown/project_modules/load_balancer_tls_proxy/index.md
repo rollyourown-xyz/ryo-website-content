@@ -1,7 +1,7 @@
 ---
 title: "Module: Load Balancer and TLS Proxy"
 tags: [ ]
-draft: true
+draft: false
 ---
 
 The load balancer and TLS proxy module is a re-usable module for other [rollyourown.xyz](https://rollyourown.xyz) projects and is used to terminate HTTPS and route traffic to the project's containers.
