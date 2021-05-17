@@ -8,12 +8,6 @@ This project deploys a [Grav](https://getgrav.org) flat-file content management 
 
 <!--more-->
 
-[Grav](https://getgrav.org) is an open source flat-file content management system (CMS), based on PHP, that uses only files and folders and no database for managing content. Grav provides a fast, more lightweight alternative to database-driven CMSs like [Wordpress](https://wordpress.org/) or [Drupal](https://www.drupal.org/), especially for simpler websites and blogs. Content can either be written directly in [Markdown](https://daringfireball.net/projects/markdown/) format and uploaded to the web server or via Grav's [web-based editor](https://learn.getgrav.org/17/admin-panel/page/editor).
-
-{{< highlight "info" "Control machine">}}
-A terminal-based [control machine](/rollyourown/tech_building_blocks/control_machine/) is sufficient for this project, as the Grav admin interface is reachable via the public internet.
-{{< /highlight >}}
-
 ## TODOs on this page
 
 {{< highlight "primary" "ToDo">}}
@@ -23,14 +17,23 @@ A terminal-based [control machine](/rollyourown/tech_building_blocks/control_mac
 - [ ] CHECK: Grav web front-end for editing / managing content
 - [ ] CHECK: Grav backups
 - [ ] Syling for graphic (with shortcode?)
+- [ ] Update after modularisation
 
+{{< /highlight >}}
+
+## Grav CMS project introduction
+
+[Grav](https://getgrav.org) is an open source flat-file content management system (CMS), based on PHP, that uses only files and folders and no database for managing content. Grav provides a fast, more lightweight alternative to database-driven CMSs like [Wordpress](https://wordpress.org/) or [Drupal](https://www.drupal.org/), especially for simpler websites and blogs. Content can either be written directly in [Markdown](https://daringfireball.net/projects/markdown/) format and uploaded to the web server or via Grav's [web-based editor](https://learn.getgrav.org/17/admin-panel/page/editor).
+
+{{< highlight "info" "Control machine">}}
+A terminal-based [control machine](/rollyourown/tech_building_blocks/control_machine/) is sufficient for this project, as the Grav admin interface is reachable via the public internet.
 {{< /highlight >}}
 
 ## Repository links
 
-The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-grav-cms](https://git.rollyourown.xyz/ryo-projects/ryo-grav-cms)
-
 The [github](https://github.com/) mirror repository for this project is here: [https://github.com/rollyourown-xyz/ryo-grav-cms](https://github.com/rollyourown-xyz/ryo-grav-cms)
+
+The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-grav-cms](https://git.rollyourown.xyz/ryo-projects/ryo-grav-cms)
 
 ## Project components
 
@@ -48,19 +51,13 @@ Further details about the host server building block can be found [here](/rollyo
 
 The project installation consists of a number of containers deployed on the host server.
 
-#### HAProxy and Certbot containers
+#### Loadbalancer / TLS proxy container
 
-The HAProxy container terminates HTTP and HTTPS connections and distributes traffic to other containers. For [letsencrypt](https://letsencrypt.org/) TLS/SSL certificate management, traffic is routed to the certbot container. Any other traffic to the project domain is routed to the webserver container.
-
-The certbot container uses the [ACME protocol](https://tools.ietf.org/html/rfc8555) to request and renew [letsencrypt](https://letsencrypt.org/) certificates for the project domain. Certificates are then made available to the HAProxy container to terminate HTTPS requests for the project.
-
-The combination of HAProxy and Certbot containers is a key building block for rollyourown.xyz projects. Further details can be found [here](/rollyourown/project_modules/load_balancer_tls_proxy/).
+The loadbalancer / TLS proxy container terminates HTTP and HTTPS connections and distributes traffic to other containers. This component is provided by a module and is a key building block for rollyourown.xyz projects. Further details can be found [here](/rollyourown/project_modules/load_balancer_tls_proxy/).
 
 #### Consul container
 
-The consul container provides a service registry for HAProxy backends and a key-value store for HAProxy and certbot configuration. This allows HAProxy and certbot to be deployed as generic containers, with the project-specific configuration provisioned on project deployment.
-
-The Consul container is a key building block for rollyourown.xyz projects. Further details can be found [here](rollyourown/project_modules/service_registry_kv_store/).
+The consul container provides a service registry for loadbalancer / TLS proxy backends and a key-value store for its configuration. The Consul container is a key building block for rollyourown.xyz projects. Further details can be found [here](rollyourown/project_modules/service_registry_kv_store/).
 
 #### Webserver container
 
@@ -104,17 +101,13 @@ For example, this project has been successfully deployed on a €2,69/m entry-le
 
 ## Software deployed
 
-The open source software deployed by the project is:
+In addition to the open source software deployed by the [Service Registry and Key-Value Store](/rollyourown/project_modules/service_registry_kv_store/) and [Load Balancer/TLS Proxy](/rollyourown/project_modules/load_balancer_tls_proxy/) modules, the open source components used in this project are:
 
 {{< table tableclass="table table-bordered table-striped" theadclass="thead-dark" >}}
 
 | Project | What is it? | Homepage | License |
 | :------ | :---------- | :------- | :------ |
-| Certbot | Open source [letsencrypt](https://letsencrypt.org/) certificate manager | [https://certbot.eff.org/](https://certbot.eff.org/) | [Apache 2.0](https://raw.githubusercontent.com/certbot/certbot/master/LICENSE.txt) |
-| Consul | Open source service registry and key-value store | [https://www.consul.io/](https://www.consul.io/) | [Mozilla Public License 2.0](https://github.com/hashicorp/consul/blob/master/LICENSE) |
 | Grav | Open source flat-file CMS | [https://getgrav.org/](https://getgrav.org/) | [MIT](https://github.com/getgrav/grav/blob/develop/LICENSE.txt) |
-| HAProxy | Open source load balancer, TCP and HTTP proxy | [https://www.haproxy.org/](https://www.haproxy.org/) | [GPL/LGPL](https://github.com/haproxy/haproxy/blob/master/LICENSE) |
 | nginx | Open source webserver for the [Grav](https://getgrav.org/) installation | [https://nginx.org/](https://nginx.org/) | [2-clause BSD license](http://nginx.org/LICENSE) |
-| Webhook | Open source, light-weight, general purpose webhook server | [https://github.com/adnanh/webhook](https://github.com/adnanh/webhook) | [MIT](https://github.com/adnanh/webhook/blob/master/LICENSE) |
 
 {{< /table >}}
