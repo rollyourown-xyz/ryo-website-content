@@ -166,14 +166,14 @@ After a [control node has been set up](rollyourown/project_modules/control_node/
 
 Log in to the control node as the non-root user, enter the `ryo-projects` directory and clone the **project repository** to your control node. The repository used depends on the project to deploy and is linked from the project's page. For example:
 
-```console
+```bash
 cd ~/ryo-projects
 git clone https://github.com/rollyourown-xyz/<project_to_deploy>.git
 ```
 
 Then use the `get-modules.sh` script in the project directory to fetch additional modules. This script clones the relevant rollyourown.xyz repositories into the `modules` directory.
 
-```console
+```bash
 cd ~/ryo-projects/<project_to_deploy>
 ./get-modules.sh
 ```
@@ -186,7 +186,7 @@ Before running the project's automation scripts, some configuration is needed.
 
 First, log in to the control node as the non-root user, copy and edit the inventory template file and enter your host server's public and private wireguard IP addresses.
 
-```console
+```bash
 cd ~/ryo-projects/<project_to_deploy>/
 cp configuration/inventory_TEMPLATE configuration/inventory
 nano configuration/inventory
@@ -194,7 +194,7 @@ nano configuration/inventory
 
 Then, copy and edit the project's configuration template and enter host and project settings. These include the initial root password for your host server (provided by your hoster), a new non-root username and password for the host server and various project-specific parameters that depend on the project being deployed. If you aren't familiar with a different linux editor, use nano to edit the file.
 
-```console
+```bash
 cd ~/ryo-projects/<project_to_deploy>/
 cp configuration/configuration_TEMPLATE.yml configuration/configuration.yml
 nano configuration/configuration.yml
@@ -212,7 +212,7 @@ In this step, the control node is configured to communicate securely with the pr
 
 Log in to the control node as the non-root user, enter the project's directory and run the `host-setup.sh` script.
 
-```console
+```bash
 cd ~/ryo-projects/<project_to_deploy>/
 ./host-setup.sh
 ```
@@ -231,7 +231,7 @@ In this step, container images are built on the control node, one for each compo
 
 Log in to the control node as the non-root user, enter the project's directory and run the `build-images.sh` script. A version stamp (for example, the date) needs to be passed to the script.
 
-```console
+```bash
 cd ~/ryo-projects/<project_to_deploy>/
 ./build-images.sh -v <VERSION>
 ```
@@ -244,7 +244,7 @@ In this step, the various project component containers are launched on the host 
 
 Log in to the control node as the non-root user, enter the project's directory and run the `deploy-project.sh` script. The **same version stamp** used in the previous step needs to be passed to the script.
 
-```console
+```bash
 cd ~/ryo-projects/<project_to_deploy>/
 ./deploy-project.sh -v <VERSION>
 ```
