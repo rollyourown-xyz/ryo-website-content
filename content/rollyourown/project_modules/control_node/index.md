@@ -25,6 +25,12 @@ To keep the settings, software and configuration needed for the control node fro
 
 With the exception of the very first host server configuration steps, which are carried out over a plain SSH connection to the host server's public IP address, the control node interacts with the host server via a wireguard tunnel. This tunnel provides a permanent, logical secure connection to the host server and enables all communication between the container and host server to run via private IP addresses.
 
+## Repository links
+
+The [github](https://github.com/) mirror repository for this project is here: [https://github.com/rollyourown-xyz/ryo-control-node](https://github.com/rollyourown-xyz/ryo-control-node)
+
+The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-control-node](https://git.rollyourown.xyz/ryo-projects/ryo-control-node)
+
 ## Control node setup
 
 The steps for setting up a control node depend on your computer's operating system. The following sections describe the setup for [Windows](#control-node-setup-windows), [Linux](#control-node-setup-linux) and [MacOS](#control-node-setup-macos).
@@ -107,14 +113,14 @@ During setup of Ubuntu 20.04 LTS, you will either have been asked to specifiy a 
 
 1. Log in to the control node as the non-root user, upgrade the system and then reboot to apply any system changes:
 
-    ```console
+    ```bash
     sudo apt update && sudo apt upgrade -y
     sudo reboot -n
     ```
 
 2. Log back in to the control node as the non-root user and install `ansible`, `git` and `nano`:
 
-    ```console
+    ```bash
     sudo apt install software-properties-common
     sudo apt-add-repository --yes --update ppa:ansible/ansible
     sudo apt install ansible git nano -y
@@ -122,7 +128,7 @@ During setup of Ubuntu 20.04 LTS, you will either have been asked to specifiy a 
 
 3. Log in to the control node as the non-root user, create a working directory, enter the directory and clone the **control node repository** to your control node:
 
-    ```console
+    ```bash
     mkdir ~/ryo-projects
     cd ~/ryo-projects
     git clone https://github.com/rollyourown-xyz/ryo-control-node.git
@@ -130,19 +136,19 @@ During setup of Ubuntu 20.04 LTS, you will either have been asked to specifiy a 
 
 4. Copy the file `~/ryo-projects/ryo-control-node/configuration/configuration_TEMPLATE.yml` to a new file `~/ryo-projects/ryo-control-node/configuration/configuration.yml`
 
-    ```console
+    ```bash
     cp ryo-control-node/configuration/configuration_TEMPLATE.yml ryo-control-node/configuration/configuration.yml
     ```
 
 5. Edit the file `~/ryo-projects/ryo-control-node/configuration/configuration.yml` and add the non-root username and password. If you aren't familiar with a different linux editor, use nano to edit the file with:
 
-    ```console
+    ```bash
     nano ryo-control-node/configuration/configuration.yml
     ```
 
 6. Run the control node setup automation script `local-setup.sh` from the `ryo-control-node` directory to prepare the control node and its secure connection to the host server:
 
-    ```console
+    ```bash
     cd ~/ryo-projects/ryo-control-node/
     ./local-setup.sh
     ```
