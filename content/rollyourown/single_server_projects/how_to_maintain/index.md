@@ -16,6 +16,7 @@ This page describes how to use these resources to build new images with updated 
 
 - [ ] Section on backing up a project
 - [ ] Add links in the text
+- [ ] Update needed after modularising - e.g. add `get-modules.sh`?
 
 {{< /highlight >}}
 
@@ -66,21 +67,21 @@ Updating a rollyourown.xyz project deployment consists of a few steps:
 
 1. Log in to the control node and update the project's code by pulling changes and updates from the project repository
 
-    ```console
+    ```bash
     cd ~/ryo-projects/<project_to_upgrade>/
     git pull
     ```
 
 2. Run the the `build-images.sh` script, passing a **new** version stamp (e.g. the date) to the script (as for the initial deployment, this process may take some time depending on the number of components in the project):
 
-    ```console
+    ```bash
     cd ~/ryo-projects/<project_to_upgrade>/
     ./build-images.sh -v <NEW VERSION>
     ```
 
 3. Run the `deploy-project.sh` script, passing the **same new verion stamp** to the script:
 
-    ```console
+    ```bash
     cd ~/ryo-projects/<project_to_upgrade>/
     ./deploy-project.sh -v <NEW VERSION>
     ```
