@@ -4,17 +4,17 @@ tags: [ ]
 draft: false
 ---
 
-The load balancer and TLS proxy module is a re-usable module for other [rollyourown.xyz](https://rollyourown.xyz) projects and is used to terminate HTTPS and route traffic to the project's containers.
+The Load Balancer and TLS Proxy module is a re-usable module for other [rollyourown.xyz](https://rollyourown.xyz) projects and is used to terminate HTTPS and route traffic to the project's containers.
 
 <!--more-->
 
-## Load Balancer/TLS Proxy module introduction
+## Introduction
 
-The module deploys an [HAProxy](https://www.haproxy.org/) loadbalancer / TLS proxy together with [Certbot](https://certbot.eff.org/) for certificate management. Consul-Template is used to dynamically configure both HAProxy and Certbot, based on kev-values from the [Service Registry and Key-Value Store](/rollyourown/project_modules/service_registry_kv_store/) and [Consul](https://www.consul.io/) provides DNS-based routing information from the service registry to HAProxy backends.
+This module deploys an [HAProxy](https://www.haproxy.org/) loadbalancer / TLS proxy together with [Certbot](https://certbot.eff.org/) for certificate management. Consul-Template is used to dynamically configure both HAProxy and Certbot, based on kev-values from the [Service Registry and Key-Value Store](/rollyourown/project_modules/service_registry_kv_store/) and [Consul](https://www.consul.io/) provides DNS-based routing information from the service registry to HAProxy backends.
 
 ## Repository links
 
-The [github](https://github.com/) mirror repository for this project is here: [https://github.com/rollyourown-xyz/ryo-loadbalancer-tls-proxy](https://github.com/rollyourown-xyz/ryo-loadbalancer-tls-proxy)
+The [github](https://github.com/) mirror repository for this module is here: [https://github.com/rollyourown-xyz/ryo-loadbalancer-tls-proxy](https://github.com/rollyourown-xyz/ryo-loadbalancer-tls-proxy)
 
 The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-loadbalancer-tls-proxy](https://git.rollyourown.xyz/ryo-projects/ryo-loadbalancer-tls-proxy)
 
@@ -161,7 +161,7 @@ The [repository for this module](https://github.com/rollyourown-xyz/ryo-loadbala
 
 ## How to use this module in a project
 
-Examples for using the Loadbalancer / TLS proxy module in a project are provided in the [rollyourown.xyz](https://rollyourown.xyz) [project template repository](https://github.com/rollyourown-xyz/ryo-project-template). Configuration of [HAProxy](https://www.haproxy.org/) and Certbot is done by provisioning Consul key-values during project deployment.
+Resources for using the Loadbalancer / TLS proxy module in a project are provided in the [rollyourown.xyz](https://rollyourown.xyz) [project template repository](https://github.com/rollyourown-xyz/ryo-project-template). Configuration of [HAProxy](https://www.haproxy.org/) and Certbot is done by provisioning Consul key-values during project deployment.
 
 ### Terraform modules
 
@@ -279,7 +279,7 @@ backend {{.Key}}
 
 #### HAProxy ACLs
 
-The `deploy-haproxy-configuration` terraform module can be used for deploying the key-values to Consul for configuring HAProxy ACLs.
+The `deploy-haproxy-configuration` terraform module can be used to deploy key-values to Consul for configuring HAProxy ACLs.
 
 For example, ACLs can be deployed with the following code:
 
@@ -303,7 +303,7 @@ module "deploy-<COMPONENT_NAME>-haproxy-acl-configuration" {
 
 Configuration for HAProxy ACLs are provisioned to the key-value folder `service/haproxy/acl/<ACL name>/`. One or two keys are provisioned to each folder:
 
-- If the ACL only includes a host match, then only one key-value pair of the form `<host,value>` is provisioned, where `value` is the host no match
+- If the ACL only includes a host match, then only one key-value pair of the form `<host,value>` is provisioned, where `value` is the host to match
 - If the ACL includes both a host an path, then two key-value pairs are provisioned:
   - a key-value pair of the form `<host,value>`, where `value` is the host to match
   - a key-value pair of the form `<path,value>`, where `value` is the path to match
@@ -318,7 +318,7 @@ For using the Loadbalancer/TLS proxy module, all ACLs should include a host matc
 
 #### HAProxy HTTP deny rules
 
-The `deploy-haproxy-configuration` terraform module can be used for deploying the key-values to Consul for configuring HTTP deny rules.
+The `deploy-haproxy-configuration` terraform module can be used to deploy key-values to Consul for configuring HTTP deny rules.
 
 For example, HTTP deny rules can be deployed with the following code:
 
@@ -354,7 +354,7 @@ http-request deny deny_status 403 if { hdr(host) -i <HOST KEY> } { path_beg -i <
 
 #### HAProxy `use-backed` rules
 
-The `deploy-haproxy-configuration` terraform module can be used for deploying the key-values to Consul for configuring HAProxy `use-backend` rules.
+The `deploy-haproxy-configuration` terraform module can be used to deploy key-values to Consul for configuring HAProxy `use-backend` rules.
 
 For example, `use-backend` rules can be deployed with the following code:
 
