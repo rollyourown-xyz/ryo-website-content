@@ -23,7 +23,7 @@ The [github](https://github.com/) mirror repository for this module is here: [ht
 
 The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-service-registry-kv-store](https://git.rollyourown.xyz/ryo-projects/ryo-service-registry-kv-store)
 
-## Depenencies
+## Dependencies
 
 This module has no dependencies to other [rollyourown.xyz](https://rollyourown.xyz) modules.
 

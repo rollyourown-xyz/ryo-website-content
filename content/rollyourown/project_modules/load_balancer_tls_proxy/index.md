@@ -18,7 +18,7 @@ The [github](https://github.com/) mirror repository for this module is here: [ht
 
 The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-loadbalancer-tls-proxy](https://git.rollyourown.xyz/ryo-projects/ryo-loadbalancer-tls-proxy)
 
-## Depenencies
+## Dependencies
 
 This module depends on the [rollyourown.xyz](https://rollyourown.xyz) [Service Registry and Key-Value Store](/rollyourown/project_modules/service_registry_kv_store/) module to provide configuration key-values and service discovery.
 
