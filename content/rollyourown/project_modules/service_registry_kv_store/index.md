@@ -4,7 +4,7 @@ tags: [ ]
 draft: false
 ---
 
-The Service Registry and Key-Value Store module  is a re-usable module for other [rollyourown.xyz](https://rollyourown.xyz) projects and is used to provide a service registry and key-value store.
+The Service Registry and Key-Value Store module is a re-usable module for other [rollyourown.xyz](https://rollyourown.xyz) projects and is used to provide a service registry and key-value store.
 
 <!--more-->
 
