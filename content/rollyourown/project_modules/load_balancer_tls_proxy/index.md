@@ -177,6 +177,7 @@ HAProxy configuration is provisioned to the key-value store in multiple folders:
 
 - HAProxy backend services are provisioned to the key-value folder `service/haproxy/backends/ssl/` if the backend service is listening on an HTTPS port
 - HAProxy backend services are provisioned to the key-value folder `service/haproxy/backends/no-ssl/` if the backend service is listening on a plain HTTP port
+- HAProxy TCP Listeners are provisioned to the key-value folder `service/haproxy/tcp-listeners/`
 - HAProxy ACLs are provisioned to the key-value folder `service/haproxy/acl/<ACL name>/`
 - HAProxy HTTP deny rules are provisioned to the key-value folder `service/haproxy/deny/`
 - HAProxy use-backend rules are provisioned to the key-value folder `service/haproxy/use-backend/`
@@ -277,6 +278,51 @@ backend {{.Key}}
 
 {{< /more >}}
 
+#### HAProxy TCP listeners
+
+The `deploy-haproxy-configuration` terraform module can be used to deploy key-values to Consul for configuring TCP listeners.
+
+For example, TCP listeners can be deployed with the following code:
+
+```tf
+module "deploy-<COMPONENT_NAME>-haproxy-tcp-listener-configuration" {
+  source = "./modules/deploy-haproxy-configuration"
+
+  depends_on = [ module.deploy-<COMPONENT_NAME>-haproxy-backend-service ]
+
+  haproxy_tcp_listeners = {
+    22   = {backend_service = join("-", [ local.project_id, "<COMPONENT_NAME>" ])},
+    3022 = {backend_service = join("-", [ local.project_id, "<COMPONENT_NAME>" ])}
+  }
+}
+```
+
+{{< more "secondary">}}
+
+Configuration for HAProxy TCP listeners is provisioned to the key-value folder `service/haproxy/tcp-listeners/`. Each entry is a key-value pair of the form `<key,value>` where:
+
+- the `key` is the TCP port to listen on
+- the `value` is the name of the backend service to use.
+
+For each TCP port found in the `service/haproxy/tcp-listeners/` folder in the KV store, the Consul-Template application generates a TCP listener entry in the HAProxy configuration file.
+
+```bash
+listen tcp_{{.Key}}
+   bind :::{{.Key}} v4v6
+   mode tcp
+   option tcplog
+   option tcpka
+   option clitcpka
+   option srvtcpka
+   timeout connect 5s
+   timeout client  60s
+   timeout server  60s
+   balance leastconn
+   server-template {{.Value}} 1 _{{.Value}}._tcp.service.consul resolvers consul resolve-prefer ipv4 init-addr none check
+```
+
+{{< /more >}}
+
 #### HAProxy ACLs
 
 The `deploy-haproxy-configuration` terraform module can be used to deploy key-values to Consul for configuring HAProxy ACLs.
@@ -334,7 +380,10 @@ module "deploy-<COMPONENT_NAME>-haproxy-http-deny-configuration" {
 
 {{< more "secondary">}}
 
-Configuration for HAProxy HTTP deny rules is provisioned to the key-value folder `service/haproxy/deny/`. Each entry is a key-value pair of the form `<key,value>` where the `key` is an [ACL name](#haproxy-acls) and the `value` is empty.
+Configuration for HAProxy HTTP deny rules is provisioned to the key-value folder `service/haproxy/deny/`. Each entry is a key-value pair of the form `<key,value>` where:
+
+- the `key` is an [ACL name](#haproxy-acls)
+- the `value` is empty.
 
 For each `<ACL NAME>` found in the `service/haproxy/deny/` folder in the KV store, the Consul-Template application generates a HTTP deny rule in the HTTPS frontend section of the HAProxy configuration file by looking up the configuration in the `service/haproxy/acl/<ACL NAME>/` folder.
 
@@ -373,7 +422,10 @@ module "deploy-<COMPONENT_NAME>-haproxy-backend-configuration" {
 
 {{< more "secondary">}}
 
-The configuration for HAProxy use-backend rules is provisioned to the key-value folder `service/haproxy/use-backend/`. Each entry is a key-value pair of the form `<key,value>` where the `key` is an [ACL name](#haproxy-acls) and the `value` is the name of the backend service to use.
+The configuration for HAProxy use-backend rules is provisioned to the key-value folder `service/haproxy/use-backend/`. Each entry is a key-value pair of the form `<key,value>` where:
+
+- the `key` is an [ACL name](#haproxy-acls)
+- the `value` is the name of the backend service to use.
 
 For each `<ACL NAME>` found in the `service/haproxy/use-backend/` folder in the KV store, the Consul-Template application generates a `use-backed` rule in the HTTPS frontend section of the HAProxy configuration file by looking up the configuration in the `service/haproxy/acl/<ACL NAME>/` folder.
 
