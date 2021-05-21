@@ -157,6 +157,26 @@ During setup of Ubuntu 20.04 LTS, you will either have been asked to specifiy a 
 
 After setting up the control node, you are ready to clone the project repository and run the automation scrips to set up the host server, build images and deploy the project.
 
+{{< more "secondary">}}
+
+The `local-setup.sh` script prepares the control node for managing project deployments. This script simply calls an [ansible](https://www.ansible.com/) playbook that executes tasks on the control node itself.
+
+In detail, the following tasks are performed by the local-setup playbook:
+
+- SSH keys are generated on the control node so that [ansible](https://www.ansible.com/) can log in securely to the host server and execute the commands triggered in the `host-setup-sh` step
+
+- A Certificate authority is set up on the Control Node for signing host SSL certificates in later steps
+
+- [Wireguard](https://www.wireguard.com/) is installed on the control node. A wireguard tunnel is used for the majority of the provisioning commands triggered in the `host-setup.sh` step as well as for uploading container images to the host (in the `build-images.sh` step) and deploying the project (in the `deploy-project.sh` step). In some projects, the wireguard tunnel can also be used for admin access from the control node to various remote project components, so that admin interfaces do not need to be exposed on the open internet
+
+- [LXD](https://linuxcontainers.org/lxd/) is installed on the control node to support the build process for LXD container images (in the `build-images.sh` step) and provide the mechanism for uploading them to the host server. Snapd channel pinning is used to avoid unexpected upgrading in a running project
+
+- [Packer](https://www.packer.io/) is installed on the control node to build the container images for each project component (in the `build-images.sh` step) and upload them to the host server
+
+- [Terraform](https://www.terraform.io/) is installed on the control node to deploy the project to the host server
+
+{{< /more >}}
+
 ## Control node deletion
 
 {{< highlight "danger" "Warning!">}}
