@@ -62,7 +62,7 @@ The [repository for this module](https://github.com/rollyourown-xyz/ryo-service-
     ```bash
     # Module-specific host setup for ryo-service-registry-kv-store
     echo "Executing module-specific host setup playbooks for ryo-service-registry-kv-store"
-    ansible-playbook -i configuration/inventory modules/ryo-service-registry-kv-store/host-setup-module/master.yml
+    ansible-playbook -i configuration/inventory modules/ryo-service-registry-kv-store/host-setup-module/main.yml
     ```
 
 3. Add the module component to the `build-images.sh` script in project:

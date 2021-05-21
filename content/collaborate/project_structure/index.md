@@ -53,7 +53,7 @@ project_id
 |   |-- ansible-playbook.yml
 |   |-- ansible-playbook.yml
 |   |-- ...
-|   |-- master.yml
+|   |-- main.yml
 ```
 
 ### The image-build directory

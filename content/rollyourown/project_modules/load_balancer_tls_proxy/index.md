@@ -73,7 +73,7 @@ The [repository for this module](https://github.com/rollyourown-xyz/ryo-loadbala
     ```bash
     # Module-specific host setup for ryo-loadbalancer-tls-proxy
     echo "Executing module-specific host setup playbooks for ryo-loadbalancer-tls-proxy"
-    ansible-playbook -i configuration/inventory modules/ryo-loadbalancer-tls-proxy/host-setup-module/master.yml
+    ansible-playbook -i configuration/inventory modules/ryo-loadbalancer-tls-proxy/host-setup-module/main.yml
     ```
 
 4. Add the module component snippets from `build-images-module.sh` to the `build-images.sh` script in the project to build the module's container images:
