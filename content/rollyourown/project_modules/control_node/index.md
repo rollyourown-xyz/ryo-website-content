@@ -137,13 +137,15 @@ During setup of Ubuntu 20.04 LTS, you will either have been asked to specifiy a 
 4. Copy the file `~/ryo-projects/ryo-control-node/configuration/configuration_TEMPLATE.yml` to a new file `~/ryo-projects/ryo-control-node/configuration/configuration.yml`
 
     ```bash
-    cp ryo-control-node/configuration/configuration_TEMPLATE.yml ryo-control-node/configuration/configuration.yml
+    cd ~/ryo-projects/ryo-control-node
+    cp configuration/configuration_TEMPLATE.yml configuration/configuration.yml
     ```
 
 5. Edit the file `~/ryo-projects/ryo-control-node/configuration/configuration.yml` and add the non-root username and password. If you aren't familiar with a different linux editor, use nano to edit the file with:
 
     ```bash
-    nano ryo-control-node/configuration/configuration.yml
+    cd ~/ryo-projects/ryo-control-node
+    nano configuration/configuration.yml
     ```
 
 6. Run the control node setup automation script `local-setup.sh` from the `ryo-control-node` directory to prepare the control node and its secure connection to the host server:
