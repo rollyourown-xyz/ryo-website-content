@@ -303,7 +303,7 @@ In detail, the following tasks are performed by the host-setup playbooks:
 
 - Directories are created on the host so that project containers can be launched with mounted storage to enable component configuration and data to persist across container re-starts and replacements
 
-- Both the control node and the host are configured as mutual [LXD remote servers](https://linuxcontainers.org/lxd/advanced-guide/#remote-servers) with [PKI-based TLS certificate authentication and authorization](https://linuxcontainers.org/lxd/docs/master/security#adding-a-remote-with-a-tls-client-in-a-pki-based-setup) to provide to enable image uploading and management from the control node
+- Both the control node and the host are configured as mutual [LXD remote servers](https://linuxcontainers.org/lxd/advanced-guide/#remote-servers) with [PKI-based TLS certificate authentication and authorization](https://linuxcontainers.org/lxd/docs/master/security#adding-a-remote-with-a-tls-client-in-a-pki-based-setup) and the [control node as trusted TLS client](https://linuxcontainers.org/lxd/docs/master/security#managing-trusted-tls-clients) for the project host to provide to enable image uploading and management from the control node
 
 - In some projects, additional host configuration is performed as needed
 
