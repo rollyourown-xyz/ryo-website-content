@@ -267,7 +267,7 @@ The `get-modules.sh` script loads additional modules needed by the project, whic
 
 In detail, the following tasks are performed by the get-modules script:
 
-- For all projects, the repository [https://github.com/rollyourown-xyz/ryo-host-setup-generic](https://github.com/rollyourown-xyz/ryo-host-setup-generic) is added as a git submodule and cloned to the modules directory. This repository contains generic setup scripts for any rollyourown.xyz host
+- For all projects, the repository [https://github.com/rollyourown-xyz/ryo-host](https://github.com/rollyourown-xyz/ryo-host) is added as a git submodule and cloned to the modules directory. This repository contains generic setup scripts for any rollyourown.xyz host
 
 - Depending on the project, additional re-usable modules are fetched from dedicated rollyourown.xyz repositories
 
