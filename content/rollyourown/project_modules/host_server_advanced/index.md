@@ -1,5 +1,5 @@
 ---
-title: "Control node - Advanced"
+title: "Host server - Advanced"
 tags: [ ]
 draft: true
 ---
