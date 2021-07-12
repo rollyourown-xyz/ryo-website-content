@@ -53,11 +53,11 @@ The project installation consists of a number of containers deployed on the host
 
 #### Loadbalancer / TLS proxy container
 
-The loadbalancer / TLS proxy container terminates HTTP and HTTPS connections and distributes traffic to other containers. This component is provided by a module and is a key building block for rollyourown.xyz projects. Further details can be found [here](/rollyourown/project_modules/load_balancer_tls_proxy/).
+The loadbalancer / TLS proxy container terminates HTTP and HTTPS connections and distributes traffic to other containers. This component is provided by a module and is a key building block for rollyourown.xyz projects. Further details can be found [here](/rollyourown/project_modules/service_proxy/).
 
 #### Consul container
 
-The consul container provides a service registry for loadbalancer / TLS proxy backends and a key-value store for its configuration. The Consul container is a key building block for rollyourown.xyz projects. Further details can be found [here](rollyourown/project_modules/service_registry_kv_store/).
+The consul container provides a service registry for loadbalancer / TLS proxy backends and a key-value store for its configuration. The Consul container is a key building block for rollyourown.xyz projects. Further details can be found [here](rollyourown/project_modules/sservice_proxy/).
 
 #### Webserver container
 
@@ -101,7 +101,7 @@ For example, this project has been successfully deployed on a €2,69/m entry-le
 
 ## Software deployed
 
-In addition to the open source software deployed by the [Service Registry and Key-Value Store](/rollyourown/project_modules/service_registry_kv_store/) and [Load Balancer/TLS Proxy](/rollyourown/project_modules/load_balancer_tls_proxy/) modules, the open source components used in this project are:
+In addition to the open source software deployed by the [Service Proxy](/rollyourown/project_modules/service_proxy/) module, the open source components used in this project are:
 
 {{< table tableclass="table table-bordered table-striped" theadclass="thead-dark" >}}
 
