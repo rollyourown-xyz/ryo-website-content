@@ -53,11 +53,11 @@ The project installation consists of a number of containers deployed on the host
 
 #### Loadbalancer / TLS proxy container
 
-The loadbalancer / TLS proxy container terminates HTTP and HTTPS connections and distributes traffic to other containers. This component is provided by a module and is a key building block for rollyourown.xyz projects. Further details can be found [here](/rollyourown/project_modules/service_proxy/).
+The loadbalancer / TLS proxy container terminates HTTP and HTTPS connections and distributes traffic to other containers. This component is provided by the [rollyourown.xyz](https://rollyourown.xyz) Service Proxy module and is a key building block for rollyourown.xyz projects. Further details can be found [here](/rollyourown/project_modules/service_proxy/).
 
 #### Consul container
 
-The consul container provides a service registry for loadbalancer / TLS proxy backends and a key-value store for its configuration. The Consul container is a key building block for rollyourown.xyz projects. Further details can be found [here](rollyourown/project_modules/sservice_proxy/).
+The consul container provides a service registry for loadbalancer / TLS proxy backends and a key-value store for its configuration. The Consul container is provided by the [rollyourown.xyz](https://rollyourown.xyz) Service Proxy module and is a key building block for rollyourown.xyz projects. Further details can be found [here](rollyourown/project_modules/service_proxy/).
 
 #### Webserver container
 
@@ -67,7 +67,7 @@ The webserver container hosts an [nginx](https://nginx.org/) web server, configu
 
 ### Deploying the project
 
-To deploy the project, follow the generic [project deployment instructions](/rollyourown/tech_projects/how_to_deploy/), using the [project's github mirror repository](https://github.com/rollyourown-xyz/ryo-grav-cms/)
+To deploy the project, follow the generic [project deployment instructions](/rollyourown/single_server_projects/how_to_deploy/), using the project's github mirror repository at [https://github.com/rollyourown-xyz/ryo-grav-cms/](https://github.com/rollyourown-xyz/ryo-grav-cms/).
 
 ### After deployment
 
@@ -101,13 +101,18 @@ For example, this project has been successfully deployed on a €2,69/m entry-le
 
 ## Software deployed
 
-In addition to the open source software deployed by the [Service Proxy](/rollyourown/project_modules/service_proxy/) module, the open source components used in this project are:
+The open source components used in this project are:
 
 {{< table tableclass="table table-bordered table-striped" theadclass="thead-dark" >}}
 
 | Project | What is it? | Homepage | License |
 | :------ | :---------- | :------- | :------ |
+| Certbot | Open source [letsencrypt](https://letsencrypt.org/) certificate manager, deployed by the [Service Proxy module](/rollyourown/project_modules/service_proxy/) | [https://certbot.eff.org/](https://certbot.eff.org/) | [Apache 2.0](https://raw.githubusercontent.com/certbot/certbot/master/LICENSE.txt) |
+| Consul | Open source service registry and key-value store, deployed by the [Service Proxy module](/rollyourown/project_modules/service_proxy/) | [https://www.consul.io/](https://www.consul.io/) | [Mozilla Public License 2.0](https://github.com/hashicorp/consul/blob/master/LICENSE) |
+| Consul-Template | Tool to create dynamic configuration files based on Consul Key-Value store or service registry queries, deployed by the [Service Proxy module](/rollyourown/project_modules/service_proxy/) | [https://github.com/hashicorp/consul-template/](https://github.com/hashicorp/consul-template/) | [Mozilla Public License 2.0](https://github.com/hashicorp/consul-template/blob/master/LICENSE) |
 | Grav | Open source flat-file CMS | [https://getgrav.org/](https://getgrav.org/) | [MIT](https://github.com/getgrav/grav/blob/develop/LICENSE.txt) |
+| HAProxy | Open source load balancer, TCP and HTTP proxy, deployed by the [Service Proxy module](/rollyourown/project_modules/service_proxy/) | [https://www.haproxy.org/](https://www.haproxy.org/) | [GPL/LGPL](https://github.com/haproxy/haproxy/blob/master/LICENSE) |
 | nginx | Open source webserver for the [Grav](https://getgrav.org/) installation | [https://nginx.org/](https://nginx.org/) | [2-clause BSD license](http://nginx.org/LICENSE) |
+| Webhook | Open source, light-weight, general purpose webhook server, deployed by the [Service Proxy module](/rollyourown/project_modules/service_proxy/) | [https://github.com/adnanh/webhook](https://github.com/adnanh/webhook) | [MIT](https://github.com/adnanh/webhook/blob/master/LICENSE) |
 
 {{< /table >}}
