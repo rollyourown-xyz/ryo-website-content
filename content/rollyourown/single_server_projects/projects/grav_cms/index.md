@@ -1,7 +1,7 @@
 ---
 title: "Roll Your Own Grav CMS"
 tags: [ ]
-draft: false
+draft: true
 ---
 
 This project deploys a [Grav](https://getgrav.org) flat-file content management system on an [nginx](https://nginx.org/) web server, with [HAProxy](https://www.haproxy.org/) for TLS/SSL termination and [Certbot](https://certbot.eff.org/) for managing your letsencrypt certificate.
@@ -12,12 +12,12 @@ This project deploys a [Grav](https://getgrav.org) flat-file content management 
 
 {{< highlight "primary" "ToDo">}}
 
+- [x] Update after modularisation
 - [ ] Add screenshots
 - [ ] CHECK: Creation of grav user(s) with editor permissions
 - [ ] CHECK: Grav web front-end for editing / managing content
 - [ ] CHECK: Grav backups
-- [ ] Syling for graphic (with shortcode?)
-- [ ] Update after modularisation
+- [ ] Styling for graphic (with shortcode?)
 
 {{< /highlight >}}
 
@@ -35,6 +35,10 @@ The [github](https://github.com/) mirror repository for this project is here: [h
 
 The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-grav-cms](https://git.rollyourown.xyz/ryo-projects/ryo-grav-cms)
 
+## Dependencies
+
+This module depends on the [rollyourown.xyz](https://rollyourown.xyz) [Service Proxy](/rollyourown/project_modules/service_proxy/) module to provide certificate management by [Certbot](https://certbot.eff.org/) and HTTPS proxying by the [HAProxy](https://www.haproxy.org/) loadbalancer / TLS proxy.
+
 ## Project components
 
 The components deployed in this project are shown in the following diagram:
@@ -45,7 +49,7 @@ The components deployed in this project are shown in the following diagram:
 
 The host server is configured to run [LXD containers](https://linuxcontainers.org/lxd/) and is controlled from your control machine via a [wireguard](https://www.wireguard.com/) tunnel. Each container deployed performs a specific task in the installation.
 
-Further details about the host server building block can be found [here](/rollyourown/tech_building_blocks/host_server/).
+Further details about the host server building block can be found [here](/rollyourown/project_modules/host_server/).
 
 ### Containers
 
@@ -81,11 +85,11 @@ For example, your first steps after deployment could be:
 
 - **TODO:** Create one or more user(s) with editor permissions
 
-- **TODO:** [Add and manage content](https://learn.getgrav.org/17/admin-panel/page), either via the Grav web front-end or manually by adding directories and markdown documents to the host server directory `/var/container-directories/website/` (which is mounted to the webserver as the `/var/www/grav-admin/user/` directory)
+- **TODO:** [Add and manage content](https://learn.getgrav.org/17/admin-panel/page), either via the Grav web front-end or manually by adding directories and markdown documents to the host server directory `/var/container-directories/ryo-grav-cms/website/` (which is mounted to the webserver as the `/var/www/grav-admin/user/` directory)
 
 - Use Grav's admin interface to change the [theme](https://learn.getgrav.org/17/admin-panel/themes) of the site and add additional [plugins](https://learn.getgrav.org/17/admin-panel/plugins) from the [grav plugin libarary](https://getgrav.org/downloads/plugins).
 
-- **TODO:** Manage site backups, either using Grav's built-in [backup tools](https://learn.getgrav.org/17/advanced/backups) or backing up the host server directory `/var/container-directories/website/` directly
+- **TODO:** Manage site backups, either using Grav's built-in [backup tools](https://learn.getgrav.org/17/advanced/backups) or backing up the host server directory `/var/container-directories/ryo-grav-cms/website/` directly
 
 ### Maintaining the installation
 
