@@ -13,9 +13,6 @@ The TURN Server module is a re-usable module for other [rollyourown.xyz](https:/
 {{< highlight "primary" "ToDo">}}
 
 - [ ] Links in text
-- [x] Add module component descriptions
-- [x] Add "How to deploy"
-- [ ] Add "How to use" - add instructions for how to pass coturn shared auth to an image
 
 {{< /highlight >}}
 
@@ -177,7 +174,21 @@ Coturn configuration is provisioned to key-value store in the `/service/coturn/`
 
 ### Image configuration
 
-**TODO:** how to pass coturn shared auth to an image.
+The coturn module uses a shared static authentication secret to prevent unauthorized use of the TURN server. This static authentication secret also needs to be provisioned to a project component that uses the TURN server.
+
+The coturn static authentication secret is generated when building the coturn container image and is stored in the file `/ryo-projects/ryo-coturn/configuration/coturn_static_auth_secret_<HOST_ID>.yml` on the control node.
+
+To use this secret in a project container image, the configuration file needs to be added to `vars_files` in the container's ansible playbook, by adding the following line:
+
+```yml
+vars_files:
+  # Project configuration
+  - "{{ playbook_dir }}/../../configuration/configuration_{{ host_id }}.yml"
+  # Coturn configuration
+  - "{{ playbook_dir }}/../../../ryo-coturn/configuration/coturn_static_auth_secret_{{ host_id }}.yml"
+```
+
+Then the variable `coturn_static_auth_secret` is availabe in ansible roles for the project component image.
 
 ### General deployment configuration
 
