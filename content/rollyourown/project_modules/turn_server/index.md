@@ -13,9 +13,9 @@ The TURN Server module is a re-usable module for other [rollyourown.xyz](https:/
 {{< highlight "primary" "ToDo">}}
 
 - [ ] Links in text
-- [ ] Add module component descriptions
-- [ ] Add "How to deploy"
-- [ ] Add "How to use"
+- [x] Add module component descriptions
+- [x] Add "How to deploy"
+- [ ] Add "How to use" - add instructions for how to pass coturn shared auth to an image
 
 {{< /highlight >}}
 
@@ -41,17 +41,260 @@ This project module deploys a container with multiple services as shown in the f
 
 ![Module Overview](Module_Overview.svg)
 
-### Component ABC
+### Coturn Module
 
-TODO...
+The Coturn module contains three applications, together providing a dynamically-configurable [STUN](https://en.wikipedia.org/wiki/STUN) and [TURN](https://en.wikipedia.org/wiki/Traversal_Using_Relays_around_NAT) server to be used in other [rollyourown.xyz](https://rollyourown.xyz) projects.
+
+#### Coturn
+
+Coturn is and open source [STUN](https://en.wikipedia.org/wiki/STUN) and [TURN](https://en.wikipedia.org/wiki/Traversal_Using_Relays_around_NAT) server enabling [NAT traversal](https://en.wikipedia.org/wiki/NAT_traversal) for peer-to-peer communications.
+
+Coturn's configuration is dynamically configured based on Key-Values retrieved from the [Consul application deployed by the Service Proxy module](/rollyourown/project_modules/service_proxy/#consul). For TLS-encrypted connections, Coturn uses certificates obtained by the [Certbot application deployed by the Service Proxy module](/rollyourown/project_modules/service_proxy/#haproxy-and-certbot).
+
+#### Consul
+
+A [Consul](https://www.consul.io/) agent is deployed on the Coturn module and joins the Consul cluster in client mode. The Consul agent provides [configuration discovery and update](https://learn.hashicorp.com/tutorials/consul/consul-template) for [Consul-Template](#consul-template) via [key-value lookup](https://www.consul.io/docs/dynamic-app-config/kv), so that [Consul-Template](#consul-template) can create and update the coturn configuration.
+
+#### Consul-Template
+
+On container start, the [Consul-Template](https://github.com/hashicorp/consul-template/) application obtains service configuration information from the [consul key-value store](/rollyourown/project_modules/service_proxy/#key-value-store) and uses it to populate configuration files for Coturn. In addition, Consul-Template listens for changes to the configuration key-values and updates configuration files on-the-fly, reloading [coturn](#coturn) when configuration has changed.
 
 ## How to deploy this module in a project
 
-TODO...
+The [repository for this module](https://github.com/rollyourown-xyz/ryo-coturn) contains a number of resources for including the module in a [rollyourown.xyz](https://rollyourown.xyz) project. The steps for including the module are:
+
+1. Add the Coturn module as well as the [Service Proxy module](/rollyourown/project_modules/service_proxy/) dependency to the `get-modules.sh` script in the project:
+
+    ```bash
+    ## Service proxy module
+    if [ -d "../ryo-service-proxy" ]
+    then
+       echo "Module ryo-service-proxy already cloned to this control node"
+    else
+       echo "Cloning ryo-service-proxy repository. Executing 'git clone' for ryo-service-proxy repository"
+       git clone https://github.com/rollyourown-xyz/ryo-service-proxy ../ryo-service-proxy
+    fi
+    ## Coturn module
+    if [ -d "../ryo-coturn" ]
+    then
+       echo "Module ryo-coturn already cloned to this control node"
+    else
+       echo "Cloning ryo-coturn repository. Executing 'git clone' for ryo-coturn repository"
+       git clone https://github.com/rollyourown-xyz/ryo-coturn ../ryo-coturn
+    fi
+    ```
+
+2. Add the Coturn module as well as the [Service Proxy module](/rollyourown/project_modules/service_proxy/) dependency to the project's `host-setup.sh` script:
+
+    ```bash
+    ## Module-specific host setup for ryo-service-proxy
+    if [ -f ""$SCRIPT_DIR"/../ryo-service-proxy/configuration/"$hostname"_playbooks_executed" ]
+    then
+       echo "Host setup for ryo-service-proxy module has already been done on "$hostname""
+       echo ""
+    else
+       echo "Running module-specific host setup script for ryo-service-proxy on "$hostname""
+       echo ""
+       "$SCRIPT_DIR"/../ryo-service-proxy/host-setup.sh -n "$hostname"
+    fi
+    ## Module-specific host setup for ryo-coturn
+    if [ -f ""$SCRIPT_DIR"/../ryo-coturn/configuration/"$hostname"_playbooks_executed" ]
+    then
+       echo "Host setup for ryo-coturn module has already been done on "$hostname""
+       echo ""
+    else
+       echo "Running module-specific host setup script for ryo-coturn on "$hostname""
+       echo ""
+       "$SCRIPT_DIR"/../ryo-coturn/host-setup.sh -n "$hostname"
+    fi
+    ```
+
+3. Add the Coturn module as well as the [Service Proxy module](/rollyourown/project_modules/service_proxy/) dependency to the project's `build-images.sh` script:
+
+    ```bash
+    # Build Service Proxy module images if -m flag is present
+    if [ $build_modules == 'true' ]
+    then
+       echo "Running build-images script for ryo-service-proxy module on "$hostname""
+       echo ""
+       "$SCRIPT_DIR"/../ryo-service-proxy/build-images.sh -n "$hostname" -v "$version"
+    else
+       echo "Skipping image build for the Service Proxy module"
+       echo ""
+    fi
+    # Build Coturn module images if -m flag is present
+    if [ $build_modules == 'true' ]
+    then
+       echo "Running build-images script for ryo-coturn module on "$hostname""
+       echo ""
+       "$SCRIPT_DIR"/../ryo-coturn/build-images.sh -n "$hostname" -v "$version"
+    else
+       echo "Skipping image build for the Coturn module"
+       echo ""
+    fi
+    ```
+
+4. Add the Coturn module as well as the [Service Proxy module](/rollyourown/project_modules/service_proxy/) dependency to the `deploy-project.sh` script in the project (with the Service Proxy module **before** the Coturn module):
+
+    ```bash
+    # Deploy Service Proxy module if -m flag is present
+    if [ $deploy_modules == 'true' ]
+    then
+       echo "Deploying ryo-service-proxy module on "$hostname" using images with version "$version""
+       echo ""
+       "$SCRIPT_DIR"/../ryo-service-proxy/deploy-module.sh -n "$hostname" -v "$version"
+       echo ""
+    else
+       echo "Skipping Service Proxy module deployment"
+       echo ""
+    fi
+    # Deploy Coturn module if -m flag is present
+    if [ $deploy_modules == 'true' ]
+    then
+       echo "Deploying ryo-coturn module on "$hostname" using images with version "$version""
+       echo ""
+       "$SCRIPT_DIR"/../ryo-coturn/deploy-module.sh -n "$hostname" -v "$version"
+       echo ""
+    else
+       echo "Skipping Coturn module deployment"
+       echo ""
+    fi
+    ```
 
 ## How to use this module in a project
 
-TODO...
+[Coturn](https://github.com/coturn/coturn) configuration is done by provisioning Consul key-values during project deployment. The Coturn module repository includes terraform modules for provisioning configuration to the Consul key-value store in the correct key-value structure.
+
+Before deploying the coturn module, certificates for the stun and turn subdomains for the project should be provisioned to Certbot as described in the [service proxy module documentation](/rollyourown/project_modules/service_proxy/#certbot-related-configuration)
+
+{{< more "secondary">}}
+
+The module uses the official terraform [consul provider](https://registry.terraform.io/providers/hashicorp/consul/) to provision key-values to the Consul container.
+
+Coturn configuration is provisioned to key-value store in the `/service/coturn/` folder.
+
+{{< /more >}}
+
+### Image configuration
+
+**TODO:** how to pass coturn shared auth to an image.
+
+### General deployment configuration
+
+To configure the Coturn module, configuration parameters for the Coturn configuration file need to be provisioned to the Consul key-value store on component deployment.
+
+To make the consul container's IP address available within the project's terraform code, add a `terraform_remote_state` data source for the Service Proxy module to the project's Terraform variables and a local variable for the consul container's IP address:
+
+```tf
+# Variables from ryo-service-proxy module remote state
+data "terraform_remote_state" "ryo-service-proxy" {
+  backend = "local"
+  config = {
+    path = join("", ["${abspath(path.root)}/../../ryo-service-proxy/module-deployment/terraform.tfstate.d/", var.host_id, "/terraform.tfstate"])
+  }
+}
+
+locals {
+  consul_ip_address  = data.terraform_remote_state.ryo-service-proxy.outputs.consul_ip_address
+}
+```
+
+The terraform consul provider is added to the project's terraform configuration:
+
+```tf
+terraform {
+  required_version = ">= 0.14"
+  required_providers {
+    lxd = {
+      source  = "terraform-lxd/lxd"
+      version = "~> 1.5.0"
+    }
+    consul = {
+      source = "hashicorp/consul"
+      version = "~> 2.12.0"
+    }
+  }
+}
+
+...
+
+provider "consul" {
+  address    = join("", [ local.consul_ip_address, ":8500" ])
+  scheme     = "http"
+  datacenter = var.host_id
+}
+```
+
+### Coturn-related configuration
+
+Coturn configuration is provisioned to key-value store in the `/service/coturn/` folder.
+
+{{< more "secondary">}}
+Each key-value pair is of the form `<key,value>` where:
+
+- The `key` is the name of the parameter in `turnserver.conf` to configure
+- The `value` is the value to be provisioned for the key in `turnserver.conf`
+
+Key-values provisioned in this way are:
+
+- /service/coturn/turn-domain
+- /service/coturn/ip-addr-host-part
+- /service/coturn/listening-port
+- /service/coturn/tls-listening-port
+- /service/coturn/min-port
+- /service/coturn/max-port
+
+The Consul-Template application reads the key-values in the `/service/coturn/` folder and generates coturn configuration for each configuration parameter in `turnserver.conf`, for example, the `turnserver.conf` parameter `realm` is provisioned by:
+
+```bash
+{{ if keyExists "service/coturn/turn-domain" }}
+realm={{ key "service/coturn/turn-domain" }}
+{{ end }}
+```
+
+or the `turnserver.conf` parameters `min-port` and `max-port` are provisioned by:
+
+```bash
+{{ if keyExists "service/coturn/min-port" }}
+min-port={{ key "service/coturn/min-port" }}
+{{ else }}
+min-port=50000
+{{ end }}
+{{ if keyExists "service/coturn/max-port" }}
+max-port={{ key "service/coturn/max-port" }}
+{{ else }}
+max-port=50000
+{{ end }}
+```
+
+After (re-)configuring `turnserver.conf`, Consul-Template calls the script `restart-coturn.sh` to restart coturn and apply the configuration.
+{{< /more >}}
+
+Coturn configuration can be deployed to the consul key-value store using the ryo-coturn terraform `deploy-coturn-domain-configuration` and `deploy-coturn-ports-configuration` modules, for example:
+
+```tf
+module "deploy-<PROJECT_ID>-coturn-domain-configuration" {
+  source = "../../ryo-coturn/module-deployment/modules/deploy-coturn-domain-configuration"
+
+  coturn_domain = <(Sub-)domain on which the TURN server shall be reachable>
+}
+```
+
+or
+
+```tf
+module "deploy-<PROJECT_ID>-coturn-ports-configuration" {
+  source = "../../ryo-coturn/module-deployment/modules/deploy-coturn-ports-configuration"
+
+  coturn_ip_addr_host_part  = <Host part of the IP address of the coturn container>
+  coturn_listening_port     = <TURN listener port for UDP and TCP>
+  coturn_tls_listening_port = <TURN listener port for TLS and DTLS>
+  coturn_min_port           = <Lower bound of the coturn TURN server UDP relay endpoints>
+  coturn_max_port           = <Upper bound of the coturn TURN server UDP relay endpoints>
+}
+```
+
+Note that default values for coturn port configuration are deployed when the Coturn module is deployed, so that the terraform `deploy-coturn-ports-configuration` module only needs to be used in a project if the default values need to be overridden.
 
 ## Software deployed
 
