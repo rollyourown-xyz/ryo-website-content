@@ -184,6 +184,8 @@ To use this secret in a project container image, the configuration file needs to
 vars_files:
   # Project configuration
   - "{{ playbook_dir }}/../../configuration/configuration_{{ host_id }}.yml"
+  # Host configuration
+  - "{{ playbook_dir }}/../../../ryo-host/configuration/configuration_{{ host_id }}.yml"
   # Coturn configuration
   - "{{ playbook_dir }}/../../../ryo-coturn/configuration/coturn_static_auth_secret_{{ host_id }}.yml"
 ```
