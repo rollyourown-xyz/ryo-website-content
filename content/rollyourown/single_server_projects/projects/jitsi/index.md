@@ -14,6 +14,8 @@ This project deploys a [jitsi](https://jitsi.org/) video conferencing server, to
 
 - [ ] Links on the page
 - [ ] Add screenshots
+- [ ] Project requirements
+- [ ] Software deployed
 
 {{< /highlight >}}
 
@@ -57,55 +59,55 @@ Further details about the host server building block can be found [here](/rollyo
 
 The project installation consists of a number of containers deployed on the host server.
 
-#### A
+#### Coturn container
 
-ABC
+The coturn container hosts an [coturn](https://github.com/coturn/coturn/) TURN server, providing NAT traversal for jitsi conference users. This component is provided by the [rollyourown.xyz](https://rollyourown.xyz) TURN server module and is a building block for other rollyourown.xyz projects providing p2p communications services. Further details can be found [here](/rollyourown/project_modules/turn_server/).
 
-#### B
+#### Loadbalancer / TLS proxy container
 
-ABC
+The loadbalancer / TLS proxy container terminates HTTP and HTTPS connections and distributes traffic to other containers. This component is provided by the [rollyourown.xyz](https://rollyourown.xyz) Service Proxy module and is a key building block for rollyourown.xyz projects. Further details can be found [here](/rollyourown/project_modules/service_proxy/).
+
+#### Consul container
+
+The consul container provides a service registry for loadbalancer / TLS proxy backends and a key-value store for configuration of other containers. The Consul container is provided by the [rollyourown.xyz](https://rollyourown.xyz) Service Proxy module and is a key building block for rollyourown.xyz projects. Further details can be found [here](rollyourown/project_modules/service_proxy/).
+
+#### Jitsi server container
+
+The Jitsi server container hosts an [nginx](https://nginx.org/) web server with the [jitsi-meet](https://github.com/jitsi/jitsi-meet) WebRTC video conferencing front-end as well as the jitsi video conferencing suite components [prosody]((https://prosody.im/)), [jitsi videobridge](https://github.com/jitsi/jitsi-videobridge) and [jicofo](https://github.com/jitsi/jicofo).
 
 ## How to use this project
 
 ### Deploying the project
 
-To deploy the project, follow the generic [project deployment instructions](/rollyourown/tech_projects/how_to_deploy/), using the [project's github mirror repository](https://github.com/rollyourown-xyz/ryo-jitsi/)
+To deploy the project, follow the generic [project deployment instructions](/rollyourown/tech_projects/how_to_deploy/), using the project's github mirror repository at [https://github.com/rollyourown-xyz/ryo-jitsi/](https://github.com/rollyourown-xyz/ryo-jitsi/).
 
 ### After deployment
 
-For a full overview of how to use ... , see the excellent documentation at ....
+For a full overview of how to use [jitsi video conferencing](https://jitsi.org/), see the Jitsi [user guide](https://jitsi.github.io/handbook/docs/user-guide/user-guide-start).
 
-For example, your first steps after deployment could be:
+Before using the conferencing service, user accounts need to be configured. The [rollyourown.xyz](https://rollyourown.xyz) jitsi project deployment is configured as a private deployment with a [Secure domain setup](https://jitsi.github.io/handbook/docs/devops-guide/secure-domain). This allows only authenticated and authorised users to create conferences and prevents the service from being used by anyone on the internet.
 
-- A
+#### Jitsi user management
 
-- B
+User accounts can only be configured via the command line. This can be done directly from the control node, using `lxc exec` to the remote host server:
 
-- C
+- Add user
 
-#### User Management in Jitsi
+    ```bash
+    lxc exec <HOST_ID>:<HOST_ID>-ryo-jitsi-jitsi -- prosodyctl register <USERNAME> <DOMAIN> <PASSWORD>
+    ```
 
-Jitsi not open for anyone on internet.
-User accounts necessary to start conferences.
-Use accounts can be configured via the command line from the control node:
+- Delete user:
 
-Add user:
+    ```bash
+    lxc exec <HOST_ID>:<HOST_ID>-ryo-jitsi-jitsi -- prosodyctl deluser <USERNAME>@<DOMAIN>
+    ```
 
-```bash
-lxc exec <HOST_ID>:<HOST_ID>-ryo-jitsi-jitsi -- prosodyctl register <USERNAME> <DOMAIN> <PASSWORD>
-```
+- Change a user's password:
 
-Delete user:
-
-```bash
-lxc exec <HOST_ID>:<HOST_ID>-ryo-jitsi-jitsi -- prosodyctl deluser <USERNAME>@<DOMAIN>
-```
-
-Change user's password:
-
-```bash
-lxc exec <HOST_ID>:<HOST_ID>-ryo-jitsi-jitsi -- prosodyctl passwd <USERNAME>@<DOMAIN>
-```
+    ```bash
+    lxc exec <HOST_ID>:<HOST_ID>-ryo-jitsi-jitsi -- prosodyctl passwd <USERNAME>@<DOMAIN>
+    ```
 
 ### Maintaining the installation
 
