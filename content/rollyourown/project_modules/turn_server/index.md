@@ -38,9 +38,9 @@ This project module deploys a container with multiple services as shown in the f
 
 ![Module Overview](Module_Overview.svg)
 
-### Coturn Module
+### TURN Server Module
 
-The Coturn module contains three applications, together providing a dynamically-configurable [STUN](https://en.wikipedia.org/wiki/STUN) and [TURN](https://en.wikipedia.org/wiki/Traversal_Using_Relays_around_NAT) server to be used in other [rollyourown.xyz](https://rollyourown.xyz) projects.
+The TURN Server module contains three applications, together providing a dynamically-configurable [STUN](https://en.wikipedia.org/wiki/STUN) and [TURN](https://en.wikipedia.org/wiki/Traversal_Using_Relays_around_NAT) server to be used in other [rollyourown.xyz](https://rollyourown.xyz) projects.
 
 #### Coturn
 
@@ -60,7 +60,7 @@ On container start, the [Consul-Template](https://github.com/hashicorp/consul-te
 
 The [repository for this module](https://github.com/rollyourown-xyz/ryo-coturn) contains a number of resources for including the module in a [rollyourown.xyz](https://rollyourown.xyz) project. The steps for including the module are:
 
-1. Add the Coturn module as well as the [Service Proxy module](/rollyourown/project_modules/service_proxy/) dependency to the `get-modules.sh` script in the project:
+1. Add the TURN Server module as well as the [Service Proxy module](/rollyourown/project_modules/service_proxy/) dependency to the `get-modules.sh` script in the project:
 
     ```bash
     ## Service proxy module
@@ -71,7 +71,7 @@ The [repository for this module](https://github.com/rollyourown-xyz/ryo-coturn) 
        echo "Cloning ryo-service-proxy repository. Executing 'git clone' for ryo-service-proxy repository"
        git clone https://github.com/rollyourown-xyz/ryo-service-proxy ../ryo-service-proxy
     fi
-    ## Coturn module
+    ## TURN Server module
     if [ -d "../ryo-coturn" ]
     then
        echo "Module ryo-coturn already cloned to this control node"
@@ -81,7 +81,7 @@ The [repository for this module](https://github.com/rollyourown-xyz/ryo-coturn) 
     fi
     ```
 
-2. Add the Coturn module as well as the [Service Proxy module](/rollyourown/project_modules/service_proxy/) dependency to the project's `host-setup.sh` script:
+2. Add the TURN Server module as well as the [Service Proxy module](/rollyourown/project_modules/service_proxy/) dependency to the project's `host-setup.sh` script:
 
     ```bash
     ## Module-specific host setup for ryo-service-proxy
@@ -106,7 +106,7 @@ The [repository for this module](https://github.com/rollyourown-xyz/ryo-coturn) 
     fi
     ```
 
-3. Add the Coturn module as well as the [Service Proxy module](/rollyourown/project_modules/service_proxy/) dependency to the project's `build-images.sh` script:
+3. Add the TURN Server module as well as the [Service Proxy module](/rollyourown/project_modules/service_proxy/) dependency to the project's `build-images.sh` script:
 
     ```bash
     # Build Service Proxy module images if -m flag is present
@@ -119,7 +119,7 @@ The [repository for this module](https://github.com/rollyourown-xyz/ryo-coturn) 
        echo "Skipping image build for the Service Proxy module"
        echo ""
     fi
-    # Build Coturn module images if -m flag is present
+    # Build TURN Server module images if -m flag is present
     if [ $build_modules == 'true' ]
     then
        echo "Running build-images script for ryo-coturn module on "$hostname""
@@ -131,7 +131,7 @@ The [repository for this module](https://github.com/rollyourown-xyz/ryo-coturn) 
     fi
     ```
 
-4. Add the Coturn module as well as the [Service Proxy module](/rollyourown/project_modules/service_proxy/) dependency to the `deploy-project.sh` script in the project (with the Service Proxy module **before** the Coturn module):
+4. Add the TURN Server module as well as the [Service Proxy module](/rollyourown/project_modules/service_proxy/) dependency to the `deploy-project.sh` script in the project (with the Service Proxy module **before** the TURN Server module):
 
     ```bash
     # Deploy Service Proxy module if -m flag is present
@@ -145,7 +145,7 @@ The [repository for this module](https://github.com/rollyourown-xyz/ryo-coturn) 
        echo "Skipping Service Proxy module deployment"
        echo ""
     fi
-    # Deploy Coturn module if -m flag is present
+    # Deploy TURN Server module if -m flag is present
     if [ $deploy_modules == 'true' ]
     then
        echo "Deploying ryo-coturn module on "$hostname" using images with version "$version""
@@ -153,14 +153,14 @@ The [repository for this module](https://github.com/rollyourown-xyz/ryo-coturn) 
        "$SCRIPT_DIR"/../ryo-coturn/deploy-module.sh -n "$hostname" -v "$version"
        echo ""
     else
-       echo "Skipping Coturn module deployment"
+       echo "Skipping TURN Server module deployment"
        echo ""
     fi
     ```
 
 ## How to use this module in a project
 
-[Coturn](https://github.com/coturn/coturn) configuration is done by provisioning Consul key-values during project deployment. The Coturn module repository includes terraform modules for provisioning configuration to the Consul key-value store in the correct key-value structure.
+[Coturn](https://github.com/coturn/coturn) configuration is done by provisioning Consul key-values during project deployment. The TURN Server module repository includes terraform modules for provisioning configuration to the Consul key-value store in the correct key-value structure.
 
 Before deploying the coturn module, certificates for the stun and turn subdomains for the project should be provisioned to Certbot as described in the [service proxy module documentation](/rollyourown/project_modules/service_proxy/#certbot-related-configuration)
 
@@ -174,7 +174,7 @@ Coturn configuration is provisioned to key-value store in the `/service/coturn/`
 
 ### Image configuration
 
-The coturn module uses a shared static authentication secret to prevent unauthorized use of the TURN server. This static authentication secret also needs to be provisioned to a project component that uses the TURN server.
+The TURN Server module uses a shared static authentication secret to prevent unauthorized use of the TURN server. This static authentication secret also needs to be provisioned to a project component that uses the TURN server.
 
 The coturn static authentication secret is generated when building the coturn container image and is stored in the file `/ryo-projects/ryo-coturn/configuration/coturn_static_auth_secret_<HOST_ID>.yml` on the control node.
 
@@ -194,7 +194,7 @@ Then the variable `coturn_static_auth_secret` is availabe in ansible roles for t
 
 ### General deployment configuration
 
-To configure the Coturn module, configuration parameters for the Coturn configuration file need to be provisioned to the Consul key-value store on component deployment.
+To configure the TURN Server module, configuration parameters for the Coturn configuration file need to be provisioned to the Consul key-value store on component deployment.
 
 To make the consul container's IP address available within the project's terraform code, add a `terraform_remote_state` data source for the Service Proxy module to the project's Terraform variables and a local variable for the consul container's IP address:
 
