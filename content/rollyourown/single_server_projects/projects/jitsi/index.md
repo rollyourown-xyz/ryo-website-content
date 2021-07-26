@@ -14,15 +14,14 @@ This project deploys a [jitsi](https://jitsi.org/) video conferencing server, to
 
 - [ ] Links on the page
 - [ ] Add screenshots
-- [ ] Project requirements
-- [ ] Software deployed
+- [ ] Project requirements - references? Better indication of number of users?
 
 {{< /highlight >}}
 
 [Jitsi](https://jitsi.org/) is set of open source components that together provide a web-based video conferencing solution. The components of a jitsi server are described in the [jitsi documentation](https://jitsi.github.io/handbook/docs/architecture). This project installs an [nginx](https://nginx.org/) web server and uses the [jitsi-meet installer](https://jitsi.github.io/handbook/docs/devops-guide/devops-guide-quickstart#install-jitsi-meet) to install the different jitsi components:
 
 - A [Prosody XMPP server](https://prosody.im/) that jitsi uses for inter-component signalling
-- The [jitsi-meet](https://github.com/jitsi/jitsi-meet) WebRTC front-end web application, providing the conference user interface
+- The [jitsi-meet](https://github.com/jitsi/jitsi-meet) [WebRTC](https://webrtc.org/) front-end web application, providing the conference user interface
 - The [jitsi videobridge](https://github.com/jitsi/jitsi-videobridge) video stream router
 - The [jicofo](https://github.com/jitsi/jicofo) conference focus server, that manages sessions within conferences
 
@@ -117,7 +116,9 @@ Maintentance is automated via the rollyourown.xyz project scripts. See [here](/r
 
 ## Project requirements
 
-ABC
+This project deploys all jitsi components on a single server, which is suitable for a small number of users. In future, we plan a project for a [scalable installation](https://jitsi.github.io/handbook/docs/devops-guide/devops-guide-scalable) with multiple videobridge nodes.
+
+Video conferencing can be a resource-intensive application, with the videobridge component needing resources that scale with the number of parallel simultaneous conference users. For a reasonable user experience, a multi-core server or VPS with multiple, dedicated cores sufficient RAM and bandwidth is needed. Even for a smaller installation, a minimum of 4 VPS and 8GB RAM and internet bandwith of at least 1 Gbps is recommended.
 
 ## Software deployed
 
@@ -127,7 +128,16 @@ The open source software deployed by the project is:
 
 | Project | What is it? | Homepage | License |
 | :------ | :---------- | :------- | :------ |
-| TODO | TODO | TODO | TODO |
-| TODO | TODO | TODO | TODO |
+| Certbot | Open source [letsencrypt](https://letsencrypt.org/) certificate manager, deployed by the [Service Proxy module](/rollyourown/project_modules/service_proxy/) | [https://certbot.eff.org/](https://certbot.eff.org/) | [Apache 2.0](https://raw.githubusercontent.com/certbot/certbot/master/LICENSE.txt) |
+| Consul | Open source service registry and key-value store, deployed by the [Service Proxy module](/rollyourown/project_modules/service_proxy/) | [https://www.consul.io/](https://www.consul.io/) | [Mozilla Public License 2.0](https://github.com/hashicorp/consul/blob/master/LICENSE) |
+| Consul-Template | Tool to create dynamic configuration files based on Consul Key-Value store or service registry queries, deployed by the [Service Proxy module](/rollyourown/project_modules/service_proxy/) | [https://github.com/hashicorp/consul-template/](https://github.com/hashicorp/consul-template/) | [Mozilla Public License 2.0](https://github.com/hashicorp/consul-template/blob/master/LICENSE) |
+| Coturn  | Open source [STUN](https://en.wikipedia.org/wiki/STUN) and [TURN](https://en.wikipedia.org/wiki/Traversal_Using_Relays_around_NAT) server, deployed by the [TURN server module](/rollyourown/project_modules/turn_server/) | [https://github.com/coturn/coturn](https://github.com/coturn/coturn) | [https://github.com/coturn/coturn/blob/master/LICENSE](https://github.com/coturn/coturn/blob/master/LICENSE) |
+| HAProxy | Open source load balancer, TCP and HTTP proxy, deployed by the [Service Proxy module](/rollyourown/project_modules/service_proxy/) | [https://www.haproxy.org/](https://www.haproxy.org/) | [GPL/LGPL](https://github.com/haproxy/haproxy/blob/master/LICENSE) |
+| Jicofo | Opem-source conference focus server, managing sessions within [jitsi](https://jitsi.org/) conferences | [https://github.com/jitsi/jicofo/](https://github.com/jitsi/jicofo/) | [Apache 2.0](https://github.com/jitsi/jicofo/blob/master/LICENSE) |
+| Jitsi-Meet | Open source [WebRTC](https://webrtc.org/) video conferening front-end, part of the [jitsi](https://jitsi.org/) installation | [https://github.com/jitsi/jitsi-meet/](https://github.com/jitsi/jitsi-meet/) | [Apache 2.0](https://github.com/jitsi/jitsi-meet/blob/master/LICENSE) |
+| Jitsi Videobridge| [SFU](https://webrtcglossary.com/sfu/) video routing server for [jitsi](https://jitsi.org/) conferences  | [https://github.com/jitsi/jitsi-videobridge/](https://github.com/jitsi/jitsi-videobridge/) | [Apache 2.0](https://github.com/jitsi/jitsi-videobridge/blob/master/LICENSE) |
+| nginx | Open source webserver for the [jitsi-meet](https://jitsi.org/jitsi-meet/) front-end | [https://nginx.org/](https://nginx.org/) | [2-clause BSD license](http://nginx.org/LICENSE) |
+| Prosody | Open source [XMPP](https://xmpp.org/) server, used as the signalling server in the [jitsi](https://jitsi.org/) installation | [https://prosody.im/](https://prosody.im/) | [MIT](https://prosody.im/source/mit) |
+| Webhook | Open source, light-weight, general purpose webhook server, deployed by the [Service Proxy module](/rollyourown/project_modules/service_proxy/) | [https://github.com/adnanh/webhook](https://github.com/adnanh/webhook) | [MIT](https://github.com/adnanh/webhook/blob/master/LICENSE) |
 
 {{< /table >}}
