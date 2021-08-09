@@ -13,6 +13,7 @@ This project deploys a [Grav](https://getgrav.org) flat-file content management 
 {{< highlight "primary" "ToDo">}}
 
 - [x] Update after modularisation
+- [ ] Links on the page
 - [ ] Add screenshots
 - [ ] CHECK: Creation of grav user(s) with editor permissions
 - [ ] CHECK: Grav web front-end for editing / managing content
