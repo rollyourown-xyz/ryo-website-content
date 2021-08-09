@@ -20,7 +20,7 @@ The TURN Server module is a re-usable module for other [rollyourown.xyz](https:/
 
 This module deploys a [coturn](https://github.com/coturn/coturn) server.
 
-Coturn is and open source [STUN](https://en.wikipedia.org/wiki/STUN) and [TURN](https://en.wikipedia.org/wiki/Traversal_Using_Relays_around_NAT) server that is used by other services, including those deployed by other [rollyourown.xyz](https://rollyourown.xyz) projects, to enable [NAT traversal](https://en.wikipedia.org/wiki/NAT_traversal) for peer-to-peer communications.
+Coturn is an open source [STUN](https://en.wikipedia.org/wiki/STUN) and [TURN](https://en.wikipedia.org/wiki/Traversal_Using_Relays_around_NAT) server that is used by other services, including those deployed by other [rollyourown.xyz](https://rollyourown.xyz) projects, to enable [NAT traversal](https://en.wikipedia.org/wiki/NAT_traversal) for peer-to-peer communications.
 
 ## Repository links
 
@@ -38,21 +38,19 @@ This project module deploys a container with multiple services as shown in the f
 
 ![Module Overview](Module_Overview.svg)
 
-### TURN Server Module
-
 The TURN Server module contains three applications, together providing a dynamically-configurable [STUN](https://en.wikipedia.org/wiki/STUN) and [TURN](https://en.wikipedia.org/wiki/Traversal_Using_Relays_around_NAT) server to be used in other [rollyourown.xyz](https://rollyourown.xyz) projects.
 
-#### Coturn
+### Coturn
 
 Coturn is and open source [STUN](https://en.wikipedia.org/wiki/STUN) and [TURN](https://en.wikipedia.org/wiki/Traversal_Using_Relays_around_NAT) server enabling [NAT traversal](https://en.wikipedia.org/wiki/NAT_traversal) for peer-to-peer communications.
 
 Coturn's configuration is dynamically configured based on Key-Values retrieved from the [Consul application deployed by the Service Proxy module](/rollyourown/project_modules/service_proxy/#consul). For TLS-encrypted connections, Coturn uses certificates obtained by the [Certbot application deployed by the Service Proxy module](/rollyourown/project_modules/service_proxy/#haproxy-and-certbot).
 
-#### Consul
+### Consul
 
 A [Consul](https://www.consul.io/) agent is deployed on the Coturn module and joins the Consul cluster in client mode. The Consul agent provides [configuration discovery and update](https://learn.hashicorp.com/tutorials/consul/consul-template) for [Consul-Template](#consul-template) via [key-value lookup](https://www.consul.io/docs/dynamic-app-config/kv), so that [Consul-Template](#consul-template) can create and update the coturn configuration.
 
-#### Consul-Template
+### Consul-Template
 
 On container start, the [Consul-Template](https://github.com/hashicorp/consul-template/) application obtains service configuration information from the [consul key-value store](/rollyourown/project_modules/service_proxy/#key-value-store) and uses it to populate configuration files for Coturn. In addition, Consul-Template listens for changes to the configuration key-values and updates configuration files on-the-fly, reloading [coturn](#coturn) when configuration has changed.
 
