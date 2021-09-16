@@ -209,7 +209,7 @@ Depending on the number of components to be deployed and the network speed betwe
 
 In this step, the various project component containers are launched on the host server.
 
-Log in to the control node as the non-root user, enter the project's directory and run the `deploy-project.sh` script. The **same version stamp** used in the previous step needs to be passed to the script.
+Log in to the control node as the non-root user, enter the project's directory and run the `deploy-project.sh` script.
 
 The host name for the project's deployment needs to be passed to the script using the flag `-n` and the **same version stamp** used in the previous step needs to be passed using the flag `-v`. For the first deployment, modules needed for the project should also be deployed by passing the flag `-m`.
 
