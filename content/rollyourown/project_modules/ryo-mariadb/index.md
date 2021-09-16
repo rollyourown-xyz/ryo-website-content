@@ -1,6 +1,6 @@
 ---
 title: "Module: MariaDB Database"
-tags: [ ]
+tags: [ "module" ]
 draft: true
 ---
 

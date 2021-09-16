@@ -1,6 +1,6 @@
 ---
 title: "Host Server"
-tags: [ ]
+tags: [ "module", "host" ]
 draft: false
 ---
 

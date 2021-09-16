@@ -1,6 +1,6 @@
 ---
-title: "Database Cluster"
-tags: [ ]
+title: "Module: PostgreSQL Database"
+tags: [ "module" ]
 draft: true
 ---
 

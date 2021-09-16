@@ -1,6 +1,6 @@
 ---
-title: "Single Sign On"
-tags: [ ]
+title: "Module: Single Sign On"
+tags: [ "module" ]
 draft: true
 ---
 

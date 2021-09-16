@@ -1,6 +1,6 @@
 ---
 title: "Module: Service Proxy"
-tags: [ ]
+tags: [ "module" ]
 draft: true
 ---
 

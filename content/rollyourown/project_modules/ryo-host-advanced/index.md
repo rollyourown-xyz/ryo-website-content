@@ -1,6 +1,6 @@
 ---
 title: "Host server - Advanced"
-tags: [ ]
+tags: [ "module", "host" ]
 draft: true
 ---
 
@@ -14,7 +14,7 @@ Users familiar with the Linux command line can log in to a host server from a co
 
 - [ ] Add links in the text
 - [ ] Add text and commands to the various sections
- 
+
 {{< /highlight >}}
 
 ## Prerequisite
