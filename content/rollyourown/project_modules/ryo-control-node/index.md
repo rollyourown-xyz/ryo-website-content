@@ -120,12 +120,12 @@ During setup of Ubuntu 20.04 LTS, you will either have been asked to specifiy a 
     sudo reboot -n
     ```
 
-2. Log back in to the control node as the non-root user and install `ansible`, `ansible-core`, `python3-packaging`, `git` and `nano`:
+2. Log back in to the control node as the non-root user and install `ansible`, `ansible-core`, `python3-packaging`, `python3-distutils`, `git` and `nano`:
 
     ```bash
     sudo apt install software-properties-common
     sudo apt-add-repository --yes --update ppa:ansible/ansible
-    sudo apt install ansible ansible-core python3-packaging git nano -y
+    sudo apt install ansible ansible-core python3-packaging python3-distutils git nano -y
     ```
 
 3. Log in to the control node as the non-root user, create a working directory, enter the directory and clone the **control node repository** to your control node:
