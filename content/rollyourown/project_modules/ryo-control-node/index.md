@@ -157,7 +157,7 @@ During setup of Ubuntu 20.04 LTS, you will either have been asked to specifiy a 
     ./local-setup.sh
     ```
 
-7. After running the local-setup script, log out and back in again one time so that the assignment of the user to the `lxd` group is activated (adding the user to the LXD group has already been done as part of local-setup). This is a prerequisite for running the project automation scrips.
+7. After running the local-setup script, **reboot the control node**. This is a prerequisite for running the project automation scrips.
 
 After setting up the control node, you are ready to clone the project repository and run the automation scrips to set up the host server, build images and deploy the project.
 
