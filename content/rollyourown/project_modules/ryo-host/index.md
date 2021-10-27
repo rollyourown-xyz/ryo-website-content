@@ -13,6 +13,7 @@ A host server is needed to run the various containers making up a project deploy
 {{< highlight "primary" "ToDo">}}
 
 - [ ] Add links in the text
+- [ ] Diagram of host including tunnel to control-node, consul and some containers
 
 {{< /highlight >}}
 
@@ -142,35 +143,35 @@ For some projects, further project-specific host configuration may be performed 
     git clone https://github.com/rollyourown-xyz/ryo-host
     ```
 
-2. Choose a name (e.g. "host-1") for the host server, enter the `ryo-host` directory and copy the file `~/ryo-projects/ryo-host/configuration/configuration_TEMPLATE.yml` to a new file `~/ryo-projects/ryo-host/configuration/configuration_<HOST_NAME>.yml`, replacing <HOST_NAME> with the name chosen:
+2. Choose a name (e.g. "host-1") for the host server, enter the `ryo-host` directory and copy the file `configuration/configuration_TEMPLATE.yml` to a new file `configuration/configuration_<HOST_NAME>.yml`, replacing <HOST_NAME> with the name chosen:
 
     ```bash
     cd ~/ryo-projects/ryo-host
     cp configuration/configuration_TEMPLATE.yml configuration/configuration_<HOST_NAME>.yml
     ```
 
-3. Edit the file `~/ryo-projects/ryo-host/configuration/configuration_<HOST_NAME>.yml` and add the host server's public IP address, the root username and password provided by your hosting provider (or configured yourself if you have set up your own server). Also choose a non-root username and password for the host server. If you aren’t familiar with a different linux editor, use nano to edit the file with:
+3. Edit the new file `configuration_<HOST_NAME>.yml` and add the host server's public IP address, the root username and password provided by your hosting provider (or configured yourself if you have set up your own server). Also choose a non-root username and password for the host server. If you aren’t familiar with a different linux editor, use nano to edit the file with:
 
     ```bash
     cd ~/ryo-projects/ryo-host
     nano configuration/configuration_<HOST_NAME>.yml
     ```
 
-4. Copy the file `~/ryo-projects/ryo-host/configuration/inventory_TEMPLATE` to a new file `~/ryo-projects/ryo-host/configuration/inventory_<HOST_NAME>`, replacing <HOST_NAME> with the name chosen above:
+4. In the `ryo-host` directory, copy the file `configuration/inventory_TEMPLATE` to a new file `configuration/inventory_<HOST_NAME>`, replacing <HOST_NAME> with the name chosen above:
 
     ```bash
     cd ~/ryo-projects/ryo-host
     cp configuration/inventory_TEMPLATE configuration/inventory_<HOST_NAME>
     ```
 
-5. Edit the file `~/ryo-projects/ryo-host/configuration/inventory_<HOST_NAME>` and add the host server's public IP address:
+5. Edit the new file `inventory_<HOST_NAME>` and add the host server's public IP address:
 
     ```bash
     cd ~/ryo-projects/ryo-host
     nano configuration/inventory_<HOST_NAME>
     ```
 
-6. If this is not the first host server configured with the control node, then check additional settings in `~/ryo-projects/ryo-host/configuration/configuration_<HOST_NAME>.yml` and `~/ryo-projects/ryo-host/configuration/inventory_<HOST_NAME>` and change as needed
+6. If this is not the first host server configured with the control node, then check additional settings in `configuration_<HOST_NAME>.yml` and `inventory_<HOST_NAME>` and change as described in the comments in those files
 
 7. Run the host server setup automation script `host-setup.sh` from the ryo-host directory, passing the name of the host chosen above via the flag `-n`, to set up a secure connection from the control node to the host server and to set up the host server for deploying [rollyourown.xyz](https://rollyourown.xyz) projects:
 

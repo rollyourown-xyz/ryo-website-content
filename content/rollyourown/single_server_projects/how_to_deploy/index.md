@@ -153,14 +153,14 @@ The project can now be configured.
 
 Before running the project's automation scripts, some configuration is needed.
 
-First, enter the project directory and copy the file `~/ryo-projects/<PROJECT_TO_DEPLOY>/configuration/configuration_TEMPLATE.yml` to `~/ryo-projects/<PROJECT_TO_DEPLOY>/configuration/configuration_<HOST_NAME>.yml`, where `<HOST_NAME>` is the name you chose for your host server [when setting it up](rollyourown/project_modules/host_server/)
+First, enter the project directory `~/ryo-projects/<PROJECT_TO_DEPLOY>` and copy the file `configuration/configuration_TEMPLATE.yml` to `configuration/configuration_<HOST_NAME>.yml`, where `<HOST_NAME>` is the name you chose for your host server [when setting it up](rollyourown/project_modules/host_server/)
 
 ```bash
 cd ~/ryo-projects/<PROJECT_TO_DEPLOY>/
 cp configuration/configuration_TEMPLATE.yml configuration/configuration_<HOST_NAME>.yml
 ```
 
-Then, edit the project's configuration file (for the host server) and enter any project settings needed for the project (e.g. domain name, email addresses, etc.). If you aren't familiar with a different linux editor, use nano to edit the file.
+Then, edit the project's configuration file `configuration_<HOST_NAME>.yml` and enter any configuration settings needed for the project (e.g. domain name, email addresses, etc.). If you aren't familiar with a different linux editor, use nano to edit the file.
 
 ```bash
 cd ~/ryo-projects/<PROJECT_TO_DEPLOY>/
@@ -171,7 +171,7 @@ Now you are ready to run the project's automation scrips to complete any project
 
 {{< highlight "info" "Multiple project deployments">}}
 
-So that a control node can be used to manage multiple deployments of the same project on different host servers (so that, for example, different host servers can be used for different domains), the project configuration is always stored in a file called `configuration_<HOST_ID>.yml`. Each configuration file in the project's configuration directory corresponds to the deployment of the project on a different host.
+So that a control node can be used to manage multiple deployments of the same project on different host servers (so that, for example, different host servers can be used for different domains), the project configuration is always stored in a file called `configuration_<HOST_NAME>.yml`. Each configuration file in the project's configuration directory corresponds to the deployment of the project on a different host.
 
 {{< /highlight >}}
 

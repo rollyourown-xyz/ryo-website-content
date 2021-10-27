@@ -136,14 +136,14 @@ During setup of Ubuntu 20.04 LTS, you will either have been asked to specifiy a 
     git clone https://github.com/rollyourown-xyz/ryo-control-node
     ```
 
-4. Copy the file `~/ryo-projects/ryo-control-node/configuration/configuration_TEMPLATE.yml` to a new file `~/ryo-projects/ryo-control-node/configuration/configuration.yml`
+4. In the `ryo-control-node` directory, copy the file `configuration/configuration_TEMPLATE.yml` to a new file `configuration/configuration.yml`
 
     ```bash
     cd ~/ryo-projects/ryo-control-node
     cp configuration/configuration_TEMPLATE.yml configuration/configuration.yml
     ```
 
-5. Edit the file `~/ryo-projects/ryo-control-node/configuration/configuration.yml` and add the non-root username and password. If you aren't familiar with a different linux editor, use nano to edit the file with:
+5. Edit the new file `configuration.yml` and add the non-root username and password on the control node. If you aren't familiar with a different linux editor, use nano to edit the file with:
 
     ```bash
     cd ~/ryo-projects/ryo-control-node
