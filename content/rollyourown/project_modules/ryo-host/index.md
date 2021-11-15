@@ -13,7 +13,6 @@ A host server is needed to run the various containers making up a project deploy
 {{< highlight "primary" "ToDo">}}
 
 - [ ] Add links in the text
-- [ ] Diagram of host including tunnel to control-node, consul and some containers
 
 {{< /highlight >}}
 
@@ -48,13 +47,13 @@ A Consul agent is deployed on project containers and joins the Consul server in 
 
 The Consul service registry provides a register of available and running services on the host server. As a new project container is deployed, a consul agent running in client mode on the container registers the presence of the service provided by the container with the Consul service registry, along with the container's IP address and the port on which the service is available. Other components can then discover the service (usually via DNS), without needing static configuration in advance of the hostname or IP address of the service.
 
-This feature is used, for example, by [HAProxy](/rollyourown/project_modules/ryo-service-proxy/#haproxy-and-certbot) to distribute traffic to backend servers and enables the [Service Proxy module](/rollyourown/project_modules/ryo-service-proxy) to be a generic module that can be used in any project.
+This feature is used, for example, by [HAProxy](/rollyourown/project_modules/ryo-service-proxy/#haproxy) to distribute traffic to backend servers and enables the [Service Proxy module](/rollyourown/project_modules/ryo-service-proxy) to be a generic module that can be used in any project.
 
 #### Key-value store
 
 The Consul key-value store provides a store of configuration data for services that can be provisioned at deploy-time. If a container is dynamically configured, then a consul-template agent running on the container retrieves key-values and generates the container service's configuration file(s). This can be done at boot or at a later stage, as the consul-template agent monitors for changes in the specified branches of the key-value tree.
 
-This feature is used, for example, by [Certbot](/rollyourown/project_modules/ryo-service-proxy/#haproxy-and-certbot) to dynamically load the configuration for certificates needed for a project and by [HAProxy](/rollyourown/project_modules/ryo-service-proxy/#haproxy-and-certbot) to load ACLs and backend configuration for a project's backend servers. A consul-template agent running on the [Service Proxy module](/rollyourown/project_modules/ryo-service-proxy) modifies the Haproxy and Cerbot configuration as project-specific services are added during project deployment.
+This feature is used, for example, by [Certbot](/rollyourown/project_modules/ryo-service-proxy/#certbot) to dynamically load the configuration for certificates needed for a project and by [HAProxy](/rollyourown/project_modules/ryo-service-proxy/#haproxy) to load ACLs and backend configuration for a project's backend servers. A consul-template agent running on the [Service Proxy module](/rollyourown/project_modules/ryo-service-proxy) modifies the Haproxy and Cerbot configuration as project-specific services are added during project deployment.
 
 {{< /more >}}
 
