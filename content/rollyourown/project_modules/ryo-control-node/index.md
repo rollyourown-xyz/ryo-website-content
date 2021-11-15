@@ -19,11 +19,21 @@ A control node is needed for executing automation scripts that set up a host ser
 
 ## Control node introduction
 
-To prevent the settings, software and configuration needed for the control node from interfering or otherwise conflicting with the software and configuration of your local computer, a [rollyourown.xyz](https://rollyourown.xyz) control node should be set up in a virtual machine on your computer, or on a completely separate, dedicated computer (such as an Intel NUC, an old laptop or a desktop computer). This keeps the [rollyourown.xyz](https://rollyourown.xyz) configuration separate from other software installed on your computer and also ensures that the automation scripts and configuration of the control node are not affected by system upgrades or other software installed on the host computer. Furthermore, this allows us to develop and test the [rollyourown.xyz](https://rollyourown.xyz) configuration scripts and guides on a single operating system (currently Ubuntu 20.04 LTS).
+To prevent the settings, software and configuration needed for the control node from interfering or otherwise conflicting with the software and configuration of your local computer, a [rollyourown.xyz](https://rollyourown.xyz) control node should be set up in a virtual machine on your computer, or on a completely separate, dedicated computer (such as an Intel NUC, an old laptop or a desktop computer). This keeps the [rollyourown.xyz](https://rollyourown.xyz) configuration separate from other software installed on your computer and also ensures that automation scripts and configuration of the control node are not affected by system upgrades or other software installed on the host computer. This also allows us to develop and test the [rollyourown.xyz](https://rollyourown.xyz) configuration scripts and guides for a single operating system (currently Ubuntu 20.04 LTS).
 
-![Role of the control node](Role_of_Control_Node.svg)
+With the exception of the very first configuration steps for the host server, which are carried out over a plain SSH connection to the host server's public IP address, the control node interacts with the host server via a [wireguard](https://www.wireguard.com/) tunnel. This tunnel provides a permanent, encrypted connection to the host server and enables all communication between control node and host server to run via private IP address ranges.
 
-With the exception of the very first configuration steps for the host server, which are carried out over a plain SSH connection to the host server's public IP address, the control node interacts with the host server via a [wireguard](https://www.wireguard.com/) tunnel. This tunnel provides a permanent, exncrypted connection to the host server and enables all communication between the container and host server to run via private IP addresses.
+![Control_Node](Control_Node.svg)
+
+Other than SSH and wireguard, the following software is installed on the control node:
+
+- [Ansible](https://www.ansible.com/): For automating the configuration of control node, host server and of the container images used in a [rollyourown.xyz](https://rollyourown.xyz) project
+- [Consul](https://www.consul.io/): To provide service discovery for accessing project component administrative interfaces after deployment
+- [Pacḱer](https://www.packer.io/): For building the container images for each component of a [rollyourown.xyz](https://rollyourown.xyz) project
+- [LXD/LXC](https://linuxcontainers.org/lxd/): The container runtime for building container images to be deployed on the host server
+- [Terraform](https://www.terraform.io/): For automating the deployment of a [rollyourown.xyz](https://rollyourown.xyz) project
+
+A single control node can manage multiple [rollyourown.xyz](https://rollyourown.xyz) project deployments on multiple host servers. Alternatively, a dedicated control node can be run for each host server, with the applicable control node started when the projects on a particular host server need to be managed or administered.
 
 ## Repository links
 
@@ -37,57 +47,47 @@ The steps for setting up a control node depend on your computer's operating syst
 
 {{< highlight "info" "Terminal or desktop?">}}
 
-Based on the [rollyourown.xyz](https://rollyourown.xyz) project (or projects) you want to deploy, consider whether to use a terminal-based control node or a control node with a graphical desktop.
-
-The terminal-based control node is suitable for projects that either do not include any browser-based administrative interfaces for project components, or where the adminsitrative interfaces are exposed on the public internet. The terminal-based control node is more resource-friendly and may be faster to set up.
-
-For more advanced projects, a control node with a graphical desktop is needed, since administrative interfaces for project components are typically only accessible via the wireguard tunnel between control node and host server (making sure that they are not exposed on the public internet).
-
-Using virtual machines for the control node, it is possible to have a dedicated control node for each project deployed, starting each control node only when the project needs to be managed or administered. However, it is also possible to have a single control node for multiple projects, in which case a control node with a graphical desktop would be recommended so that projects requiring a graphical interface are supported even if the first project doesn't require this.
-
-The individual project pages indicate whether a control node with a graphical desktop is required.
+For most [rollyourown.xyz](https://rollyourown.xyz) projects, a control node with a graphical desktop is needed. Project component administrative interfaces, typically accessible via web browser, are only accessible via the wireguard tunnel between control node and host server, ensuring that these interfaces are not exposed on the public internet.
 
 {{< /highlight >}}
 
+Once you have chosen and installed your virtual machine environment, install Ubuntu 20.04 LTS (desktop version) in a virtual machine as described in the relevant hypervisor documentation.
+
 ### Control node setup: Linux
 
-A terminal-based control node or a control node with a graphical desktop can be run on a Linux computer in a virtual machine. There are a number of ways to run virtual machines on Linux, such as:
+A control node can be run in a virtual machine on a Linux computer. There are a number of ways to run virtual machines on Linux, such as:
 
 - [KVM](https://www.linux-kvm.org/), the native Linux kernel hypervisor, which can be managed with
-  - [Multipass](https://multipass.run/), a lightweight, command-line VM launcher, for **terminal-based** control nodes only
+  - [Multipass](https://multipass.run/), a lightweight, command-line VM launcher, **only for terminal-based control nodes with no graphical interface**
   - [Gnome Boxes](https://wiki.gnome.org/Apps/Boxes), a simple desktop GUI VM manager
   - [virt-manager](https://virt-manager.org/), a more advanced desktop GUI VM manager
 - [VirtualBox](https://www.virtualbox.org/)
 - [VMware Workstation Player](https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html) - free only for non-commercial, personal and home use
 
-Once you have chosen, activated/installed your virtual machine environment, install a Ubuntu 20.04 LTS virtual machine (server version for a terminal-based control node, desktop version for a control node with a graphical interface) as described in the relevant hypervisor documentation.
-
 ### Control node setup: Windows
 
-A terminal-based control node or a control node with a graphical desktop can be run on Windows in a virtual machine. There are a number of ways to run virtual machines on Windows, depending on your Windows version, such as:
+A control node can be run in a virtual machine on a Windows computer. There are a number of ways to run virtual machines on Windows, depending on your Windows version, such as:
 
-- [Hyper-V](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/), available in Windows 10 Enterprise, Pro, or Education versions, which can be managed from the Windows UI or, for **terminal-based** control nodes only, using [Multipass](https://multipass.run/), a lightweight, command-line VM launcher
+- [Hyper-V](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/), available in Windows 10 Enterprise, Pro, or Education versions, which can be managed from the Windows UI or, for **terminal-based control nodes with no graphical interface**, using [Multipass](https://multipass.run/), a lightweight, command-line VM launcher
 - [VirtualBox](https://www.virtualbox.org/)
-
-Once you have chosen, activated/installed your virtual machine hypervisor, install a Ubuntu 20.04 LTS virtual machine (server version for a terminal-based control node, desktop version for a control node with a graphical interface) as described in the relevant hypervisor documentation.
 
 {{< highlight "warning" "VMware Workstation Player">}}
 
-On Windows 10, testing has shown that the free, personal, non-commercial use version of [VMware Workstation Player](https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html) **does not work** with rollyourown.xyz due to networking issues for containers within a virtual machine preventing the image build process from succeeding. With the VMWare Player Pro version, these problems *may* be solved by setting promiscuous mode on virtual network bridge, but we have been unable to test this. If you can verify this and provide step-by-step instructions how to solve these issues, please contribute [LINK TO CONTRIBUTION PAGE].
+On Windows 10, testing has shown that the free, personal, non-commercial use version of [VMware Workstation Player](https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html) **does not work** with rollyourown.xyz due to networking issues for containers within a virtual machine thet prevent the image build process from succeeding. These problems *may* be solved with the VMWare Player Pro version by setting promiscuous mode on virtual network bridge, but we have been unable to test this. If you can verify this and provide step-by-step instructions how to solve these issues, please contribute [LINK TO CONTRIBUTION PAGE].
 
 {{< /highlight >}}
 
-### Control node setup: macOS
+### Control node setup: MacOS
 
 {{< highlight "warning" "macOS setup is untested">}}
 
-We have currently been unable to test any of the macOS-based virtual machine options for compatibility with a rollyourown.xyz control node and scripts.Please consider contributing [LINK TO RELEVANT PAGE HERE] if you can help us with this.
+We have currently been unable to test any of the macOS-based virtual machine options for compatibility with a rollyourown.xyz control node and scripts. Please consider contributing [LINK TO RELEVANT PAGE HERE] if you can help us with this.
 
 {{< /highlight >}}
 
-A terminal-based control node or a control node with a graphical desktop can be run on an Apple computer in a virtual machine. There are a number of ways to run virtual machines on macOS, such as:
+A control node can be run in a virtual machine on an Apple computer. There are a number of ways to run virtual machines on macOS, such as:
 
-- [Multipass](https://multipass.run/), a lightweight, command-line VM launcher using the macOS native hypervisor, for **terminal-based** control nodes only
+- [Multipass](https://multipass.run/), a lightweight, command-line VM launcher using the macOS native hypervisor, **only for terminal-based control nodes with no graphical interface**
 - [VirtualBox](https://www.virtualbox.org/)
 - [VMware Fusion](https://www.vmware.com/products/fusion.html) - free only for non-commercial, personal and home use
 
@@ -99,7 +99,7 @@ Currently, only the x86 or amd64 architectures are supported (for control machin
 
 {{< /highlight >}}
 
-Depending on the available hardware (e.g. with or without a monitor), a terminal-based control node or a control node with a graphical desktop can be run on a dedicated computer running Ubuntu 20.04 LTS. This could, for example, be an old Laptop or desktop computer, an [Intel NUC](https://www.intel.com/content/www/us/en/products/boards-kits/nuc.html) or other mini PC or barebones computer. Prerequisite is that the computer is running [Ubuntu 20.04 server](https://ubuntu.com/download/server) (for a terminal-based control node) or [Ubuntu 20.04 desktop](https://ubuntu.com/download/desktop) (for a control node with graphical desktop).
+A control node can be run on a dedicated computer running Ubuntu 20.04 LTS. This could, for example, be an old Laptop or desktop computer, an [Intel NUC](https://www.intel.com/content/www/us/en/products/boards-kits/nuc.html) or other mini PC or barebones computer. Prerequisite is that the computer is running [Ubuntu 20.04 desktop](https://ubuntu.com/download/desktop) or, **for terminal-based control nodes with no graphical interface**, [Ubuntu 20.04 server](https://ubuntu.com/download/server).
 
 ## Automated control node configuration
 
@@ -107,7 +107,7 @@ Once a [control node is up and running with Ubuntu 20.04 LTS](#control-node-setu
 
 {{< highlight "warning" "The non-root user">}}
 
-During setup of Ubuntu 20.04 LTS, you will either have been asked to specifiy a username and password for a non-root user, or Ubuntu is already pre-setup with the non-root user `ubuntu`, typically with password `ubuntu`. This non-root user account should be used for executing the rollyourown.xyz scripts and the user-name and password are needed to configure the scripts, being entered in the "Local user configuration" section of the `configuration.yml` file (Step 4 below).
+During setup of Ubuntu 20.04 LTS, you will typically have been asked to specifiy a username and password for a non-root user. In some cases, Ubuntu is already pre-setup with the non-root user `ubuntu`, typically with password `ubuntu`. This non-root user account should be used for executing the rollyourown.xyz scripts. The user-name and password need to be entered in the "Local user configuration" section of the `configuration.yml` file (Step 5 below) for the control-node configuration scripts to run.
 
 {{< /highlight >}}
 
@@ -171,7 +171,7 @@ In detail, the following tasks are performed by the local-setup playbook:
 
 - A Certificate authority is set up on the Control Node for signing host SSL certificates in later steps
 
-- [Wireguard](https://www.wireguard.com/) is installed on the control node. A wireguard tunnel is used for the majority of the provisioning commands triggered in the `host-setup.sh` step as well as for uploading container images to the host (in the `build-images.sh` step) and deploying the project (in the `deploy-project.sh` step). In some projects, the wireguard tunnel can also be used for admin access from the control node to various remote project components, so that admin interfaces do not need to be exposed on the open internet
+- [Wireguard](https://www.wireguard.com/) is installed on the control node. A wireguard tunnel is used for the majority of the provisioning commands triggered in the `host-setup.sh` step as well as for uploading container images to the host (in the `build-images.sh` step) and deploying the project (in the `deploy-project.sh` step). The wireguard tunnel is also be used for admin access from the control node to various remote project components, so that admin interfaces do not need to be exposed on the open internet
 
 - [LXD](https://linuxcontainers.org/lxd/) is installed on the control node to support the build process for LXD container images (in the `build-images.sh` step) and provide the mechanism for uploading them to the host server. Snapd channel pinning is used to avoid unexpected upgrading in a running project
 
@@ -179,13 +179,15 @@ In detail, the following tasks are performed by the local-setup playbook:
 
 - [Terraform](https://www.terraform.io/) is installed on the control node to deploy the project to the host server
 
+- [Consul](https://www.consul.io/) is installed to support service discovery of project component administration interfaces after deployment
+
 {{< /more >}}
 
 ## Control node deletion
 
 {{< highlight "danger" "Warning!">}}
 
-After a project is deployed, the control node for the project is used to keep the project's applications up to date. Therefore, the control node may be shut down but **should not be deleted** until the project is no longer needed. It is recommended to back up the control node VM (see the relevant online documentation for the hypervisor technology you are using for the control node) at least after deployment or after updates to the deployed project.
+After a project is deployed, the control node for the project is used to keep the project's applications up to date. Therefore, the control node may be shut down but **should not be deleted** until all projects on a host server are no longer needed. It is recommended to back up the control node VM (see the relevant online documentation for the hypervisor technology you are using for the control node) at least after deployment or after updates to the deployed project.
 
 {{< /highlight >}}
 
