@@ -4,7 +4,7 @@ tags: [ "module", "host" ]
 draft: false
 ---
 
-A host server is needed to run the various containers making up a project deployment. A host server can host multiple projects, or a dedicated host server per project can be used.
+A host server is needed to run the various containers making up a project deployment. A single host server can host multiple projects, or a dedicated host server can be used per project.
 
 <!--more-->
 
@@ -25,6 +25,39 @@ A host server is usually a server or virtual private server (VPS) hosted by a ho
 
 A [rollyourown.xyz](https://rollyourown.xyz) host server is controlled from a [control node](/rollyourown/project_modules/control_node/) via a secure [wireguard](https://www.wireguard.com/) tunnel. Usually, no manual management of the host server is needed and the host server command line does not need to be accessed. However, users familiar with the Linux command line can log in to the server *from the control node*, for example for advanced diagnostics. A few useful commands can be found [here](/rollyourown/project_modules/control_node_advanced/).
 
+### Host server components
+
+The basic components of a host server are illustrated in the following diagram:
+
+![Host_Server](Host_Server.svg)
+
+On top of the base operating system, the [rollyourown.xyz](https://rollyourown.xyz) [automated host server setup script](#automated-host-server-setup) configures the server, installs basic packages and installs two key components for enabling a [rollyourown.xyz](https://rollyourown.xyz) project deployment:
+
+- [Consul](https://www.consul.io/) is installed to support service discovery and dynamic configuration of project components
+- [LXD](https://linuxcontainers.org/lxd/) is installed as container management system to launch and manage project components
+
+The project build and deployment scripts run on the control node can then build project container images, upload them to the host server, launch them and provide configuration via the Consul Key-Value store.
+
+{{< more "secondary">}}
+
+[Consul](https://www.consul.io/) is a [distributed service registry and key-value store](https://www.consul.io/docs/architecture) and includes a [service registry](https://www.consul.io/docs/discovery/services) and a [key-value store](https://www.consul.io/docs/dynamic-app-config/kv).
+
+A Consul agent is deployed on project containers and joins the Consul server in client mode. This enables, on the one hand, services on the container to be registered in the service registry and, on the other hand, for the service registry and KV-store to be queried.
+
+#### Service registry
+
+The Consul service registry provides a register of available and running services on the host server. As a new project container is deployed, a consul agent running in client mode on the container registers the presence of the service provided by the container with the Consul service registry, along with the container's IP address and the port on which the service is available. Other components can then discover the service (usually via DNS), without needing static configuration in advance of the hostname or IP address of the service.
+
+This feature is used, for example, by [HAProxy](/rollyourown/project_modules/ryo-service-proxy/#haproxy-and-certbot) to distribute traffic to backend servers and enables the [Service Proxy module](/rollyourown/project_modules/ryo-service-proxy) to be a generic module that can be used in any project.
+
+#### Key-value store
+
+The Consul key-value store provides a store of configuration data for services that can be provisioned at deploy-time. If a container is dynamically configured, then a consul-template agent running on the container retrieves key-values and generates the container service's configuration file(s). This can be done at boot or at a later stage, as the consul-template agent monitors for changes in the specified branches of the key-value tree.
+
+This feature is used, for example, by [Certbot](/rollyourown/project_modules/ryo-service-proxy/#haproxy-and-certbot) to dynamically load the configuration for certificates needed for a project and by [HAProxy](/rollyourown/project_modules/ryo-service-proxy/#haproxy-and-certbot) to load ACLs and backend configuration for a project's backend servers. A consul-template agent running on the [Service Proxy module](/rollyourown/project_modules/ryo-service-proxy) modifies the Haproxy and Cerbot configuration as project-specific services are added during project deployment.
+
+{{< /more >}}
+
 ## Repository links
 
 The [github](https://github.com/) mirror repository for the host server automation scripts is here: [https://github.com/rollyourown-xyz/ryo-host](https://github.com/rollyourown-xyz/ryo-host).
@@ -41,7 +74,9 @@ There are many, many hosting providers in different countries offering servers a
 
 We cannot provide any hostsing provider recommendations at this time, so if you don't already have a preferred hoster in your region, do an internet search for "VPS" and your country to find providers and compare prices.
 
-{{< highlight "warning" "External firewall">}}
+{{< highlight "warning" "Hosting provider specifics">}}
+
+#### External firewall
 
 Some hosting providers operate a firewall function in front of their VPS offerings. If this is the case, make sure that the necessary ports are opened before running the [rollyourown.xyz](https://rollyourown.xyz) automation scripts.
 
@@ -53,19 +88,23 @@ For communication between the control node and the host server, these are:
 
 TCP ports 2222 and 52222 are the default port numbers used by [rollyourown.xyz](https://rollyourown.xyz) projects. Change these if you have made manual changes in your configuration files.
 
-Additional ports (e.g. TCP ports 80 and 443 for HTTP/HTTPS) will need to be opened for the specific project you are deploying - see the project description for further details.
+Additional ports (e.g. TCP ports 80 and 443 for HTTP/HTTPS) will also need to be opened for the specific project you are deploying - see the project description for further details.
+
+#### Initial root user
+
+Some hosting providers require that a server's initial root password is changed on first login. This step will prevent the [rollyourown.xyz](https://rollyourown.xyz) [host setup script](#automated-host-server-setup) from executing. To avoid this, log in once to the server (via SSH or via the hosting provider's web-based console) and change the initial root password before running the [host setup script](#automated-host-server-setup).
 
 {{< /highlight >}}
 
 ### Your own server
+
+[Rollyourown.xyz](https://rollyourown.xyz) projects can run on a server hosted in your home or office. However, the server must be reachable via a public IP address.
 
 {{< highlight "danger" "Warning!">}}
 
 Unless you know what you are doing, it is **not recommended** to expose servers or computers in your home or office network on the open internet as this can open your network and computers to attack by various malicious actors. In an office environment, you may be violating company policy by doing so, even if you do find a way around the technical defenses put in place by your employer's IT department.
 
 {{< /highlight >}}
-
-[Rollyourown.xyz](https://rollyourown.xyz) projects can run on a server hosted in your home or office. However, the server must be reachable via a public IP address.
 
 {{< more "secondary">}}
 
@@ -79,7 +118,7 @@ If your internet connection does not have a public IP address (e.g. your provide
 
 ### Host server resources
 
-The "size" of the host server needed for [rollyourown.xyz](https://rollyourown.xyz) projects depends on a number of parameters:
+The "size" of the host server needed for a [rollyourown.xyz](https://rollyourown.xyz) project depends on a number of parameters:
 
 - The number of different projects you intend to deploy on the host server
 - The complexity of the project(s) you want to deploy - the project page should give you an idea of the minimum resources the project needs to run well
@@ -120,7 +159,7 @@ In detail, the following tasks are performed by the host-setup playbooks:
 
 - The SSH daemon is configured to change the internet-facing port, disallow root login and allow only the non-root user account to log in only via SSH public key authentication. If set in the host server's configuration file, [two-factor authetication (2FA)](https://en.wikipedia.org/wiki/Multi-factor_authentication) with [time-based one-time passwords (TOTP)](https://en.wikipedia.org/wiki/Multi-factor_authentication) is configured for access via the public internet. Login via the wireguard tunnel is excluded from 2FA so that automation scripts run on the control node can manage the host via the tunnel without manual intervention
 
-- The host server's firewall is configured to only open ports needed for [rollyourown.xyz](https://rollyourown.xyz) projects and enable NAT for outbound communication from [LXD containers](https://linuxcontainers.org/lxd/) deployed on the server
+- The host server's firewall is configured to allow communication between control node and host server with no other internet-facing ports opened. Ports required by a [rollyourown.xyz](https://rollyourown.xyz) project are opened if needed by the LXD container management agent during project deployment. Also, NAT is enabled for outbound communication from [LXD containers](https://linuxcontainers.org/lxd/) deployed on the server and DNS resolution via Consul is enabled
 
 - [LXD](https://linuxcontainers.org/lxd/) is installed and configured on the host server so that container images can be uploaded to the host server and launched by project automation scripts. Snapd channel pinning is used to avoid unexpected upgrading of LXD in a running project
 
@@ -129,6 +168,8 @@ In detail, the following tasks are performed by the host-setup playbooks:
 - Directories are created on the host so that project containers can be launched with mounted storage to enable component configuration and data to persist across container re-starts and replacements
 
 - To enable image uploading and and container management from the control node, the project host is configured as an [LXD remote server](https://linuxcontainers.org/lxd/advanced-guide/#remote-servers) for the control node, using [PKI-based TLS certificate authentication and authorization](https://linuxcontainers.org/lxd/docs/master/security#adding-a-remote-with-a-tls-client-in-a-pki-based-setup) and with the [control node as trusted TLS client](https://linuxcontainers.org/lxd/docs/master/security#managing-trusted-tls-clients)
+
+- Finally, [Consul](https://www.consul.io/) is installed on the host server and configured as a server in the host server "datacenter". In addition, the [Consul](https://www.consul.io/) servers on the host and on the control node are configured as federated remote datacenters
 
 For some projects, further project-specific host configuration may be performed by the projects automation scripts
 
