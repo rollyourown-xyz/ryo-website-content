@@ -17,6 +17,7 @@ In alphabetical order, the projects powering rollyourown.xyz are:
 | Ansible | Configuring our host servers and container images | [https://www.ansible.com/](https://www.ansible.com/) |
 | Bootstrap | CSS for the [rollyourown.xyz](https://rollyourown.xyz) website | [https://getbootstrap.com/](https://getbootstrap.com/) |
 | Certbot | Managing our Let's Encrypt certificates | [https://certbot.eff.org/](https://certbot.eff.org/) |
+| Consul | Providing service discovery and configuration for project component nodes | [https://www.consul.io/](https://www.consul.io/)
 | Coturn  | Enabling our voice/video calls and conferences | [https://github.com/coturn/coturn](https://github.com/coturn/coturn) |
 | Feather | Icons for the [rollyourown.xyz](https://rollyourown.xyz) website | [https://feathericons.com/](https://feathericons.com/) |
 | Galera Cluster | Clustering our MariaDB databases | [https://galeracluster.com/](https://galeracluster.com/) |
@@ -28,7 +29,7 @@ In alphabetical order, the projects powering rollyourown.xyz are:
 | jQuery | Javascript library used by the bootstrap framework | [https://jquery.com/](https://jquery.com/) |
 | Keycloak | Identity management and SSO | [https://www.keycloak.org/](https://www.keycloak.org/) |
 | Let's Encrypt | SSL/TLS certificates for our websites | [https://letsencrypt.org/](https://letsencrypt.org/) |
-| LXD | Deploying system containers to our servers | [https://linuxcontainers.org/lxd/](https://linuxcontainers.org/lxd/) |
+| LXD/LXC | Deploying system containers to our servers | [https://linuxcontainers.org/lxd/](https://linuxcontainers.org/lxd/) |
 | MariaDB | The database behind various services | [https://mariadb.org/](https://mariadb.org/) |
 | Matrix | Chatrooms and messaging for our team and collaborators | [https://matrix.org/](https://matrix.org/) |
 | nginx | Web server for various websites and services | [https://nginx.org/](https://nginx.org/) |
