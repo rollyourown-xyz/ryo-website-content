@@ -30,7 +30,7 @@ The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is h
 
 ## Dependencies
 
-This module depends on the [rollyourown.xyz](https://rollyourown.xyz) [Service Proxy](/rollyourown/project_modules/service_proxy/) module to provide dynamic configuration for coturn via the [Consul](https://www.consul.io/) [key-value store](https://www.consul.io/docs/dynamic-app-config/kv) and certificate management by [Certbot](https://certbot.eff.org/).
+This module depends on the [rollyourown.xyz](https://rollyourown.xyz) [Service Proxy](/rollyourown/project_modules/service_proxy/) module to provide certificate management by [Certbot](https://certbot.eff.org/).
 
 ## Module components
 
@@ -44,7 +44,7 @@ The STUN/TURN Server module contains three applications, together providing a dy
 
 Coturn is and open source [STUN](https://en.wikipedia.org/wiki/STUN) and [TURN](https://en.wikipedia.org/wiki/Traversal_Using_Relays_around_NAT) server enabling [NAT traversal](https://en.wikipedia.org/wiki/NAT_traversal) for peer-to-peer communications.
 
-Coturn's configuration is dynamically configured based on Key-Values retrieved from the [Consul application deployed by the Service Proxy module](/rollyourown/project_modules/service_proxy/#consul). For TLS-encrypted connections, Coturn uses certificates obtained by the [Certbot application deployed by the Service Proxy module](/rollyourown/project_modules/service_proxy/#haproxy-and-certbot).
+Coturn's configuration is dynamically configured based on Key-Values retrieved from the [Consul server deployed on the host](/rollyourown/project_modules/ryo-host/#host-server-components). For TLS-encrypted connections, Coturn uses certificates obtained by the [Certbot application deployed by the Service Proxy module](/rollyourown/project_modules/service_proxy/#haproxy-and-certbot).
 
 ### Consul
 
@@ -52,7 +52,7 @@ A [Consul](https://www.consul.io/) agent is deployed on the Coturn module and jo
 
 ### Consul-Template
 
-On container start, the [Consul-Template](https://github.com/hashicorp/consul-template/) application obtains service configuration information from the [consul key-value store](/rollyourown/project_modules/service_proxy/#key-value-store) and uses it to populate configuration files for Coturn. In addition, Consul-Template listens for changes to the configuration key-values and updates configuration files on-the-fly, reloading [coturn](#coturn) when configuration has changed.
+On container start, the [Consul-Template](https://github.com/hashicorp/consul-template/) application obtains service configuration information from the [consul key-value store](/rollyourown/project_modules/ryo-host/#host-server-components) and uses it to populate configuration files for Coturn. In addition, Consul-Template listens for changes to the configuration key-values and updates configuration files on-the-fly, reloading [coturn](#coturn) when configuration has changed.
 
 ## How to deploy this module in a project
 
@@ -192,19 +192,12 @@ Then the variable `coturn_static_auth_secret` is availabe in ansible roles for t
 
 To configure the STUN/TURN Server module, configuration parameters for the Coturn configuration file need to be provisioned to the Consul key-value store on component deployment.
 
-To make the consul container's IP address available within the project's terraform code, add a `terraform_remote_state` data source for the Service Proxy module to the project's Terraform variables and a local variable for the consul container's IP address:
+To make the consul server's IP address available within the project's terraform code, add a Terraform variable for the consul server's IP address:
 
 ```tf
-# Variables from ryo-service-proxy module remote state
-data "terraform_remote_state" "ryo-service-proxy" {
-  backend = "local"
-  config = {
-    path = join("", ["${abspath(path.root)}/../../ryo-service-proxy/module-deployment/terraform.tfstate.d/", var.host_id, "/terraform.tfstate"])
-  }
-}
-
+# Consul variables
 locals {
-  consul_ip_address  = data.terraform_remote_state.ryo-service-proxy.outputs.consul_ip_address
+  consul_ip_address  = join("", [ local.lxd_host_network_part, ".1" ])
 }
 ```
 
