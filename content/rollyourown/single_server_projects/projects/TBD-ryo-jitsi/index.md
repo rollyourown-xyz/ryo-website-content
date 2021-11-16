@@ -33,7 +33,7 @@ Components **not** installed by this project are:
 In additiona to the components of the jitsi video conferencing system, the project deploys the [rollyourown.xyz coturn module](/rollyourown/project_modules/turn_server/) to enable [NAT traversal](https://en.wikipedia.org/wiki/NAT_traversal) for conference participants and the [rollyourown.xyz service proxy module](/rollyourown/project_modules/service_proxy/) to provide TLS termination and certificate management.
 
 {{< highlight "info" "Control machine">}}
-A terminal-based [control machine](/rollyourown/tech_building_blocks/control_machine/) is sufficient for this project, as the jitsi conferencing server is configurable only via command line.
+A [control machine](/rollyourown/tech_building_blocks/control_machine/) without a graphical desktop UI is sufficient for this project, as the jitsi conferencing server is configurable only via command line.
 {{< /highlight >}}
 
 ## Repository links
@@ -50,7 +50,7 @@ The components deployed in this project are shown in the following diagram:
 
 ### Host server
 
-The host server is configured to run [LXD containers](https://linuxcontainers.org/lxd/) and is controlled from your control machine via a [wireguard](https://www.wireguard.com/) tunnel. Each container deployed performs a specific task in the installation.
+The [host server](/rollyourown/project_modules/ryo-host/) is configured to run [LXD containers](https://linuxcontainers.org/lxd/) and a [Consul server](https://www.consul.io/) and is controlled from your control machine via a [wireguard](https://www.wireguard.com/) tunnel. Each container deployed performs a specific task in the installation.
 
 Further details about the host server building block can be found [here](/rollyourown/tech_building_blocks/host_server/).
 
@@ -65,10 +65,6 @@ The coturn container hosts an [coturn](https://github.com/coturn/coturn/) TURN s
 #### Loadbalancer / TLS proxy container
 
 The loadbalancer / TLS proxy container terminates HTTP and HTTPS connections and distributes traffic to other containers. This component is provided by the [rollyourown.xyz](https://rollyourown.xyz) Service Proxy module and is a key building block for rollyourown.xyz projects. Further details can be found [here](/rollyourown/project_modules/service_proxy/).
-
-#### Consul container
-
-The consul container provides a service registry for loadbalancer / TLS proxy backends and a key-value store for configuration of other containers. The Consul container is provided by the [rollyourown.xyz](https://rollyourown.xyz) Service Proxy module and is a key building block for rollyourown.xyz projects. Further details can be found [here](rollyourown/project_modules/service_proxy/).
 
 #### Jitsi server container
 
