@@ -20,9 +20,7 @@ The MariaDB Database module is a re-usable module for other [rollyourown.xyz](ht
 
 ## Introduction
 
-This module deploys a [MariaDB](https://mariadb.org/) relational database system.
-
-[MariaDB](https://mariadb.org/) is an open source, MySQL-compatible relational database system.
+This module deploys [MariaDB](https://mariadb.org/). [MariaDB](https://mariadb.org/) is an open source, MySQL-compatible relational database system.
 
 ## Repository links
 
@@ -32,7 +30,7 @@ The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is h
 
 ## Dependencies
 
-This module depends on the [rollyourown.xyz](https://rollyourown.xyz) [Service Proxy](/rollyourown/project_modules/service_proxy/) module to provide service discovery for database clients.
+This module has no dependencies.
 
 ## Module components
 
@@ -54,17 +52,9 @@ A Consul agent is deployed on the MariaDB database module and joins the Consul c
 
 The [repository for this module](https://github.com/rollyourown-xyz/ryo-mariadb) contains a number of resources for including the module in a [rollyourown.xyz](https://rollyourown.xyz) project. The steps for including the module are:
 
-1. Add the MariaDB Database module as well as the [Service Proxy module](/rollyourown/project_modules/service_proxy/) dependency to the `get-modules.sh` script in the project:
+1. Add the MariaDB Database module to the `get-modules.sh` script in the project:
 
     ```bash
-    ## Service proxy module
-    if [ -d "../ryo-service-proxy" ]
-    then
-       echo "Module ryo-service-proxy already cloned to this control node"
-    else
-       echo "Cloning ryo-service-proxy repository. Executing 'git clone' for ryo-service-proxy repository"
-       git clone https://github.com/rollyourown-xyz/ryo-service-proxy ../ryo-service-proxy
-    fi
     ## MariaDB Database module
     if [ -d "../ryo-mariadb" ]
     then
@@ -75,19 +65,9 @@ The [repository for this module](https://github.com/rollyourown-xyz/ryo-mariadb)
     fi
     ```
 
-2. Add the MariaDB Database module as well as the [Service Proxy module](/rollyourown/project_modules/service_proxy/) dependency to the project's `host-setup.sh` script:
+2. Add the MariaDB Database module to the project's `host-setup.sh` script:
 
     ```bash
-    ## Module-specific host setup for ryo-service-proxy
-    if [ -f ""$SCRIPT_DIR"/../ryo-service-proxy/configuration/"$hostname"_playbooks_executed" ]
-    then
-       echo "Host setup for ryo-service-proxy module has already been done on "$hostname""
-       echo ""
-    else
-       echo "Running module-specific host setup script for ryo-service-proxy on "$hostname""
-       echo ""
-       "$SCRIPT_DIR"/../ryo-service-proxy/host-setup.sh -n "$hostname"
-    fi
     ## Module-specific host setup for ryo-mariadb
     if [ -f ""$SCRIPT_DIR"/../ryo-mariadb/configuration/"$hostname"_playbooks_executed" ]
     then
@@ -100,19 +80,9 @@ The [repository for this module](https://github.com/rollyourown-xyz/ryo-mariadb)
     fi
     ```
 
-3. Add the MariaDB Database module as well as the [Service Proxy module](/rollyourown/project_modules/service_proxy/) dependency to the project's `build-images.sh` script:
+3. Add the MariaDB Database module to the project's `build-images.sh` script:
 
     ```bash
-    # Build Service Proxy module images if -m flag is present
-    if [ $build_modules == 'true' ]
-    then
-       echo "Running build-images script for ryo-service-proxy module on "$hostname""
-       echo ""
-       "$SCRIPT_DIR"/../ryo-service-proxy/build-images.sh -n "$hostname" -v "$version"
-    else
-       echo "Skipping image build for the Service Proxy module"
-       echo ""
-    fi
     # Build MariaDB Database module images if -m flag is present
     if [ $build_modules == 'true' ]
     then
@@ -125,20 +95,9 @@ The [repository for this module](https://github.com/rollyourown-xyz/ryo-mariadb)
     fi
     ```
 
-4. Add the MariaDB Database module as well as the [Service Proxy module](/rollyourown/project_modules/service_proxy/) dependency to the `deploy-project.sh` script in the project (with the Service Proxy module **before** the MariaDB Database module):
+4. Add the MariaDB Database module to the `deploy-project.sh` script in the project:
 
     ```bash
-    # Deploy Service Proxy module if -m flag is present
-    if [ $deploy_modules == 'true' ]
-    then
-       echo "Deploying ryo-service-proxy module on "$hostname" using images with version "$version""
-       echo ""
-       "$SCRIPT_DIR"/../ryo-service-proxy/deploy-module.sh -n "$hostname" -v "$version"
-       echo ""
-    else
-       echo "Skipping Service Proxy module deployment"
-       echo ""
-    fi
     # Deploy MariaDB Database module if -m flag is present
     if [ $deploy_modules == 'true' ]
     then
