@@ -27,7 +27,7 @@ This project deploys a [Grav](https://getgrav.org) flat-file content management 
 [Grav](https://getgrav.org) is an open source flat-file content management system (CMS), based on PHP, that uses only files and folders and no database for managing content. Grav provides a fast, more lightweight alternative to database-driven CMSs like [Wordpress](https://wordpress.org/) or [Drupal](https://www.drupal.org/), especially for simpler websites and blogs. Content can either be written directly in [Markdown](https://daringfireball.net/projects/markdown/) format and uploaded to the web server or via Grav's [web-based editor](https://learn.getgrav.org/17/admin-panel/page/editor).
 
 {{< highlight "info" "Control machine">}}
-A terminal-based [control machine](/rollyourown/tech_building_blocks/control_machine/) is sufficient for this project, as the Grav admin interface is reachable via the public internet.
+A [control machine](/rollyourown/tech_building_blocks/control_machine/) without a graphical desktop UI is sufficient for this project, as the Grav admin interface is reachable via the public internet.
 {{< /highlight >}}
 
 ## Repository links
@@ -48,7 +48,7 @@ The components deployed in this project are shown in the following diagram:
 
 ### Host server
 
-The host server is configured to run [LXD containers](https://linuxcontainers.org/lxd/) and is controlled from your control machine via a [wireguard](https://www.wireguard.com/) tunnel. Each container deployed performs a specific task in the installation.
+The [host server](/rollyourown/project_modules/ryo-host/) is controlled from your control machine via a [wireguard](https://www.wireguard.com/) tunnel and is configured to run a [Consul server](https://www.consul.io/) and the [LXD container runtime](https://linuxcontainers.org/lxd/). Each container deployed performs a specific task in the installation.
 
 Further details about the host server building block can be found [here](/rollyourown/project_modules/host_server/).
 
@@ -59,10 +59,6 @@ The project installation consists of a number of containers deployed on the host
 #### Loadbalancer / TLS proxy container
 
 The loadbalancer / TLS proxy container terminates HTTP and HTTPS connections and distributes traffic to other containers. This component is provided by the [rollyourown.xyz](https://rollyourown.xyz) Service Proxy module and is a key building block for rollyourown.xyz projects. Further details can be found [here](/rollyourown/project_modules/service_proxy/).
-
-#### Consul container
-
-The consul container provides a service registry for loadbalancer / TLS proxy backends and a key-value store for its configuration. The Consul container is provided by the [rollyourown.xyz](https://rollyourown.xyz) Service Proxy module and is a key building block for rollyourown.xyz projects. Further details can be found [here](rollyourown/project_modules/service_proxy/).
 
 #### Webserver container
 
@@ -113,8 +109,8 @@ The open source components used in this project are:
 | Project | What is it? | Homepage | License |
 | :------ | :---------- | :------- | :------ |
 | Certbot | Open source [letsencrypt](https://letsencrypt.org/) certificate manager, deployed by the [Service Proxy module](/rollyourown/project_modules/service_proxy/) | [https://certbot.eff.org/](https://certbot.eff.org/) | [Apache 2.0](https://raw.githubusercontent.com/certbot/certbot/master/LICENSE.txt) |
-| Consul | Open source service registry and key-value store, deployed by the [Service Proxy module](/rollyourown/project_modules/service_proxy/) | [https://www.consul.io/](https://www.consul.io/) | [Mozilla Public License 2.0](https://github.com/hashicorp/consul/blob/master/LICENSE) |
-| Consul-Template | Tool to create dynamic configuration files based on Consul Key-Value store or service registry queries, deployed by the [Service Proxy module](/rollyourown/project_modules/service_proxy/) | [https://github.com/hashicorp/consul-template/](https://github.com/hashicorp/consul-template/) | [Mozilla Public License 2.0](https://github.com/hashicorp/consul-template/blob/master/LICENSE) |
+| Consul | Open source service registry and key-value store | [https://www.consul.io/](https://www.consul.io/) | [Mozilla Public License 2.0](https://github.com/hashicorp/consul/blob/master/LICENSE) |
+| Consul-Template | Tool to create dynamic configuration files based on Consul Key-Value store or service registry queries | [https://github.com/hashicorp/consul-template/](https://github.com/hashicorp/consul-template/) | [Mozilla Public License 2.0](https://github.com/hashicorp/consul-template/blob/master/LICENSE) |
 | Grav | Open source flat-file CMS | [https://getgrav.org/](https://getgrav.org/) | [MIT](https://github.com/getgrav/grav/blob/develop/LICENSE.txt) |
 | HAProxy | Open source load balancer, TCP and HTTP proxy, deployed by the [Service Proxy module](/rollyourown/project_modules/service_proxy/) | [https://www.haproxy.org/](https://www.haproxy.org/) | [GPL/LGPL](https://github.com/haproxy/haproxy/blob/master/LICENSE) |
 | nginx | Open source webserver for the [Grav](https://getgrav.org/) installation | [https://nginx.org/](https://nginx.org/) | [2-clause BSD license](http://nginx.org/LICENSE) |
