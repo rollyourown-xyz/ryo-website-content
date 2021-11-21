@@ -127,30 +127,21 @@ The [repository for this module](https://github.com/rollyourown-xyz/ryo-service-
 
 ## How to use this module in a project
 
-Examples for using the Service Proxy module in a project are provided in the [rollyourown.xyz](https://rollyourown.xyz) [project template repository](https://github.com/rollyourown-xyz/ryo-project-template). Configuration of [HAProxy](https://www.haproxy.org/) and [Certbot](https://certbot.eff.org/) is done by provisioning Consul key-values during project deployment. The Service Proxy module repository includes terraform modules for provisioning configuration to the Consul key-value store in the correct key-value structure for use by HAProxy and Certbot.
+A project component using [HAProxy](https://www.haproxy.org/) for TLS termination must register with the Consul server running on the host so that HAProxy can resolve the IP address of the container providing the component and direct traffic to it.
 
-{{< more "secondary">}}
-
-The modules use the official terraform [consul provider](https://registry.terraform.io/providers/hashicorp/consul/) to provision key-values to the Consul container.
-
-Certbot configuration is provisioned to key-value store in the `/service/certbot/` folder.
-
-HAProxy configuration is provisioned to the key-value store in multiple folders:
-
-- HAProxy backend services are provisioned to the key-value folder `service/haproxy/backends/ssl/` if the backend service is listening on an HTTPS port
-- HAProxy backend services are provisioned to the key-value folder `service/haproxy/backends/no-ssl/` if the backend service is listening on a plain HTTP port
-- HAProxy TCP Listeners are provisioned to the key-value folder `service/haproxy/tcp-listeners/`
-- HAProxy ACLs are provisioned to the key-value folder `service/haproxy/acl/<ACL name>/`
-- HAProxy HTTP deny rules are provisioned to the key-value folder `service/haproxy/deny/`
-- HAProxy use-backend rules are provisioned to the key-value folder `service/haproxy/use-backend/`
-
-{{< /more >}}
+Furthermore, [Certbot](https://certbot.eff.org/) needs to be configured to obtain Letsencrypt certificates.
 
 ### Image configuration
 
-Ansible roles for installing and setting up a consul agent to register project components with the Consul service registry is provided in the `image-build/playbooks/roles/install-consul` and `image-build/playbooks/roles/set-up-consul` directories in the [ryo-project-template repository](https://github.com/rollyourown-xyz/ryo-service-proxy). These do not need to be modified.
+The [ryo-project-template repository](https://github.com/rollyourown-xyz/ryo-service-proxy) includes Ansible roles for deploying and configuring the Consul agent and configuring the project component to register with the Consul server:
 
-In the `image-build/playbooks/roles/set-up-TEMPLATE` directory, the file `templates/TEMPLATE-service.hcl.j2` provides an example of a component-specific consul service configuration to register the specific component with the service registry:
+- The role `install-consul` installs the consul agent
+- The role `set-up-consul` configures the consul agent to join the Consul server running on the host and enable local application name resolution via Consul
+- The role `set-up-TEMPLATE` contains a template service defintion `TEMPLATE-service.hcl` for configuring the service name for registering in the Consul service registry
+
+The `install-consul` and `set-up-consul` roles do not need to be modified.
+
+The template configuration file `TEMPLATE-service.hcl.j2` provides an example of a component-specific consul service configuration to register the specific component with the service registry:
 
 ```hcl
 ## Modify for this component's purpose
@@ -162,13 +153,30 @@ services {
 }
 ```
 
-The service name is then used for providing HAProxy backend configuration via the consul key-value store.
+This must be modified and copied to the directory `/etc/consul.d/` during component provisioning. An Ansible task for copying this file is, for example:
+
+```yaml
+- name: Copy TEMPLATE-service consul service configuration file
+  copy:
+    mode: 0640
+    owner: consul
+    group: consul
+    dest: /etc/consul.d/TEMPLATE-service.hcl
+    src: TEMPLATE-service.hcl
+    force: yes
+```
+
+The service name is then used during the project deployment step to provide HAProxy backend configuration via the consul key-value store.
 
 ### General deployment configuration
 
-To configure the Service Proxy module's HAProxy loadbalancer to direct traffic to a project-specific component, configuration parameters for the HAProxy configuration file need to be provisioned to the Consul key-value store on component deployment.
+Configuration of [HAProxy](https://www.haproxy.org/) and [Certbot](https://certbot.eff.org/) is done during the project deployment step by provisioning Consul key-values.
 
-To make the consul server's IP address available within the project's terraform code, add a Terraform variable for the consul server's IP address:
+#### Terraform configuration for provisioning Consul key-values
+
+During a rollyourown.xyz project deployment, the official terraform [consul provider](https://registry.terraform.io/providers/hashicorp/consul/) is used to provision key-value configuration for HAProxy and Certbot to the Consul server running on the host.
+
+To enable this, the consul server's IP address must be made available within the project's terraform code. This is done by adding a Terraform variable for the consul server's IP address on the host:
 
 ```tf
 # Consul variables
@@ -177,7 +185,7 @@ locals {
 }
 ```
 
-The terraform consul provider is added to the project's terraform configuration:
+Then the terraform consul provider is added to the project's terraform configuration:
 
 ```tf
 terraform {
@@ -193,9 +201,11 @@ terraform {
     }
   }
 }
+```
 
-...
+Finally, the IP address variable is used to configure the provider:
 
+```tf
 provider "consul" {
   address    = join("", [ local.consul_ip_address, ":8500" ])
   scheme     = "http"
@@ -203,9 +213,28 @@ provider "consul" {
 }
 ```
 
-### Certbot-related configuration
+#### Terraform modules for provisioning Consul key-values
+
+The Service Proxy module repository includes terraform modules for provisioning the necessary configuration to the Consul key-value store in the correct key-value structure for use by HAProxy and Certbot.
+
+{{< more "secondary">}}
 
 Certbot configuration is provisioned to key-value store in the `/service/certbot/` folder.
+
+HAProxy configuration is provisioned to the key-value store in multiple folders:
+
+- HAProxy backend services are provisioned to the key-value folder `service/haproxy/backends/ssl/` if the backend service is listening on an HTTPS port
+- HAProxy backend services are provisioned to the key-value folder `service/haproxy/backends/no-ssl/` if the backend service is listening on a plain HTTP port
+- HAProxy TCP Listeners are provisioned to the key-value folder `service/haproxy/tcp-listeners/`
+- HAProxy ACLs are provisioned to the key-value folder `service/haproxy/acl/<ACL name>/`
+- HAProxy HTTP deny rules are provisioned to the key-value folder `service/haproxy/deny/`
+- HAProxy use-backend rules are provisioned to the key-value folder `service/haproxy/use-backend/`
+
+{{< /more >}}
+
+#### Certbot-related configuration
+
+Certbot configuration is provisioned to the Consul key-value store in the `/service/certbot/` folder.
 
 {{< more "secondary">}}
 Each key-value pair is of the form `<key,value>` where:
@@ -243,18 +272,19 @@ module "deploy-<PROJECT_ID>-cert-domains" {
 
   certificate_domains = {
     domain_1 = {domain = local.project_domain_name, admin_email = local.project_admin_email},
-    domain_2 = {domain = join("", [ "www.", local.project_domain_name]), admin_email = local.project_admin_email}
+    domain_2 = {domain = join("", [ "www.", local.project_domain_name]), admin_email = local.project_admin_email},
+    domain_3 = {domain = join("", [ "auth.", local.project_domain_name]), admin_email = local.project_admin_email}
   }
 }
 ```
 
-### HAProxy-related configuration
+#### HAProxy-related configuration
 
-HAproxy configuration is provisioned to key-value store in various folders.
+HAproxy configuration is provisioned to the Consul key-value store in various folders.
 
-#### HAProxy TCP listeners
+##### HAProxy TCP listeners
 
-The `deploy-haproxy-configuration` terraform module can be used to deploy key-values to Consul for configuring TCP listeners.
+The terraform module `deploy-haproxy-configuration` can be used to deploy key-values to Consul for configuring TCP listeners.
 
 {{< more "secondary">}}
 
@@ -295,9 +325,9 @@ module "deploy-<PROJECT_ID>-haproxy-tcp-listener-configuration" {
 }
 ```
 
-#### Backend services
+##### Backend services
 
-Using the `deploy-haproxy-backend-services` terraform module, the key-values for HAProxy backend service configuration can be deployed to the Consul key-value store.
+Using the terraform module `deploy-haproxy-backend-services`, the key-values for HAProxy backend service configuration can be deployed to the Consul key-value store.
 
 {{< more "secondary">}}
 
@@ -328,8 +358,6 @@ backend {{.Key}}
 
 {{< /more >}}
 
-HAProxy backend service configuration can be deployed to the consul key-value store using the ryo-service-proxy terraform `deploy-haproxy-backend-services` module, for example:
-
 For example, a backend service can be deployed with the following code:
 
 ```tf
@@ -340,9 +368,9 @@ module "deploy-<PROJECT_ID>-haproxy-backend-service" {
 }
 ```
 
-#### HAProxy ACLs
+##### HAProxy ACLs
 
-The `deploy-haproxy-configuration` terraform module can be used to deploy key-values to Consul for configuring HAProxy ACLs.
+The terraform module `deploy-haproxy-configuration` can be used to deploy key-values to Consul for configuring HAProxy ACLs.
 
 {{< more "secondary">}}
 
@@ -374,9 +402,9 @@ module "deploy-<PROJECT_ID>-haproxy-acl-configuration" {
   }
 ```
 
-#### HAProxy HTTP deny rules
+##### HAProxy HTTP deny rules
 
-The `deploy-haproxy-configuration` terraform module can be used to deploy key-values to Consul for configuring HTTP deny rules.
+The terraform module `deploy-haproxy-configuration` can be used to deploy key-values to Consul for configuring HTTP deny rules.
 
 {{< more "secondary">}}
 
@@ -419,9 +447,9 @@ module "deploy-<PROJECT_ID>-haproxy-http-deny-configuration" {
 }
 ```
 
-#### HAProxy `use-backed` rules
+##### HAProxy 'use-backed' rules
 
-The `deploy-haproxy-configuration` terraform module can be used to deploy key-values to Consul for configuring HAProxy `use-backend` rules.
+The terraform module `deploy-haproxy-configuration` can be used to deploy key-values to Consul for configuring HAProxy `use-backend` rules.
 
 {{< more "secondary">}}
 
