@@ -117,7 +117,7 @@ A project component needing a MySQL database needs to be configured to discover 
 
 To connect to the MariaDB database server, an application needs to be able to communicate with the server.  The database server is registered in the Consul service registry with the name `mariadb` and the (dynamic, private) IP address of the server is available to the connecting application via the DNS name `mariadb.service.ryo` via a Consul agent deployed with the application.
 
-The [ryo-project-template repository](https://github.com/rollyourown-xyz/ryo-service-proxy) includes Ansible roles for deploying and configuring the Consul agent:
+The [ryo-project-template repository](https://github.com/rollyourown-xyz/ryo-project-template) includes Ansible roles for deploying and configuring the Consul agent:
 
 - The role `install-consul` installs the consul agent
 - The role `set-up-consul` configures the consul agent to join the Consul server running on the host and enable local application name resolution via Consul
@@ -142,7 +142,7 @@ $AUTOCONFIG = array (
 
 ### General deployment configuration
 
-Configuration of mariadb databases and database users is done during the project development step.
+Configuration of mariadb databases and database users is done during the project deployment step.
 
 #### Terraform configuration for provisioning MariaDB
 
