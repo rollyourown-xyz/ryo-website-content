@@ -13,6 +13,7 @@ A host server is needed to run the various containers making up a project deploy
 {{< highlight "primary" "ToDo">}}
 
 - [ ] Add links in the text
+- [ ] Move "Using Consul in a project" section to a separate developers' page
 
 {{< /highlight >}}
 
@@ -227,3 +228,122 @@ After setting up the host server, you are now ready to [deploy a rollyourown.xyz
 After setting up a [control node](rollyourown/project_modules/control_node/) and [host server](rollyourown/project_modules/host_server/), you now have a permanent, secure connection from the control node to the host server via a wireguard tunnel. Users familiar with the Linux command line can log in to the server for advanced diagnostics. A few useful commands can be found [here](/rollyourown/project_modules/host_server_advanced/).
 
 {{< /highlight >}}
+
+## Using Consul in a project
+
+**Move this section to a separate page**
+
+The [Consul](https://www.consul.io/) server deployed to the host server is a general enabler for rollyourown.xyz module and project components to discover other components via the Consul [service registry](https://www.consul.io/docs/discovery/services) and to be configured via the Consul [key-value store](https://www.consul.io/docs/dynamic-app-config/kv).
+
+### Component discovery
+
+To make any component's service discoverable in the Consul service registry, the component must be registered with the Consul server (usually when the component is started).
+
+Ansible roles for installing and setting up a consul agent to register project components with the Consul service registry are provided in the `image-build/playbooks/roles/install-consul` and `image-build/playbooks/roles/set-up-consul` directories in the [ryo-project-template repository](https://github.com/rollyourown-xyz/ryo-service-proxy). These do not need to be modified.
+
+In the `image-build/playbooks/roles/set-up-TEMPLATE` directory, the file `templates/TEMPLATE-service.hcl.j2` provides an example of a component-specific consul service configuration for registering the specific component with the service registry:
+
+```hcl
+## Modify for this component's purpose
+
+services {
+  name = "TEMPLATE"
+  tags = [ "TEMPLATE" ]
+  port = SERVICE_PORT
+}
+```
+
+The service's `name` is then used by other components to resolve the component's IP address via DNS and avoid managing static IP address configurations across different modules and projects. The DNS name of a service `name` is `name.service.ryo`.
+
+{{< more "secondary" "Example">}}
+
+As an example, the [ryo-mariadb](https://github.com/rollyourown-xyz/ryo-mariadb) relational database module registers the [`mariadb`](https://mariadb.org/) database service in the Consul service registry with the template:
+
+```hcl
+service {
+  name = "mariadb"
+  tags = [ "database" ]
+  port = 3306
+}
+```
+
+This then allows the database configuration for the [`nextcloud`](https://nextcloud.com/) service component in the [ryo-nextcloud-standalone](https://github.com/rollyourown-xyz/ryo-nextcloud-standalone) project to use the DNS name `mariadb.service.ryo` in the nextcloud configuration file:
+
+```php
+<?php
+$AUTOCONFIG = array (
+  "dbtype"        => "mysql",
+  "dbname"        => "nextcloud",
+  "dbhost"        => "mariadb.service.ryo:3306",
+  ...
+);
+```
+
+The `nextcloud` service component itself registers with the Consul service registry with the template:
+
+```hcl
+services {
+  name = "nextcloud"
+  tags = [ "webserver", "nextcloud" ]
+  port = 80
+}
+```
+
+This then enables the [ryo-service-proxy](https://github.com/rollyourown-xyz/ryo-service-proxy) module [HAProxy](https://www.haproxy.org/) component to be configured to [use DNS for service discovery](https://www.haproxy.com/blog/dns-service-discovery-haproxy/) to distribute incoming traffic to the nextcloud component backend server. This results in the HAProxy backend configuration:
+
+```cfg
+backend nextcloud
+   redirect scheme https if !{ ssl_fc }
+   http-request set-header X-SSL %[ssl_fc]
+   balance roundrobin
+   server-template nextcloud 1 _nextcloud._tcp.service.ryo resolvers consul resolve-prefer ipv4 init-addr none check
+```
+
+(Note: this HAProxy backend configuration is generated automatically by [consul-template](https://github.com/hashicorp/consul-template/), based on key-values provisioned to the Consul key-value store during project deployment.)
+
+{{< /more >}}
+
+### Component configuration
+
+Rollyourown.xyz modules use [consul-template](https://github.com/hashicorp/consul-template/) to read configuration parameters from the Consul [key-value store](https://www.consul.io/docs/dynamic-app-config/kv) and use these to generate service configuration files during component startup or to dynamically re-configure components during project deployments.
+
+For this to work, configuration key-values must be provisioned to the key-value store in a particular folder structure (as expected by the configuration of consul-template for the specific module). Any rollyourown.xyz module supporting dynamic configuration provides a [terraform helper module](https://www.terraform.io/docs/language/modules/) to enable this configuration to be done during project deployment.
+
+(AN EXAMPLE HERE...)
+
+To enable consul key-value configuration in rollyourown.xyz project deployment, the consul server's IP address must be made available within the project's terraform code. This is done by adding a Terraform variable for the consul server's IP address:
+
+```tf
+# Consul variables
+locals {
+  consul_ip_address  = join("", [ local.lxd_host_network_part, ".1" ])
+}
+```
+
+Then the terraform consul provider is added to the project's terraform configuration:
+
+```tf
+terraform {
+  required_version = ">= 0.14"
+  required_providers {
+    lxd = {
+      source  = "terraform-lxd/lxd"
+      version = "~> 1.5.0"
+    }
+    consul = {
+      source = "hashicorp/consul"
+      version = "~> 2.12.0"
+    }
+  }
+}
+```
+
+and the IP address variable is used to configure the provider:
+
+```tf
+provider "consul" {
+  address    = join("", [ local.consul_ip_address, ":8500" ])
+  scheme     = "http"
+  datacenter = var.host_id
+}
+```
