@@ -1,5 +1,5 @@
 ---
-title: "Host server - Advanced"
+title: "Host Server - Advanced"
 tags: [ "module", "host" ]
 draft: true
 ---
