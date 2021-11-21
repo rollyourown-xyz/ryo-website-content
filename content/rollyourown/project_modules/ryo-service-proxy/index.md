@@ -271,9 +271,9 @@ module "deploy-<PROJECT_ID>-cert-domains" {
   source = "../../ryo-service-proxy/module-deployment/modules/deploy-cert-domains"
 
   certificate_domains = {
-    domain_1 = {domain = local.project_domain_name, admin_email = local.project_admin_email},
-    domain_2 = {domain = join("", [ "www.", local.project_domain_name]), admin_email = local.project_admin_email},
-    domain_3 = {domain = join("", [ "auth.", local.project_domain_name]), admin_email = local.project_admin_email}
+    domain_1 = {domain = "example.com", admin_email = "admin@example.com"},
+    domain_2 = {domain = "www.example.com", admin_email = "admin@example.com"},
+    domain_3 = {domain = "auth.example.com", admin_email = "admin@example.com"}
   }
 }
 ```
@@ -312,15 +312,14 @@ listen tcp_{{.Key}}
 
 {{< /more >}}
 
-For example, TCP listeners can be deployed with the following code:
+For example, a TCP listener for a [Gitea server](/rollyourown/projects/single_server_projects/ryo-gitea/) can be deployed with the following code:
 
 ```tf
-module "deploy-<PROJECT_ID>-haproxy-tcp-listener-configuration" {
+module "deploy-gitea-ssh-haproxy-tcp-listener-configuration" {
   source = "../../ryo-service-proxy/module-deployment/modules/deploy-haproxy-configuration"
 
   haproxy_tcp_listeners = {
-    22   = {service = "<COMPONENT_NAME>"},
-    3022 = {service = "<COMPONENT_NAME>"}
+    3022 = {service = "gitea-ssh"}
   }
 }
 ```
@@ -358,13 +357,13 @@ backend {{.Key}}
 
 {{< /more >}}
 
-For example, a backend service can be deployed with the following code:
+For example, a backend service for a [Matrix server](/rollyourown/projects/single_server_projects/ryo-matrix/) can be deployed with the following code:
 
 ```tf
-module "deploy-<PROJECT_ID>-haproxy-backend-service" {
+module "deploy-synapse-backend-service" {
   source = "../../ryo-service-proxy/module-deployment/modules/deploy-haproxy-backend-services"
-
-  non_ssl_backend_services = [ join("-", [ var.host_id, local.project_id, "<SERVICE_NAME>" ]) ]
+a [Gitea server](/rollyourown/projects/single_server_projects/ryo-gitea/)
+  non_ssl_backend_services = [ "synapse" ]
 }
 ```
 
@@ -386,20 +385,18 @@ The ACL key-value configuration is then used to generate [HAProxy HTTP deny](#ha
 
 {{< /more >}}
 
-For example, ACLs can be deployed with the following code:
+For example, ACLs for a [Matrix server](/rollyourown/projects/single_server_projects/ryo-matrix/) can be deployed with the following code:
 
 ```tf
-module "deploy-<PROJECT_ID>-haproxy-acl-configuration" {
+module "deploy-matrix-haproxy-acl-configuration-for-synapse" {
   source = "../../ryo-service-proxy/module-deployment/modules/deploy-haproxy-configuration"
 
-  haproxy_host_only_acls = {
-    domain     = {host = local.project_domain_name},
-    domain-www = {host = join("", [ "www.", local.project_domain_name])}
+  haproxy_path_only_acls = {
+    path-synapse-admin  = {path = "/_synapse/admin"}
+    path-synapse-client = {path = "/_synapse/client"}
+    path-matrix         = {path = "/_matrix"}
   }
-
-  haproxy_host_path_acls = {
-    domain-admin = {host = local.project_domain_name, path = "/admin"},
-  }
+}
 ```
 
 ##### HAProxy HTTP deny rules
@@ -435,15 +432,13 @@ For each `<ACL NAME>` found in the `service/haproxy/deny/` folder in the KV stor
 
 {{< /more >}}
 
-For example, HTTP deny rules can be deployed with the following code:
+For example, HTTP deny rules for a [Matrix server](/rollyourown/projects/single_server_projects/ryo-matrix/) can be deployed with the following code:
 
 ```tf
-module "deploy-<PROJECT_ID>-haproxy-http-deny-configuration" {
+module "deploy-matrix-haproxy-deny-configuration-for-synapse" {
   source = "../../ryo-service-proxy/module-deployment/modules/deploy-haproxy-configuration"
 
-  depends_on = [ module.deploy-<PROJECT_ID>-haproxy-acl-configuration ]
-
-  haproxy_acl_denys = [ "domain-admin" ]
+  haproxy_acl_denys = [ "path-synapse-admin" ]
 }
 ```
 
@@ -480,17 +475,15 @@ For each `<ACL NAME>` found in the `service/haproxy/use-backend/` folder in the 
 
 {{< /more >}}
 
-For example, `use-backend` rules can be deployed with the following code:
+For example, `use-backend` rules for a [Matrix server](/rollyourown/projects/single_server_projects/ryo-matrix/) can be deployed with the following code:
 
 ```tf
-module "deploy-<PROJECT_ID>-haproxy-backend-configuration" {
+module "deploy-matrix-haproxy-backend-configuration-for-synapse" {
   source = "../../ryo-service-proxy/module-deployment/modules/deploy-haproxy-configuration"
 
-  depends_on = [ module.deploy-<PROJECT_ID>-haproxy-backend-service, module.deploy-<PROJECT_ID>-haproxy-acl-configuration ]
-
   haproxy_acl_use-backends = {
-    domain     = {backend_service = join("-", [ local.project_id, "<COMPONENT_NAME>" ])},
-    domain-www = {backend_service = join("-", [ local.project_id, "<COMPONENT_NAME>" ])}
+    path-synapse-client = {backend_service = "synapse"},
+    path-matrix         = {backend_service = "synapse"}
   }
 }
 ```
