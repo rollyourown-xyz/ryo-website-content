@@ -23,7 +23,7 @@ A [rollyourown.xyz](https://rollyourown.xyz) project needs to run on a server an
 
 A host server is usually a server or virtual private server (VPS) hosted by a hosting provider, but may also be a server or virtual machine hosted in your home or office. The host server must be reachable via a public IP address and should be running Ubuntu 20.04 LTS as operating system. [Rollyourown.xyz](https://rollyourown.xyz) projects are written and tested to set up and deploy to a Ubuntu 20.04 LTS Linux server.
 
-A [rollyourown.xyz](https://rollyourown.xyz) host server is controlled from a [control node](/rollyourown/projects/control_node/) via a secure [wireguard](https://www.wireguard.com/) tunnel. Usually, no manual management of the host server is needed and the host server command line does not need to be accessed. However, users familiar with the Linux command line can log in to the server *from the control node*, for example for advanced diagnostics. A few useful commands can be found [here](/rollyourown/projects/ryo-host-advanced/).
+A [rollyourown.xyz](https://rollyourown.xyz) host server is controlled from a [control node](/rollyourown/projects/control_node/) via a secure [wireguard](https://www.wireguard.com/) tunnel. Usually, no manual management of the host server is needed and the host server command line does not need to be accessed. However, users familiar with the Linux command line can log in to the server *from the control node*, for example for advanced diagnostics. A few useful commands can be found [here](/rollyourown/projects/host_server_advanced/).
 
 ### Host server components
 
@@ -225,7 +225,7 @@ After setting up the host server, you are now ready to [deploy a rollyourown.xyz
 
 {{< highlight "info" "Advanced">}}
 
-After setting up a [control node](rollyourown/projects/control_node/) and [host server](rollyourown/projects/host_server/), you now have a permanent, secure connection from the control node to the host server via a wireguard tunnel. Users familiar with the Linux command line can log in to the server for advanced diagnostics. A few useful commands can be found [here](/rollyourown/projects/ryo-host-advanced/).
+After setting up a [control node](rollyourown/projects/control_node/) and [host server](rollyourown/projects/host_server/), you now have a permanent, secure connection from the control node to the host server via a wireguard tunnel. Users familiar with the Linux command line can log in to the server for advanced diagnostics. A few useful commands can be found [here](/rollyourown/projects/host_server_advanced/).
 
 {{< /highlight >}}
 
