@@ -50,9 +50,9 @@ The components deployed in this project are shown in the following diagram:
 
 ### Host server
 
-The [host server](/rollyourown/projects/ryo-host/) is configured to run [LXD containers](https://linuxcontainers.org/lxd/) and a [Consul server](https://www.consul.io/) and is controlled from your control machine via a [wireguard](https://www.wireguard.com/) tunnel. Each container deployed performs a specific task in the installation.
+The [host server](/rollyourown/projects/host_server/) is configured to run [LXD containers](https://linuxcontainers.org/lxd/) and a [Consul server](https://www.consul.io/) and is controlled from your control machine via a [wireguard](https://www.wireguard.com/) tunnel. Each container deployed performs a specific task in the installation.
 
-Further details about the host server building block can be found [here](/rollyourown/projects/ryo-host/).
+Further details about the host server building block can be found [here](/rollyourown/projects/host_server/).
 
 ### Containers
 

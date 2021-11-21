@@ -20,7 +20,7 @@ The Service Proxy module is a re-usable module for other [rollyourown.xyz](https
 
 This module deploys an [HAProxy](https://www.haproxy.org/) loadbalancer / TLS proxy together with [Certbot](https://certbot.eff.org/) for certificate management.
 
-Consul-Template is used to dynamically load HAProxy and Certbot configuration from kev-values in the [Consul](https://www.consul.io/) Key-Value Store running on the [host server](/rollyourown/projects/ryo-host/).
+Consul-Template is used to dynamically load HAProxy and Certbot configuration from kev-values in the [Consul](https://www.consul.io/) Key-Value Store running on the [host server](/rollyourown/projects/host_server/).
 
 ## Repository links
 
@@ -42,7 +42,7 @@ This project module deploys a container with multiple services as shown in the f
 
 The [HAProxy](https://www.haproxy.org/) load-balancer / TLS proxy listens on defined ports, terminates incoming connections and distributes this traffic to specified backends, based on rules specified in [Access Control Lists (ACLs)](https://www.haproxy.com/blog/introduction-to-haproxy-acls/). Depending on the project, backends can be scaled across multiple instances.
 
-HAProxy ACLs and backend rules are dynamically configured based on Key-Values retrieved from the [Consul server running on the host](/rollyourown/projects/ryo-host/). This allows the Service Proxy to be deployed as a generic module, with the project-specific backed and ACL configuration provisioned to the Consul KV-store during project deployment.
+HAProxy ACLs and backend rules are dynamically configured based on Key-Values retrieved from the [Consul server running on the host](/rollyourown/projects/host_server/). This allows the Service Proxy to be deployed as a generic module, with the project-specific backed and ACL configuration provisioned to the Consul KV-store during project deployment.
 
 In addition, HAProxy terminates TLS / SSL connections (typically, HTTPS), using certificates obtained by [Certbot](https://certbot.eff.org/), so that certificates can be provisioned in a single element and do not need to be distributed across backend applications.
 
@@ -52,7 +52,7 @@ The [Certbot](https://certbot.eff.org/) application uses the [ACME protocol](htt
 
 For [Let's Encrypt](https://letsencrypt.org/) domain validation via the [Let's Encrypt HTTP-01 challenge](https://letsencrypt.org/docs/challenge-types/#http-01-challenge), traffic to the ACME client `.well-known/acme-challenge` link is routed by HAProxy to Certbot. Any other traffic to the project domain(s) is routed to backends or rejected, as defined in the HAProxy ACLs.
 
-The domains for which Certbot aquires and manages certificates are retrieved from the [Consul server running on the host](/rollyourown/projects/ryo-host/). This allows the Service Proxy to be deployed as a generic module, with the project-specific domains provisioned to the Consul KV-store during project deployment.
+The domains for which Certbot aquires and manages certificates are retrieved from the [Consul server running on the host](/rollyourown/projects/host_server/). This allows the Service Proxy to be deployed as a generic module, with the project-specific domains provisioned to the Consul KV-store during project deployment.
 
 ### Consul-Template
 

@@ -225,7 +225,7 @@ After setting up the host server, you are now ready to [deploy a rollyourown.xyz
 
 {{< highlight "info" "Advanced">}}
 
-After setting up a [control node](rollyourown/projects/control_node/) and [host server](rollyourown/projects/ryo-host/), you now have a permanent, secure connection from the control node to the host server via a wireguard tunnel. Users familiar with the Linux command line can log in to the server for advanced diagnostics. A few useful commands can be found [here](/rollyourown/projects/ryo-host-advanced/).
+After setting up a [control node](rollyourown/projects/control_node/) and [host server](rollyourown/projects/host_server/), you now have a permanent, secure connection from the control node to the host server via a wireguard tunnel. Users familiar with the Linux command line can log in to the server for advanced diagnostics. A few useful commands can be found [here](/rollyourown/projects/ryo-host-advanced/).
 
 {{< /highlight >}}
 

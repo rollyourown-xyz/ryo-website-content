@@ -115,7 +115,7 @@ Unless you know what you are doing, it is **not recommended** to expose servers 
 
 {{< highlight "info">}}
 
-More details and a step-by-step guide for setting up a host server can be found [here](/rollyourown/projects/ryo-host/).
+More details and a step-by-step guide for setting up a host server can be found [here](/rollyourown/projects/host_server/).
 
 {{< /highlight >}}
 

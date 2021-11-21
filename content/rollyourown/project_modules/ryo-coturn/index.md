@@ -44,7 +44,7 @@ The STUN/TURN Server module contains three applications, together providing a dy
 
 Coturn is and open source [STUN](https://en.wikipedia.org/wiki/STUN) and [TURN](https://en.wikipedia.org/wiki/Traversal_Using_Relays_around_NAT) server enabling [NAT traversal](https://en.wikipedia.org/wiki/NAT_traversal) for peer-to-peer communications.
 
-Coturn's configuration is dynamically configured based on Key-Values retrieved from the [Consul server deployed on the host](/rollyourown/project_modules/ryo-host/#host-server-components). For TLS-encrypted connections, Coturn uses certificates obtained by the [Certbot application deployed by the Service Proxy module](/rollyourown/project_modules/service_proxy/#haproxy-and-certbot).
+Coturn's configuration is dynamically configured based on Key-Values retrieved from the [Consul server deployed on the host](/rollyourown/projects/host_server/#host-server-components). For TLS-encrypted connections, Coturn uses certificates obtained by the [Certbot application deployed by the Service Proxy module](/rollyourown/project_modules/service_proxy/#haproxy-and-certbot).
 
 ### Consul
 
@@ -52,7 +52,7 @@ A [Consul](https://www.consul.io/) agent is deployed on the Coturn module and jo
 
 ### Consul-Template
 
-On container start, the [Consul-Template](https://github.com/hashicorp/consul-template/) application obtains service configuration information from the [consul key-value store](/rollyourown/projects/ryo-host/#host-server-components) and uses it to populate configuration files for Coturn. In addition, Consul-Template listens for changes to the configuration key-values and updates configuration files on-the-fly, reloading [coturn](#coturn) when configuration has changed.
+On container start, the [Consul-Template](https://github.com/hashicorp/consul-template/) application obtains service configuration information from the [consul key-value store](/rollyourown/projects/host_server/#host-server-components) and uses it to populate configuration files for Coturn. In addition, Consul-Template listens for changes to the configuration key-values and updates configuration files on-the-fly, reloading [coturn](#coturn) when configuration has changed.
 
 ## How to deploy this module in a project
 
