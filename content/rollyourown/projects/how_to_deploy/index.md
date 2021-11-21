@@ -85,7 +85,7 @@ A control node should be run as a virtual machine (VM) on your personal computer
 
 {{< highlight "info" "Setting up a control node">}}
 
-A detailed guide for setting up a control node, with step-by-step instructions, can be found [here](/rollyourown/projects/ryo-control-node/).
+A detailed guide for setting up a control node, with step-by-step instructions, can be found [here](/rollyourown/projects/control_node/).
 
 {{< /highlight >}}
 

@@ -27,7 +27,7 @@ This project deploys a [Grav](https://getgrav.org) flat-file content management 
 [Grav](https://getgrav.org) is an open source flat-file content management system (CMS), based on PHP, that uses only files and folders and no database for managing content. Grav provides a fast, more lightweight alternative to database-driven CMSs like [Wordpress](https://wordpress.org/) or [Drupal](https://www.drupal.org/), especially for simpler websites and blogs. Content can either be written directly in [Markdown](https://daringfireball.net/projects/markdown/) format and uploaded to the web server or via Grav's [web-based editor](https://learn.getgrav.org/17/admin-panel/page/editor).
 
 {{< highlight "info" "Control node">}}
-A [control node](/rollyourown/projects/ryo-control-node/) without a graphical desktop UI is sufficient for this project, as the Grav admin interface is reachable via the public internet.
+A [control node](/rollyourown/projects/control_node/) without a graphical desktop UI is sufficient for this project, as the Grav admin interface is reachable via the public internet.
 {{< /highlight >}}
 
 ## Repository links

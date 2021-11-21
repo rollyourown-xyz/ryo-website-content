@@ -33,7 +33,7 @@ Components **not** installed by this project are:
 In additiona to the components of the jitsi video conferencing system, the project deploys the [rollyourown.xyz coturn module](/rollyourown/project_modules/ryo-coturn/) to enable [NAT traversal](https://en.wikipedia.org/wiki/NAT_traversal) for conference participants and the [rollyourown.xyz service proxy module](/rollyourown/project_modules/ryo-service-proxy/) to provide TLS termination and certificate management.
 
 {{< highlight "info" "Control node">}}
-A [control node](/rollyourown/projects/ryo-control-node/) without a graphical desktop UI is sufficient for this project, as the jitsi conferencing server is configurable only via command line.
+A [control node](/rollyourown/projects/control_node/) without a graphical desktop UI is sufficient for this project, as the jitsi conferencing server is configurable only via command line.
 {{< /highlight >}}
 
 ## Repository links
