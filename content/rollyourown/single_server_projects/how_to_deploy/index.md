@@ -1,5 +1,5 @@
 ---
-title: "Single Server Projects: How to deploy"
+title: "How to Deploy"
 tags: [ ]
 draft: false
 ---

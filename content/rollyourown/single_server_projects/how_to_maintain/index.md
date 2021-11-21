@@ -1,5 +1,5 @@
 ---
-title: "Single Server Projects: How to maintain"
+title: "How to Maintain"
 tags: [ ]
 draft: false
 ---
