@@ -20,7 +20,7 @@ The Service Proxy module is a re-usable module for other [rollyourown.xyz](https
 
 This module deploys an [HAProxy](https://www.haproxy.org/) loadbalancer / TLS proxy together with [Certbot](https://certbot.eff.org/) for certificate management.
 
-Consul-Template is used to dynamically load HAProxy and Certbot configuration from kev-values in the [Consul](https://www.consul.io/) Key-Value Store running on the [host server](/rollyourown/projects/host_server/).
+[Consul-Template](https://github.com/hashicorp/consul-template/) is used to dynamically load HAProxy and Certbot configuration from kev-values in the [Consul](https://www.consul.io/) Key-Value Store running on the [host server](/rollyourown/projects/host_server/).
 
 ## Repository links
 
