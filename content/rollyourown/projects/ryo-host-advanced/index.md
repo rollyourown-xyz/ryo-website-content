@@ -23,8 +23,8 @@ The connection between the control node and the host server depends on a wiregua
 
  The following assumes that:
 
-- The control node has been [set up using the `local-setup.sh` script](/rollyourown/tech_building_blocks/control_node/)
-- The host server has been [set up using the `host-setup.sh`script](/rollyourown/tech_building_blocks/how_to_deploy/)
+- The control node has been [set up using the `local-setup.sh` script](/rollyourown/projects/ryo-control-node/)
+- The host server has been [set up using the `host-setup.sh`script](/rollyourown/projects/how_to_deploy/)
 
 ## Logging in to the host server
 

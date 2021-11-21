@@ -16,4 +16,4 @@ TODO: About the underlying deployment philosophy / process (incl. immutable infr
 
 ## How to use
 
-Browse our projects and [deploy](/rollyourown/single_server_projects/how_to_deploy/) using our automation scripts.
+Browse our projects and [deploy](/rollyourown/projects/how_to_deploy/) using our automation scripts.

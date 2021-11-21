@@ -85,7 +85,7 @@ A control node should be run as a virtual machine (VM) on your personal computer
 
 {{< highlight "info" "Setting up a control node">}}
 
-A detailed guide for setting up a control node, with step-by-step instructions, can be found [here](/rollyourown/project_modules/control_node/).
+A detailed guide for setting up a control node, with step-by-step instructions, can be found [here](/rollyourown/projects/ryo-control-node/).
 
 {{< /highlight >}}
 
@@ -115,7 +115,7 @@ Unless you know what you are doing, it is **not recommended** to expose servers 
 
 {{< highlight "info">}}
 
-More details and a step-by-step guide for setting up a host server can be found [here](/rollyourown/project_modules/host_server/).
+More details and a step-by-step guide for setting up a host server can be found [here](/rollyourown/projects/ryo-host/).
 
 {{< /highlight >}}
 
@@ -224,7 +224,7 @@ After the project has been deployed, you are ready to perform any needed project
 
 Further information on further steps to take and how to use the project are given on the project's page.
 
-Over time, the software packages used for the project deployment need to be kept up to date, as security patches are released for the software or underlying operating systemss or when new versions of the software packages are released. The two automation scripts `build-images.sh` and `deploy-project.sh` are used to update the containers and deployment. More information can be found at ["Tech Projects: How to maintain"](/rollyourown/tech_projects/how_to_maintain/).
+Over time, the software packages used for the project deployment need to be kept up to date, as security patches are released for the software or underlying operating systemss or when new versions of the software packages are released. The two automation scripts `build-images.sh` and `deploy-project.sh` are used to update the containers and deployment. More information can be found at ["Tech Projects: How to maintain"](/rollyourown/projects/how_to_maintain/).
 
 ## What do these scripts do?
 

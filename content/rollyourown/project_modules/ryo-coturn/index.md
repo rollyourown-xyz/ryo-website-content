@@ -52,7 +52,7 @@ A [Consul](https://www.consul.io/) agent is deployed on the Coturn module and jo
 
 ### Consul-Template
 
-On container start, the [Consul-Template](https://github.com/hashicorp/consul-template/) application obtains service configuration information from the [consul key-value store](/rollyourown/project_modules/ryo-host/#host-server-components) and uses it to populate configuration files for Coturn. In addition, Consul-Template listens for changes to the configuration key-values and updates configuration files on-the-fly, reloading [coturn](#coturn) when configuration has changed.
+On container start, the [Consul-Template](https://github.com/hashicorp/consul-template/) application obtains service configuration information from the [consul key-value store](/rollyourown/projects/ryo-host/#host-server-components) and uses it to populate configuration files for Coturn. In addition, Consul-Template listens for changes to the configuration key-values and updates configuration files on-the-fly, reloading [coturn](#coturn) when configuration has changed.
 
 ## How to deploy this module in a project
 

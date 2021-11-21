@@ -34,7 +34,7 @@ Now read on to understand each of these steps.
 
 ## Introduction
 
-Following the principles of **Configuration as code**, **Infrastructure as code** and **Immutable infrastructure** described on the [How to Deploy page](/rollyourown/single_server_projects/how_to_deploy/#introduction), updating a rollyour own project consists of:
+Following the principles of **Configuration as code**, **Infrastructure as code** and **Immutable infrastructure** described on the [How to Deploy page](/rollyourown/projects/how_to_deploy/#introduction), updating a rollyour own project consists of:
 
 - Updating the code (either for the configuration of the nodes deployed or for the deployment itself)
 - Building new images for each node from the updated configuration code

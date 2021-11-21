@@ -23,7 +23,7 @@ A [rollyourown.xyz](https://rollyourown.xyz) project needs to run on a server an
 
 A host server is usually a server or virtual private server (VPS) hosted by a hosting provider, but may also be a server or virtual machine hosted in your home or office. The host server must be reachable via a public IP address and should be running Ubuntu 20.04 LTS as operating system. [Rollyourown.xyz](https://rollyourown.xyz) projects are written and tested to set up and deploy to a Ubuntu 20.04 LTS Linux server.
 
-A [rollyourown.xyz](https://rollyourown.xyz) host server is controlled from a [control node](/rollyourown/project_modules/control_node/) via a secure [wireguard](https://www.wireguard.com/) tunnel. Usually, no manual management of the host server is needed and the host server command line does not need to be accessed. However, users familiar with the Linux command line can log in to the server *from the control node*, for example for advanced diagnostics. A few useful commands can be found [here](/rollyourown/project_modules/control_node_advanced/).
+A [rollyourown.xyz](https://rollyourown.xyz) host server is controlled from a [control node](/rollyourown/projects/ryo-control-node/) via a secure [wireguard](https://www.wireguard.com/) tunnel. Usually, no manual management of the host server is needed and the host server command line does not need to be accessed. However, users familiar with the Linux command line can log in to the server *from the control node*, for example for advanced diagnostics. A few useful commands can be found [here](/rollyourown/projects/ryo-host-advanced/).
 
 ### Host server components
 
@@ -145,7 +145,7 @@ The `host-setup.sh` script uses the host server's initial root password to secur
 
 In detail, the following tasks are performed by the host-setup playbooks:
 
-- A non-root user account is created. The SSH public key created on the control machine during [control node setup](/rollyourown/project_modules/control_node/) is added to the non-root user account, the account is added to the sudo group and the account is configured for password-less sudo. The non-root user account is then used with [SSH public key authetication](https://help.ubuntu.com/community/SSH/OpenSSH/Keys) for all further communication to the server and all further setup steps
+- A non-root user account is created. The SSH public key created on the control machine during [control node setup](/rollyourown/projects/ryo-control_node/) is added to the non-root user account, the account is added to the sudo group and the account is configured for password-less sudo. The non-root user account is then used with [SSH public key authetication](https://help.ubuntu.com/community/SSH/OpenSSH/Keys) for all further communication to the server and all further setup steps
 
 - All packages on the system are upgraded
 
@@ -221,11 +221,11 @@ For some projects, further project-specific host configuration may be performed 
     ./host-setup.sh -n <HOST_NAME>
     ```
 
-After setting up the host server, you are now ready to [deploy a rollyourown.xyz project](/rollyourown/single_server_projects/how_to_deploy) on the server.
+After setting up the host server, you are now ready to [deploy a rollyourown.xyz project](/rollyourown/projects/how_to_deploy) on the server.
 
 {{< highlight "info" "Advanced">}}
 
-After setting up a [control node](rollyourown/project_modules/control_node/) and [host server](rollyourown/project_modules/host_server/), you now have a permanent, secure connection from the control node to the host server via a wireguard tunnel. Users familiar with the Linux command line can log in to the server for advanced diagnostics. A few useful commands can be found [here](/rollyourown/project_modules/host_server_advanced/).
+After setting up a [control node](rollyourown/projects/ryo-control-node/) and [host server](rollyourown/projects/ryo-host/), you now have a permanent, secure connection from the control node to the host server via a wireguard tunnel. Users familiar with the Linux command line can log in to the server for advanced diagnostics. A few useful commands can be found [here](/rollyourown/projects/ryo-host-advanced/).
 
 {{< /highlight >}}
 
