@@ -1,5 +1,5 @@
 ---
-title: "Projects"
+title: "Single Server Projects"
 tags: [ ]
 draft: false
 ---
