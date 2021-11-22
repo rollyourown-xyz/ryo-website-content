@@ -236,7 +236,7 @@ The open source components deployed by this module are:
 
 | Project | What is it? | Homepage | License |
 | :------ | :---------- | :------- | :------ |
-| Consul | Open source service registry and key-value store | [https://www.consul.io/](https://www.consul.io/) | [Mozilla Public License 2.0](https://github.com/hashicorp/consul/blob/master/LICENSE) |
-| PostgreSQL | Open source relational database | [https://www.postgresql.org/](https://www.postgresql.org/) | [PostgreSQL License](https://www.postgresql.org/about/licence/) |
+| Consul | Service registry and key-value store | [https://www.consul.io/](https://www.consul.io/) | [Mozilla Public License 2.0](https://github.com/hashicorp/consul/blob/master/LICENSE) |
+| PostgreSQL | Relational database system | [https://www.postgresql.org/](https://www.postgresql.org/) | [PostgreSQL License](https://www.postgresql.org/about/licence/) |
 
 {{< /table >}}
