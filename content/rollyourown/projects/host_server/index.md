@@ -60,7 +60,7 @@ This feature is used, for example, by [Certbot](/rollyourown/project_modules/ryo
 
 ## Repository links
 
-The [github](https://github.com/) mirror repository for the host server automation scripts is here: [https://github.com/rollyourown-xyz/ryo-host](https://github.com/rollyourown-xyz/ryo-host).
+The [Github](https://github.com/) mirror repository for the host server automation scripts is here: [https://github.com/rollyourown-xyz/ryo-host](https://github.com/rollyourown-xyz/ryo-host).
 
 The [rollyourown.xyz](https://rollyourown.xyz/) repository for the host server automation scripts is here: [https://git.rollyourown.xyz/ryo-projects/ryo-host](https://git.rollyourown.xyz/ryo-projects/ryo-host).
 
@@ -229,9 +229,7 @@ After setting up a [control node](rollyourown/projects/control_node/) and [host 
 
 {{< /highlight >}}
 
-## Using Consul in a project
-
-**Move this section to a separate page**
+## Using Consul in a project (**Move this section to a separate page**)
 
 The [Consul](https://www.consul.io/) server deployed to the host server is a general enabler for rollyourown.xyz module and project components to discover other components via the Consul [service registry](https://www.consul.io/docs/discovery/services) and to be configured via the Consul [key-value store](https://www.consul.io/docs/dynamic-app-config/kv).
 

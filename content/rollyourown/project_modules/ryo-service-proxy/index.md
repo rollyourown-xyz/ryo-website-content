@@ -24,7 +24,7 @@ This module deploys an [HAProxy](https://www.haproxy.org/) loadbalancer / TLS pr
 
 ## Repository links
 
-The [github](https://github.com/) mirror repository for this module is here: [https://github.com/rollyourown-xyz/ryo-service-proxy](https://github.com/rollyourown-xyz/ryo-service-proxy)
+The [Github](https://github.com/) mirror repository for this module is here: [https://github.com/rollyourown-xyz/ryo-service-proxy](https://github.com/rollyourown-xyz/ryo-service-proxy)
 
 The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-service-proxy](https://git.rollyourown.xyz/ryo-projects/ryo-service-proxy)
 

@@ -24,7 +24,7 @@ This module deploys and configures an [nginx](https://nginx.org/) webserver to r
 
 ## Repository links
 
-The [github](https://github.com/) mirror repository for this module is here: [https://github.com/rollyourown-xyz/ryo-wellknown](https://github.com/rollyourown-xyz/ryo-wellknown)
+The [Github](https://github.com/) mirror repository for this module is here: [https://github.com/rollyourown-xyz/ryo-wellknown](https://github.com/rollyourown-xyz/ryo-wellknown)
 
 The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-wellknown](https://git.rollyourown.xyz/ryo-projects/ryo-wellknown)
 

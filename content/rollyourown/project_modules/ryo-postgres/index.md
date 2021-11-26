@@ -22,7 +22,7 @@ This module deploys [PostgreSQL](https://www.postgresql.org/). [PostgreSQL](http
 
 ## Repository links
 
-The [github](https://github.com/) mirror repository for this module is here: [https://github.com/rollyourown-xyz/ryo-postgres](https://github.com/rollyourown-xyz/ryo-postgres)
+The [Github](https://github.com/) mirror repository for this module is here: [https://github.com/rollyourown-xyz/ryo-postgres](https://github.com/rollyourown-xyz/ryo-postgres)
 
 The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-postgres](https://git.rollyourown.xyz/ryo-projects/ryo-postgres)
 
