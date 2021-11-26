@@ -15,10 +15,6 @@ In addition, the project deploys a number of additional modules: [Certbot](https
 {{< highlight "primary" "ToDo">}}
 
 - [ ] Links on the page
-- [ ] Add screenshots and descriptions for creating user accounts with synapse-admin
-- [ ] Add screenshots and descriptions for logging in to element-web
-- [ ] Add links, screenshots and descriptions for logging in with element-android
-- [ ] Add links, screenshots and descriptions for logging in with element-desktop
 
 {{< /highlight >}}
 
