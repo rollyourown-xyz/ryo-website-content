@@ -12,19 +12,13 @@ This project deploys a [Grav](https://getgrav.org) flat-file content management 
 
 {{< highlight "primary" "ToDo">}}
 
-- [x] Update after modularisation
 - [ ] Links on the page
-- [ ] Add screenshots
-- [ ] CHECK: Creation of grav user(s) with editor permissions
-- [ ] CHECK: Grav web front-end for editing / managing content
-- [ ] CHECK: Grav backups
-- [ ] Styling for graphic (with shortcode?)
 
 {{< /highlight >}}
 
 ## Grav CMS project introduction
 
-[Grav](https://getgrav.org) is an open source flat-file content management system (CMS), based on PHP, that uses only files and folders and no database for managing content. Grav provides a fast, more lightweight alternative to database-driven CMSs like [Wordpress](https://wordpress.org/) or [Drupal](https://www.drupal.org/), especially for simpler websites and blogs. Content can either be written directly in [Markdown](https://daringfireball.net/projects/markdown/) format and uploaded to the web server or via Grav's [web-based editor](https://learn.getgrav.org/17/admin-panel/page/editor).
+[Grav](https://getgrav.org) is an open source flat-file content management system (CMS), based on PHP, that uses only files and folders for managing content and no database. Grav provides a fast, more lightweight alternative to database-driven CMSs like [Wordpress](https://wordpress.org/) or [Drupal](https://www.drupal.org/), especially for simpler websites and blogs. Content can either be written directly in [Markdown](https://daringfireball.net/projects/markdown/) format and uploaded to the web server or via Grav's [web-based editor](https://learn.getgrav.org/17/admin-panel/page/editor).
 
 {{< highlight "info" "Control node">}}
 A [control node](/rollyourown/projects/control_node/) without a graphical desktop UI is sufficient for this project, as the Grav admin interface is reachable via the public internet.
@@ -48,7 +42,7 @@ The components deployed in this project are shown in the following diagram:
 
 ### Host server
 
-The [host server](/rollyourown/projects/host_server/) is controlled from your control machine via a [wireguard](https://www.wireguard.com/) tunnel and is configured to run a [Consul server](https://www.consul.io/) and the [LXD container runtime](https://linuxcontainers.org/lxd/). Each container deployed performs a specific task in the installation.
+The [host server](/rollyourown/projects/host_server/) is controlled from your control machine via a [Wireguard](https://www.wireguard.com/) tunnel and is configured to run a [Consul server](https://www.consul.io/) and the [LXD container runtime](https://linuxcontainers.org/lxd/). Each container deployed performs a specific task in the installation.
 
 Further details about the host server building block can be found [here](/rollyourown/projects/host_server/).
 
@@ -74,25 +68,57 @@ To deploy the project, follow the generic [project deployment instructions](/rol
 
 For a full overview of how to use [Grav](https://getgrav.org), see the excellent documentation at [https://learn.getgrav.org/](https://learn.getgrav.org/).
 
-For example, your first steps after deployment could be:
+After first-time deployment, the standard Grav welcome page will be available at the domain configured in the project's configuration file.
 
-- Log in using the grav_admin account at `https://<your_domain>/admin` (password configured in the project's `configuration.yml`)
+![Grav Default Site](Grav_Default_Site_1200.png)
 
-- Recommended: Set up 2FA for your grav_admin account
+After deployment, next steps are described in the following sections.
 
-- **TODO:** Create one or more user(s) with editor permissions
+#### Log in as administrator and configure the site
 
-- **TODO:** [Add and manage content](https://learn.getgrav.org/17/admin-panel/page), either via the Grav web front-end or manually by adding directories and markdown documents to the host server directory `/var/container-directories/ryo-grav-cms/website/` (which is mounted to the webserver as the `/var/www/grav-admin/user/` directory)
+Log in using the project administrator account at `https://<your_domain>/admin`. The administrator account's username and password are defined in your configuration file (as the variables `project_admin_username` and `project_admin_password`).
 
-- Use Grav's admin interface to change the [theme](https://learn.getgrav.org/17/admin-panel/themes) of the site and add additional [plugins](https://learn.getgrav.org/17/admin-panel/plugins) from the [grav plugin libarary](https://getgrav.org/downloads/plugins).
+![Grav Login](Grav_Login_1200.png)
 
-- **TODO:** Manage site backups, either using Grav's built-in [backup tools](https://learn.getgrav.org/17/advanced/backups) or backing up the host server directory `/var/container-directories/ryo-grav-cms/website/` directly
+After login, the site can be configured from the "Configuration" option from the admin [dashboard](https://learn.getgrav.org/admin-panel/dashboard).
+
+![Grav Dashboard Configuration](Grav_Dashboard_Configuration_1200.png)
+
+#### Install themes
+
+The site's [theme](https://learn.getgrav.org/admin-panel/themes) can be changed from the "Themes" option on the admin dashboard. New themes can be downloaded from the [Grav theme repository](https://getgrav.org/downloads/themes) by clicking on the "+Add" button.
+
+![Grav Theme Configuration](Grav_Theme_Configuration_1200.png)
+
+#### Install plugins
+
+Grav's functionality can be extended by downloading [plugins](https://learn.getgrav.org/admin-panel/plugins) from the [grav plugin library](https://getgrav.org/downloads/plugins). Plugins are managed from the "Plugins" option on the admin dashboard with new plugins installed via the "+Add" button.
+
+![Grav Plugin Configuration](Grav_Plugin_Configuration_1200.png)
+
+#### Create users with editor permissions
+
+Users and user groups for the site are managed from the "Accounts" option on the admin dashboard. New users and groups are added via the "+Add" button.
+
+![Grav Account Configuration](Grav_Account_Configuration_1200.png)
+
+#### Add and manage content
+
+Content can be [added and managed](https://learn.getgrav.org/admin-panel/page) via the "Pages" option on the admin dashboard.
+
+![Grav Page Configuration](Grav_Page_Configuration_1200.png)
+
+#### Manage site backups
+
+The site can be backed up using Grav's built-in backup tool. This can be found via the "Tools" option on the admin dashboard.
+
+![Grav Backup Configuration](Grav_Backup_Configuration_1200.png)
 
 ### Maintaining the installation
 
 After deploying the project, the installation needs to be maintained over time as, for example, new versions of the project's components are released.
 
-Maintentance is automated via the rollyourown.xyz project scripts. See [here](/rollyourown/projects/how_to_maintain/) for details.
+Maintenance is automated via the rollyourown.xyz project scripts. See [here](/rollyourown/projects/how_to_maintain/) for details.
 
 ## Project requirements
 
