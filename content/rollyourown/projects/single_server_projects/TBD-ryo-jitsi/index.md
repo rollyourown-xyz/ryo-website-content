@@ -74,7 +74,7 @@ The Jitsi server container hosts an [nginx](https://nginx.org/) web server with 
 
 ### Deploying the project
 
-To deploy the project, follow the generic [project deployment instructions](/rollyourown/projects/how_to_deploy/), using the project's github mirror repository at [https://github.com/rollyourown-xyz/ryo-jitsi/](https://github.com/rollyourown-xyz/ryo-jitsi/).
+To deploy the project, follow the generic [project deployment instructions](/rollyourown/projects/how_to_deploy/), using the project's Github mirror repository at [https://github.com/rollyourown-xyz/ryo-jitsi/](https://github.com/rollyourown-xyz/ryo-jitsi/).
 
 ### After deployment
 
