@@ -1,5 +1,5 @@
 ---
-title: "Module: Single Sign On"
+title: "Roll Your Own Single Sign On"
 tags: [ "module" ]
 draft: true
 ---
