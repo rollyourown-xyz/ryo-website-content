@@ -38,7 +38,7 @@ The `project_id` is always of the form `ryo-<NAME>` where `<NAME>` usually ident
 
 The `project_id` is also added to the project's [configuration template](/collaborate/project_structure/#the-configuration-directory).
 
-## License and Readme
+## Licence and Readme
 
 The top-level directory of a rollyourown.xyz project includes a `LICENSE` and `README.md` file:
 
@@ -53,6 +53,32 @@ The top-level directory of a rollyourown.xyz project includes four scripts for t
 - host-setup.sh: Performs project-specific configuration of the host server
 - build-images.sh: Creates an image for each of the project’s components
 - deploy-project.sh: Launches project's containers and provides configuration parameters to the environment
+
+### The `get-modules.sh` script
+
+The `get-modules.sh` script loads additional modules needed by the project, which are retrieved from dedicated [rollyourown.xyz](https://rollyourown.xyz) repositories.
+
+### The `host-setup.sh` script
+
+Generic host setup and configuration has already been done by the `host-setup.sh` script in the [host server](rollyourown/project_modules/host_server/) [repository](https://github.com/rollyourown-xyz/ryo-host). Additional host configuration is performed for the individual project by the `host-setup.sh` script in the project's repository. This usually consists of setting up directories on the host server to provide persistent storage for the project's containers to enable component configuration and data to persist across container re-starts and replacements. Additional host setup steps may be needed, depending on the project.
+
+The `host-setup.sh` script also calls the `host-setup.sh` scripts for any modules that are needed as part of the project.
+
+### The `build-images.sh` script
+
+The `build-images.sh` script calls [Packer](https://www.packer.io/) to create an image for each of the project's components and upload them to the host server ready to be deployed in the `deploy-project.sh` script. A version stamp (e.g. 20210301) needs to be passed to the `build-images.sh` script, which will be used in the name of each image created and uploaded and which will be used in the `deploy-project.sh` script to launch the correct container image version and later to upgrade containers in-life.
+
+The `build-images.sh` script also calls the `build-images.sh` scripts for any modules that need to be built as part of the project.
+
+For each image to be built, [Packer](https://www.packer.io/) uses [LXD](https://linuxcontainers.org/lxd/) to launch a base container on the control node (using an [ubuntu-minimal](https://wiki.ubuntu.com/Minimal) cloud image), executes a component-specific [Ansible](https://www.ansible.com/) playbook to provision the container with the necessary software and configuration, and then creates a container image from the fully provisioned container. Finally, packer triggers LXD to upload the container image to the remote host server ready for deployment.
+
+### The `deploy-project.sh` script
+
+The `deploy-project.sh` script uses [Terraform](https://www.terraform.io/) and the [Terraform LXD Provider](https://registry.terraform.io/providers/terraform-lxd/lxd/) to launch the project's containers on the host machine. The version stamp provided to the `build-images.sh` script also needs to be provided to the `deploy-project.sh` script so that Terraform can identify the container images to launch.
+
+The `deploy-project.sh` script also calls the `deploy-project.sh` scripts for any modules that need to be deployed as part of the project.
+
+Component containers are launched as specified in the Terraform configuration. Terraform reads the current state on the host machine and makes changes to bring the host machine into the desired state. On the first execution of the `deploy-project.sh` script, no resources have been deployed to the host machine so that Terraform deploys the entire project. On a later execution, changes are only made where necessary (e.g. to upgrade a container to a newer version, built in a later build-images step).
 
 ## Directories
 
