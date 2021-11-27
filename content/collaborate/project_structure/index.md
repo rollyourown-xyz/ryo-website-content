@@ -76,7 +76,7 @@ For each image to be built, [Packer](https://www.packer.io/) uses [LXD](https://
 
 The `deploy-project.sh` script uses [Terraform](https://www.terraform.io/) and the [Terraform LXD Provider](https://registry.terraform.io/providers/terraform-lxd/lxd/) to launch the project's containers on the host machine. The version stamp provided to the `build-images.sh` script also needs to be provided to the `deploy-project.sh` script so that Terraform can identify the container images to launch.
 
-The `deploy-project.sh` script also calls the `deploy-project.sh` scripts for any modules that need to be deployed as part of the project.
+The `deploy-project.sh` script also calls `deploy-module.sh` scripts for any modules that need to be deployed as part of the project.
 
 Component containers are launched as specified in the Terraform configuration. Terraform reads the current state on the host machine and makes changes to bring the host machine into the desired state. On the first execution of the `deploy-project.sh` script, no resources have been deployed to the host machine so that Terraform deploys the entire project. On a later execution, changes are only made where necessary (e.g. to upgrade a container to a newer version, built in a later build-images step).
 
