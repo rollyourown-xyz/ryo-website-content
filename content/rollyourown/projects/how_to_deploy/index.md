@@ -25,13 +25,11 @@ When you have chosen your [rollyourown.xyz](https://rollyourown.xyz) project to 
 
 1. Prepare a [control node](#a-control-node) to deploy and manage your projects
 2. Order or set up a server to host your project, with Ubuntu 20.04 LTS installed
-3. Set up the [host server](#a-host-server) ready to deploy your project to
+3. Prepare the [host server](#a-host-server) to be ready to deploy your project
 4. Clone the [project's repository](https://github.com/rollyourown-xyz/) to the control machine
-5. Run `./get-modules.sh` from the project directory
-6. Copy the project configuration files and add settings
-7. Run `./host-setup.sh` from the project directory
-8. Run `./build-images.sh` from the project directory
-9. Run `./deploy-project.sh` from the project directory
+5. Copy the project configuration files and add settings
+6. Run `./deploy.sh` from the project directory
+7. Choose `y` to also set up and deploy modules
 
 Now read on to understand each of these steps in more detail.
 
@@ -45,7 +43,7 @@ Every [rollyourown.xyz](https://rollyourown.xyz) project follows the principles 
 
 **Infrastructure as code**: so that the desired installation (e.g. networks, IP addresses, number and type of instances deployed) is described in code and under version control, allowing exactly repeatable, automated deployments and automated changes over time.
 
-**Immutable infrastructure**: so that, once deployed, no running container is ever modified in place but is rather *replaced* with a new version, allowing exact knowledge of the state of the deployed infrastucture and the ability to roll-back to a known working version in case of a failed upgrade.
+**Immutable infrastructure**: so that, once deployed, no running container is ever modified in place but is rather *replaced* with a new version, allowing exact knowledge of the state of the deployed infrastructure and the ability to roll back to a known working version in case of a failed upgrade.
 
 {{< /more >}}
 
@@ -53,21 +51,22 @@ Deploying a [rollyourown.xyz](https://rollyourown.xyz) project to a host server 
 
 1. Prepare a [control node](#a-control-node) with the basic software to run the [rollyourown.xyz](https://rollyourown.xyz) automation scripts, or use an existing control node you have previously set up
 
-2. If you are setting up a new [control node](#a-control-node), clone the [control node repository](https://github.com/rollyourown-xyz/ryo-control-node) to the control node and run the `local-setup.sh` script. This installs further software and prepares the control node for managing [rollyourown.xyz](https://rollyourown.xyz) projects. This step can be skipped if you are using an existing control node that has already been set up for a different [rollyourown.xyz](https://rollyourown.xyz) project
+2. If you are setting up a new [control node](#a-control-node), clone the [control node repository](https://github.com/rollyourown-xyz/ryo-control-node) to the control node, set configuration parameters and run the `local-setup.sh` script. This installs further software and prepares the control node for managing [rollyourown.xyz](https://rollyourown.xyz) projects. This step can be skipped if you are using an existing control node that has already been set up for a different [rollyourown.xyz](https://rollyourown.xyz) project
 
 3. Order or prepare a [host server](#a-host-server) for deploying the project on, or use an existing host server you have previously set up
 
-4. If you are setting up a new [host server](#a-host-server), clone the [host server repository](https://github.com/rollyourown-xyz/ryo-host) to the control node and run the `host-setup.sh` script. This sets up secure communication between the control node and the host server, configures the host server and installs software needed for deploying a [rollyourown.xyz](https://rollyourown.xyz) project. This step can be skipped if you are using an existing host server that has already been set up for a different [rollyourown.xyz](https://rollyourown.xyz) project
+4. If you are setting up a new [host server](#a-host-server), clone the [host server repository](https://github.com/rollyourown-xyz/ryo-host) to the control node, set configuration parameters and run the `host-setup.sh` script. This sets up secure communication between the control node and the host server, configures the host server and installs software needed for deploying a [rollyourown.xyz](https://rollyourown.xyz) project. This step can be skipped if you are using an existing host server that has already been set up for a different [rollyourown.xyz](https://rollyourown.xyz) project
 
 5. Clone the [project's repository](https://github.com/rollyourown-xyz/) to the control node to obtain scripts, configuration code and infrastructure code needed to deploy the project
 
-6. Run the `get-modules.sh` script on the control node to fetch additional modules needed for the project. This script clones the necessary [rollyourown.xyz](https://rollyourown.xyz) module repositories to the control node
+6. Edit the project's configuration file to fill in necessary parameters such as admin username and password and domain to use for the project
 
-7. Run the project's `host-setup.sh` script on the control node to configure project-specific settings on the host server, if needed by the project
-
-8. Run the `build-images.sh` script on the control node to prepare the various container images needed for the project (and its modules) and to upload them to the host server ready for deployment
-
-9. Finally, run the `deploy-project.sh` script on the control node to deploy the various containers on the host server
+7. Run the `deploy.sh` script on the control node which:
+  
+    - Fetches additional modules needed for the project by cloning the necessary [rollyourown.xyz](https://rollyourown.xyz) module repositories to the control node
+    - Configures module- and project-specific settings on the host server, if needed by the project
+    - Prepares the various container images needed for the project (and its modules) and to upload them to the host server ready for deployment
+    - Deploys the various containers to the host server
 
 {{< highlight "info">}}
 
@@ -81,7 +80,7 @@ These steps are described in more detail in the following. For more information 
 
 You will need a control node to run the automation scripts to deploy your [rollyourown.xyz](https://rollyourown.xyz) project and, later, to perform automated upgrades of your installation. A control node can manage multiple projects on multiple host servers.
 
-A control node should be run as a virtual machine (VM) on your personal computer or as a dedicated machine. In both cases, the control node should be running Ubuntu 20.04 LTS as operating system. The `local-setup.sh` scripts are written and tested for Ubuntu 20.04 LTS and will set up all needed software for you.
+A control node should be run as a virtual machine (VM) on your personal computer or as a dedicated machine. In both cases, the control node should be running Ubuntu 20.04 LTS as operating system. The `local-setup.sh` scripts are written and tested for Ubuntu 20.04 LTS and will install and set up all needed software for you.
 
 {{< highlight "info" "Setting up a control node">}}
 
@@ -97,19 +96,19 @@ It is our goal to eventually support a control node running as a WSL app on Wind
 
 {{< /highlight >}}
 
-As an alternative to a virtual machine, a dedicated computer (e.g. laptop, desktop, Intel NUC) running Ubuntu 20.04 LTS can be used. The `local-setup.sh` scripts are written and tested on this operating system and will set up all needed software for you.
+As an alternative to a virtual machine, a dedicated computer (e.g. laptop, desktop, Intel NUC) running Ubuntu 20.04 LTS can be used. The `local-setup.sh` scripts are written and tested on this operating system and will install and set up all needed software for you.
 
 ### A host server
 
 A host server is needed to run the various containers making up a [rollyourown.xyz](https://rollyourown.xyz) project deployment. A host server can host multiple projects, or a dedicated host server per project can be used.
 
-The recomended host server is a server or virtual private server (VPS) provided by a hosting provider. A host server can also be a server or virtual machine hosted in your home or office.
+The recommended host server is a server or virtual private server (VPS) provided by a hosting provider. A host server can also be a server or virtual machine hosted in your home or office.
 
 The host server must be reachable via a public IP address and should be running **Ubuntu 20.04 LTS** as operating system. [Rollyourown.xyz](https://rollyourown.xyz) projects are written and tested to set up and deploy to a Ubuntu 20.04 LTS Linux server.
 
 {{< highlight "danger" "Warning!">}}
 
-Unless you know what you are doing, it is **not recommended** to expose servers or computers in your home or office network on the open internet as this can open your network and computers to attack by various malicious actors. In an office environment, you may be violating company policy by doing so, even if you do find a way around the technical defenses put in place by your employer's IT department.
+Unless you know what you are doing, exposing servers or computers in your home or office network on the open internet is **not recommended** as this can open your network and computers to attack by various malicious actors. In an office environment, you may be violating company policy by doing so, even if you do find a way around the technical defences put in place by your employer's IT department.
 
 {{< /highlight >}}
 
@@ -121,7 +120,7 @@ More details and a step-by-step guide for setting up a host server can be found 
 
 ### A domain
 
-To run a [rollyourown.xyz](https://rollyourown.xyz) project, you will need a domain. There are many top level domains (TLDs) available - e.g. .com, .net, .org, .xyz, .info and many others - and many domain registrars in different countries from which you can purchase a domain. Often, a domain is included in a VPS package from a hoster.
+To run a [rollyourown.xyz](https://rollyourown.xyz) project, you will need a domain. There are many top level domains (TLDs) available - e.g. .com, .net, .org, .xyz, .info and many others - and many domain registrars in different countries from which you can purchase a domain. Often, a domain is included in a VPS package from a hosting provider.
 
 If you acquire your domain from a different provider than your host server, make sure that your domain provider allows you to manage DNS records for the domain so that you can configure the A and/or AAAA record to "point" to your host server.
 
@@ -129,7 +128,7 @@ If you acquire your domain from a different provider than your host server, make
 
 After a [control node](rollyourown/project_modules/control_node/) and [host server](rollyourown/project_modules/host_server/) have been set up, then container images for the project need to be built and uploaded to the host and the project's components need to be deployed on the host.
 
-### Getting the project repositories
+### Getting the project repository
 
 The first step is to fetch the automation code for the project.
 
@@ -138,13 +137,6 @@ First, log in to the **control node** as the non-root user, enter the `ryo-proje
 ```bash
 cd ~/ryo-projects
 git clone https://github.com/rollyourown-xyz/<PROJECT_TO_DEPLOY>
-```
-
-Then use the `get-modules.sh` script in the project directory to fetch additional modules. This script clones further [rollyourown.xyz](https://rollyourown.xyz) repositories to the control node.
-
-```bash
-cd ~/ryo-projects/<PROJECT_TO_DEPLOY>
-./get-modules.sh
 ```
 
 The project can now be configured.
@@ -160,63 +152,50 @@ cd ~/ryo-projects/<PROJECT_TO_DEPLOY>/
 cp configuration/configuration_TEMPLATE.yml configuration/configuration_<HOST_NAME>.yml
 ```
 
-Then, edit the project's configuration file `configuration_<HOST_NAME>.yml` and enter any configuration settings needed for the project (e.g. domain name, email addresses, etc.). If you aren't familiar with a different linux editor, use nano to edit the file.
+Then, edit the project's configuration file `configuration_<HOST_NAME>.yml` and enter any configuration settings needed for the project (e.g. domain name, email addresses, etc.). If you aren't familiar with a different Linux editor, use nano to edit the file or the built-in text editor from the Ubuntu desktop. Using nano from the command line, for example:
 
 ```bash
 cd ~/ryo-projects/<PROJECT_TO_DEPLOY>/
 nano configuration/configuration_<HOST_NAME>.yml
 ```
 
-Now you are ready to run the project's automation scrips to complete any project-specific setup of the host server, build images and deploy the project.
+Now you are ready to run the project's automation scrips to fetch additional modules, complete the setup of the host server, build images and deploy the project.
 
 {{< highlight "info" "Multiple project deployments">}}
 
-So that a control node can be used to manage multiple deployments of the same project on different host servers (so that, for example, different host servers can be used for different domains), the project configuration is always stored in a file called `configuration_<HOST_NAME>.yml`. Each configuration file in the project's configuration directory corresponds to the deployment of the project on a different host.
+A control node can be used to manage multiple deployments of the same project on different host servers (so that, for example, different host servers can be used for different domains). To enable this, the project configuration is always stored in a file called `configuration_<HOST_NAME>.yml`. Each configuration file in the project's configuration directory corresponds to the deployment of the project on a different host.
 
 {{< /highlight >}}
 
 ## Running the automation scripts
 
-All further steps are done using the automation scripts in the project's directory that was cloned to the control machine.
+All further steps are done using the automation scripts in the project's directory that was cloned to the control machine from the project's repository.
 
-### Project-specific host setup
-
-In this step, the host server is configured with any project-specific settings.
-
-Log in to the control node as the non-root user, enter the project's directory and run the `host-setup.sh` script, passing the name of the host on which to deploy the project via the flag `-n`:
+Log in to the control node as the non-root user, enter the project's directory and run the `deploy.sh` script. The host name for the project's deployment and a version stamp for the images (for example, the date) need to be passed to the script using the flags `-n` and `-v`:
 
 ```bash
 cd ~/ryo-projects/<PROJECT_TO_DEPLOY>/
-./host-setup.sh -n <HOST_NAME>
+./deploy.sh -n <HOST_NAME> -v <VERSION>
 ```
 
-The next step is to build container images for the project deployment.
+The script will ask whether to include modules in the deployment. The first time the project is deployed, this **must** be answered with `y`.
 
-### Building container images
+The `deploy.sh` then performs the full deployment of the project, including any necessary modules.
 
-In this step, container images are built on the control node, one for each component in the project's deployment, and uploaded to the host server ready to be deployed.
+{{< more "secondary">}}
 
-Log in to the control node as the non-root user, enter the project's directory and run the `build-images.sh` script. The host name for the project's deployment and a version stamp for the images (for example, the date) need to be passed to the script using the flags `-n` and `-v`. For the first deployment, images for the modules used by the project should also be built on the control node, by passing the flag `-m`.
+The `deploy.sh` script performs the following tasks:
 
-```bash
-cd ~/ryo-projects/<PROJECT_TO_DEPLOY>/
-./build-images.sh -m -n <HOST_NAME> -v <VERSION>
-```
+- Code for host configuration, image building and deployment for any modules required by the project is fetched from [rollyourown.xyz module](/rollyourown/project_modules/) repositories
+- The host server is configured with any module-specific settings
+- Container images are built on the control node for any modules required by the project and these are uploaded to the host server ready to be deployed
+- Module containers are launched on the host server
+- The host server is configured with any project-specific settings
+- Container images are built on the control node for the project's components and these are uploaded to the host server ready to be deployed
+- Project containers are launched on the host server
 
-Depending on the number of components to be deployed and the network speed between your control node and the remote host server, this process may take some time. Once the process is completed, you are ready to deploy the project.
-
-### Deploying the project
-
-In this step, the various project component containers are launched on the host server.
-
-Log in to the control node as the non-root user, enter the project's directory and run the `deploy-project.sh` script.
-
-The host name for the project's deployment needs to be passed to the script using the flag `-n` and the **same version stamp** used in the previous step needs to be passed using the flag `-v`. For the first deployment, modules needed for the project should also be deployed by passing the flag `-m`.
-
-```bash
-cd ~/ryo-projects/<PROJECT_TO_DEPLOY>/
-./deploy-project.sh -m -n <HOST_NAME> -v <VERSION>
-```
+Further details can be found [here](/collaborate/project_structure/).
+{{< /more >}}
 
 After the project has been deployed, you are ready to perform any needed project-specific setup and use the components deployed for your project.
 
@@ -224,4 +203,4 @@ After the project has been deployed, you are ready to perform any needed project
 
 Further information on further steps to take and how to use the project are given on the project's page.
 
-Over time, the software packages used for the project deployment need to be kept up to date, as security patches are released for the software or underlying operating systemss or when new versions of the software packages are released. The two automation scripts `build-images.sh` and `deploy-project.sh` are used to update the containers and deployment. More information can be found at ["Tech Projects: How to maintain"](/rollyourown/projects/how_to_maintain/).
+Over time, the software packages used for the project deployment need to be kept up to date, as security patches are released for the software or underlying operating systems or when new versions of the software packages are released. The `deploy.sh` automation script is also used to update the project's containers and deployment. More information can be found at ["How to Maintain"](/rollyourown/projects/how_to_maintain/).
