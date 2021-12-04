@@ -178,7 +178,15 @@ cd ~/ryo-projects/<PROJECT_TO_DEPLOY>/
 ./deploy.sh -n <HOST_NAME> -v <VERSION>
 ```
 
-The script will ask whether to include modules in the deployment. The first time the project is deployed, this **must** be answered with `y`.
+The script will ask whether this is the first project to be deployed on the host. If so, this **must** be answered with `y` (which is the default) so that all required modules will also be deployed. If, however, this is not the first project deployed on this host, then answer `n`.
+
+{{< highlight "warning" "Other projects already deployed?">}}
+
+Modules are deployed once and re-used by multiple projects on a host.
+
+In case other projects have already been deployed to the host, then the `deploy.sh` script will ask whether or not each module that is required by the new project needs to be deployed. Check with the [documentation for previously-deployed projects](/rollyourown/projects/) whether a module has already been deployed and, if so, answer `n` for the deployment of this module for the new project.
+
+{{< /highlight >}}
 
 The `deploy.sh` then performs the full deployment of the project, including any necessary modules.
 
