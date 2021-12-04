@@ -26,9 +26,11 @@ project_id
 |   |-- ...
 |-- scripts-project
 |   |-- ...
+|-- backup.sh (**TODO**)
 |-- deploy.sh
 |-- LICENSE
 |-- README.md
+|-- upgrade.sh
 ```
 
 ## The project_id
@@ -55,11 +57,30 @@ Only the variables `PROJECT_ID` and `MODULES` in the `deploy.sh` script need to 
 - The `PROJECT_ID` variable should be set as described [above](#the-project_id)
 - The `MODULES` variable should be set to a space-separated list of all the modules that are required to be deployed for the project - e.g. in the form "module_1 module_2 module_3"
 
-The `deploy.sh` script manages any modules required by the project, and builds and deploys the containers for the project itself, calling individual scripts in the directories `scripts-modules` and `scripts-project` to execute the individual steps.
+The `deploy.sh` script manages any modules required by the project, and builds and deploys the containers for the project itself.
 
 If the user selects `y` to include module deployment, then the `deploy.sh` script calls the four scripts in the [`/scripts-modules` directory](#the-scripts-modules-directory) to manage host setup, image build and deployment for any modules included in the project. These scripts are executed before the project's images and built and deployed.
 
 After (optional) module management, the `deploy.sh` script calls the three scripts in the [`/scripts-project` directory](#the-scripts-project-directory) to perform project-specific host setup, image build and deployment.
+
+## The `upgrade.sh` script
+
+The top-level directory of a rollyourown.xyz project includes a script `upgrade.sh` for the user to execute in order to [maintain the project](/rollyourown/projects/how_to_maintain/).
+
+Only the variables `PROJECT_ID` and `MODULES` in the `upgrade.sh` script need to be modified for a specific project, in the same way as for the [`deploy.sh` script](#the-deploysh-script).
+
+- The `PROJECT_ID` variable should be set as described [above](#the-project_id)
+- The `MODULES` variable should be set to a space-separated list of all the modules that are deployed for the project - e.g. in the form "module_1 module_2 module_3"
+
+The `upgrade.sh` script (optionally) manages the upgrade of any modules used by the project, and builds and deploys new containers for the project.
+
+For each module used in the project, the user is asked whether the module should also be upgraded. If the user selects `y` to upgrade a module, then the `upgrade.sh` script calls scripts in the [`/scripts-modules` directory](#the-scripts-modules-directory) to manage image build and deployment for the module. Modules are upgraded before the project's components are upgraded.
+
+After (optional) module upgrades, the `upgrade.sh` script calls scripts in the [`/scripts-project` directory](#the-scripts-project-directory) to perform project-specific image build and deployment.
+
+## The `backup.sh` script
+
+!!!TODO!!!
 
 ## The configuration directory
 
