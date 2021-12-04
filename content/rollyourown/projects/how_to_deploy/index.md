@@ -37,15 +37,9 @@ Now read on to understand each of these steps in more detail.
 
 Every [rollyourown.xyz](https://rollyourown.xyz) project follows the principles of **Configuration as code**, **Infrastructure as code** and **Immutable infrastructure**.
 
-{{< more "secondary">}}
-
-**Configuration as code**: so that the software and configuration of each element is described in code and under version control, allowing repeatable and automated setup of each element.
-
-**Infrastructure as code**: so that the desired installation (e.g. networks, IP addresses, number and type of instances deployed) is described in code and under version control, allowing exactly repeatable, automated deployments and automated changes over time.
-
-**Immutable infrastructure**: so that, once deployed, no running container is ever modified in place but is rather *replaced* with a new version, allowing exact knowledge of the state of the deployed infrastructure and the ability to roll back to a known working version in case of a failed upgrade.
-
-{{< /more >}}
+- **Configuration as code**: so that the software and configuration of each element is described in code and under version control, allowing repeatable and automated setup of each element.
+- **Infrastructure as code**: so that the desired installation (e.g. networks, IP addresses, number and type of instances deployed) is described in code and under version control, allowing exactly repeatable, automated deployments and automated changes over time.
+- **Immutable infrastructure**: so that, once deployed, no running container is ever modified in place but is rather *replaced* with a new version, allowing exact knowledge of the state of the deployed infrastructure and the ability to roll back to a known working version in case of a failed upgrade.
 
 Deploying a [rollyourown.xyz](https://rollyourown.xyz) project to a host server consists of a few steps:
 
