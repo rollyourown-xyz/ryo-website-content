@@ -21,8 +21,9 @@ The code for all rollyourown.xyz projects and project modules, as well as the co
 Our [Gitea server](https://git.rollyourown.xyz/) repositories are structured in four organisations:
 
 - ryo-infrastructure: Code repositories for deploying and managing the infrastructure behind rollyourown.xyz
-- ryo-organization: Repositories for managing assets related to the rollyourown.xyz organisation itself
+- ryo-organization: Repositories for managing assets related to the rollyourown.xyz project organisation
 - ryo-projects: Repositories for rollyourown.xyz projects and project modules
+- ryo-test: Repositories for rollyourown.xyz project and project module testing
 - ryo-website: Repositories for the content of the rollyourown.xyz website and its Hugo theme
 
 ## Repositories: ryo-infrastructure
@@ -39,11 +40,7 @@ These repositories are not mirrored to [Github](https://github.com).
 
 | Repository | Content | Github |
 | :--------- | :------ | :----- |
-| [ryo-test-gitea](https://git.rollyourown.xyz/ryo-infrastructure/ryo-test-gitea) | Code for creating test infrastructure for the [ryo-gitea-standalone](https://git.rollyourown.xyz/ryo-projects/ryo-gitea-standalone) and [ryo-gitea-with-sso](https://git.rollyourown.xyz/ryo-projects/ryo-gitea-with-sso) projects | not mirrored |
-| [ryo-test-grav-cms](https://git.rollyourown.xyz/ryo-infrastructure/ryo-test-grav-cms) | Code for creating test infrastructure for the [ryo-grav-cms](https://git.rollyourown.xyz/ryo-projects/ryo-grav-cms) project | not mirrored |
-| [ryo-test-matrix](https://git.rollyourown.xyz/ryo-infrastructure/ryo-test-matrix) | Code for creating test infrastructure for the [ryo-matrix-standalone](https://git.rollyourown.xyz/ryo-projects/ryo-matrix-standalone) and [ryo-matrix-with-sso](https://git.rollyourown.xyz/ryo-projects/ryo-matrix-with-sso) projects | not mirrored |
-| [ryo-test-nextcloud](https://git.rollyourown.xyz/ryo-infrastructure/ryo-test-nextcloud) | Code for creating test infrastructure for the [ryo-nextcloud-standalone](https://git.rollyourown.xyz/ryo-projects/ryo-nextcloud-standalone) and [ryo-nextcloud-with-sso](https://git.rollyourown.xyz/ryo-projects/ryo-nextcloud-with-sso) projects | not mirrored |
-| [ryo-test-template](https://git.rollyourown.xyz/ryo-infrastructure/ryo-test-template) | Template project for creating test infrastructure for rollyourown.xyz projects | not mirrored |
+| Currently no repositories |  |  |
 
 {{< /table >}}
 
@@ -89,6 +86,28 @@ These repositories are not mirrored to [Github](https://github.com).
 | [ryo-project-template](https://git.rollyourown.xyz/ryo-projects/ryo-project-template) | Template [folder structure](/collaborate/project_structure/) for a rollyourown.xyz project | [Link](https://github.com/rollyourown-xyz/ryo-project-template) |
 | [ryo-service-proxy](https://git.rollyourown.xyz/ryo-projects/ryo-service-proxy) | rollyourown.xyz [module](/rollyourown/project_modules/ryo-service-proxy/) for deploying a loadbalancer / TLS proxy | [Link](https://github.com/rollyourown-xyz/ryo-service-proxy) |
 | [ryo-wellknown](https://git.rollyourown.xyz/ryo-projects/ryo-wellknown) | rollyourown.xyz [module](/rollyourown/project_modules/ryo-wellknown/) for deploying a webserver to respond to [well-known URIs](https://en.wikipedia.org/wiki/Well-known_URI) | [Link](https://github.com/rollyourown-xyz/ryo-wellknown) |
+
+{{< /table >}}
+
+## Repositories: ryo-test
+
+{{< highlight "info">}}
+
+Our test repositories are not yet public and are only accessible for authorised users. We plan to make these repositories public at a later date.
+
+These repositories are not mirrored to [Github](https://github.com).
+
+{{< /highlight >}}
+
+{{< table tableclass="table table-bordered table-striped" theadclass="thead-dark" >}}
+
+| Repository | Content | Github |
+| :--------- | :------ | :----- |
+| [ryo-test-gitea](https://git.rollyourown.xyz/ryo-test/ryo-test-gitea) | Code for creating test infrastructure for the [ryo-gitea-standalone](https://git.rollyourown.xyz/ryo-projects/ryo-gitea-standalone) and [ryo-gitea-with-sso](https://git.rollyourown.xyz/ryo-projects/ryo-gitea-with-sso) projects | not mirrored |
+| [ryo-test-grav-cms](https://git.rollyourown.xyz/ryo-test/ryo-test-grav-cms) | Code for creating test infrastructure for the [ryo-grav-cms](https://git.rollyourown.xyz/ryo-projects/ryo-grav-cms) project | not mirrored |
+| [ryo-test-matrix](https://git.rollyourown.xyz/ryo-test/ryo-test-matrix) | Code for creating test infrastructure for the [ryo-matrix-standalone](https://git.rollyourown.xyz/ryo-projects/ryo-matrix-standalone) and [ryo-matrix-with-sso](https://git.rollyourown.xyz/ryo-projects/ryo-matrix-with-sso) projects | not mirrored |
+| [ryo-test-nextcloud](https://git.rollyourown.xyz/ryo-test/ryo-test-nextcloud) | Code for creating test infrastructure for the [ryo-nextcloud-standalone](https://git.rollyourown.xyz/ryo-projects/ryo-nextcloud-standalone) and [ryo-nextcloud-with-sso](https://git.rollyourown.xyz/ryo-projects/ryo-nextcloud-with-sso) projects | not mirrored |
+| [ryo-test-template](https://git.rollyourown.xyz/ryo-test/ryo-test-template) | Template project for creating test infrastructure for rollyourown.xyz projects | not mirrored |
 
 {{< /table >}}
 
