@@ -13,6 +13,7 @@ This project deploys a [Nextcloud](https://nextcloud.com/) server, with a [Maria
 {{< highlight "primary" "ToDo">}}
 
 - [ ] Links on the page
+- [ ] Add nextcloud-gpodder to [Using the Nextcloud service](#using-the-nextcloud-service)
 
 {{< /highlight >}}
 
@@ -96,7 +97,7 @@ Log in to the Nextcloud front-end at the domain name provided in your configurat
 
 #### Configuring the Nextcloud service
 
-After logging in with the administrator account, settings for the Nextcloud server can be made from the "Settings" item in the admin account's drop-down menu:
+After logging in with the administrator account, the Nextcloud server can be configured from the "Settings" item in the admin account's drop-down menu:
 
 ![Nextcloud Settings](Nextcloud_Settings_1200.png)
 
