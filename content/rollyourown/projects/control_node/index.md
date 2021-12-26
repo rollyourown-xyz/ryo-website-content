@@ -12,7 +12,6 @@ A control node is needed for executing automation scripts that set up a host ser
 
 {{< highlight "primary" "ToDo">}}
 
-- [ ] Link to collaboration page for "Guide for control node setup: MacOS" and for Windows 10 VMWare networking issue
 - [ ] Add links in the text
 
 {{< /highlight >}}
