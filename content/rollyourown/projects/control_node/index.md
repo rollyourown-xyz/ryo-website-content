@@ -81,7 +81,7 @@ On Windows 10, testing has shown that the free, personal, non-commercial use ver
 
 {{< highlight "warning" "macOS setup is untested">}}
 
-We have currently been unable to test any of the macOS-based virtual machine options for compatibility with a rollyourown.xyz control node and scripts. Please consider contributing [LINK TO RELEVANT PAGE HERE] if you can help us with this.
+We have currently been unable to test any of the macOS-based virtual machine options for compatibility with a rollyourown.xyz control node and scripts. [Please consider contributing](/collaborate) if you can help us with this.
 
 {{< /highlight >}}
 
