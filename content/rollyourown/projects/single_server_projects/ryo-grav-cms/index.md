@@ -27,9 +27,9 @@ A [control node](/rollyourown/projects/control_node/) without a graphical deskto
 
 ## Repository links
 
-The [Github](https://github.com/) mirror repository for this project is here: [https://github.com/rollyourown-xyz/ryo-grav-cms-standalone](https://github.com/rollyourown-xyz/ryo-grav-cms-standalone)
+The [Github](https://github.com/) mirror repository for this project is here: [https://github.com/rollyourown-xyz/ryo-grav-cms](https://github.com/rollyourown-xyz/ryo-grav-cms)
 
-The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-grav-cms-standalone](https://git.rollyourown.xyz/ryo-projects/ryo-grav-cms-standalone)
+The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-grav-cms](https://git.rollyourown.xyz/ryo-projects/ryo-grav-cms)
 
 ## Dependencies
 
@@ -63,7 +63,7 @@ The webserver container hosts an [nginx](https://nginx.org/) web server, configu
 
 ### Deploying the project
 
-To deploy the project, follow the generic [project deployment instructions](/rollyourown/projects/how_to_deploy/), using the project's Github mirror repository at [https://github.com/rollyourown-xyz/ryo-grav-cms-standalone/](https://github.com/rollyourown-xyz/ryo-grav-cms-standalone/).
+To deploy the project, follow the generic [project deployment instructions](/rollyourown/projects/how_to_deploy/), using the project's Github mirror repository at [https://github.com/rollyourown-xyz/ryo-grav-cms/](https://github.com/rollyourown-xyz/ryo-grav-cms/).
 
 ### After deployment
 
