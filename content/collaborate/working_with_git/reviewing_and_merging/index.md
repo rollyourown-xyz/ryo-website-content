@@ -15,7 +15,6 @@ Please contact us if you would consider becoming a maintainer for one of our rep
 {{< highlight "primary" "ToDo">}}
 
 - [ ] Links
-- [ ] Link to page on public matrix rooms
 
 {{< /highlight >}}
 
@@ -29,7 +28,7 @@ On GitHub, a maintainer of a rollyourown-xyz project has "Triage" access rights 
 
 ## Reviewing and discussing Issues
 
-Before receiving a Pull Request, the maintainer will ideally have interacted with the developer and discussed the changes, e.g. via an Issue submitted or in one of our public Matrix rooms [**TODO: LINK HERE**].
+Before receiving a Pull Request, the maintainer will ideally have interacted with the developer and discussed the changes, e.g. via an Issue submitted or in one of our [public matrix rooms](https://rollyourown.xyz/about/public_matrix_rooms).
 
 ### Reviewing a Pull Request
 
