@@ -8,18 +8,9 @@ This project deploys a [Grav](https://getgrav.org) flat-file content management 
 
 <!--more-->
 
-## TODOs on this page
-
-{{< highlight "primary" "ToDo">}}
-
-- [ ] Links on the page
-- [ ] Include Grav CMS with Git Sync
-
-{{< /highlight >}}
-
 ## Grav CMS project introduction
 
-[Grav](https://getgrav.org) is an open source flat-file content management system (CMS), based on PHP, that uses only files and folders for managing content and no database. Grav provides a fast, more lightweight alternative to database-driven CMSs like [Wordpress](https://wordpress.org/) or [Drupal](https://www.drupal.org/), especially for simpler websites and blogs. Content can either be written directly in [Markdown](https://daringfireball.net/projects/markdown/) format and uploaded to the web server or via Grav's [web-based editor](https://learn.getgrav.org/17/admin-panel/page/editor).
+[Grav](https://getgrav.org) is an open source flat-file content management system (CMS), based on PHP, that uses only files and folders for managing content and no database. Grav provides a fast, more lightweight alternative to database-driven CMSs like [Wordpress](https://wordpress.org/) or [Drupal](https://www.drupal.org/), especially for simpler websites and blogs. Content is written in [Markdown](https://daringfireball.net/projects/markdown/) format and can be created/edited via Grav's [web-based editor](https://learn.getgrav.org/17/admin-panel/page/editor), uploaded to the server (e.g. via [SFTP](https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol)) or [synchronised from a git repository](#synchronise-with-a-git-repository).
 
 {{< highlight "info" "Control node">}}
 A [control node](/rollyourown/projects/control_node/) without a graphical desktop UI is sufficient for this project, as the Grav admin interface is reachable via the public internet.
@@ -57,7 +48,7 @@ The loadbalancer / TLS proxy container terminates HTTP and HTTPS connections and
 
 #### Webserver container
 
-The webserver container hosts an [nginx](https://nginx.org/) web server, configured according to the [best practices](https://learn.getgrav.org/17/webservers-hosting/servers/nginx) recommended for Grav. Additionally, the [PHP modules](https://learn.getgrav.org/17/basics/requirements#php-requirements) and dependencies required for the Grav CMS and the code for [Grav](https://getgrav.org/) itself are installed with a basic Grav configuration including a pre-provisioned administrator account.
+The webserver container hosts an [nginx](https://nginx.org/) web server, configured according to the [best practices](https://learn.getgrav.org/17/webservers-hosting/servers/nginx) recommended for Grav. Additionally, the [PHP modules](https://learn.getgrav.org/17/basics/requirements#php-requirements) and dependencies required for the Grav CMS, and the code for [Grav](https://getgrav.org/) itself, are installed with a basic Grav configuration including a pre-provisioned administrator account.
 
 ## How to use this project
 
@@ -77,11 +68,11 @@ After deployment, next steps are described in the following sections.
 
 #### Log in as administrator and configure the site
 
-Log in using the project administrator account at `https://<your_domain>/admin`. The administrator account's username and password are defined in your configuration file (as the variables `project_admin_username` and `project_admin_password`).
+Log in using the pre-configured project administrator account at `https://<your_domain>/admin`. The administrator account's username and password are defined in your configuration file (as the variables `project_admin_username` and `project_admin_password`).
 
 ![Grav Login](Grav_Login_1200.png)
 
-After login, the site can be configured from the "Configuration" option from the admin [dashboard](https://learn.getgrav.org/admin-panel/dashboard).
+After login, the site can be configured from the "Configuration" option on the admin [dashboard](https://learn.getgrav.org/admin-panel/dashboard).
 
 ![Grav Dashboard Configuration](Grav_Dashboard_Configuration_1200.png)
 
@@ -109,6 +100,14 @@ Content can be [added and managed](https://learn.getgrav.org/admin-panel/page) v
 
 ![Grav Page Configuration](Grav_Page_Configuration_1200.png)
 
+#### Synchronise with a git repository
+
+As a version-controlled backup for your content, or as an alternative method for managing content creation, Grav can be synchronised with a git repository. This could, for example, be a repository [on your own git server](/rollyourown/projects/single_server_projects/ryo-grav-cms/) or a repository at [Codeberg](https://codeberg.org/), [GitHub](https://github.com/), [GitLab](https://about.gitlab.com/), [Bitbucket](https://bitbucket.org/) or any other online git service.
+
+To do this, create an empty repository on your git service. Then [install](#install-plugins) the [Grav git-sync plugin](https://github.com/trilbymedia/grav-plugin-git-sync). After installation, the plugin includes a wizard to walk you through the process of connecting to your repository.
+
+After connecting your Grav server with your repository, changes made via the Grav editor front-end are committed to your git repository and commits made via your git repository are synchronised to your Grav site.
+
 #### Manage site backups
 
 The site can be backed up using Grav's built-in backup tool. This can be found via the "Tools" option on the admin dashboard.
@@ -123,9 +122,9 @@ Maintenance is automated via the rollyourown.xyz project scripts. See [here](/ro
 
 ## Project requirements
 
-As a flat-file CMS, [Grav](https://getgrav.org) does not need huge resources to run, so that this project can be deployed on smaller, cheaper entry-level virtual servers or home servers.
+As a flat-file CMS, [Grav](https://getgrav.org) does not need huge resources to run. This project can be deployed on smaller, cheaper entry-level virtual servers or home servers.
 
-For example, this project has been successfully deployed on a €2,69/m entry-level Linux VPS with 1 vCore CPU, 2GB RAM and a 20GB SSD. Of course, if you plan to build a larger website or expect to serve large amounts of traffic, a higher-spec VPS would be needed.
+For example, this project has been successfully deployed on a €2,69/m entry-level Linux VPS with 1 vCore CPU, 2GB RAM and a 20GB SSD. Of course, if you plan to build a larger website or expect to serve large amounts of traffic, a higher-spec VPS or server would be needed.
 
 ## Software deployed
 
@@ -137,7 +136,7 @@ The open source components used in this project are:
 | :------ | :---------- | :------- | :------ |
 | Certbot | [Let's Encrypt](https://letsencrypt.org/) certificate manager, deployed by the [Service Proxy module](/rollyourown/project_modules/ryo-service-proxy/) | [https://certbot.eff.org/](https://certbot.eff.org/) | [Apache 2.0](https://raw.githubusercontent.com/certbot/certbot/master/LICENSE.txt) |
 | Consul | Service registry and key-value store | [https://www.consul.io/](https://www.consul.io/) | [MPL 2.0](https://github.com/hashicorp/consul/blob/master/LICENSE) |
-| Consul-Template | Tool to create dynamic configuration files based on Consul Key-Value store or service registry queries | [https://github.com/hashicorp/consul-template/](https://github.com/hashicorp/consul-template/) | [MPL 2.0](https://github.com/hashicorp/consul-template/blob/master/LICENSE) |
+| Consul-Template | Tool to create dynamic configuration files based on Consul Key-Value store or service registry queries, deployed by the [Service Proxy module](/rollyourown/project_modules/ryo-service-proxy/) | [https://github.com/hashicorp/consul-template/](https://github.com/hashicorp/consul-template/) | [MPL 2.0](https://github.com/hashicorp/consul-template/blob/master/LICENSE) |
 | Grav | Flat-file Content Management System | [https://getgrav.org/](https://getgrav.org/) | [MIT](https://github.com/getgrav/grav/blob/develop/LICENSE.txt) |
 | HAProxy | Load balancer, TCP and HTTP proxy, deployed by the [Service Proxy module](/rollyourown/project_modules/ryo-service-proxy/) | [https://www.haproxy.org/](https://www.haproxy.org/) | [GPL / LGPL](https://github.com/haproxy/haproxy/blob/master/LICENSE) |
 | nginx | Web server for the [Grav](https://getgrav.org/) installation | [https://nginx.org/](https://nginx.org/) | [2-clause BSD license](http://nginx.org/LICENSE) |
