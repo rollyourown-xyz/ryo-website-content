@@ -1,7 +1,7 @@
 ---
-title: "GDPR Notes"
+title: "GDPR notes"
 tags: []
-draft: false
+draft: true
 ---
 
 Notes on GDPR.
