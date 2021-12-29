@@ -24,6 +24,6 @@ If you would like to propose larger changes or suggest structural changes to the
 
 If, after discussing the change, you would like to proceed and implement it, then please fork the GitHub mirror repository and submit a Pull Request. Please follow the workflow described on our website in [our guide to Forking and Pull Requests](https://rollyourown.xyz/collaborate/working_with_git/forking_and_pull_requests/).
 
-### Translating
+### Translating the website
 
-[**TO BE ADDED**.]
+If you would like to help us translate our website into other languages, please [contact us](https://rollyourown.xyz/about/contact/#website-translation).
