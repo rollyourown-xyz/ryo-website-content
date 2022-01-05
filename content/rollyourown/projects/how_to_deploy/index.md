@@ -1,5 +1,6 @@
 ---
 title: "How to Deploy"
+weight: 1
 tags: [ ]
 draft: false
 ---
@@ -16,6 +17,7 @@ This page describes how to use these resources to prepare a control machine, set
 
 - [ ] Consider moving some details to dedicated pages / maybe a dedicated section on How to Use
 - [ ] Add links in the text
+- [ ] Update "What do these scripts do?" link
 
 {{< /highlight >}}
 
@@ -53,18 +55,18 @@ Deploying a [rollyourown.xyz](https://rollyourown.xyz) project to a host server 
 
 5. Clone the [project's repository](https://github.com/rollyourown-xyz/) to the control node to obtain scripts, configuration code and infrastructure code needed to deploy the project
 
-6. Edit the project's configuration file to fill in necessary parameters such as admin username and password and domain to use for the project
+6. Edit the project's configuration file to fill in necessary parameters such as admin username, admin password and domain to use for the project
 
 7. Run the `deploy.sh` script on the control node which:
   
     - Fetches additional modules needed for the project by cloning the necessary [rollyourown.xyz](https://rollyourown.xyz) module repositories to the control node
-    - Configures module- and project-specific settings on the host server, if needed by the project
-    - Prepares the various container images needed for the project (and its modules) and to upload them to the host server ready for deployment
+    - Configures module- and project-specific settings on the host server
+    - Prepares the various container images needed for the project (and its modules) and uploads them to the host server ready for deployment
     - Deploys the various containers to the host server
 
 {{< highlight "info">}}
 
-These steps are described in more detail in the following. For more information about the [rollyourown.xyz](https://rollyourown.xyz) automation scripts, see the section ["What do these scripts do?"](#what-do-these-scripts-do) below.
+These steps are described in more detail in the following. For more information about the [rollyourown.xyz](https://rollyourown.xyz) automation scripts, see the section ["What do these scripts do?"](#what-do-these-scripts-do) below [**TODO - UPDATE TEXT AND LINK TO DIFFERENT PAGE**].
 
 {{< /highlight >}}
 
