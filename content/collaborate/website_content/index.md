@@ -1,5 +1,6 @@
 ---
 title: "Website Content"
+weight: 5
 tags: [ ]
 draft: true
 ---
@@ -37,13 +38,13 @@ If you would like to propose larger changes or suggest structural changes to the
 
 If, after discussing the change, you would like to proceed and implement it, then please fork the [GitHub mirror repository](https://github.com/rollyourown-xyz/ryo-website-hugo-content) and submit a Pull Request. Follow the workflow described in our section on [Forking and Pull Requests](/collaborate/working_with_git/forking_and_pull_requests/).
 
-## Translating
+## Translating the website
 
-[**TODO: Overview, thanks and a sub-page on how this is done in Hugo**. Not also that only the website is translated, not the projects themselves.]
+Our site is currently available only in the English language, with a translation into German in progress. If you would like to help us translate the site into other languages, please [contact us](/about/contact/#website-translation) to discuss how to do this.
 
 ## Format of content in the repository
 
-Our website content is written in Markdown format [LINK HERE] in a structure that can be processed by our Hugo static site generator. For more details on this, see the [documentation for the website content structure](/collaborate/website_development/content_structure/).
+Our website content is written in Markdown format [**LINK HERE**] in a structure that can be processed by our Hugo static site generator. For more details on this, see the [documentation for the website content structure](/collaborate/website_development/content_structure/).
 
 ## Licence
 
