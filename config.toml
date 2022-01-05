@@ -1,16 +1,20 @@
 languageCode = "en-gb"
-#
+
 # For private development of the site, use development webserver
 baseURL = "http://10.10.11.111/"
 title = "DEVELOPMENT rollyourown.xyz"
-#
+
 # For production, use production webserver
 #baseURL = "https://rollyourown.xyz/"
 #title = "rollyourown.xyz"
-#
+
 theme = "rollyourown-theme"
 contentDir = "content"
 defaultContentLanguage = "en"
+
+# Disable languages that are present but not yet completed
+disableLanguages = ["de"]
+
 defaultContentLanguageInSubdir = "false"
 
 [params]
@@ -24,12 +28,13 @@ defaultContentLanguageInSubdir = "false"
 
 [taxonomies]
   tag = "tags"
-    
+
 # See https://feathericons.com/
-# The value of pre is the icon name
+# The value of 'pre' is the icon name
 [languages]
-  
+
   [languages.en]
+    languageName = 'English'
     weight = 1
     [[languages.en.menu.main]]
       name = "Home"
@@ -53,6 +58,7 @@ defaultContentLanguageInSubdir = "false"
       weight = 4
 
   [languages.de]
+    languageName = 'Deutsch'
     weight = 2
     [[languages.de.menu.main]]
       name = "Start"
@@ -75,6 +81,10 @@ defaultContentLanguageInSubdir = "false"
       url = "/de/about/"
       weight = 4
 
+
+##########################
+# Privacy-related features
+##########################
 [privacy]
   [privacy.disqus]
     disable = true
