@@ -1,5 +1,6 @@
 ---
 title: "Credits"
+weight: 9
 tags: []
 draft: false
 ---
@@ -24,11 +25,12 @@ In alphabetical order, the projects powering rollyourown.xyz are:
 | Feather | Icons for the [rollyourown.xyz](https://rollyourown.xyz) website | [https://feathericons.com/](https://feathericons.com/) | [MIT](https://github.com/feathericons/feather/blob/master/LICENSE) |
 | Galera Cluster | Clustering our MariaDB databases | [https://galeracluster.com/](https://galeracluster.com/) | [GPL v2](https://github.com/codership/galera/blob/3.x/LICENSE) |
 | Git | Version control for everything we do | [https://git-scm.com/](https://git-scm.com/) | [GPL v2](https://github.com/git/git/blob/master/COPYING) |
-| Gitea | Our git service | [https://gitea.io/](https://gitea.io/) | [MIT](https://github.com/go-gitea/gitea/blob/main/LICENSE) |
+| Gitea | Our git repository hosting service | [https://gitea.io/](https://gitea.io/) | [MIT](https://github.com/go-gitea/gitea/blob/main/LICENSE) |
 | HAProxy | TLS termination, reverse proxying and loadbalancing | [https://www.haproxy.org/](https://www.haproxy.org/) | [GPL / LGPL](https://github.com/haproxy/haproxy/blob/master/LICENSE) |
+| Grav | Dynamic pages on the [rollyourown.xyz](https://rollyourown.xyz) website, such as contact forms | [https://getgrav.org/](https://getgrav.org/) | [MIT](https://github.com/getgrav/grav/blob/develop/LICENSE.txt) |
 | Hugo | Static site generation for the [rollyourown.xyz](https://rollyourown.xyz) website | [https://gohugo.io/](https://gohugo.io/) | [Apache 2.0](https://github.com/gohugoio/hugo/blob/master/LICENSE) |
 | jQuery | Javascript library used by the bootstrap framework | [https://jquery.com/](https://jquery.com/) | [MIT](https://github.com/jquery/jquery/blob/main/LICENSE.txt) |
-| Keycloak | Identity management and SSO | [https://www.keycloak.org/](https://www.keycloak.org/) | [Apache 2.0](https://github.com/keycloak/keycloak/blob/main/LICENSE.txt) |
+| Keycloak | Identity management and single sign-on | [https://www.keycloak.org/](https://www.keycloak.org/) | [Apache 2.0](https://github.com/keycloak/keycloak/blob/main/LICENSE.txt) |
 | LXD/LXC | Deploying system containers to our servers | [https://linuxcontainers.org/lxd/](https://linuxcontainers.org/lxd/) | [Apache 2.0](https://github.com/lxc/lxd/blob/master/COPYING) |
 | MariaDB | Databases behind various services | [https://mariadb.org/](https://mariadb.org/) | [GPL v2 / LGPL](https://mariadb.com/kb/en/mariadb-license/) |
 | nginx | Web server for various websites and services | [https://nginx.org/](https://nginx.org/) | [2-clause BSD Licence](http://nginx.org/LICENSE) |
