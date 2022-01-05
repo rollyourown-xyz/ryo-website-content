@@ -1,5 +1,6 @@
 ---
 title: "New Projects or Modules"
+weight: 4
 tags: [ ]
 draft: true
 ---
@@ -15,7 +16,6 @@ If you would like to contribute a new project or module to the rollyourown.xyz p
 {{< highlight "primary" "ToDo">}}
 
 - [ ] Check all links
-- [ ] Check/change link to "Forking and Pull Requests"
 - [ ] Refer to Issue Templates
 
 {{< /highlight >}}
@@ -37,7 +37,7 @@ When you are familiar with the [anatomy of a project or module](#anatomy-of-a-pr
 - The documentation on the [rollyourown.xyz website](https://rollyourown.xyz) that will also need to be created for the project
 - Which other rollyourown.xyz collaborators would like to work with you on your project
 
-We will also discuss whether you would like to join the rollyourown.xyz organisation [LINK HERE TO A "WHAT YOU GET" SECTION] and become the maintainer for your project. For an idea of what this entails, please see our page on [Maintaining a Repository](/collaborate/maintaining_a_repository/).
+We will also discuss whether you would like to join the rollyourown.xyz organisation [**LINK HERE TO A "WHAT YOU GET" SECTION**] and become the maintainer for your project. For an idea of what this entails, please see our page on [Maintaining a Repository](/collaborate/maintaining_a_repository/).
 
 ## Creating a new project or module
 
