@@ -1,5 +1,6 @@
 ---
 title: "Website Design"
+weight: 6
 tags: [ ]
 draft: true
 ---
@@ -22,9 +23,9 @@ Our website theme is managed from [our Gitea server repository](https://git.roll
 
 If you would like to propose changes to the design of the rollyourown.xyz website, please first [submit an Issue](https://github.com/rollyourown-xyz/ryo-website-hugo-theme/issues) describing what you would like to change and why. The website maintainer can then provide feedback on the proposal in advance of you doing any work. There may be a reason why your proposal would not be accepted, or should be realised differently, so this avoids you doing work which will end up not being accepted and merged
 
-Improvements to the rollyourown.xyz website design require changes to the theme, which typically requires knowledge of [Hugo theming](https://gohugo.io/hugo-modules/theme-components/).
+Improvements to the rollyourown.xyz website design require changes to the theme, which requires knowledge of [Hugo](https://gohugo.io/) theming.
 
-If, after discussing the change, you would like to proceed and implement it, then please fork the [GitHub mirror repository](https://github.com/rollyourown-xyz/ryo-website-hugo-theme) and submit a Pull Request. Follow the workflow described in our section on [Forking and Pull Requests](/collaborate/working_with_git/forking_and_pull_requests/).
+If, after discussing the change, you would like to proceed and implement it, then please fork the repository and submit a Pull Request. Follow the workflow described in our section on [Forking and Pull Requests](/collaborate/working_with_git/forking_and_pull_requests/).
 
 ## Licence
 
