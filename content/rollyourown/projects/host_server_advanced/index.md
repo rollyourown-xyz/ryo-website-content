@@ -1,5 +1,6 @@
 ---
 title: "Host Server - Advanced"
+weight: 6
 tags: [ "module", "host" ]
 draft: true
 ---

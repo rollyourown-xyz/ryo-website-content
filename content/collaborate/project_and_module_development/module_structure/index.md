@@ -1,5 +1,6 @@
 ---
 title: "Module Structure"
+weight: 3
 tags: [ ]
 draft: true
 ---

@@ -1,5 +1,6 @@
 ---
 title: "Other Projects"
+weight: 3
 tags: [ ]
 draft: true
 ---

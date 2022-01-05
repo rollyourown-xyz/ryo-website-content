@@ -1,5 +1,6 @@
 ---
 title: "Working with Git"
+weight: 1
 tags: [ ]
 draft: true
 ---

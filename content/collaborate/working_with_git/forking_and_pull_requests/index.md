@@ -1,5 +1,6 @@
 ---
 title: "Forking and Pull Requests"
+weight: 2
 tags: [ ]
 draft: true
 ---
@@ -15,6 +16,7 @@ This section describes the basic collaboration model for working on code or webs
 - [ ] Links
 - [ ] Illustration of forking from source repo to personal account and then to a computer for editing
 - [ ] Refer to Issue and Pull Request Templates
+- [ ] **TBD**: Update to include Codeberg as a place for collaboration (with Codeberg first and GitHub second in the text)
 
 {{< /highlight >}}
 
@@ -78,7 +80,7 @@ A few steps are needed to make changes on your computer, synchronise them to you
 - A "feature branch" is created for the changes you are about to make
 - Changes are made to the files on your computer
 - Changes are committed to the feature branch on your computer, with a short description of what has changed
-- The changes made on your computer are pushed back to the forked repository on GitHub
+- The changes made on your computer are pushed back to your personal copy of the forked repository on GitHub
 
 How you do these steps will depend on whether you are comfortable working with the command line, or prefer working with graphical user interfaces. Examples of both are below.
 

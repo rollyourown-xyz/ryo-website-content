@@ -1,5 +1,6 @@
 ---
 title: "Website Content Structure"
+weight: 1
 tags: [ ]
 draft: true
 ---

@@ -1,5 +1,6 @@
 ---
 title: "Public Matrix Rooms"
+weight: 6
 tags: [ ]
 draft: true
 ---

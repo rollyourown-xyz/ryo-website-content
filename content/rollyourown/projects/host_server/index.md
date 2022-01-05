@@ -1,5 +1,6 @@
 ---
 title: "Host Server"
+weight: 5
 tags: [ "module", "host" ]
 draft: false
 ---

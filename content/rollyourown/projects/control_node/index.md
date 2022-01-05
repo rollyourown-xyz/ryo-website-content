@@ -1,5 +1,6 @@
 ---
 title: "Control node"
+weight: 4
 tags: [ ]
 draft: false
 ---
