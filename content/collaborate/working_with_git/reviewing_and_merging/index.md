@@ -1,12 +1,13 @@
 ---
 title: "Reviewing and Merging"
+weight: 3
 tags: [ ]
 draft: true
 ---
 
 This page gives and overview of the reviewing and merging steps taken by a maintainer after a contributor has submitted a Pull Request to a rollyourown.xyz repository.
 
-Please contact us if you would consider becoming a maintainer for one of our repositories.
+Please [contact us](/about/contact) if you would consider becoming a maintainer for one of our repositories.
 
 <!--more-->
 
@@ -15,6 +16,7 @@ Please contact us if you would consider becoming a maintainer for one of our rep
 {{< highlight "primary" "ToDo">}}
 
 - [ ] Links
+- [ ] **TBD**: Update to include Codeberg as a place for collaboration (with Codeberg first and GitHub second in the text)
 
 {{< /highlight >}}
 
@@ -59,7 +61,8 @@ The maintainer performs the following steps:
 2. The maintainer makes sure that the main branch of the repository is checked out and up-to-date using, for example:
 
     ```bash
-    git checkout main` and `git pull
+    git checkout main
+    git pull
     ```
 
 3. The maintainer then creates and checks out a new feature branch with the name of the feature branch from the forked repository using, for example:
@@ -71,22 +74,29 @@ The maintainer performs the following steps:
 4. The feature branch of the forked repository is then pulled to the maintainer's local copy from the forked repository in the contributor's GitHub account using, for example:
 
     ```bash
+    git pull https://codeberg.org/<USERNAME>/ryo-example.git 123-add-something
+    ```
+
+    or
+
+    ```bash
     git pull https://github.com/<USERNAME>/ryo-example.git 123-add-something
     ```
 
-5. The maintainer switches back to the main branch with:
+5. The maintainer switches back to the main branch and makes sure it is up to date with:
 
     ```bash
     git checkout main
+    git pull
     ```
 
-6. The feature branch is then merged into the main branch of the maintainer's local repository using, for example:
+6. The feature branch is then merged into the main branch of the maintainer's local repository, for example:
 
     ```bash
-    git merge 123-add-something
+    git merge --no-ff 123-add-something main
     ```
 
-    The maintainer does **not** perform a squash-merge, so that GitHub automatically recognises that the Pull Request has been merged when the changes are mirrored to GitHub
+    The maintainer does **not** perform a squash-merge, so that GitHub automatically recognises that the Pull Request has been merged when the changes are mirrored to GitHub. With the --no-ff option, the maintainer adds a commit meesage, in which the Pull Request can be referenced 
 
 7. The maintainer then pushes to the [rollyourown.xyz project repository](https://git.rollyourown.xyz) using, for example:
 
