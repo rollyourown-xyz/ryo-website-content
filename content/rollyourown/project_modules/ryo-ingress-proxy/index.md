@@ -4,7 +4,7 @@ tags: [ "module" ]
 draft: true
 ---
 
-The Ingress Proxy module is a re-usable module for other [rollyourown.xyz](https://rollyourown.xyz) projects which is used to terminate HTTPS and TCP connections and route traffic to the project's containers.
+The Ingress Proxy module is a re-usable module for other [rollyourown.xyz](https://rollyourown.xyz) projects which is used to terminate HTTPS and TCP connections and route admissible traffic to the project's containers.
 
 <!--more-->
 
