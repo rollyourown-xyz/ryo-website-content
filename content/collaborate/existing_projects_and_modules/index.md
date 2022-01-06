@@ -23,9 +23,7 @@ If you would like to improve an existing project or module to the rollyourown.xy
 
 ## Before working on the code
 
-If you would like to improve the code yourself for a particular rollyourown.xyz [project](https://git.rollyourown.xyz/ryo-projects/ryo-project-template) or [module](https://git.rollyourown.xyz/ryo-projects/ryo-module-template), please first submit an Issue in our mirror repositories [on Codeberg](https://codeberg.org/rollyourown-xyz) or [on GitHub](https://github.com/rollyourown-xyz) describing what you would like to change and why.
-
-[**TODO: WHERE TO SUBMIT ISSUE WITH SCREENSHOT**]
+If you would like to improve the code yourself for a particular rollyourown.xyz [project](https://git.rollyourown.xyz/ryo-projects/ryo-project-template) or [module](https://git.rollyourown.xyz/ryo-projects/ryo-module-template), please first submit an Issue in our mirror repositories [on Codeberg](/collaborate/bug_reports_feature_requests_ideas/#raising-issues-on-codeberg) or [on GitHub](/collaborate/bug_reports_feature_requests_ideas/#raising-issues-on-github) describing what you would like to change and why.
 
 The project maintainer can then provide feedback on the proposal in advance of you doing any work. There may be a reason why your proposal would not be accepted, or should be realised differently, so this avoids you doing work which will end up not being accepted and merged into the code.
 
