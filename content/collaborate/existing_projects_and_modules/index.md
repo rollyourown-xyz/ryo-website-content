@@ -23,7 +23,7 @@ If you would like to improve an existing project or module to the rollyourown.xy
 
 ## Before working on the code
 
-If you would like to improve the code yourself for a particular rollyourown.xyz [project](https://git.rollyourown.xyz/ryo-projects/ryo-project-template) or [module](https://git.rollyourown.xyz/ryo-projects/ryo-module-template), please first submit an Issue describing what you would like to change and why.
+If you would like to improve the code yourself for a particular rollyourown.xyz [project](https://git.rollyourown.xyz/ryo-projects/ryo-project-template) or [module](https://git.rollyourown.xyz/ryo-projects/ryo-module-template), please first submit an Issue in our mirror repositories [on Codeberg](https://codeberg.org/rollyourown-xyz) or [on GitHub](https://github.com/rollyourown-xyz) describing what you would like to change and why.
 
 [**TODO: WHERE TO SUBMIT ISSUE WITH SCREENSHOT**]
 

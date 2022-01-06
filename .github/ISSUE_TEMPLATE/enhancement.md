@@ -18,7 +18,7 @@ Please add a short description of the change you would like to see.
 Please add a link to the page or pages on [our website](https://rollyourown.xyz) where the changes would take place.
 
 **Links to content in our repository**
-If possible, please add links to the content pages in [our repository](https://git.rollyourown.xyz/ryo-website/hugo-content) where the changes would take place.
+If possible, please add links to the content pages in [our repository](https://github.com/rollyourown-xyz/ryo-website-hugo-content) where the changes would take place.
 
 **Expected outcome**
 Please add a description of what you would like to be changed and why this would improve the website.

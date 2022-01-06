@@ -1,13 +1,13 @@
 ---
 title: "Repositories"
-weight: 7
+weight: 8
 tags: [ ]
 draft: true
 ---
 
-The code for all rollyourown.xyz projects and project modules, as well as the content of the rollyourown.xyz website itself, is hosted in repositories on [our Gitea server](https://git.rollyourown.xyz/) and mirrored to [Github](https://github.com/rollyourown-xyz).
+The code for all rollyourown.xyz projects and project modules, as well as the content of the rollyourown.xyz website itself, is hosted in repositories on our own Git repository servers and mirrored [to Codeberg](https://codeberg.org/rollyourown-xyz) and [to Github](https://github.com/rollyourown-xyz).
 
-Other repositories are hosted only on [our Gitea server](https://git.rollyourown.xyz/).
+Other repositories are hosted only on our own Git repository servers.
 
 <!--more-->
 
@@ -15,52 +15,52 @@ Other repositories are hosted only on [our Gitea server](https://git.rollyourown
 
 {{< highlight "primary" "ToDo">}}
 
-- [ ] ryo-organization repositories
 - [ ] ryo-infrastructure repositories
 
 {{< /highlight >}}
 
-## Organisation structure
+## Organization structure
 
-Our [Gitea server](https://git.rollyourown.xyz/) repositories are structured in four organisations:
+The repositories on our own Git repository servers are organised in five areas:
 
 - ryo-infrastructure: Code repositories for deploying and managing the infrastructure behind rollyourown.xyz
-- ryo-organization: Repositories for managing assets related to the rollyourown.xyz project organisation
+- ryo-organisation: Repositories for managing assets related to the rollyourown.xyz project organisation
 - ryo-projects: Repositories for rollyourown.xyz projects and project modules
 - ryo-test: Repositories for rollyourown.xyz project and project module testing
-- ryo-website: Repositories for the content of the rollyourown.xyz website and its Hugo theme
+- ryo-website: Repositories for the content of the rollyourown.xyz website, the Hugo theme for the website and the content and theme of our forms server
+
+Currently, the organisation structure and repositories on our own Git repository servers are visible only to members of our organisation. Public repositories are mirrored [to Codeberg](https://codeberg.org/rollyourown-xyz) and [to Github](https://github.com/rollyourown-xyz) for wider collaboration.
 
 ## Repositories: ryo-infrastructure
 
 {{< highlight "info">}}
 
-Our infrastructure repositories are not yet public, not mirrored to [Github](https://github.com), and are only accessible for authorised users. We plan to make these repositories public at a later date.
+Our infrastructure repositories are not yet public, not mirrored to [Codeberg](https://codeberg.org) or [Github](https://github.com), and are only accessible for authorised users. We plan to make these repositories public at a later date.
 
 {{< /highlight >}}
 
 {{< table tableclass="table table-bordered table-striped" theadclass="thead-dark" >}}
 
-| Repository | Content | Private or public | Github |
+| Repository | Content | Private or public | Codeberg / Github links |
 | :--------- | :------ | :---------------- | :----- |
 | TODO | TODO | private | not yet mirrored |
 | TODO | TODO | private | not yet mirrored |
 
 {{< /table >}}
 
-## Repositories: ryo-organization
+## Repositories: ryo-organisation
 
 {{< highlight "info">}}
 
-Our organisation repositories are not yet public, not mirrored to [Github](https://github.com), and are only accessible for authorised users. We may make some of these repositories public at a later date.
+Our organisation repositories are generally not yet public, not mirrored to [Codeberg](https://codeberg.org) or [Github](https://github.com), and are only accessible for authorised users. We may make some of these repositories public at a later date.
 
 {{< /highlight >}}
 
 {{< table tableclass="table table-bordered table-striped" theadclass="thead-dark" >}}
 
-| Repository | Content | Private or public | Github |
+| Repository | Content | Private or public | Codeberg / Github links |
 | :--------- | :------ | :---------------- | :----- |
-| TODO | TODO | private | not yet mirrored |
-| TODO | TODO | private | not yet mirrored |
+| [general-feedback](https://git.rollyourown.xyz/ryo-organisation/general-feedback) | An issues-only repository for general feedback for the rollyourown.xyz project and for suggesting new projects or modules | public | [Codeberg](https://codeberg.org/rollyourown-xyz/general-feedback) / [GitHub](https://github.com/rollyourown-xyz/general-feedback) |
 
 {{< /table >}}
 
@@ -68,31 +68,31 @@ Our organisation repositories are not yet public, not mirrored to [Github](https
 
 {{< highlight "info">}}
 
-Our project and module repositories are generally public and mirrored to [Github](https://github.com) unless they are still under development.
+Our project and module repositories are generally public and mirrored to [Codeberg](https://codeberg.org) and [Github](https://github.com) unless they are still under development.
 
 {{< /highlight >}}
 
 {{< table tableclass="table table-bordered table-striped" theadclass="thead-dark" >}}
 
-| Repository | Content | Private or public | Github |
+| Repository | Content | Private or public | Codeberg / Github links |
 | :--------- | :------ | :---------------- | :----- |
-| [ryo-control-node](https://git.rollyourown.xyz/ryo-projects/ryo-control-node) | Playbooks for setup of a rollyourown.xyz [control node](/rollyourown/projects/control_node/) | public | [Link](https://github.com/rollyourown-xyz/ryo-control-node) |
-| [ryo-coturn](https://git.rollyourown.xyz/ryo-projects/ryo-coturn) | rollyourown.xyz [module](/rollyourown/project_modules/ryo-coturn/) for deploying a [coturn](https://github.com/coturn/coturn) server | public | [Link](https://github.com/rollyourown-xyz/ryo-coturn) |
-| [ryo-gitea-standalone](https://git.rollyourown.xyz/ryo-projects/ryo-gitea-standalone) | rollyourown.xyz [project](/rollyourown/projects/single_server_projects/ryo-gitea/) for deploying a standalone [Gitea](https://gitea.io/) [git](https://git-scm.com/) server | public | [Link](https://github.com/rollyourown-xyz/ryo-gitea-standalone) |
+| [ryo-control-node](https://git.rollyourown.xyz/ryo-projects/ryo-control-node) | Playbooks for setup of a rollyourown.xyz [control node](/rollyourown/projects/control_node/) | public | [Codeberg](https://codeberg.org/rollyourown-xyz/ryo-control-node) / [GitHub](https://github.com/rollyourown-xyz/ryo-control-node) |
+| [ryo-coturn](https://git.rollyourown.xyz/ryo-projects/ryo-coturn) | rollyourown.xyz [module](/rollyourown/project_modules/ryo-coturn/) for deploying a [coturn](https://github.com/coturn/coturn) server | public | [Codeberg](https://codeberg.org/rollyourown-xyz/ryo-coturn) / [GitHub](https://github.com/rollyourown-xyz/ryo-coturn) |
+| [ryo-gitea-standalone](https://git.rollyourown.xyz/ryo-projects/ryo-gitea-standalone) | rollyourown.xyz [project](/rollyourown/projects/single_server_projects/ryo-gitea/) for deploying a standalone [Gitea](https://gitea.io/) [git](https://git-scm.com/) server | public | [Codeberg](https://codeberg.org/rollyourown-xyz/ryo-gitea-standalone) / [GitHub](https://github.com/rollyourown-xyz/ryo-gitea-standalone) |
 | [ryo-gitea-with-sso](https://git.rollyourown.xyz/ryo-projects/ryo-gitea-with-sso) | (WiP - not yet published) rollyourown.xyz [project](/rollyourown/projects/single_server_projects/ryo-gitea/) for deploying an SSO-enabled [Gitea](https://gitea.io/) [git](https://git-scm.com/) server | private | not yet mirrored |
-| [ryo-grav-cms](https://git.rollyourown.xyz/ryo-projects/ryo-grav-cms) | rollyourown.xyz [project](/rollyourown/projects/single_server_projects/ryo-grav-cms/) for deploying a simple [Grav CMS](https://getgrav.org/) | public | [Link](https://github.com/rollyourown-xyz/ryo-grav-cms) |
-| [ryo-host](https://git.rollyourown.xyz/ryo-projects/ryo-host) | Playbooks for generic setup of a rollyourown.xyz [project host](/rollyourown/projects/host_server/) | public | [Link](https://github.com/rollyourown-xyz/ryo-host) |
+| [ryo-grav-cms](https://git.rollyourown.xyz/ryo-projects/ryo-grav-cms) | rollyourown.xyz [project](/rollyourown/projects/single_server_projects/ryo-grav-cms/) for deploying a simple [Grav CMS](https://getgrav.org/) | public | [Codeberg](https://codeberg.org/rollyourown-xyz/ryo-grav-cms) / [GitHub](https://github.com/rollyourown-xyz/ryo-grav-cms) |
+| [ryo-host](https://git.rollyourown.xyz/ryo-projects/ryo-host) | Playbooks for generic setup of a rollyourown.xyz [project host](/rollyourown/projects/host_server/) | public | [Codeberg](https://codeberg.org/rollyourown-xyz/ryo-host) / [GitHub](https://github.com/rollyourown-xyz/ryo-host) |
+| [ryo-ingress-proxy](https://git.rollyourown.xyz/ryo-projects/ryo-ingress-proxy) | rollyourown.xyz [module](/rollyourown/project_modules/ryo-ingress-proxy/) for deploying a loadbalancer / TLS proxy | public | [Codeberg](https://codeberg.org/rollyourown-xyz/ryo-ingress-proxy) / [GitHub](https://github.com/rollyourown-xyz/ryo-ingress-proxy) |
 | [ryo-jitsi](https://git.rollyourown.xyz/ryo-projects/ryo-jitsi) | (WiP - not yet published) rollyourown.xyz [project](/rollyourown/projects/single_server_projects/ryo-jitsi/) for deploying a [jitsi](https://jitsi.org/) video conferencing service | private | not yet mirrored |
 | [ryo-keycloak](https://git.rollyourown.xyz/ryo-projects/ryo-keycloak) | (WiP - not yet published) rollyourown.xyz [project](/rollyourown/projects/single_server_projects/ryo-keycloak/) for deploying a [Keycloak](https://www.keycloak.org/) IAM server | private | not yet mirrored |
-| [ryo-mariadb](https://git.rollyourown.xyz/ryo-projects/ryo-mariadb) | rollyourown.xyz [module](/rollyourown/project_modules/ryo-mariadb/) for deploying a [MariaDB](https://mariadb.org/) relational database | public | [Link](https://github.com/rollyourown-xyz/ryo-mariadb) |
-| [ryo-matrix-standalone](https://git.rollyourown.xyz/ryo-projects/ryo-matrix-standalone) | rollyourown.xyz [project](/rollyourown/projects/single_server_projects/ryo-matrix/) for deploying a standalone [Matrix](https://matrix.org/) homeserver | public | [Link](https://github.com/rollyourown-xyz/ryo-matrix-standalone) |
+| [ryo-mariadb](https://git.rollyourown.xyz/ryo-projects/ryo-mariadb) | rollyourown.xyz [module](/rollyourown/project_modules/ryo-mariadb/) for deploying a [MariaDB](https://mariadb.org/) relational database | public | [Codeberg](https://codeberg.org/rollyourown-xyz/ryo-mariadb) / [GitHub](https://github.com/rollyourown-xyz/ryo-mariadb) |
+| [ryo-matrix-standalone](https://git.rollyourown.xyz/ryo-projects/ryo-matrix-standalone) | rollyourown.xyz [project](/rollyourown/projects/single_server_projects/ryo-matrix/) for deploying a standalone [Matrix](https://matrix.org/) homeserver | public | [Codeberg](https://codeberg.org/rollyourown-xyz/ryo-matrix-standalone) / [GitHub](https://github.com/rollyourown-xyz/ryo-matrix-standalone) |
 | [ryo-matrix-with-sso](https://git.rollyourown.xyz/ryo-projects/ryo-matrix-with-sso) | (WiP - not yet published) rollyourown.xyz [project](/rollyourown/projects/single_server_projects/ryo-matrix/) for deploying an SSO-enabled [Matrix](https://matrix.org/) homeserver | private | not yet mirrored |
-| [ryo-module-template](https://git.rollyourown.xyz/ryo-projects/ryo-module-template) | Template [folder structure](/collaborate/module_structure/) for a rollyourown.xyz module | public | [Link](https://github.com/rollyourown-xyz/ryo-module-template) |
-| [ryo-nextcloud-standalone](https://git.rollyourown.xyz/ryo-projects/ryo-nextcloud-standalone) | rollyourown.xyz [project](/rollyourown/projects/single_server_projects/ryo-nextcloud/) for deploying a standalone [Nextcloud](https://nextcloud.com/) server | public | [Link](https://github.com/rollyourown-xyz/ryo-nextcloud-standalone) |
-| [ryo-postgres](https://git.rollyourown.xyz/ryo-projects/ryo-postgres) | rollyourown.xyz [module](/rollyourown/project_modules/ryo-postgres/) for deploying a [PostgreSQL](https://www.postgresql.org/) relational database | public | [Link](https://github.com/rollyourown-xyz/ryo-postgres) |
-| [ryo-project-template](https://git.rollyourown.xyz/ryo-projects/ryo-project-template) | Template [folder structure](/collaborate/project_structure/) for a rollyourown.xyz project | public | [Link](https://github.com/rollyourown-xyz/ryo-project-template) |
-| [ryo-service-proxy](https://git.rollyourown.xyz/ryo-projects/ryo-service-proxy) | rollyourown.xyz [module](/rollyourown/project_modules/ryo-service-proxy/) for deploying a loadbalancer / TLS proxy | public | [Link](https://github.com/rollyourown-xyz/ryo-service-proxy) |
-| [ryo-wellknown](https://git.rollyourown.xyz/ryo-projects/ryo-wellknown) | rollyourown.xyz [module](/rollyourown/project_modules/ryo-wellknown/) for deploying a webserver to respond to [well-known URIs](https://en.wikipedia.org/wiki/Well-known_URI) | public | [Link](https://github.com/rollyourown-xyz/ryo-wellknown) |
+| [ryo-module-template](https://git.rollyourown.xyz/ryo-projects/ryo-module-template) | Template [folder structure](/collaborate/module_structure/) for a rollyourown.xyz module | public | [Codeberg](https://codeberg.org/rollyourown-xyz/ryo-module-template) / [GitHub](https://github.com/rollyourown-xyz/ryo-module-template) |
+| [ryo-nextcloud-standalone](https://git.rollyourown.xyz/ryo-projects/ryo-nextcloud-standalone) | rollyourown.xyz [project](/rollyourown/projects/single_server_projects/ryo-nextcloud/) for deploying a standalone [Nextcloud](https://nextcloud.com/) server | public | [Codeberg](https://codeberg.org/rollyourown-xyz/ryo-nextcloud-standalone) / [GitHub](https://github.com/rollyourown-xyz/ryo-nextcloud-standalone) |
+| [ryo-postgres](https://git.rollyourown.xyz/ryo-projects/ryo-postgres) | rollyourown.xyz [module](/rollyourown/project_modules/ryo-postgres/) for deploying a [PostgreSQL](https://www.postgresql.org/) relational database | public | [Codeberg](https://codeberg.org/rollyourown-xyz/ryo-postgres) / [GitHub](https://github.com/rollyourown-xyz/ryo-postgres) |
+| [ryo-project-template](https://git.rollyourown.xyz/ryo-projects/ryo-project-template) | Template [folder structure](/collaborate/project_structure/) for a rollyourown.xyz project | public | [Codeberg](https://codeberg.org/rollyourown-xyz/ryo-project-template) / [GitHub](https://github.com/rollyourown-xyz/ryo-project-template) |
+| [ryo-wellknown](https://git.rollyourown.xyz/ryo-projects/ryo-wellknown) | rollyourown.xyz [module](/rollyourown/project_modules/ryo-wellknown/) for deploying a webserver to respond to [well-known URIs](https://en.wikipedia.org/wiki/Well-known_URI) | public | [Codeberg](https://codeberg.org/rollyourown-xyz/ryo-wellknown) / [GitHub](https://github.com/rollyourown-xyz/ryo-wellknown) |
 
 {{< /table >}}
 
@@ -100,13 +100,13 @@ Our project and module repositories are generally public and mirrored to [Github
 
 {{< highlight "info">}}
 
-Our test repositories are not yet public, not mirrored to [Github](https://github.com), and are only accessible for authorised users. We may make these repositories public at a later date.
+Our test repositories are not yet public, not mirrored to [Codeberg](https://codeberg.org) or [Github](https://github.com), and are only accessible for authorised users. We may make these repositories public at a later date.
 
 {{< /highlight >}}
 
 {{< table tableclass="table table-bordered table-striped" theadclass="thead-dark" >}}
 
-| Repository | Content | Private or public | Github |
+| Repository | Content | Private or public | Codeberg / Github links |
 | :--------- | :------ | :---------------- | :----- |
 | [ryo-test-gitea](https://git.rollyourown.xyz/ryo-test/ryo-test-gitea) | Code for creating test infrastructure for the [ryo-gitea-standalone](https://git.rollyourown.xyz/ryo-projects/ryo-gitea-standalone) and [ryo-gitea-with-sso](https://git.rollyourown.xyz/ryo-projects/ryo-gitea-with-sso) projects | private | not mirrored |
 | [ryo-test-grav-cms](https://git.rollyourown.xyz/ryo-test/ryo-test-grav-cms) | Code for creating test infrastructure for the [ryo-grav-cms](https://git.rollyourown.xyz/ryo-projects/ryo-grav-cms) project | private | not mirrored |
@@ -120,18 +120,18 @@ Our test repositories are not yet public, not mirrored to [Github](https://githu
 
 {{< highlight "info">}}
 
-The repository containing our website content is public and mirrored to GitHub.
+The repository containing our website content is public and mirrored to [Codeberg](https://codeberg.org) and [Github](https://github.com).
 
-The repositories for our website theme and forms server are private, not mirrored to [Github](https://github.com), and are only accessible for authorised users.  We may make these repositories public at a later date.
+The repositories for our website theme and forms server are private, not mirrored to [Codeberg](https://codeberg.org) or [Github](https://github.com), and are only accessible for authorised users.  We may make these repositories public at a later date.
 
 {{< /highlight >}}
 
 {{< table tableclass="table table-bordered table-striped" theadclass="thead-dark" >}}
 
-| Repository | Content | Private or public | Github |
+| Repository | Content | Private or public | Codeberg / Github links |
 | :--------- | :------ | :---------------- | :----- |
 | [form-server-content-and-theme](https://git.rollyourown.xyz/ryo-website/form-server-content-and-theme) | [Grav](https://getgrav.org/) content and theme for the rollyourown.xyz forms server | private | not mirrored |
-| [hugo-content](https://git.rollyourown.xyz/ryo-website/hugo-content) | Content and configuration for [Hugo](https://gohugo.io/) static site generation of the rollyourown.xyz website | public | [Link](https://github.com/rollyourown-xyz/ryo-website-hugo-content) |
+| [hugo-content](https://git.rollyourown.xyz/ryo-website/hugo-content) | Content and configuration for [Hugo](https://gohugo.io/) static site generation of the rollyourown.xyz website | public | [Codeberg](https://codeberg.org/rollyourown-xyz/ryo-website-hugo-content) / [GitHub](https://github.com/rollyourown-xyz/ryo-website-hugo-content) |
 | [hugo-theme](https://git.rollyourown.xyz/ryo-website/hugo-theme) | The [Hugo](https://gohugo.io/) [theme](https://gohugo.io/hugo-modules/theme-components/) for the rollyourown.xyz website | private | not mirrored |
 
 {{< /table >}}

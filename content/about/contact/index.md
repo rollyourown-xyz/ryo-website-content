@@ -28,11 +28,11 @@ General information about reporting bugs or requesting features can be found on 
 
 ## General feedback or questions about our project
 
-General feedback, ideas or questions about the rollyourown.xyz project can be given via [the Issues in the general feedback repository](https://github.com/rollyourown-xyz/general-feedback/issues) or, alternatively, via our [contact form](https://forms.rollyourown.xyz/contact-us).
+General feedback, ideas or questions about the rollyourown.xyz project can be given via the Issues in the general feedback repository [on Codeberg](https://codeberg.org/rollyourown-xyz/general-feedback/issues) or [on GitHub](https://github.com/rollyourown-xyz/general-feedback/issues) or, alternatively, via our [contact form](https://forms.rollyourown.xyz/contact-us).
 
 ## Website translation
 
-If you would like to help us translate our website into other languages, please use our dedicated [translation contact form](https://forms.rollyourown.xyz/translation).
+If you would like to help us translate our website into other languages, please use our dedicated [translation contact form](https://forms.rollyourown.xyz/translation). Please read our page on [website translation](/collaborate/website_translation) first.
 
 ## Privacy and Data Protection
 
@@ -44,4 +44,4 @@ If you are considering taking an active role in the rollyourown.xyz open source 
 
 ## Discuss in our matrix rooms
 
-Our [public matrix rooms](https://rollyourown.xyz/about/public_matrix_rooms) provide a forum for discussion, asking questions and providing feedback. Feel free to explore and take part in the discussion, but please be aware of our [code of conduct](/about/code_of_conduct).
+Our [public Matrix rooms](https://rollyourown.xyz/about/public_matrix_rooms) provide a forum for discussion, asking questions and providing feedback. Feel free to explore and take part in the discussion, but please be aware of our [code of conduct](/about/code_of_conduct).

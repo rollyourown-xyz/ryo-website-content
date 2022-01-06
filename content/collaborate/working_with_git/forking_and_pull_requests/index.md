@@ -16,7 +16,6 @@ This section describes the basic collaboration model for working on code or webs
 - [ ] Links
 - [ ] Illustration of forking from source repo to personal account and then to a computer for editing
 - [ ] Refer to Issue and Pull Request Templates
-- [ ] **TBD**: Update to include Codeberg as a place for collaboration (with Codeberg first and GitHub second in the text)
 
 {{< /highlight >}}
 
@@ -38,21 +37,21 @@ In this workflow:
 
 ## Which repository to fork
 
-Which repository is used as the source for forking and collaborating depends on where we manage Issues and Pull Requests - either in the repositories on [our own Gitea server](https://git.rollyourown.xyz) or in our mirror repositories [on GitHub](https://github.com/rollyourown-xyz/). We avoid managing Issues and Pull Requests in two different environments, so this depends on where we expect most contributions will take place.
+Which repository is used as the source for forking and collaborating depends on where a collaborator has an account -- either in the repositories on [our own repository server](https://git.rollyourown.xyz), or in our mirror repositories [on Codeberg](https://codeberg.org/rollyourown-xyz) or [on GitHub](https://github.com/rollyourown-xyz/). [Our workflow](/collaborate/working_with_git/what_is_git/#rollyourown-workflow) allows us to manage Issues and Pull Requests in multiple environments.
 
-Ideally, we would manage our projects entirely in our own environment, but since GitHub is the de-facto standard environment for collaboration on open source projects, and we do not want to raise barriers to collaboration by requiring everyone to have an account on our system, this means that GitHub tooling is used for collaboration on many repositories. In particular:  
+Ideally, we would manage our projects entirely in our own environment. However, since this would require all collaborators to have an account on our servers, we also enable collaboration [on Codeberg](https://codeberg.org/rollyourown-xyz) and [on GitHub](https://github.com/rollyourown-xyz/) for many of our repositories and use the tools there to manage collaboration:
 
-- For rollyourown.xyz projects and modules, we use GitHub for managing Issues and Pull Requests
-- For the rollyourown.xyz website content and theme, we use GitHub for managing Issues and Pull Requests
-- For all other repositories (especially non-public repositories or those not mirrored to GitHub), we use our own Gitea server to manage Issues and Pull Requests
+- For rollyourown.xyz projects and modules, Issues and Pull Requests are managed on our servers, on Codeberg and on GitHub
+- For the rollyourown.xyz website content, Issues and Pull Requests are managed on our servers, on Codeberg and on GitHub
+- For all other repositories (especially non-public repositories or those not mirrored), we use our own repository server to manage Issues and Pull Requests
 
 ## Forking
 
-To collaborate on rollyourown.xyz projects, modules and website content, you will need an account on [GitHub](https://github.com/).
+To collaborate on Codeberg or on GitHub, you will need an account on [Codeberg](https://codeberg.org) or [GitHub](https://github.com/). Our own repository system uses the same technology ([Gitea](https://gitea.io/)) as Codeberg, so the process for our members to fork our primary repositories is identical.
 
-The first step in the collaboration process is to fork a repository to your personal account. To do this, log in to GitHub and fork the repository you would like to collaborate on. The easiest way to do this is via the "Fork" button at the top right of the repository's page:
+For the wider community, Codeberg is our preferred collaboration space. If you don't already have an account on Codeberg, we would encourage you to [open an account](https://codeberg.org/) to collaborate with us there.
 
-![Github Fork Button](Github_Fork_Button_800.png)
+The first step in the collaboration process is to fork a repository to your personal account.
 
 {{< highlight "primary">}}
 
@@ -60,9 +59,29 @@ You will be forking the default `main` branch of the source repository, which co
 
 {{< /highlight >}}
 
+### Forking on Codeberg
+
+Log in to Codeberg and fork the repository you would like to collaborate on. The easiest way to do this is via the "Fork" button at the top right of the repository's page:
+
+![Codeberg Fork Button](Codeberg_Fork_Button_800.png)
+
+### Forking on GitHub
+
+Log in to GitHub and fork the repository you would like to collaborate on. The easiest way to do this is via the "Fork" button at the top right of the repository's page:
+
+![Github Fork Button](Github_Fork_Button_800.png)
+
 ## Making changes
 
-The next steps depend on whether you are comfortable working with the command line, or prefer a graphical user interface. If you are only making small changes, this can be done directly from the GitHub website. For larger changes and changes across multiple files, it is recommended to clone your copy of the repository to your computer and make changes there.
+The next steps depend on whether you are comfortable working with the command line, or prefer a graphical user interface. If you are only making small changes, this can be done directly from the Codeberg or GitHub website. For larger changes and changes across multiple files, it is recommended to clone your copy of the repository to your computer and make changes there.
+
+### Making changes on Codeberg
+
+Small changes in individual files can be done directly from the Codeberg website by selecting the file and using the "Edit" button.
+
+![Codeberg Edit Button](Codeberg_Edit_Button_400.png)
+
+When you save your changes, please add a "commit message" that describes briefly what has changed. This will help reviewers and the repository maintainer to review your work later.
 
 ### Making changes on GitHub
 
@@ -74,37 +93,37 @@ When you save your changes, please add a "commit message" that describes briefly
 
 ### Making changes on your computer
 
-A few steps are needed to make changes on your computer, synchronise them to your GitHub account and then prepare for making a Pull Request to the original repository:
+A few steps are needed to make changes on your computer, synchronise them to your forked repository and then prepare for making a Pull Request to the original repository:
 
 - Your forked copy of the repository is cloned to your computer
 - A "feature branch" is created for the changes you are about to make
 - Changes are made to the files on your computer
 - Changes are committed to the feature branch on your computer, with a short description of what has changed
-- The changes made on your computer are pushed back to your personal copy of the forked repository on GitHub
+- The changes made on your computer are pushed back to your personal copy of the forked repository
 
-How you do these steps will depend on whether you are comfortable working with the command line, or prefer working with graphical user interfaces. Examples of both are below.
+How you do these steps will depend on whether you are comfortable working with the command line, or prefer working with graphical user interfaces. Step-by-step examples of both are below.
 
 #### Cloning
 
-Just as, by forking the repository, you cloned the source repository to your personal GitHub account, your next step is to clone the forked repository to your computer so that you can work on it there.
+Just as, by forking the repository, you cloned the source repository to your personal, your next step is to clone the forked repository to your computer so that you can work on it there.
 
 #### Creating a feature branch
 
 To bundle your changes and enable them to be reviewed and merged more easily by the source repository's maintainer, you create a "feature branch". This is a separate branch in your repository containing only the changes you are making.
 
-Choose a name for your branch that reflects the purpose of the changes you are about to make and also, if applicable, references the Issue (by number) that you are addressing - for example `123-add-something`.
+Choose a name for your branch that reflects the purpose of the changes you are about to make and also, if applicable, reference the Issue (by number) that you are addressing - for example `123-add-something`.
 
 #### Making and committing changes
 
 Once your repository is cloned to your computer and you are working in a new feature branch, you are ready to make changes to the files in the repository.
 
-Changes can be made using any editor you choose, although it is convenient to use an editor with helpful features such as code highlighting, bracket matching etc. In the examples below, we use [Atom](https://atom.io/) (a cross-platform, open source editor with git integration) for illustration. Other editors, such as [VSCode](https://code.visualstudio.com/), provide similar features.
+Changes can be made using any editor you choose, although it is convenient to use an editor with helpful features such as code highlighting, bracket matching etc. In the examples below, we use [Atom](https://atom.io/) (a cross-platform, open source editor with Git integration) for illustration. Other editors, such as [VSCode](https://code.visualstudio.com/), provide similar features.
 
 When you are finished working, or to bundle related changes as you progress with your work, commit your changes to your feature branch. You may want to commit multiple times as different, discrete steps are completed. For each commit, add a "commit message" that describes briefly what has changed. This will help reviewers and the repository maintainer to review your work later.
 
 {{< highlight "primary">}}
 
-A good overview of best practices for committing work in git can be found here: [Git Best Practices](https://community.atlassian.com/t5/Bitbucket-articles/Git-Best-Practices/ba-p/1628803).
+A good overview of best practices for committing work in Git can be found here: [Git Best Practices](https://community.atlassian.com/t5/Bitbucket-articles/Git-Best-Practices/ba-p/1628803).
 
 An amusing guide to good commit messages is here: [How to Write a Git Commit Message](https://cbea.ms/git-commit/)
 
@@ -122,7 +141,7 @@ Click on this button for step-by-step instructions for using the CLI to make you
 
 #### Cloning to your computer using the CLI
 
-To clone a repository (for example `https://github.com/<YOUR_USERNAME>/ryo-example.git`) from your personal GitHub account to your local computer using the command line interface:
+To clone a repository (for example `https://codeberg.org/<YOUR_USERNAME>/ryo-example.git`) from your personal Codeberg (or GitHub) account to your local computer using the command line interface:
 
 1. Create and change to a directory in which you would like to work on your projects, for example:
 
@@ -134,13 +153,13 @@ To clone a repository (for example `https://github.com/<YOUR_USERNAME>/ryo-examp
 2. Clone the forked repository to your local computer, by entering:
 
     ```bash
-    git clone https://github.com/<YOUR_USERNAME>/ryo-example.git
+    git clone https://codeberg.org/<YOUR_USERNAME>/ryo-example.git
     ```
 
 3. Add the original repository as `upstream` so that your local copy is kept up to date in case other changes are made while you are working on your change. Enter, for example:
 
     ```bash
-    git remote add upstream https://github.com/rollyourown-xyz/ryo-example.git
+    git remote add upstream https://codeberg.org/rollyourown-xyz/ryo-example.git
     ```
 
 4. You can verify the result by entering:
@@ -148,6 +167,8 @@ To clone a repository (for example `https://github.com/<YOUR_USERNAME>/ryo-examp
     ```bash
     git remote -v
     ```
+
+Here, we used a Codeberg repository as an example. The process for cloning from a personal GitHub account is the same, just substituting `github.com` for `codeberg.org`.
 
 #### Creating a feature branch using the CLI
 
@@ -179,12 +200,14 @@ cd ~/ryo-projects/ryo-example
 git pull upstream main
 ```
 
-Now check that your changes are still working with the latest version of the code. If so, then push the changes in your new feature branch to your fork of the repository. Use the `git push` command, specifying the "origin" repository (i.e. the forked repository in your personal GitHub account) and the feature branch you created, for example:
+Now check that your changes are still working with the latest version of the code. If so, then push the changes in your new feature branch to your fork of the repository. Use the `git push` command, specifying the "origin" repository (i.e. the forked repository in your personal Codeberg account) and the feature branch you created, for example:
 
 ```bash
 cd ~/ryo-projects/ryo-example
 git push origin 123-add-something
 ```
+
+Here, we used a Codeberg repository as an example. The process for pushing back to a personal GitHub account is the same.
 
 {{< /more >}}
 
@@ -198,7 +221,7 @@ Click on this button for a step-by-step illustration of using the Atom editor to
 
 #### Cloning to your computer using the Atom editor
 
-To clone a repository (for example `https://github.com/<YOUR_USERNAME>/ryo-example.git`) from your personal GitHub account to your local computer using Atom:
+The [Atom](https://atom.io/) editor is developed by GitHub. As such, the integration with GitHub (to log in, clone and work with repositories) is built-in.
 
 1. Log in to your GitHub account directly from the Atom editor.
 
@@ -260,7 +283,21 @@ If there are conflicts, solve them by using Atom to edit further, committing and
 
 The final step is to submit a Pull Request to the original "upstream" repository.
 
-Log back in to your account on Github, go to your forked repository and use the "Compare & pull request" button to submit your pull request to the original rollyourown.xyz repository:
+### Submitting a Pull Request on Codeberg
+
+Log back into your account on Codeberg, go to your forked repository and use the "New Pull Request" button to submit your pull request to the original rollyourown.xyz repository:
+
+![Codeberg Pull Request Button](Codeberg_Pull_Request_800.png)
+
+Make sure the pull request will be opened in the original rollyourown.xyz repository from your feature branch:
+
+![Codeberg Open Pull Request](Codeberg_New_Pull_Request_800.png)
+
+In the Pull Request, please describe what you have done in the comment field and reference any issues / feature requests related to the changes made, to help the maintainer assess the pull request.
+
+### Submitting a Pull Request on GitHub
+
+Log back in to your account on GitHub, go to your forked repository and use the "Compare & pull request" button to submit your pull request to the original rollyourown.xyz repository:
 
 ![GitHub Pull Request Button](GitHub_Pull_Request_800.png)
 
@@ -269,5 +306,7 @@ Make sure the pull request will be opened in the original rollyourown.xyz reposi
 ![GitHub Open Pull Request](GitHub_Open_Pull_Request_800.png)
 
 In the Pull Request, please describe what you have done in the comment field and reference any issues / feature requests related to the changes made, to help the maintainer assess the pull request.
+
+## After submitting a Pull Request
 
 After you have submitted the Pull Request, the maintainer will be notified and can review it. The maintainer may discuss the change with you and, for example, request a review from other collaborators or request further changes. When the maintainer is happy with the change, then it can be merged into the main branch in the rollyourown.xyz repository.

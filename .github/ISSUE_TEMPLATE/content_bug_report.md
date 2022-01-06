@@ -17,7 +17,7 @@ Please add a link to the page on [our website](https://rollyourown.xyz) containi
 Please tell us where on the page to find the content bug.
 
 **Link to content in our repository**
-If possible, please add a link to the content page in [our repository](https://git.rollyourown.xyz/ryo-website/hugo-content).
+If possible, please add a link to the content page in [our repository](https://github.com/rollyourown-xyz/ryo-website-hugo-content).
 
 **Expected content**
 Please add a short description of what needs to be changed.

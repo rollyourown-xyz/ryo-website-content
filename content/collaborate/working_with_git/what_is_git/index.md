@@ -15,7 +15,6 @@ draft: true
 
 - [ ] Links on the page
 - [ ] Link to Manifesto in "Primary and mirror repositories" section
-- [ ] **TBD**: Update to include Codeberg as a place for collaboration (with Codeberg first and GitHub second in the text)
 
 {{< /highlight >}}
 
@@ -148,7 +147,7 @@ To keep the different copies of the repository in sync, Git enables 'pulling' an
 
 Git itself does not include the concept of a 'primary' repository that is more 'important' than any other, instead relying on collaborators to work together to resolve conflicts between their repositories. This can be difficult to manage if a repository is duplicated many times, if multiple contributors are working in parallel, and if cloning, pushing and pulling is done arbitrarily between any pairs of repositories.
 
-To address this within a project, one copy of a repository is typically deemed to be the "source of truth" and is typically hosted on a central server. This **primary repository** is considered to be the definitive source of the project's content (code, documents, etc.). All collaborators clone only the primary repository and pull/push changes only to/from it.
+To address this within a project, one copy of a repository is typically deemed to be the "source of truth" and is typically hosted on a central server. This **primary repository** is considered to be the definitive source of the project's content (code, documents, etc.). Collaborators usually clone only the primary repository and pull/push changes only to/from it.
 
 In some situations, it can be useful to set up other repositories as a **mirror** of the primary repository. A mirror repository is a clone of the primary repository and **all** changes in the primary repository (and only in the primary repository) are pushed automatically to the mirror. No changes are ever made in the mirror repository, so that the mirror always reliably reflects the canonical version of the project and all its history.
 
@@ -156,28 +155,28 @@ In some situations, it can be useful to set up other repositories as a **mirror*
 
 #### rollyourown.xyz primary repositories
 
-Following our pwn aim [**LINK TO MANIFESTO**] to promote and enable the self-hosting of open source software as much as possible, we maintain our primary repositories on [our own servers](https://git.rollyourown.xyz). For our project, these repositories are the "source of truth". We use them, for example, as the source of the content for generating this website.
+Following our own aim [**LINK TO MANIFESTO**] to promote and enable the self-hosting of open source software as much as possible, we maintain our primary repositories on [our own servers](https://git.rollyourown.xyz). For our project, these repositories are the "source of truth" and we use them, for example, as the source of the content for generating this website.
+
+Members of our organisation have accounts [on our own repository server](https://git.rollyourown.xyz). If you would like to join our project, please [contact us](/about/contact/).
 
 #### rollyourown.xyz mirror repositories
+
+Another goal of our project is to lower the barriers to using open source solutions [**LINK(S) TO MANIFESTO**], and this extends to lowering the barriers to _collaborating_ on our project by enabling collaboration where our collaborators already work.
 
 To make our project and its repositories available for collaboration in a wider community, we also maintain mirrors of our public repositories on [Codeberg](https://codeberg.org/) and [GitHub](https://github.com/). Specifically, these are:
 
 - Our [project repositories](https://git.rollyourown.xyz/ryo-projects)
 - [Repositories](https://git.rollyourown.xyz/ryo-website) for the content of the rollyourown.xyz website
 
-One goal of our project is to lower the barriers to using open source solutions [**LINK(S) TO MANIFESTO**], and this extends to lowering the barriers to collaborating on our project by enabling collaboration where our collaborators already work.
-
 Further repositories may be made public and mirrored at a later date, such as the repositories containing the deployment code for our infrastructure.
-
-If you would like to join our project, please [contact us](/about/contact/).
 
 #### Collaboration on Codeberg
 
+[Codeberg](https://codeberg.org/) is our preferred collaboration space for the wider community. If you don't already have an account on Codeberg, we would encourage you to [open an account](https://codeberg.org/) to collaborate with us there.
+
 We maintain mirrors of our primary repositories [on Codeberg](https://codeberg.org/rollyourown-xyz) so that the developer community on Codeberg can collaborate on our project without needing an account for our own servers.
 
-[Codeberg](https://codeberg.org/) is a [relatively new](https://blog.codeberg.org/codebergorg-launched.html), non-profit registered society [providing a non-commercial alternative for open source project hosting and collaboration](https://docs.codeberg.org/getting-started/what-is-codeberg/#our-mission).
-
-If you don't already have an account on Codeberg, we would encourage you to [open an account](https://codeberg.org/) to collaborate with us there.
+Codeberg is a [relatively new](https://blog.codeberg.org/codebergorg-launched.html), non-profit registered society [providing a non-commercial alternative for open source project hosting and collaboration](https://docs.codeberg.org/getting-started/what-is-codeberg/#our-mission).
 
 #### Collaboration on GitHub
 
@@ -215,7 +214,7 @@ For open source projects using a public repository hosting service like Codeberg
 
 As [described above](#primary-and-mirror-repositories), we follow a different approach and [host our primary repositories ourselves](https://git.rollyourown.xyz), with _mirrors_ [on Codeberg](https://codeberg.org/rollyourown-xyz) and [on GitHub](https://github.com/rollyourown-xyz).
 
-Issues and Pull Requests from the community are managed on the respective hosting service, as these are the fora where collaborators already have their account. This means that the merging workflow involves an interaction between our own repositories and the mirror repositories. This is made possible by the distributed nature of Git.
+Issues and Pull Requests from the community are managed on the respective hosting service, as these are the places where collaborators already have their account. This means that the merging workflow involves an interaction between our own repositories and the mirror repositories. This is made possible by the distributed nature of Git.
 
 {{< more "secondary">}}
 
