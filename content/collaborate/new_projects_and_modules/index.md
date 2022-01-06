@@ -50,4 +50,4 @@ During development, you can discuss your work with other developers using either
 
 ## Licencing
 
-Please be aware that all rollyourown.xyz projects are released under the open source [MIT licence](https://git.rollyourown.xyz/ryo-projects/general-feedback/src/branch/main/LICENSE). If you are not comfortable with this, then we unfortunately cannot include your contribution.
+Please be aware that all rollyourown.xyz projects are released under the open source [MIT licence](https://codeberg.org/rollyourown-xyz/general-feedback/src/branch/main/LICENSE). If you are not comfortable with this, then we unfortunately cannot include your contribution.

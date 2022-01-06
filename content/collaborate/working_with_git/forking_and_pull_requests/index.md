@@ -37,7 +37,7 @@ In this workflow:
 
 ## Which repository to fork
 
-Which repository is used as the source for forking and collaborating depends on where a collaborator has an account -- either in the repositories on [our own repository server](https://git.rollyourown.xyz), or in our mirror repositories [on Codeberg](https://codeberg.org/rollyourown-xyz) or [on GitHub](https://github.com/rollyourown-xyz/). [Our workflow](/collaborate/working_with_git/what_is_git/#rollyourown-workflow) allows us to manage Issues and Pull Requests in multiple environments.
+Which repository is used as the source for forking and collaborating depends on where a collaborator has an account -- either in the repositories on our own Git repository server, or in our mirror repositories [on Codeberg](https://codeberg.org/rollyourown-xyz) or [on GitHub](https://github.com/rollyourown-xyz/). [Our workflow](/collaborate/working_with_git/what_is_git/#rollyourown-workflow) allows us to manage Issues and Pull Requests in multiple environments.
 
 Ideally, we would manage our projects entirely in our own environment. However, since this would require all collaborators to have an account on our servers, we also enable collaboration [on Codeberg](https://codeberg.org/rollyourown-xyz) and [on GitHub](https://github.com/rollyourown-xyz/) for many of our repositories and use the tools there to manage collaboration:
 

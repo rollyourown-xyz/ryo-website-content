@@ -5,7 +5,7 @@ tags: [ ]
 draft: true
 ---
 
-This section describes how the theme of the rollyourown.xyz website is structured in the [Hugo theme repository](https://git.rollyourown.xyz/ryo-website/hugo-theme).
+This section describes how the theme of the rollyourown.xyz website is structured in the Hugo theme repository.
 
 <!--more-->
 

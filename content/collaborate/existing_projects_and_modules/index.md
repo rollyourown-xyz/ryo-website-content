@@ -23,7 +23,7 @@ If you would like to improve an existing project or module to the rollyourown.xy
 
 ## Before working on the code
 
-If you would like to improve the code yourself for a particular rollyourown.xyz [project](https://git.rollyourown.xyz/ryo-projects/ryo-project-template) or [module](https://git.rollyourown.xyz/ryo-projects/ryo-module-template), please first submit an Issue in our mirror repositories [on Codeberg](/collaborate/bug_reports_feature_requests_ideas/#raising-issues-on-codeberg) or [on GitHub](/collaborate/bug_reports_feature_requests_ideas/#raising-issues-on-github) describing what you would like to change and why.
+If you would like to improve the code yourself for a particular rollyourown.xyz [project](/rollyourown/projects) or [module](/rollyourown/project_modules), please first submit an Issue in our mirror repositories [on Codeberg](/collaborate/bug_reports_feature_requests_ideas/#raising-issues-on-codeberg) or [on GitHub](/collaborate/bug_reports_feature_requests_ideas/#raising-issues-on-github) describing what you would like to change and why.
 
 The project maintainer can then provide feedback on the proposal in advance of you doing any work. There may be a reason why your proposal would not be accepted, or should be realised differently, so this avoids you doing work which will end up not being accepted and merged into the code.
 
@@ -31,4 +31,4 @@ The project maintainer can then provide feedback on the proposal in advance of y
 
 If, after discussing the change, you would like to proceed and implement it, then please fork the GitHub mirror repository and submit a Pull Request. Follow the workflow described in our section on [Forking and Pull Requests](/collaborate/working_with_git/forking_and_pull_requests/).
 
-Please be aware that all rollyourown.xyz projects are released under the open source [MIT licence](https://git.rollyourown.xyz/ryo-projects/general-feedback/src/branch/main/LICENSE). If you are not comfortable with this, then we unfortunately cannot include your contribution.
+Please be aware that all rollyourown.xyz projects are released under the open source [MIT licence](https://codeberg.org/rollyourown-xyz/general-feedback/src/branch/main/LICENSE). If you are not comfortable with this, then we unfortunately cannot include your contribution.

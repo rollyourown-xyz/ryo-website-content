@@ -29,4 +29,4 @@ If, after discussing the change, you would like to proceed and implement it, the
 
 ## Licence
 
-Please be aware that the Hugo theme for the rollyourown.xyz website is released under the open source [MIT licence](https://git.rollyourown.xyz/ryo-projects/general-feedback/src/branch/main/LICENSE). If you are not comfortable with this, then we unfortunately cannot include your contribution.
+Please be aware that the Hugo theme for the rollyourown.xyz website is released under the open source [MIT licence](https://codeberg.org/rollyourown-xyz/general-feedback/src/branch/main/LICENSE). If you are not comfortable with this, then we unfortunately cannot include your contribution.

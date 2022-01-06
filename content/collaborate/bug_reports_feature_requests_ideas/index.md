@@ -5,7 +5,7 @@ tags: [ ]
 draft: true
 ---
 
-The easiest way to contribute to one of our projects or modules is to suggest an improvement or tell us about a bug. This is done via the Issues in the repositories for the project or module [on our own repository server](https://git.rollyourown.xyz), or in the mirror repositories [on Codeberg](https://codeberg.org/rollyourown-xyz) or [on GitHub](https://github.com/rollyourown-xyz/).
+The easiest way to contribute to one of our projects or modules is to suggest an improvement or tell us about a bug. This is done via the Issues in the repositories for the project or module on our own Git repository server, or in the mirror repositories [on Codeberg](https://codeberg.org/rollyourown-xyz) or [on GitHub](https://github.com/rollyourown-xyz/).
 
 <!--more-->
 
@@ -13,7 +13,7 @@ The easiest way to contribute to one of our projects or modules is to suggest an
 
 Issues can be raised in the various rollyourown.xyz repositories and repository mirrors:
 
-- Members of our organisation can raise issues [on our own repository server](https://git.rollyourown.xyz)
+- Members of our organisation can raise issues on our own Git repository server
 - Issues can be raised in the mirror repositories [on Codeberg](https://codeberg.org/rollyourown-xyz)
 - Issues can be raised in the mirror repositories [on GitHub](https://github.com/rollyourown-xyz/)
 

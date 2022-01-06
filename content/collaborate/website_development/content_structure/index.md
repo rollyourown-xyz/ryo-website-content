@@ -5,7 +5,7 @@ tags: [ ]
 draft: true
 ---
 
-This section describes how the content of the rollyourown.xyz website is structured in the [website content repository](https://git.rollyourown.xyz/ryo-website/hugo-content).
+This section describes how the content of the rollyourown.xyz website is structured in the website content repository.
 
 <!--more-->
 

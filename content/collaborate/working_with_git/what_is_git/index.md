@@ -70,7 +70,7 @@ At the rollyourown.xyz project, we use a number of repositories for different pu
 
 - We manage code for automating the deployment of our own infrastructure and services (like our communication systems, our web servers or our collaboration tools) in private repositories
 
-- We manage the content (i.e. text) of this website, including the documentation for our projects and modules, in [a public repository](https://git.rollyourown.xyz/ryo-website/hugo-content)
+- We manage the content (i.e. text) of this website, including the documentation for our projects and modules, in a public repository mirrored [to Codeberg](https://codeberg.org/rollyourown-xyz/ryo-website-hugo-content) and [to GitHub](https://github.com/rollyourown-xyz/ryo-website-hugo-content)
 
 - We manage the theme (i.e. design) of this website in a (currently) private repository
 
@@ -155,9 +155,9 @@ In some situations, it can be useful to set up other repositories as a **mirror*
 
 #### rollyourown.xyz primary repositories
 
-Following our own aim [**LINK TO MANIFESTO**] to promote and enable the self-hosting of open source software as much as possible, we maintain our primary repositories on [our own servers](https://git.rollyourown.xyz). For our project, these repositories are the "source of truth" and we use them, for example, as the source of the content for generating this website.
+Following our own aim [**LINK TO MANIFESTO**] to promote and enable the self-hosting of open source software as much as possible, we maintain our primary repositories on our own Git repository servers. For our project, these repositories are the "source of truth" and we use them, for example, as the source of the content for generating this website.
 
-Members of our organisation have accounts [on our own repository server](https://git.rollyourown.xyz). If you would like to join our project, please [contact us](/about/contact/).
+Members of our organisation have accounts on our own Git repository servers. If you would like to join our project, please [contact us](/about/contact/).
 
 #### rollyourown.xyz mirror repositories
 
@@ -165,8 +165,8 @@ Another goal of our project is to lower the barriers to using open source soluti
 
 To make our project and its repositories available for collaboration in a wider community, we also maintain mirrors of our public repositories on [Codeberg](https://codeberg.org/) and [GitHub](https://github.com/). Specifically, these are:
 
-- Our [project repositories](https://git.rollyourown.xyz/ryo-projects)
-- [Repositories](https://git.rollyourown.xyz/ryo-website) for the content of the rollyourown.xyz website
+- The repositories for our [projects](/rollyourown/projects) and [modules](/rollyourown/project_modules)
+- The repository for the content of the [rollyourown.xyz](https://rollyourown.xyz) website
 
 Further repositories may be made public and mirrored at a later date, such as the repositories containing the deployment code for our infrastructure.
 
@@ -212,7 +212,7 @@ This procedure is described in more detail [here](http://localhost:1313/collabor
 
 For open source projects using a public repository hosting service like Codeberg or GitHub, the hosted repository is often the primary repository for the project.
 
-As [described above](#primary-and-mirror-repositories), we follow a different approach and [host our primary repositories ourselves](https://git.rollyourown.xyz), with _mirrors_ [on Codeberg](https://codeberg.org/rollyourown-xyz) and [on GitHub](https://github.com/rollyourown-xyz).
+As [described above](#primary-and-mirror-repositories), we follow a different approach and host our primary repositories ourselves, with _mirrors_ [on Codeberg](https://codeberg.org/rollyourown-xyz) and [on GitHub](https://github.com/rollyourown-xyz).
 
 Issues and Pull Requests from the community are managed on the respective hosting service, as these are the places where collaborators already have their account. This means that the merging workflow involves an interaction between our own repositories and the mirror repositories. This is made possible by the distributed nature of Git.
 
