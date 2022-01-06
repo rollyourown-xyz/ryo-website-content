@@ -61,9 +61,11 @@ This feature is used, for example, by [Certbot](/rollyourown/project_modules/ryo
 
 ## Repository links
 
-The [Github](https://github.com/) mirror repository for the host server automation scripts is here: [https://github.com/rollyourown-xyz/ryo-host](https://github.com/rollyourown-xyz/ryo-host).
+The [Codeberg](https://codeberg.org/) mirror repository for the host server automation scripts is here: [https://codeberg.org/rollyourown-xyz/ryo-host](https://codeberg.org/rollyourown-xyz/ryo-host)
 
-The [rollyourown.xyz](https://rollyourown.xyz/) repository for the host server automation scripts is here: [https://git.rollyourown.xyz/ryo-projects/ryo-host](https://git.rollyourown.xyz/ryo-projects/ryo-host).
+The [Github](https://github.com/) mirror repository for the host server automation scripts is here: [https://github.com/rollyourown-xyz/ryo-host](https://github.com/rollyourown-xyz/ryo-host)
+
+The [rollyourown.xyz](https://rollyourown.xyz/) repository for the host server automation scripts is here: [https://git.rollyourown.xyz/ryo-projects/ryo-host](https://git.rollyourown.xyz/ryo-projects/ryo-host) (not publicly accessible)
 
 ## Host server setup
 
@@ -138,7 +140,7 @@ Unless stated otherwise on the project page, all [rollyourown.xyz](https://rolly
 
 Once a host server has been set up, you should have a public IP address for the server and an initial root login (either provided to you by your hosting provider when the host server was ordered or configured by you during the operating system installation procedure on your own machine). The host server now needs to be prepared for the deployment of [rollyourown.xyz](https://rollyourown.xyz) projects. The control node needs to be configured to communicate securely with the host server and the host server needs to be set up with all necessary software and configuration to host your project.
 
-Server configuration and software installation is automated by the `host-setup.sh` script in the [rollyourown.xyz](https://rollyourown.xyz) [host server repository](https://git.rollyourown.xyz/ryo-projects/ryo-host).
+Server configuration and software installation is automated by the `host-setup.sh` script in the [rollyourown.xyz](https://rollyourown.xyz) host server repository [on Codeberg](https://codeberg.org/rollyourown-xyz/ryo-host) or [on GitHub](https://github.com/rollyourown-xyz/ryo-host).
 
 {{< more "secondary">}}
 

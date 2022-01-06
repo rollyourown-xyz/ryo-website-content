@@ -37,9 +37,11 @@ A single control node can manage multiple [rollyourown.xyz](https://rollyourown.
 
 ## Repository links
 
-The [Github](https://github.com/) mirror repository for the control node automation scripts is here: [https://github.com/rollyourown-xyz/ryo-control-node](https://github.com/rollyourown-xyz/ryo-control-node).
+The [Codeberg](https://codeberg.org/) mirror repository for the control node automation scripts is here: [https://codeberg.org/rollyourown-xyz/ryo-control-node](https://codeberg.org/rollyourown-xyz/ryo-control-node)
 
-The [rollyourown.xyz](https://rollyourown.xyz/) repository for the control node automation scripts is here: [https://git.rollyourown.xyz/ryo-projects/ryo-control-node](https://git.rollyourown.xyz/ryo-projects/ryo-control-node).
+The [Github](https://github.com/) mirror repository for the control node automation scripts is here: [https://github.com/rollyourown-xyz/ryo-control-node](https://github.com/rollyourown-xyz/ryo-control-node)
+
+The [rollyourown.xyz](https://rollyourown.xyz/) repository for the control node automation scripts is here: [https://git.rollyourown.xyz/ryo-projects/ryo-control-node](https://git.rollyourown.xyz/ryo-projects/ryo-control-node) (not publicly accessible)
 
 ## Control node setup
 

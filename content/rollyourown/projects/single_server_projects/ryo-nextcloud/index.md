@@ -33,9 +33,11 @@ A [control node](/rollyourown/projects/control_node/) without a graphical deskto
 
 ## Repository links
 
+The [Codeberg](https://codeberg.org/) mirror repository for this project is here: [https://codeberg.org/rollyourown-xyz/ryo-nextcloud-standalone](https://codeberg.org/rollyourown-xyz/ryo-nextcloud-standalone)
+
 The [Github](https://github.com/) mirror repository for this project is here: [https://github.com/rollyourown-xyz/ryo-nextcloud-standalone](https://github.com/rollyourown-xyz/ryo-nextcloud-standalone)
 
-The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-nextcloud-standalone](https://git.rollyourown.xyz/ryo-projects/ryo-nextcloud-standalone)
+The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-nextcloud-standalone](https://git.rollyourown.xyz/ryo-projects/ryo-nextcloud-standalone) (not publicly accessible)
 
 ## Dependencies
 

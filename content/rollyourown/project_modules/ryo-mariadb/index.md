@@ -22,9 +22,11 @@ This module deploys [MariaDB](https://mariadb.org/). [MariaDB](https://mariadb.o
 
 ## Repository links
 
+The [Codeberg](https://codeberg.org/) mirror repository for this module is here: [https://codeberg.org/rollyourown-xyz/ryo-mariadb](https://codeberg.org/rollyourown-xyz/ryo-mariadb)
+
 The [Github](https://github.com/) mirror repository for this module is here: [https://github.com/rollyourown-xyz/ryo-mariadb](https://github.com/rollyourown-xyz/ryo-mariadb)
 
-The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-mariadb](https://git.rollyourown.xyz/ryo-projects/ryo-mariadb)
+The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-mariadb](https://git.rollyourown.xyz/ryo-projects/ryo-mariadb) (not publicly accessible)
 
 ## Dependencies
 

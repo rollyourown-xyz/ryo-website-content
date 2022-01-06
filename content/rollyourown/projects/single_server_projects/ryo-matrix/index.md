@@ -34,9 +34,11 @@ A [control node](/rollyourown/projects/control_node/) with a graphical desktop U
 
 ## Repository links
 
+The [Codeberg](https://codeberg.org/) mirror repository for this project is here: [https://codeberg.org/rollyourown-xyz/ryo-matrix-standalone](https://codeberg.org/rollyourown-xyz/ryo-matrix-standalone)
+
 The [Github](https://github.com/) mirror repository for this project is here: [https://github.com/rollyourown-xyz/ryo-matrix-standalone](https://github.com/rollyourown-xyz/ryo-matrix-standalone)
 
-The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-matrix-standalone](https://git.rollyourown.xyz/ryo-projects/ryo-matrix-standalone)
+The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-matrix-standalone](https://git.rollyourown.xyz/ryo-projects/ryo-matrix-standalone) (not publicly accessible)
 
 ## Dependencies
 
