@@ -5,9 +5,11 @@ tags: [ ]
 draft: true
 ---
 
-A rollyourown.xyz project has a defined, modular structure and every rollyourown.xyz project is structured in the same way. The structure is provided by the [project template repository](https://git.rollyourown.xyz/ryo-projects/ryo-project-template) and the template [can be forked to form the basis of a new rollyourown.xyz project](/LINK/TO/WORKFLOW/DESCRIPTION).
+A rollyourown.xyz project has a defined, modular structure and every rollyourown.xyz project is structured in the same way. The structure is provided by the project template repository and the template [can be forked](/collaborate/working_with_git/forking_and_pull_requests/#forking) to form the basis of a [new rollyourown.xyz project](/collaborate/project_and_module_development).
 
 <!--more-->
+
+The rollyourown.xyz project template repository is mirrored [on Codeberg](https://codeberg.org/rollyourown-xyz/ryo-project-template) and [on GitHub](https://github.com/rollyourown-xyz/ryo-project-template).
 
 ## Project directory structure
 
@@ -27,27 +29,31 @@ project_id
 |   |-- ...
 |-- scripts-project
 |   |-- ...
-|-- backup.sh (**TODO**)
-|-- deploy.sh
+|-- CONTRIBUTING.md
 |-- LICENSE
 |-- README.md
+|-- SECURITY.md
+|-- backup.sh (**TODO**)
+|-- deploy.sh
 |-- upgrade.sh
 ```
 
 ## The project_id
 
-The `project_id` is a unique name for a rollyourown.xyz project and is also the name of the project repository on the rollyourown.xyz [Gitea server](https://git.rollyourown.xyz/ryo-projects) and on the rollyourown.xyz [Github mirror](https://github.com/rollyourown-xyz).
+The `project_id` is a unique name for a rollyourown.xyz project and is also the name of the project repository on the rollyourown.xyz Git server and on the rollyourown.xyz [Codeberg](https://codeberg.org/rollyourown-xyz) and [Github](https://github.com/rollyourown-xyz) mirrors.
 
 The `project_id` is always of the form `ryo-<NAME>` where `<NAME>` usually identifies the open source software to be deployed and, if relevant, the variation of the project (for example, `ryo-nextcloud-standalone` or `ryo-gitea-with-sso`).
 
 The `project_id` is also added to the project's [configuration template](/collaborate/project_structure/#the-configuration-directory) and `deploy.sh` script.
 
-## Licence and Readme
+## Licence and information
 
-The top-level directory of a rollyourown.xyz project includes a `LICENSE` and `README.md` file:
+The top-level directory of a rollyourown.xyz project includes a `LICENSE`, `CONTRIBUTING.md`, `README.md` and `SECURITY.md` file:
 
 - LICENSE: Describes the licence under which the code in the repository may be copied or used. Only [open source](https://opensource.org/osd) licences (e.g. the [MIT](https://opensource.org/licenses/MIT) licence) may be used for a rollyourown.xyz project
+- CONTRIBUTING.md: Provides information on how to collaborate on the project
 - README.md: Provides a high-level description of the project and how to use it
+- SECURITY.md: Provides information on how to report security vulnerabilities in the project
 
 ## The `deploy.sh` script
 
@@ -186,7 +192,7 @@ The `deploy.sh` script calls these scripts, which may need to be modified for th
 
 This script typically does not need to be modified for the specific project.
 
-Generic host setup and configuration has already been done by the `host-setup.sh` script in the [host server](rollyourown/project_modules/host_server/) [repository](https://github.com/rollyourown-xyz/ryo-host).
+Generic host setup and configuration has already been done by the `host-setup.sh` script in the [host server](rollyourown/project_modules/host_server/) repository.
 
 The `host-setup-project.sh` script executes Ansible playbooks in the [/host-setup directory](#the-host-setup-directory) to perform additional host configuration for the individual project. This usually consists of setting up directories on the host server to provide persistent storage for the project's containers to enable component configuration and data to persist across container re-starts and replacements. Additional host setup steps may be needed, depending on the project.
 
