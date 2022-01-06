@@ -1,6 +1,6 @@
 ---
 title: "How to Maintain"
-weight: 3
+weight: 2
 tags: [ ]
 draft: false
 ---
