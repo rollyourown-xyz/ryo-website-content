@@ -30,7 +30,7 @@ Components **not** installed by this project are:
 - The [jigasi](https://github.com/jitsi/jigasi) SIP gateway
 - The [jibri](https://github.com/jitsi/jibri) broadcasting server
 
-In additiona to the components of the jitsi video conferencing system, the project deploys the [rollyourown.xyz coturn module](/rollyourown/project_modules/ryo-coturn/) to enable [NAT traversal](https://en.wikipedia.org/wiki/NAT_traversal) for conference participants and the [rollyourown.xyz service proxy module](/rollyourown/project_modules/ryo-service-proxy/) to provide TLS termination and certificate management.
+In additiona to the components of the jitsi video conferencing system, the project deploys the [rollyourown.xyz coturn module](/rollyourown/project_modules/ryo-coturn/) to enable [NAT traversal](https://en.wikipedia.org/wiki/NAT_traversal) for conference participants and the [rollyourown.xyz Ingress Proxy module](/rollyourown/project_modules/ryo-ingress-proxy/) to provide TLS termination and certificate management.
 
 {{< highlight "info" "Control node">}}
 A [control node](/rollyourown/projects/control_node/) without a graphical desktop UI is sufficient for this project, as the jitsi conferencing server is configurable only via command line.
@@ -66,7 +66,7 @@ The coturn container hosts an [coturn](https://github.com/coturn/coturn/) TURN s
 
 #### Loadbalancer / TLS proxy container
 
-The loadbalancer / TLS proxy container terminates HTTP and HTTPS connections and distributes traffic to other containers. This component is provided by the [rollyourown.xyz](https://rollyourown.xyz) Service Proxy module and is a key building block for rollyourown.xyz projects. Further details can be found [here](/rollyourown/project_modules/ryo-service-proxy/).
+The loadbalancer / TLS proxy container terminates HTTP and HTTPS connections and distributes traffic to other containers. This component is provided by the [rollyourown.xyz](https://rollyourown.xyz) Ingress Proxy module and is a key building block for rollyourown.xyz projects. Further details can be found [here](/rollyourown/project_modules/ryo-ingress-proxy/).
 
 #### Jitsi server container
 
@@ -126,16 +126,16 @@ The open source software deployed by the project is:
 
 | Project | What is it? | Homepage | License |
 | :------ | :---------- | :------- | :------ |
-| Certbot | [Let's Encrypt](https://letsencrypt.org/) certificate manager, deployed by the [Service Proxy module](/rollyourown/project_modules/ryo-service-proxy/) | [https://certbot.eff.org/](https://certbot.eff.org/) | [Apache 2.0](https://raw.githubusercontent.com/certbot/certbot/master/LICENSE.txt) |
-| Consul | Service registry and key-value store, deployed by the [Service Proxy module](/rollyourown/project_modules/ryo-service-proxy/) | [https://www.consul.io/](https://www.consul.io/) | [MPL 2.0](https://github.com/hashicorp/consul/blob/master/LICENSE) |
-| Consul-Template | Tool to create dynamic configuration files based on Consul Key-Value store or service registry queries, deployed by the [Service Proxy module](/rollyourown/project_modules/ryo-service-proxy/) | [https://github.com/hashicorp/consul-template/](https://github.com/hashicorp/consul-template/) | [MPL 2.0](https://github.com/hashicorp/consul-template/blob/master/LICENSE) |
+| Certbot | [Let's Encrypt](https://letsencrypt.org/) certificate manager, deployed by the [Ingress Proxy module](/rollyourown/project_modules/ryo-ingress-proxy/) | [https://certbot.eff.org/](https://certbot.eff.org/) | [Apache 2.0](https://raw.githubusercontent.com/certbot/certbot/master/LICENSE.txt) |
+| Consul | Service registry and key-value store, deployed by the [Ingress Proxy module](/rollyourown/project_modules/ryo-ingress-proxy/) | [https://www.consul.io/](https://www.consul.io/) | [MPL 2.0](https://github.com/hashicorp/consul/blob/master/LICENSE) |
+| Consul-Template | Tool to create dynamic configuration files based on Consul Key-Value store or service registry queries, deployed by the [Ingress Proxy module](/rollyourown/project_modules/ryo-ingress-proxy/) | [https://github.com/hashicorp/consul-template/](https://github.com/hashicorp/consul-template/) | [MPL 2.0](https://github.com/hashicorp/consul-template/blob/master/LICENSE) |
 | Coturn  | [STUN](https://en.wikipedia.org/wiki/STUN) and [TURN](https://en.wikipedia.org/wiki/Traversal_Using_Relays_around_NAT) server, deployed by the [TURN server module](/rollyourown/project_modules/ryo-coturn/) | [https://github.com/coturn/coturn](https://github.com/coturn/coturn) | [https://github.com/coturn/coturn/blob/master/LICENSE](https://github.com/coturn/coturn/blob/master/LICENSE) |
-| HAProxy | Load balancer, TCP and HTTP proxy, deployed by the [Service Proxy module](/rollyourown/project_modules/ryo-service-proxy/) | [https://www.haproxy.org/](https://www.haproxy.org/) | [GPL / LGPL](https://github.com/haproxy/haproxy/blob/master/LICENSE) |
+| HAProxy | Load balancer, TCP and HTTP proxy, deployed by the [Ingress Proxy module](/rollyourown/project_modules/ryo-ingress-proxy/) | [https://www.haproxy.org/](https://www.haproxy.org/) | [GPL / LGPL](https://github.com/haproxy/haproxy/blob/master/LICENSE) |
 | Jicofo | Conference focus server, managing sessions within [jitsi](https://jitsi.org/) conferences | [https://github.com/jitsi/jicofo/](https://github.com/jitsi/jicofo/) | [Apache 2.0](https://github.com/jitsi/jicofo/blob/master/LICENSE) |
 | Jitsi-Meet | [WebRTC](https://webrtc.org/) video conferencing front-end, part of the [jitsi](https://jitsi.org/) installation | [https://github.com/jitsi/jitsi-meet/](https://github.com/jitsi/jitsi-meet/) | [Apache 2.0](https://github.com/jitsi/jitsi-meet/blob/master/LICENSE) |
 | Jitsi Videobridge| [SFU](https://webrtcglossary.com/sfu/) video routing server for [jitsi](https://jitsi.org/) conferences  | [https://github.com/jitsi/jitsi-videobridge/](https://github.com/jitsi/jitsi-videobridge/) | [Apache 2.0](https://github.com/jitsi/jitsi-videobridge/blob/master/LICENSE) |
 | nginx | Web server for the [jitsi-meet](https://jitsi.org/jitsi-meet/) front-end | [https://nginx.org/](https://nginx.org/) | [2-clause BSD license](http://nginx.org/LICENSE) |
 | Prosody | [XMPP](https://xmpp.org/) server, used as the signalling server in the [jitsi](https://jitsi.org/) installation | [https://prosody.im/](https://prosody.im/) | [MIT](https://prosody.im/source/mit) |
-| Webhook | Light-weight, general purpose webhook server, deployed by the [Service Proxy module](/rollyourown/project_modules/ryo-service-proxy/) | [https://github.com/adnanh/webhook](https://github.com/adnanh/webhook) | [MIT](https://github.com/adnanh/webhook/blob/master/LICENSE) |
+| Webhook | Light-weight, general purpose webhook server, deployed by the [Ingress Proxy module](/rollyourown/project_modules/ryo-ingress-proxy/) | [https://github.com/adnanh/webhook](https://github.com/adnanh/webhook) | [MIT](https://github.com/adnanh/webhook/blob/master/LICENSE) |
 
 {{< /table >}}

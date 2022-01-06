@@ -1,10 +1,10 @@
 ---
-title: "Module: Service Proxy"
+title: "Module: Ingress Proxy"
 tags: [ "module" ]
 draft: true
 ---
 
-The Service Proxy module is a re-usable module for other [rollyourown.xyz](https://rollyourown.xyz) projects which is used to terminate HTTPS and TCP connections and route traffic to the project's containers.
+The Ingress Proxy module is a re-usable module for other [rollyourown.xyz](https://rollyourown.xyz) projects which is used to terminate HTTPS and TCP connections and route traffic to the project's containers.
 
 <!--more-->
 
@@ -26,9 +26,9 @@ This module deploys an [HAProxy](https://www.haproxy.org/) loadbalancer / TLS pr
 
 The [Codeberg](https://codeberg.org/) mirror repository for this module is here: [https://codeberg.org/rollyourown-xyz/ryo-ingress-proxy](https://codeberg.org/rollyourown-xyz/ryo-ingress-proxy)
 
-The [Github](https://github.com/) mirror repository for this module is here: [https://github.com/rollyourown-xyz/ryo-service-proxy](https://github.com/rollyourown-xyz/ryo-service-proxy)
+The [Github](https://github.com/) mirror repository for this module is here: [https://github.com/rollyourown-xyz/ryo-ingress-proxy](https://github.com/rollyourown-xyz/ryo-ingress-proxy)
 
-The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-service-proxy](https://git.rollyourown.xyz/ryo-projects/ryo-service-proxy) (not publicly accessible)
+The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-ingress-proxy](https://git.rollyourown.xyz/ryo-projects/ryo-ingress-proxy) (not publicly accessible)
 
 ## Dependencies
 
@@ -44,7 +44,7 @@ This project module deploys a container with multiple services as shown in the f
 
 The [HAProxy](https://www.haproxy.org/) load-balancer / TLS proxy listens on defined ports, terminates incoming connections and distributes this traffic to specified backends, based on rules specified in [Access Control Lists (ACLs)](https://www.haproxy.com/blog/introduction-to-haproxy-acls/). Depending on the project, backends can be scaled across multiple instances.
 
-HAProxy ACLs and backend rules are dynamically configured based on Key-Values retrieved from the [Consul server running on the host](/rollyourown/projects/host_server/). This allows the Service Proxy to be deployed as a generic module, with the project-specific backed and ACL configuration provisioned to the Consul KV-store during project deployment.
+HAProxy ACLs and backend rules are dynamically configured based on Key-Values retrieved from the [Consul server running on the host](/rollyourown/projects/host_server/). This allows the Ingress Proxy to be deployed as a generic module, with the project-specific backed and ACL configuration provisioned to the Consul KV-store during project deployment.
 
 In addition, HAProxy terminates TLS / SSL connections (typically, HTTPS), using certificates obtained by [Certbot](https://certbot.eff.org/), so that certificates can be provisioned in a single element and do not need to be distributed across backend applications.
 
@@ -54,7 +54,7 @@ The [Certbot](https://certbot.eff.org/) application uses the [ACME protocol](htt
 
 For [Let's Encrypt](https://letsencrypt.org/) domain validation via the [Let's Encrypt HTTP-01 challenge](https://letsencrypt.org/docs/challenge-types/#http-01-challenge), traffic to the ACME client `.well-known/acme-challenge` link is routed by HAProxy to Certbot. Any other traffic to the project domain(s) is routed to backends or rejected, as defined in the HAProxy ACLs.
 
-The domains for which Certbot aquires and manages certificates are retrieved from the [Consul server running on the host](/rollyourown/projects/host_server/). This allows the Service Proxy to be deployed as a generic module, with the project-specific domains provisioned to the Consul KV-store during project deployment.
+The domains for which Certbot aquires and manages certificates are retrieved from the [Consul server running on the host](/rollyourown/projects/host_server/). This allows the Ingress Proxy to be deployed as a generic module, with the project-specific domains provisioned to the Consul KV-store during project deployment.
 
 ### Consul-Template
 
@@ -66,60 +66,60 @@ The [Webhook](https://github.com/adnanh/webhook) application creates an HTTP end
 
 ## How to deploy this module in a project
 
-The [repository for this module](https://github.com/rollyourown-xyz/ryo-service-proxy) contains a number of resources for including the module in a [rollyourown.xyz](https://rollyourown.xyz) project. The steps for including the module are:
+The [repository for this module](https://github.com/rollyourown-xyz/ryo-ingress-proxy) contains a number of resources for including the module in a [rollyourown.xyz](https://rollyourown.xyz) project. The steps for including the module are:
 
-1. Add the Service Proxy module to the `get-modules.sh` script in the project:
+1. Add the Ingress Proxy module to the `get-modules.sh` script in the project:
 
     ```bash
-    ## Service proxy module
-    if [ -d "../ryo-service-proxy" ]
+    ## Ingress proxy module
+    if [ -d "../ryo-ingress-proxy" ]
     then
-       echo "Module ryo-service-proxy already cloned to this control node"
+       echo "Module ryo-ingress-proxy already cloned to this control node"
     else
-       echo "Cloning ryo-service-proxy repository. Executing 'git clone' for ryo-service-proxy repository"
-       git clone https://github.com/rollyourown-xyz/ryo-service-proxy ../ryo-service-proxy
+       echo "Cloning ryo-ingress-proxy repository. Executing 'git clone' for ryo-ingress-proxy repository"
+       git clone https://github.com/rollyourown-xyz/ryo-ingress-proxy ../ryo-ingress-proxy
     fi
     ```
 
-2. Add the Service Proxy module to the project's `host-setup.sh` script:
+2. Add the Ingress Proxy module to the project's `host-setup.sh` script:
 
     ```bash
-    ## Module-specific host setup for ryo-service-proxy
-    if [ -f ""$SCRIPT_DIR"/../ryo-service-proxy/configuration/"$hostname"_playbooks_executed" ]
+    ## Module-specific host setup for ryo-ingress-proxy
+    if [ -f ""$SCRIPT_DIR"/../ryo-ingress-proxy/configuration/"$hostname"_playbooks_executed" ]
     then
-       echo "Host setup for ryo-service-proxy module has already been done on "$hostname""
+       echo "Host setup for ryo-ingress-proxy module has already been done on "$hostname""
        echo ""
     else
-       echo "Running module-specific host setup script for ryo-service-proxy on "$hostname""
+       echo "Running module-specific host setup script for ryo-ingress-proxy on "$hostname""
        echo ""
-       "$SCRIPT_DIR"/../ryo-service-proxy/host-setup.sh -n "$hostname"
+       "$SCRIPT_DIR"/../ryo-ingress-proxy/host-setup.sh -n "$hostname"
     fi
     ```
 
-3. Add the Service Proxy module to the project's `build-images.sh` script:
+3. Add the Ingress Proxy module to the project's `build-images.sh` script:
 
     ```bash
     # Build module images if -m flag is present
     if [ $build_modules == 'true' ]
     then
-       echo "Running build-images script for ryo-service-proxy module on "$hostname""
+       echo "Running build-images script for ryo-ingress-proxy module on "$hostname""
        echo ""
-       "$SCRIPT_DIR"/../ryo-service-proxy/build-images.sh -n "$hostname" -v "$version"
+       "$SCRIPT_DIR"/../ryo-ingress-proxy/build-images.sh -n "$hostname" -v "$version"
     else
        echo "Skipping image build for modules"
        echo ""
     fi
     ```
 
-4. Add the Service Proxy module to the `deploy-project.sh` script in the project:
+4. Add the Ingress Proxy module to the `deploy-project.sh` script in the project:
 
     ```bash
     # Deploy modules if -m flag is present
     if [ $deploy_modules == 'true' ]
     then
-       echo "Deploying ryo-service-proxy module on "$hostname" using images with version "$version""
+       echo "Deploying ryo-ingress-proxy module on "$hostname" using images with version "$version""
        echo ""
-       "$SCRIPT_DIR"/../ryo-service-proxy/deploy-module.sh -n "$hostname" -v "$version"
+       "$SCRIPT_DIR"/../ryo-ingress-proxy/deploy-module.sh -n "$hostname" -v "$version"
        echo ""
     else
        echo "Skipping modules deployment"
@@ -135,7 +135,7 @@ Furthermore, [Certbot](https://certbot.eff.org/) needs to be configured to obtai
 
 ### Image configuration
 
-The [ryo-project-template repository](https://github.com/rollyourown-xyz/ryo-service-proxy) includes Ansible roles for deploying and configuring the Consul agent and configuring the project component to register with the Consul server:
+The [ryo-project-template repository](https://github.com/rollyourown-xyz/ryo-ingress-proxy) includes Ansible roles for deploying and configuring the Consul agent and configuring the project component to register with the Consul server:
 
 - The role `install-consul` installs the consul agent
 - The role `set-up-consul` configures the consul agent to join the Consul server running on the host and enable local application name resolution via Consul
@@ -217,7 +217,7 @@ provider "consul" {
 
 #### Terraform modules for provisioning Consul key-values
 
-The Service Proxy module repository includes terraform modules for provisioning the necessary configuration to the Consul key-value store in the correct key-value structure for use by HAProxy and Certbot.
+The Ingress Proxy module repository includes terraform modules for provisioning the necessary configuration to the Consul key-value store in the correct key-value structure for use by HAProxy and Certbot.
 
 {{< more "secondary">}}
 
@@ -266,11 +266,11 @@ chmod 644 /var/certs/{{.Key}}.key.pem
 Every domain and sub-domain for which a certificate is required for the project - for example, `example.com`, `www.example.com` and `auth.example.com` should be added **individually** to the configuration.
 {{< /highlight >}}
 
-Certbot configuration can be deployed to the consul key-value store using the ryo-service-proxy terraform `deploy-cert-domains` module, for example:
+Certbot configuration can be deployed to the consul key-value store using the ryo-ingress-proxy terraform `deploy-cert-domains` module, for example:
 
 ```tf
 module "deploy-<PROJECT_ID>-cert-domains" {
-  source = "../../ryo-service-proxy/module-deployment/modules/deploy-cert-domains"
+  source = "../../ryo-ingress-proxy/module-deployment/modules/deploy-cert-domains"
 
   certificate_domains = {
     domain_1 = {domain = "example.com", admin_email = "admin@example.com"},
@@ -318,7 +318,7 @@ For example, a TCP listener for a [Gitea server](/rollyourown/projects/single_se
 
 ```tf
 module "deploy-gitea-ssh-haproxy-tcp-listener-configuration" {
-  source = "../../ryo-service-proxy/module-deployment/modules/deploy-haproxy-configuration"
+  source = "../../ryo-ingress-proxy/module-deployment/modules/deploy-haproxy-configuration"
 
   haproxy_tcp_listeners = {
     3022 = {service = "gitea-ssh"}
@@ -363,7 +363,7 @@ For example, a backend service for a [Matrix server](/rollyourown/projects/singl
 
 ```tf
 module "deploy-synapse-backend-service" {
-  source = "../../ryo-service-proxy/module-deployment/modules/deploy-haproxy-backend-services"
+  source = "../../ryo-ingress-proxy/module-deployment/modules/deploy-haproxy-backend-services"
 a [Gitea server](/rollyourown/projects/single_server_projects/ryo-gitea/)
   non_ssl_backend_services = [ "synapse" ]
 }
@@ -391,7 +391,7 @@ For example, ACLs for a [Matrix server](/rollyourown/projects/single_server_proj
 
 ```tf
 module "deploy-matrix-haproxy-acl-configuration-for-synapse" {
-  source = "../../ryo-service-proxy/module-deployment/modules/deploy-haproxy-configuration"
+  source = "../../ryo-ingress-proxy/module-deployment/modules/deploy-haproxy-configuration"
 
   haproxy_path_only_acls = {
     path-synapse-admin  = {path = "/_synapse/admin"}
@@ -438,7 +438,7 @@ For example, HTTP deny rules for a [Matrix server](/rollyourown/projects/single_
 
 ```tf
 module "deploy-matrix-haproxy-deny-configuration-for-synapse" {
-  source = "../../ryo-service-proxy/module-deployment/modules/deploy-haproxy-configuration"
+  source = "../../ryo-ingress-proxy/module-deployment/modules/deploy-haproxy-configuration"
 
   haproxy_acl_denys = [ "path-synapse-admin" ]
 }
@@ -481,7 +481,7 @@ For example, `use-backend` rules for a [Matrix server](/rollyourown/projects/sin
 
 ```tf
 module "deploy-matrix-haproxy-backend-configuration-for-synapse" {
-  source = "../../ryo-service-proxy/module-deployment/modules/deploy-haproxy-configuration"
+  source = "../../ryo-ingress-proxy/module-deployment/modules/deploy-haproxy-configuration"
 
   haproxy_acl_use-backends = {
     path-synapse-client = {backend_service = "synapse"},

@@ -49,13 +49,13 @@ A Consul agent is deployed on project containers and joins the Consul server in 
 
 The Consul service registry provides a register of available and running services on the host server. As a new project container is deployed, a consul agent running in client mode on the container registers the presence of the service provided by the container with the Consul service registry, along with the container's IP address and the port on which the service is available. Other components can then discover the service (usually via DNS), without needing static configuration in advance of the hostname or IP address of the service.
 
-This feature is used, for example, by [HAProxy](/rollyourown/project_modules/ryo-service-proxy/#haproxy) to distribute traffic to backend servers and enables the [Service Proxy module](/rollyourown/project_modules/ryo-service-proxy) to be a generic module that can be used in any project.
+This feature is used, for example, by [HAProxy](/rollyourown/project_modules/ryo-ingress-proxy/#haproxy) to distribute traffic to backend servers and enables the [Ingress Proxy module](/rollyourown/project_modules/ryo-ingress-proxy) to be a generic module that can be used in any project.
 
 #### Key-value store
 
 The Consul key-value store provides a store of configuration data for services that can be provisioned at deploy-time. If a container is dynamically configured, then a consul-template agent running on the container retrieves key-values and generates the container service's configuration file(s). This can be done at boot or at a later stage, as the consul-template agent monitors for changes in the specified branches of the key-value tree.
 
-This feature is used, for example, by [Certbot](/rollyourown/project_modules/ryo-service-proxy/#certbot) to dynamically load the configuration for certificates needed for a project and by [HAProxy](/rollyourown/project_modules/ryo-service-proxy/#haproxy) to load ACLs and backend configuration for a project's backend servers. A consul-template agent running on the [Service Proxy module](/rollyourown/project_modules/ryo-service-proxy) modifies the Haproxy and Cerbot configuration as project-specific services are added during project deployment.
+This feature is used, for example, by [Certbot](/rollyourown/project_modules/ryo-ingress-proxy/#certbot) to dynamically load the configuration for certificates needed for a project and by [HAProxy](/rollyourown/project_modules/ryo-ingress-proxy/#haproxy) to load ACLs and backend configuration for a project's backend servers. A consul-template agent running on the [Ingress Proxy module](/rollyourown/project_modules/ryo-ingress-proxy) modifies the Haproxy and Cerbot configuration as project-specific services are added during project deployment.
 
 {{< /more >}}
 
@@ -240,7 +240,7 @@ The [Consul](https://www.consul.io/) server deployed to the host server is a gen
 
 To make any component's service discoverable in the Consul service registry, the component must be registered with the Consul server (usually when the component is started).
 
-Ansible roles for installing and setting up a consul agent to register project components with the Consul service registry are provided in the `image-build/playbooks/roles/install-consul` and `image-build/playbooks/roles/set-up-consul` directories in the [ryo-project-template repository](https://github.com/rollyourown-xyz/ryo-service-proxy). These do not need to be modified.
+Ansible roles for installing and setting up a consul agent to register project components with the Consul service registry are provided in the `image-build/playbooks/roles/install-consul` and `image-build/playbooks/roles/set-up-consul` directories in the [ryo-project-template repository](https://github.com/rollyourown-xyz/ryo-ingress-proxy). These do not need to be modified.
 
 In the `image-build/playbooks/roles/set-up-TEMPLATE` directory, the file `templates/TEMPLATE-service.hcl.j2` provides an example of a component-specific consul service configuration for registering the specific component with the service registry:
 
@@ -290,7 +290,7 @@ services {
 }
 ```
 
-This then enables the [ryo-service-proxy](https://github.com/rollyourown-xyz/ryo-service-proxy) module [HAProxy](https://www.haproxy.org/) component to be configured to [use DNS for service discovery](https://www.haproxy.com/blog/dns-service-discovery-haproxy/) to distribute incoming traffic to the nextcloud component backend server. This results in the HAProxy backend configuration:
+This then enables the [ryo-ingress-proxy](https://github.com/rollyourown-xyz/ryo-ingress-proxy) module [HAProxy](https://www.haproxy.org/) component to be configured to [use DNS for service discovery](https://www.haproxy.com/blog/dns-service-discovery-haproxy/) to distribute incoming traffic to the nextcloud component backend server. This results in the HAProxy backend configuration:
 
 ```cfg
 backend nextcloud

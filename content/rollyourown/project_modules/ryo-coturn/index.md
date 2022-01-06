@@ -32,7 +32,7 @@ The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is h
 
 ## Dependencies
 
-This module depends on the [rollyourown.xyz](https://rollyourown.xyz) [Service Proxy](/rollyourown/project_modules/service_proxy/) module to provide certificate management by [Certbot](https://certbot.eff.org/).
+This module depends on the [rollyourown.xyz](https://rollyourown.xyz) [Ingress Proxy](/rollyourown/project_modules/ryo-ingress-proxy/) module to provide certificate management by [Certbot](https://certbot.eff.org/).
 
 ## Module components
 
@@ -46,7 +46,7 @@ The STUN/TURN Server module contains three applications, together providing a dy
 
 Coturn is and open source [STUN](https://en.wikipedia.org/wiki/STUN) and [TURN](https://en.wikipedia.org/wiki/Traversal_Using_Relays_around_NAT) server enabling [NAT traversal](https://en.wikipedia.org/wiki/NAT_traversal) for peer-to-peer communications.
 
-Coturn's configuration is dynamically configured based on Key-Values retrieved from the [Consul server deployed on the host](/rollyourown/projects/host_server/#host-server-components). For TLS-encrypted connections, Coturn uses certificates obtained by the [Certbot application deployed by the Service Proxy module](/rollyourown/project_modules/service_proxy/#haproxy-and-certbot).
+Coturn's configuration is dynamically configured based on Key-Values retrieved from the [Consul server deployed on the host](/rollyourown/projects/host_server/#host-server-components). For TLS-encrypted connections, Coturn uses certificates obtained by the [Certbot application deployed by the Ingress Proxy module](/rollyourown/project_modules/ryo-ingress-proxy/#haproxy-and-certbot).
 
 ### Consul
 
@@ -60,16 +60,16 @@ On container start, the [Consul-Template](https://github.com/hashicorp/consul-te
 
 The [repository for this module](https://github.com/rollyourown-xyz/ryo-coturn) contains a number of resources for including the module in a [rollyourown.xyz](https://rollyourown.xyz) project. The steps for including the module are:
 
-1. Add the STUN/TURN Server module as well as the [Service Proxy module](/rollyourown/project_modules/service_proxy/) dependency to the `get-modules.sh` script in the project:
+1. Add the STUN/TURN Server module as well as the [Ingress Proxy module](/rollyourown/project_modules/ryo-ingress-proxy/) dependency to the `get-modules.sh` script in the project:
 
     ```bash
-    ## Service proxy module
-    if [ -d "../ryo-service-proxy" ]
+    ## Ingress proxy module
+    if [ -d "../ryo-ingress-proxy" ]
     then
-       echo "Module ryo-service-proxy already cloned to this control node"
+       echo "Module ryo-ingress-proxy already cloned to this control node"
     else
-       echo "Cloning ryo-service-proxy repository. Executing 'git clone' for ryo-service-proxy repository"
-       git clone https://github.com/rollyourown-xyz/ryo-service-proxy ../ryo-service-proxy
+       echo "Cloning ryo-ingress-proxy repository. Executing 'git clone' for ryo-ingress-proxy repository"
+       git clone https://github.com/rollyourown-xyz/ryo-ingress-proxy ../ryo-ingress-proxy
     fi
     ## STUN/TURN Server module
     if [ -d "../ryo-coturn" ]
@@ -81,18 +81,18 @@ The [repository for this module](https://github.com/rollyourown-xyz/ryo-coturn) 
     fi
     ```
 
-2. Add the STUN/TURN Server module as well as the [Service Proxy module](/rollyourown/project_modules/service_proxy/) dependency to the project's `host-setup.sh` script:
+2. Add the STUN/TURN Server module as well as the [Ingress Proxy module](/rollyourown/project_modules/ryo-ingress-proxy/) dependency to the project's `host-setup.sh` script:
 
     ```bash
-    ## Module-specific host setup for ryo-service-proxy
-    if [ -f ""$SCRIPT_DIR"/../ryo-service-proxy/configuration/"$hostname"_playbooks_executed" ]
+    ## Module-specific host setup for ryo-ingress-proxy
+    if [ -f ""$SCRIPT_DIR"/../ryo-ingress-proxy/configuration/"$hostname"_playbooks_executed" ]
     then
-       echo "Host setup for ryo-service-proxy module has already been done on "$hostname""
+       echo "Host setup for ryo-ingress-proxy module has already been done on "$hostname""
        echo ""
     else
-       echo "Running module-specific host setup script for ryo-service-proxy on "$hostname""
+       echo "Running module-specific host setup script for ryo-ingress-proxy on "$hostname""
        echo ""
-       "$SCRIPT_DIR"/../ryo-service-proxy/host-setup.sh -n "$hostname"
+       "$SCRIPT_DIR"/../ryo-ingress-proxy/host-setup.sh -n "$hostname"
     fi
     ## Module-specific host setup for ryo-coturn
     if [ -f ""$SCRIPT_DIR"/../ryo-coturn/configuration/"$hostname"_playbooks_executed" ]
@@ -106,17 +106,17 @@ The [repository for this module](https://github.com/rollyourown-xyz/ryo-coturn) 
     fi
     ```
 
-3. Add the STUN/TURN Server module as well as the [Service Proxy module](/rollyourown/project_modules/service_proxy/) dependency to the project's `build-images.sh` script:
+3. Add the STUN/TURN Server module as well as the [Ingress Proxy module](/rollyourown/project_modules/ryo-ingress-proxy/) dependency to the project's `build-images.sh` script:
 
     ```bash
-    # Build Service Proxy module images if -m flag is present
+    # Build Ingress Proxy module images if -m flag is present
     if [ $build_modules == 'true' ]
     then
-       echo "Running build-images script for ryo-service-proxy module on "$hostname""
+       echo "Running build-images script for ryo-ingress-proxy module on "$hostname""
        echo ""
-       "$SCRIPT_DIR"/../ryo-service-proxy/build-images.sh -n "$hostname" -v "$version"
+       "$SCRIPT_DIR"/../ryo-ingress-proxy/build-images.sh -n "$hostname" -v "$version"
     else
-       echo "Skipping image build for the Service Proxy module"
+       echo "Skipping image build for the Ingress Proxy module"
        echo ""
     fi
     # Build STUN/TURN Server module images if -m flag is present
@@ -131,18 +131,18 @@ The [repository for this module](https://github.com/rollyourown-xyz/ryo-coturn) 
     fi
     ```
 
-4. Add the STUN/TURN Server module as well as the [Service Proxy module](/rollyourown/project_modules/service_proxy/) dependency to the `deploy-project.sh` script in the project (with the Service Proxy module **before** the STUN/TURN Server module):
+4. Add the STUN/TURN Server module as well as the [Ingress Proxy module](/rollyourown/project_modules/ryo-ingress-proxy/) dependency to the `deploy-project.sh` script in the project (with the Ingress Proxy module **before** the STUN/TURN Server module):
 
     ```bash
-    # Deploy Service Proxy module if -m flag is present
+    # Deploy Ingress Proxy module if -m flag is present
     if [ $deploy_modules == 'true' ]
     then
-       echo "Deploying ryo-service-proxy module on "$hostname" using images with version "$version""
+       echo "Deploying ryo-ingress-proxy module on "$hostname" using images with version "$version""
        echo ""
-       "$SCRIPT_DIR"/../ryo-service-proxy/deploy-module.sh -n "$hostname" -v "$version"
+       "$SCRIPT_DIR"/../ryo-ingress-proxy/deploy-module.sh -n "$hostname" -v "$version"
        echo ""
     else
-       echo "Skipping Service Proxy module deployment"
+       echo "Skipping Ingress Proxy module deployment"
        echo ""
     fi
     # Deploy STUN/TURN Server module if -m flag is present

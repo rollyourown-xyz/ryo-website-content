@@ -43,7 +43,7 @@ The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is h
 
 This project depends on and deploys the following [rollyourown.xyz](https://rollyourown.xyz) modules:
 
-- The [Service Proxy module](/rollyourown/project_modules/ryo-service-proxy/) to provide certificate management by [Certbot](https://certbot.eff.org/) and HTTPS proxying by the [HAProxy](https://www.haproxy.org/) load balancer / TLS proxy
+- The [Ingress Proxy module](/rollyourown/project_modules/ryo-ingress-proxy/) to provide certificate management by [Certbot](https://certbot.eff.org/) and HTTPS proxying by the [HAProxy](https://www.haproxy.org/) load balancer / TLS proxy
 
 - The [MariaDB Database module](/rollyourown/project_modules/ryo-mariadb) to provide a performant database backend
 
@@ -67,7 +67,7 @@ The project installation consists of a number of containers deployed on the host
 
 #### Loadbalancer / TLS proxy container
 
-The Loadbalancer / TLS proxy container terminates HTTP and HTTPS connections and distributes traffic to the Nextcloud and Well-known containers. This component is provided by the [rollyourown.xyz](https://rollyourown.xyz) Service Proxy module and is a key building block for rollyourown.xyz projects. Further details can be found [here](/rollyourown/project_modules/ryo-service-proxy/).
+The Loadbalancer / TLS proxy container terminates HTTP and HTTPS connections and distributes traffic to the Nextcloud and Well-known containers. This component is provided by the [rollyourown.xyz](https://rollyourown.xyz) Ingress Proxy module and is a key building block for rollyourown.xyz projects. Further details can be found [here](/rollyourown/project_modules/ryo-ingress-proxy/).
 
 #### Well-known container
 
@@ -153,10 +153,10 @@ The open source components used in this project are:
 | Project | What is it? | Homepage | License |
 | :------ | :---------- | :------- | :------ |
 | Apache HTTP Server | Web server for the [Nextcloud](https://nextcloud.com/) installation | [https://httpd.apache.org/](https://httpd.apache.org/) | [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) |
-| Certbot | [Let's Encrypt](https://letsencrypt.org/) certificate manager, deployed by the [Service Proxy module](/rollyourown/project_modules/ryo-service-proxy/) | [https://certbot.eff.org/](https://certbot.eff.org/) | [Apache 2.0](https://raw.githubusercontent.com/certbot/certbot/master/LICENSE.txt) |
+| Certbot | [Let's Encrypt](https://letsencrypt.org/) certificate manager, deployed by the [Ingress Proxy module](/rollyourown/project_modules/ryo-ingress-proxy/) | [https://certbot.eff.org/](https://certbot.eff.org/) | [Apache 2.0](https://raw.githubusercontent.com/certbot/certbot/master/LICENSE.txt) |
 | Consul | Service registry and key-value store | [https://www.consul.io/](https://www.consul.io/) | [MPL 2.0](https://github.com/hashicorp/consul/blob/master/LICENSE) |
 | Consul-Template | Tool to create dynamic configuration files based on Consul Key-Value store or service registry queries | [https://github.com/hashicorp/consul-template/](https://github.com/hashicorp/consul-template/) | [MPL 2.0](https://github.com/hashicorp/consul-template/blob/master/LICENSE) |
-| HAProxy | Load balancer, TCP and HTTP proxy, deployed by the [Service Proxy module](/rollyourown/project_modules/ryo-service-proxy/) | [https://www.haproxy.org/](https://www.haproxy.org/) | [GPL / LGPL](https://github.com/haproxy/haproxy/blob/master/LICENSE) |
+| HAProxy | Load balancer, TCP and HTTP proxy, deployed by the [Ingress Proxy module](/rollyourown/project_modules/ryo-ingress-proxy/) | [https://www.haproxy.org/](https://www.haproxy.org/) | [GPL / LGPL](https://github.com/haproxy/haproxy/blob/master/LICENSE) |
 | MariaDB | Relational database system | [https://mariadb.org/](https://mariadb.org/) | [GPL v2 / LGPL](https://mariadb.com/kb/en/mariadb-license/) |
 | Nextcloud | Self-hosted solution for file syncing and sharing | [https://nextcloud.com/](https://nextcloud.com/) | [AGPL](https://github.com/nextcloud/server/blob/master/COPYING) |
 
