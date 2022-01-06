@@ -26,4 +26,4 @@ If, after discussing the change, you would like to proceed and implement it, the
 
 ### Translating the website
 
-If you would like to help us translate our website into other languages, please [contact us](https://rollyourown.xyz/about/contact/#website-translation).
+If you would like to help us [translate our website](https://rollyourown.xyz/collaborate/website_translation/) into other languages, please [contact us](https://rollyourown.xyz/about/contact/#website-translation).
