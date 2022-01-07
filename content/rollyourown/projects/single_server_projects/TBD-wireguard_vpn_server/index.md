@@ -1,6 +1,6 @@
 ---
 title: "Roll Your Own Wireguard VPN Server"
-tags: ["privacy", "vpn"]
+tags: [ "privacy", "vpn" ]
 draft: true
 ---
 
@@ -8,4 +8,4 @@ Testing
 
 <!--more-->
 
-Testing, testting, testing
+Testing, testing, testing
