@@ -2,7 +2,7 @@
 title: "Repositories"
 weight: 8
 tags: [ ]
-draft: true
+draft: false
 ---
 
 The code for all rollyourown.xyz projects and project modules, as well as the content of the rollyourown.xyz website itself, is hosted in repositories on our own Git repository servers and mirrored [to Codeberg](https://codeberg.org/rollyourown-xyz) and [to Github](https://github.com/rollyourown-xyz).
