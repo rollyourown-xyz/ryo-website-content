@@ -20,11 +20,19 @@ A host server is needed to run the various containers making up a project deploy
 
 ## Host server introduction
 
-A [rollyourown.xyz](https://rollyourown.xyz) project needs to run on a server and the server needs to be reachable via a public IP address.
+The components of a [rollyourown.xyz](https://rollyourown.xyz) project need to run on a host server. A host server may be a virtual server (VPS) or dedicated server rented from a hosting provider, or may be a server or virtual machine hosted in your home or office.
 
-A host server is usually a server or virtual private server (VPS) hosted by a hosting provider, but may also be a server or virtual machine hosted in your home or office. The host server must be reachable via a public IP address and should be running Ubuntu 20.04 LTS as operating system. [Rollyourown.xyz](https://rollyourown.xyz) projects are written and tested to set up and deploy to a Ubuntu 20.04 LTS Linux server.
+The host server should be running Ubuntu 20.04 LTS as operating system. Our projects are written and tested to set up and deploy to Ubuntu 20.04 LTS Linux servers.
 
-A [rollyourown.xyz](https://rollyourown.xyz) host server is controlled from a [control node](/rollyourown/projects/control_node/) via a secure [wireguard](https://www.wireguard.com/) tunnel. Usually, no manual management of the host server is needed and the host server command line does not need to be accessed. However, users familiar with the Linux command line can log in to the server *from the control node*, for example for advanced diagnostics. A few useful commands can be found [here](/rollyourown/projects/host_server_advanced/).
+A [rollyourown.xyz](https://rollyourown.xyz) host server is controlled by a [control node](/rollyourown/projects/control_node/) via a secure [wireguard](https://www.wireguard.com/) tunnel. Usually, no manual management of the host server is needed and the host server command line does not need to be accessed. However, users familiar with the Linux command line can log in to the server *from the control node*, for example for advanced diagnostics. A few useful commands can be found [here](/rollyourown/projects/host_server_advanced/).
+
+{{< highlight "warning" "Host server IP address">}}
+
+Your host server will typically need to be reachable via a public IP address. This allows access to your project's services via the internet and allows [Let's Encrypt](https://letsencrypt.org/) certificates to be requested for securing your services via HTTPS / TLS encryption.
+
+If you are hosting your own host server within your home or office network, then the host server will also be reachable via a private IP address. In this case the control node can manage the host server directly via this private IP address.
+
+{{< /highlight >}}
 
 ### Host server components
 
@@ -41,21 +49,23 @@ The project build and deployment scripts run on the control node can then build 
 
 {{< more "secondary">}}
 
+#### Consul
+
 [Consul](https://www.consul.io/) is a [distributed service registry and key-value store](https://www.consul.io/docs/architecture) and includes a [service registry](https://www.consul.io/docs/discovery/services) and a [key-value store](https://www.consul.io/docs/dynamic-app-config/kv).
 
 A Consul agent is deployed on project containers and joins the Consul server in client mode. This enables, on the one hand, services on the container to be registered in the service registry and, on the other hand, for the service registry and KV-store to be queried.
 
 #### Service registry
 
-The Consul service registry provides a register of available and running services on the host server. As a new project container is deployed, a consul agent running in client mode on the container registers the presence of the service provided by the container with the Consul service registry, along with the container's IP address and the port on which the service is available. Other components can then discover the service (usually via DNS), without needing static configuration in advance of the hostname or IP address of the service.
+The Consul service registry provides a register of available and running services on the host server. As a new project container is deployed, a consul agent running in client mode on the container registers the presence of the service provided by the container with the Consul service registry, along with the container's IP address and the port on which the service is available. Other components can then discover the service (usually via DNS), without needing prior static configuration of the hostname or IP address of the service.
 
-This feature is used, for example, by [HAProxy](/rollyourown/project_modules/ryo-ingress-proxy/#haproxy) to distribute traffic to backend servers and enables the [Ingress Proxy module](/rollyourown/project_modules/ryo-ingress-proxy) to be a generic module that can be used in any project.
+This feature is used, for example, by [the Ingress Proxy module](/rollyourown/project_modules/ryo-ingress-proxy) to distribute traffic to backend servers and enables this to be a generic module that can be used in any project.
 
 #### Key-value store
 
 The Consul key-value store provides a store of configuration data for services that can be provisioned at deploy-time. If a container is dynamically configured, then a consul-template agent running on the container retrieves key-values and generates the container service's configuration file(s). This can be done at boot or at a later stage, as the consul-template agent monitors for changes in the specified branches of the key-value tree.
 
-This feature is used, for example, by [Certbot](/rollyourown/project_modules/ryo-ingress-proxy/#certbot) to dynamically load the configuration for certificates needed for a project and by [HAProxy](/rollyourown/project_modules/ryo-ingress-proxy/#haproxy) to load ACLs and backend configuration for a project's backend servers. A consul-template agent running on the [Ingress Proxy module](/rollyourown/project_modules/ryo-ingress-proxy) modifies the Haproxy and Cerbot configuration as project-specific services are added during project deployment.
+This feature is used, for example, by [Certbot](/rollyourown/project_modules/ryo-ingress-proxy/#certbot) to dynamically load the configuration for certificates needed for a project and by [HAProxy](/rollyourown/project_modules/ryo-ingress-proxy/#haproxy) to load ACLs and backend configuration for a project's backend servers. A consul-template agent running on the [Ingress Proxy module](/rollyourown/project_modules/ryo-ingress-proxy) modifies the Haproxy and Cerbot configuration as and when project-specific services are added during project deployment.
 
 {{< /more >}}
 
@@ -69,13 +79,13 @@ The [rollyourown.xyz](https://rollyourown.xyz/) repository for the host server a
 
 ## Host server setup
 
-The recomended way of running a [rollyourown.xyz](https://rollyourown.xyz) project is on a server or virtual private server (VPS) hosted by a hosting provider.
+The recommended way to run a [rollyourown.xyz](https://rollyourown.xyz) project is on a dedicated server or virtual private server (VPS) hosted by a hosting provider.
 
 ### A hosted server or Virtual Private Server (VPS)
 
-There are many, many hosting providers in different countries offering servers and VPS at varying cost, starting at a couple of Euros or Dollars per month (or whatever your local currency may be) with the cost usually depending on the resources available (CPUs, RAM, storage).
+There are many, many hosting providers in different countries offering servers and VPS at varying cost, starting at a couple of Euros or Dollars per month (or whatever your local currency may be). The cost usually depends on the resources available (CPUs, RAM, storage).
 
-We cannot provide any hostsing provider recommendations at this time, so if you don't already have a preferred hoster in your region, do an internet search for "VPS" and your country to find providers and compare prices.
+We cannot provide any hosting provider recommendations at this time, so if you don't already have a preferred hosting provider in your region, do an internet search for "VPS" and your country to find providers and compare prices.
 
 {{< highlight "warning" "Hosting provider specifics">}}
 
@@ -172,13 +182,19 @@ In detail, the following tasks are performed by the host-setup playbooks:
 
 - To enable image uploading and and container management from the control node, the project host is configured as an [LXD remote server](https://linuxcontainers.org/lxd/advanced-guide/#remote-servers) for the control node, using [PKI-based TLS certificate authentication and authorization](https://linuxcontainers.org/lxd/docs/master/security#adding-a-remote-with-a-tls-client-in-a-pki-based-setup) and with the [control node as trusted TLS client](https://linuxcontainers.org/lxd/docs/master/security#managing-trusted-tls-clients)
 
-- Finally, [Consul](https://www.consul.io/) is installed on the host server and configured as a server in the host server "datacenter". In addition, the [Consul](https://www.consul.io/) servers on the host and on the control node are configured as federated remote datacenters
+- Finally, [Consul](https://www.consul.io/) is installed on the host server and configured as a server in the host server "datacenter". In addition, the [Consul](https://www.consul.io/) servers on the host and on the control node are configured as federated remote data centers
 
-For some projects, further project-specific host configuration may be performed by the projects automation scripts
+For some projects, further project-specific host configuration may be performed by the project's automation scripts
 
 {{< /more >}}
 
 ### Step-by-step host server setup
+
+{{< highlight "warning" "IP addresses">}}
+
+If you are using a VPS or server from a hosting provider, the two configuration parameters `host_control_ip` and `host_public_ip` in Step 3 below will **both** be the public IP address of the server from your hosting provider. If you are running the host server in your own network, the `host_public_ip` parameter will be the public IP address of the server from your hosting provider and the `host_control_ip` parameter will be the server's private IP address in your home or office network.
+
+{{< /highlight >}}
 
 1. Log in to the **control node** as the non-root user, enter the `ryo-projects` directory and clone the host server repository to your control node:
 
@@ -194,7 +210,7 @@ For some projects, further project-specific host configuration may be performed 
     cp configuration/configuration_TEMPLATE.yml configuration/configuration_<HOST_NAME>.yml
     ```
 
-3. Edit the new file `configuration_<HOST_NAME>.yml` and add the host server's public IP address, the root username and password provided by your hosting provider (or configured yourself if you have set up your own server). Also choose a non-root username and password for the host server. If you aren’t familiar with a different linux editor, use nano to edit the file with:
+3. Edit the new file `configuration_<HOST_NAME>.yml` and add the host server's IP addresses, the root username and password provided by your hosting provider (or configured yourself if you have set up your own server). Also choose a non-root username and password for the host server. If you aren’t familiar with a different Linux editor, use nano to edit the file with:
 
     ```bash
     cd ~/ryo-projects/ryo-host
