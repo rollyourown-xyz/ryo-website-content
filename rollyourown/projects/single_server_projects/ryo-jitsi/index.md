@@ -91,19 +91,19 @@ User accounts can only be configured via the command line. This can be done dire
 - Add user
 
     ```bash
-    lxc exec <HOST_ID>:<HOST_ID>-ryo-jitsi-jitsi -- prosodyctl register <USERNAME> <DOMAIN> <PASSWORD>
+    lxc exec <HOST_ID>:jitsi -- prosodyctl register <USERNAME> <DOMAIN> <PASSWORD>
     ```
 
 - Delete user:
 
     ```bash
-    lxc exec <HOST_ID>:<HOST_ID>-ryo-jitsi-jitsi -- prosodyctl deluser <USERNAME>@<DOMAIN>
+    lxc exec <HOST_ID>:jitsi -- prosodyctl deluser <USERNAME>@<DOMAIN>
     ```
 
 - Change a user's password:
 
     ```bash
-    lxc exec <HOST_ID>:<HOST_ID>-ryo-jitsi-jitsi -- prosodyctl passwd <USERNAME>@<DOMAIN>
+    lxc exec <HOST_ID>:jitsi -- prosodyctl passwd <USERNAME>@<DOMAIN>
     ```
 
 ### Maintaining the installation
