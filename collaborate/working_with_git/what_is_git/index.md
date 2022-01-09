@@ -218,20 +218,36 @@ Issues and Pull Requests from the community are managed on the respective hostin
 
 {{< more "secondary">}}
 
-Our workflow is illustrated in the following diagram:
+A typical forking workflow is illustrated in the following diagram:
 
-![RYO Workflow](RYO_Workflow.svg)
+![Forking Workflow](Forking_Workflow.svg)
 
-1. A contributor forks the mirror repository to their account (e.g. on Codeberg)
+1. A contributor forks a repository to their account (e.g. on Codeberg)
 2. The contributor clones the repository fork to their local computer
 3. The contributor makes changes in a new feature branch in their local copy of the repository fork
 4. The contributor pushes the new feature branch (with the changes) to the remote repository fork
-5. The contributor submits a Pull Request (e.g. on Codeberg), which is then visible in the mirrored repository
+5. The contributor submits a Pull Request (e.g. on Codeberg), which is then visible in the origin repository
+6. The change is reviewed in the Pull Request
+7. When the change is accepted and ready to be merged, the maintainer clones the origin repository to their local computer and creates a new feature branch
+8. The maintainer pulls the feature branch from the contributor's fork to the local clone of the origin repository
+9. The maintainer merges the feature branch into the 'main' branch in their local clone of the origin repository
+10. The maintainer commits the change and pushes the (changed) 'main' branch back to the origin repository. This commit **must not be** a squash commit (which would combine the contributor's commits into a single one), so that all the contributor's commits are recorded in the origin repository
+11. Because **all the contributor's commits are included**, the Pull Request on Codeberg (or GitHub) is automatically recognised as merged
+
+With the addition of mirroring, our workflow is illustrated in the following diagram:
+
+![RYO Workflow](RYO_Workflow.svg)
+
+1. A contributor forks the **mirror** repository to their account (e.g. on Codeberg)
+2. The contributor clones the repository fork to their local computer
+3. The contributor makes changes in a new feature branch in their local copy of the repository fork
+4. The contributor pushes the new feature branch (with the changes) to the remote repository fork
+5. The contributor submits a Pull Request (e.g. on Codeberg), which is then visible in the **mirrored** repository
 6. The change is reviewed in the Pull Request
 7. When the change is accepted and ready to be merged, the maintainer clones **the primary repository (not the mirror)** to their local computer and creates a new feature branch
 8. The maintainer pulls the feature branch from the contributor's **fork (of the mirror)** to the local **clone of the primary** repository
-9. The maintainer merges the feature branch into the 'main' branch in their local copy of the primary repository
-10. The maintainer commits the change and pushes the (changed) 'main' branch back to the **primary** repository. This commit **must not be** a squash commit (which would combine the contributor's commits into a single one), so that all the contributor's commits are recorded in the primary repository
+9. The maintainer merges the feature branch into the 'main' branch in their local copy of the **primary** repository
+10. The maintainer commits the change and pushes the (changed) 'main' branch back to the **primary** repository. This commit **must not be** a squash commit (which would combine the contributor's commits into a single one), so that all the contributor's commits are recorded in the **primary** repository
 11. **The change in the primary repository is then automatically pushed to the mirrors on Codeberg and GitHub**
 12. Because **all the contributor's commits are included**, the Pull Request on Codeberg (or GitHub) is automatically recognised as merged
 
