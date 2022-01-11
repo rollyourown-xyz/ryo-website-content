@@ -284,7 +284,7 @@ service {
 }
 ```
 
-This then allows the database configuration for the [`nextcloud`](https://nextcloud.com/) service component in the [ryo-nextcloud-standalone](https://github.com/rollyourown-xyz/ryo-nextcloud-standalone) project to use the DNS name `mariadb.service.ryo` in the nextcloud configuration file:
+This then allows the database configuration for the [`nextcloud`](https://nextcloud.com/) service component in the [ryo-nextcloud](https://github.com/rollyourown-xyz/ryo-nextcloud) project to use the DNS name `mariadb.service.ryo` in the nextcloud configuration file:
 
 ```php
 <?php

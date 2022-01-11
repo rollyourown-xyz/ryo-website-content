@@ -129,7 +129,7 @@ The project application configuration can then include the DNS name `mariadb.ser
 
 {{< more "secondary" "Example">}}
 
-As an example, the database configuration for the nextcloud service component in the [ryo-nextcloud-standalone](https://github.com/rollyourown-xyz/ryo-nextcloud-standalone) project includes the configuration:
+As an example, the database configuration for the nextcloud service component in the [ryo-nextcloud](https://github.com/rollyourown-xyz/ryo-nextcloud) project includes the configuration:
 
 ```php
 <?php

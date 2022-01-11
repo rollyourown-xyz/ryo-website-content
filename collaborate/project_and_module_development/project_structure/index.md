@@ -42,7 +42,7 @@ project_id
 
 The `project_id` is a unique name for a rollyourown.xyz project and is also the name of the project repository on the rollyourown.xyz Git server and on the rollyourown.xyz [Codeberg](https://codeberg.org/rollyourown-xyz) and [Github](https://github.com/rollyourown-xyz) mirrors.
 
-The `project_id` is always of the form `ryo-<NAME>` where `<NAME>` usually identifies the open source software to be deployed and, if relevant, the variation of the project (for example, `ryo-nextcloud-standalone` or `ryo-gitea-with-sso`).
+The `project_id` is always of the form `ryo-<NAME>` where `<NAME>` usually identifies the open source software to be deployed and, if relevant, the variation of the project (for example, `ryo-nextcloud` or `ryo-gitea`).
 
 The `project_id` is also added to the project's [configuration template](/collaborate/project_structure/#the-configuration-directory) and `deploy.sh` script.
 
