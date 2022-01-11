@@ -4,23 +4,15 @@ tags: [ "privacy", "messaging" ]
 draft: true
 ---
 
-This project deploys a [Synapse](https://github.com/matrix-org/synapse) [matrix](https://matrix.org/) homeserver and an [Element](https://github.com/vector-im/element-web/) web-based front-end. In standalone IdP mode, the project also deploys the [synapse-admin](https://github.com/Awesome-Technologies/synapse-admin) application for managing user accounts on the homeserver.
+This project deploys a [Synapse](https://github.com/matrix-org/synapse) [matrix](https://matrix.org/) homeserver and an [Element](https://github.com/vector-im/element-web/) web-based front-end. In [standalone IdP mode](#standalone-idp-mode), the project also deploys the [synapse-admin](https://github.com/Awesome-Technologies/synapse-admin) application for managing user accounts on the homeserver.
 
 In addition, the project deploys a number of additional modules: [Certbot](https://certbot.eff.org/) and [HAProxy](https://www.haproxy.org/) for [Let's Encrypt](https://letsencrypt.org/) certificate management and TLS/SSL termination, a [PostgreSQL](https://www.postgresql.org/) database as backend for synapse, a [Coturn](https://github.com/coturn/coturn) TURN server to enable VoIP and a [.well-known server](/rollyourown/project_modules/ryo-wellknown/) for client service discovery and delegation.
 
 <!--more-->
 
-## TODOs on this page
-
-{{< highlight "primary" "ToDo">}}
-
-- [ ] Links on the page
-
-{{< /highlight >}}
-
 ## Matrix homeserver project introduction
 
-[Matrix](https://matrix.org/) is an open source, decentralized, federated, end-to-end encrypted messaging and communications system managed by the non-profit [Matrix.org Foundation](https://matrix.org/foundation/).
+[Matrix](https://matrix.org/) is an open source, decentralized, [federated](https://en.wikipedia.org/wiki/Federation_(information_technology)), [end-to-end encrypted](https://en.wikipedia.org/wiki/End-to-end_encryption) messaging and communications protocol managed by the non-profit [Matrix.org Foundation](https://matrix.org/foundation/).
 
 Similar to email, anybody can run a matrix homeserver and participate in the federated communications network and there is no central point of control of the network. This enables a choice of homeserver providers and the ability to host your own homeserver while still being able to communicate with any other matrix user in the federation.
 
@@ -135,11 +127,11 @@ Under _Applications -> Manage OAuth2 Application_ a new application is added and
 
 ![Gitea Create OAuth2 Application](Gitea_Create_OAuth2_Application_800.png)
 
-Once the OAuth application has been created, Gitea will show a `Client ID` and `Client Secret`. Both of these should be noted down, as they are needed in the configuration for this project. The Client Secret will by shown **only once**, but can be regenerated later -- however, after configuring this project, the Client Secret should not be changed again.
+Once the OAuth application has been created, Gitea will show a `Client ID` and `Client Secret`. Both of these should be noted down, as they are needed in the configuration for this project. The Client Secret will be shown **only once**, but can be regenerated later -- however, if the Client Secret is changed after configuring and deploying this project, then the project configuration will also need to be changed and [new container images built and deployed](/rollyourown/projects/how_to_maintain).
 
 ![Gitea Client ID and Secret](Gitea_Client_ID_and_Secret_800.png)
 
-After configuring the OAuth2 application, this project can be configured and deployed.
+After configuring the OAuth2 application, this project can be [configured](/rollyourown/projects/how_to_deploy/#configuring-the-project) and [deployed](/rollyourown/projects/how_to_deploy/#running-the-automation-scripts).
 
 ### Deploying the project
 
