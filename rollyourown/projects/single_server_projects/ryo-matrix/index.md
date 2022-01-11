@@ -4,9 +4,9 @@ tags: [ "privacy", "messaging" ]
 draft: true
 ---
 
-This project deploys a [Synapse](https://github.com/matrix-org/synapse) [matrix](https://matrix.org/) homeserver, an [Element](https://github.com/vector-im/element-web/) web-based front-end and the [synapse-admin](https://github.com/Awesome-Technologies/synapse-admin) application for managing the homeserver.
+This project deploys a [Synapse](https://github.com/matrix-org/synapse) [matrix](https://matrix.org/) homeserver and an [Element](https://github.com/vector-im/element-web/) web-based front-end. In standalone IdP mode, the project also deploys the [synapse-admin](https://github.com/Awesome-Technologies/synapse-admin) application for managing user accounts on the homeserver.
 
-In addition, the project deploys a number of additional modules: [Certbot](https://certbot.eff.org/) and [HAProxy](https://www.haproxy.org/) for [Let's Encrypt](https://letsencrypt.org/) certificate management and TLS/SSL termination, a [PostgreSQL](https://www.postgresql.org/) database as backend for synapse, a [Coturn](https://github.com/coturn/coturn) TURN server to enable VoIP and a [Well-known server](/rollyourown/project_modules/ryo-wellknown/) for client service discovery and delegation.
+In addition, the project deploys a number of additional modules: [Certbot](https://certbot.eff.org/) and [HAProxy](https://www.haproxy.org/) for [Let's Encrypt](https://letsencrypt.org/) certificate management and TLS/SSL termination, a [PostgreSQL](https://www.postgresql.org/) database as backend for synapse, a [Coturn](https://github.com/coturn/coturn) TURN server to enable VoIP and a [.well-known server](/rollyourown/project_modules/ryo-wellknown/) for client service discovery and delegation.
 
 <!--more-->
 
@@ -26,10 +26,12 @@ Similar to email, anybody can run a matrix homeserver and participate in the fed
 
 The matrix communications system enables real-time chat, VoIP, media sharing and other use-cases in a system of public and private "rooms". A room with 2 participants provides a 1-1 chat experience, whereas a multi-participant room provides a collaboration and group communication space.
 
-When a room is created, the room creator may choose to enable end-to-end encryption for the room -- with 2-person, 1-1 chat rooms, this is on by default. In a private group chat, end-to-end encryption makes sense, whereas in large public community rooms, it is largely unnecessary. Encryption in the Matrix system is implemented by [olm and megolm](https://gitlab.matrix.org/matrix-org/olm), which are based on the [double ratchet algorithm](https://signal.org/docs/specifications/doubleratchet/) developed for the [Signal messenger](https://signal.org/).
+When a room is created, the room creator may choose to enable end-to-end encryption for the room -- with 2-person, 1-1 chat rooms, this is on by default. In a private group chat, end-to-end encryption makes sense, whereas in large public community rooms, it is largely unnecessary. Encryption in the Matrix system is implemented using [olm and megolm](https://gitlab.matrix.org/matrix-org/olm), which are based on the [double ratchet algorithm](https://signal.org/docs/specifications/doubleratchet/) developed for the [Signal messenger](https://signal.org/).
 
 {{< highlight "info" "Control node">}}
-A [control node](/rollyourown/projects/control_node/) with a graphical desktop UI is necessary for this project, since synapse administration endpoints and the synapse-admin web-based administration interface are **not** reachable via the public internet. Users of the matrix homeserver can only be managed via web-browser from the control node.
+In [standalone IdP mode](#standalone-idp-mode), a [control node](/rollyourown/projects/control_node/) with a graphical desktop UI is necessary for this project, since synapse administration endpoints and the synapse-admin web-based administration interface are **not** reachable via the public internet. Users of the matrix homeserver can only be managed via web-browser from the control node.
+
+In [gitea IdP mode](#gitea-idp-mode), matrix homeserver users are managed on a previously-deployed [Gitea Git repository server](/rollyourown/projects/single_server_projects/ryo-gitea). As the administrative user can log in to the Gitea server via the internet and manages matrix user accounts on the Gitea server, a [control node](/rollyourown/projects/control_node/) with a graphical desktop UI is not necessary in this case.
 {{< /highlight >}}
 
 ## Repository links
@@ -51,6 +53,27 @@ This project depends on and deploys the following [rollyourown.xyz](https://roll
 - The [Well-known Server module](/rollyourown/project_modules/ryo-wellknown) to support homeserver [discovery](https://github.com/matrix-org/synapse/blob/develop/docs/setup/installation.md#client-well-known-uri) and [delegation](https://github.com/matrix-org/synapse/blob/develop/docs/delegate.md)
 
 - The [STUN/TURN Server module](/rollyourown/project_modules/ryo-coturn) to provide [STUN](https://en.wikipedia.org/wiki/STUN), [TURN](https://en.wikipedia.org/wiki/Traversal_Using_Relays_around_NAT) and [ICE](https://en.wikipedia.org/wiki/Interactive_Connectivity_Establishment) enabling peer-to-peer communication for devices behind a [NAT](https://en.wikipedia.org/wiki/Network_address_translation)
+
+In "standalone" IdP mode, the project has no dependency to other rollyourown.xyz projects. In "gitea" IdP mode, the project depends on prior deployment of a [Gitea Git repository server](/rollyourown/projects/single_server_projects/ryo-gitea) and the configuration of an [OAuth2](https://oauth.net/2/) application on the Gitea server before deployment of this project.
+
+## Identity providers and single sign-on
+
+This project supports multiple "IdP modes", which specify which system is the [Identity Provider (IdP)](https://en.wikipedia.org/wiki/Identity_provider) for users of the matrix service. Currently, two IdP modes are supported:
+
+- [standalone IdP mode](#standalone-idp-mode)
+- [gitea IdP mode](#gitea-idp-mode)
+
+Further IdP modes may be added at a later date.
+
+### Standalone IdP mode
+
+In standalone IdP mode, user accounts are managed on the [Synapse homeserver](#synapse-container) that is deployed by this project. User accounts are managed via the [synapse-admin](#synapse-admin-container) web front-end.
+
+### Gitea IdP mode
+
+In Gitea IdP mode, the matrix service is deployed together with a [Gitea Git repository server](/rollyourown/projects/single_server_projects/ryo-gitea) and the Gitea server is used as for [single sign-on (SSO)](https://en.wikipedia.org/wiki/Single_sign-on). This means that a matrix user authenticates against the Gitea server via [OAuth2](https://oauth.net/2/) and only has a single username/password for both services.
+
+In this mode, the [Gitea Git repository server](/rollyourown/projects/single_server_projects/ryo-gitea) must be deployed and an OAuth2 application configured, before this project is deployed.
 
 ## Project components
 
@@ -94,9 +117,29 @@ The Element-web container hosts a [nginx](https://nginx.org/) web server and the
 
 #### Synapse-Admin container
 
-The Synapse admin container hosts a [nginx](https://nginx.org/) web server and the open source [synapse-admin](https://github.com/Awesome-Technologies/synapse-admin/) administration front-end for the synapse homeserver. This provides a web-based interface for administering the homeserver (e.g. for managing user accounts).
+The Synapse admin container hosts a [nginx](https://nginx.org/) web server and the open source [synapse-admin](https://github.com/Awesome-Technologies/synapse-admin/) administration front-end for the synapse homeserver. This provides a web-based interface for administering the homeserver (e.g. for managing user accounts) and is only deployed in "standalone" IdP mode.
 
 ## How to use this project
+
+### Before deployment
+
+If the project is to be deployed in [gitea IdP mode](#gitea-idp-mode), then a [Gitea Git repository server](/rollyourown/projects/single_server_projects/ryo-gitea) should be deployed and configured **before** deploying this project.
+
+After deployment, the Gitea server needs to be configured with an [OAuth2](https://oauth.net/2/) application, so that it can act as a single sign-on provider for the matrix service.
+
+This configuration is done from a user's settings after [logging in on the Gitea server](/rollyourown/projects/single_server_projects/ryo-gitea/#after-deployment):
+
+![Gitea Settings](Gitea_Settings_240.png)
+
+Under _Applications -> Manage OAuth2 Application_ a new application is added and named, for example, "synapse". The "Redirect URL" should be entered as `https://matrix.<PROJECT DOMAIN NAME>/_synapse/client/oidc/callback` where `<PROJECT DOMAIN NAME>` is the domain you are configuring for this project:
+
+![Gitea Create OAuth2 Application](Gitea_Create_OAuth2_Application_800.png)
+
+Once the OAuth application has been created, Gitea will show a `Client ID` and `Client Secret`. Both of these should be noted down, as they are needed in the configuration for this project. The Client Secret will by shown **only once**, but can be regenerated later -- however, after configuring this project, the Client Secret should not be changed again.
+
+![Gitea Client ID and Secret](Gitea_Client_ID_and_Secret_800.png)
+
+After configuring the OAuth2 application, this project can be configured and deployed.
 
 ### Deploying the project
 
@@ -104,9 +147,9 @@ To deploy the project, follow the generic [project deployment instructions](/rol
 
 ### After deployment
 
-#### Creating user accounts
+#### Creating user accounts in standalone IdP mode
 
-Your first step after deployment will be to create user accounts for using the matrix service.
+Your first step after deployment in [standalone IdP mode](#standalone-idp-mode) will be to create user accounts for using the matrix service.
 
 From the control node, log in to the synapse-admin administration front-end at `http://synapse-admin.service.<HOSTNAME>.ryo` where `<HOSTNAME>` is the name chosen for your host server [during setup](/rollyourown/projects/host_server/). This link will **only work from the control-node**, as the administration front-end is **not** available via the public internet. The administrator username and password were defined in your configuration file during project deployment (as the variables `project_admin_username` and `project_admin_password`).
 
@@ -115,6 +158,10 @@ From the control node, log in to the synapse-admin administration front-end at `
 After login, user accounts can be created from the "+CREATE" button in the "Users" section of synapse-admin. A new user's Matrix ID is of the form `@user:example.com` if the username is `user` and your project domain is `example.com`.
 
 ![Synapse-Admin Users](Synapse_Admin_Users_1200.png)
+
+#### Creating user accounts in Gitea IdP mode
+
+In [gitea IdP mode](#gitea-idp-mode), no specific user configuration needs to be carried out for the matrix service. All users with an account on the Gitea server can log in and use the matrix service, using their username and password from the Gitea server.
 
 #### Using the web-based front-end
 
