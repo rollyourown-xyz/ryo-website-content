@@ -129,7 +129,7 @@ The project application configuration can then include the DNS name `postgres.se
 
 {{< more "secondary" "Example">}}
 
-As an example, the database configuration for the matrix-synapse service component in the [ryo-matrix-standalone](https://github.com/rollyourown-xyz/ryo-matrix-standalone) project includes the configuration:
+As an example, the database configuration for the matrix-synapse service component in the [ryo-matrix](https://github.com/rollyourown-xyz/ryo-matrix) project includes the configuration:
 
 ```yaml
 database:
