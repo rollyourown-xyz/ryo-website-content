@@ -35,11 +35,11 @@ A [control node](/rollyourown/projects/control_node/) without a graphical deskto
 
 ## Repository links
 
-The [Codeberg](https://codeberg.org/) mirror repository for this project is here: [https://codeberg.org/rollyourown-xyz/ryo-gitea-standalone](https://codeberg.org/rollyourown-xyz/ryo-gitea-standalone)
+The [Codeberg](https://codeberg.org/) mirror repository for this project is here: [https://codeberg.org/rollyourown-xyz/ryo-gitea](https://codeberg.org/rollyourown-xyz/ryo-gitea)
 
-The [Github](https://github.com/) mirror repository for this project is here: [https://github.com/rollyourown-xyz/ryo-gitea-standalone](https://github.com/rollyourown-xyz/ryo-gitea-standalone)
+The [Github](https://github.com/) mirror repository for this project is here: [https://github.com/rollyourown-xyz/ryo-gitea](https://github.com/rollyourown-xyz/ryo-gitea)
 
-The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-gitea-standalone](https://git.rollyourown.xyz/ryo-projects/ryo-gitea-standalone) (not publicly accessible)
+The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-gitea](https://git.rollyourown.xyz/ryo-projects/ryo-gitea) (not publicly accessible)
 
 ## Dependencies
 
@@ -81,7 +81,7 @@ The Gitea container provides the Gitea server for the project. [Gitea](https://g
 
 ### Deploying the project
 
-To deploy the project, follow the generic [project deployment instructions](/rollyourown/projects/how_to_deploy/), using the project's Github mirror repository at [https://github.com/rollyourown-xyz/ryo-gitea-standalone/](https://github.com/rollyourown-xyz/ryo-gitea-standalone/).
+To deploy the project, follow the generic [project deployment instructions](/rollyourown/projects/how_to_deploy/), using the project's Github mirror repository at [https://github.com/rollyourown-xyz/ryo-gitea/](https://github.com/rollyourown-xyz/ryo-gitea/).
 
 ### After deployment
 
