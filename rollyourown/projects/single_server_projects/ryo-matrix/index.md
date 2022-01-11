@@ -34,11 +34,11 @@ A [control node](/rollyourown/projects/control_node/) with a graphical desktop U
 
 ## Repository links
 
-The [Codeberg](https://codeberg.org/) mirror repository for this project is here: [https://codeberg.org/rollyourown-xyz/ryo-matrix-standalone](https://codeberg.org/rollyourown-xyz/ryo-matrix-standalone)
+The [Codeberg](https://codeberg.org/) mirror repository for this project is here: [https://codeberg.org/rollyourown-xyz/ryo-matrix](https://codeberg.org/rollyourown-xyz/ryo-matrix)
 
-The [Github](https://github.com/) mirror repository for this project is here: [https://github.com/rollyourown-xyz/ryo-matrix-standalone](https://github.com/rollyourown-xyz/ryo-matrix-standalone)
+The [Github](https://github.com/) mirror repository for this project is here: [https://github.com/rollyourown-xyz/ryo-matrix](https://github.com/rollyourown-xyz/ryo-matrix)
 
-The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-matrix-standalone](https://git.rollyourown.xyz/ryo-projects/ryo-matrix-standalone) (not publicly accessible)
+The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-matrix](https://git.rollyourown.xyz/ryo-projects/ryo-matrix) (not publicly accessible)
 
 ## Dependencies
 
@@ -100,7 +100,7 @@ The Synapse admin container hosts a [nginx](https://nginx.org/) web server and t
 
 ### Deploying the project
 
-To deploy the project, follow the generic [project deployment instructions](/rollyourown/projects/how_to_deploy/), using the project's Github mirror repository at [https://github.com/rollyourown-xyz/ryo-matrix-standalone/](https://github.com/rollyourown-xyz/ryo-matrix-standalone/).
+To deploy the project, follow the generic [project deployment instructions](/rollyourown/projects/how_to_deploy/), using the project's Github mirror repository at [https://github.com/rollyourown-xyz/ryo-matrix/](https://github.com/rollyourown-xyz/ryo-matrix/).
 
 ### After deployment
 
