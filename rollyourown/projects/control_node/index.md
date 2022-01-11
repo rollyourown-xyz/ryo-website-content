@@ -51,6 +51,8 @@ The steps for setting up a control node depend on your computer's operating syst
 
 For most [rollyourown.xyz](https://rollyourown.xyz) projects, a control node with a graphical desktop is needed. Project component administrative interfaces, typically accessible via web browser, are only accessible via the wireguard tunnel between control node and host server, ensuring that these interfaces are not exposed on the public internet.
 
+Even if the first project deployed does not require a control node with a graphical desktop, it is recommended to choose one so that the control node can later be used for other projects that do require a graphical interface. Alternatively, each project can be managed from a separate control node.
+
 {{< /highlight >}}
 
 Once you have chosen and installed your virtual machine environment, install Ubuntu 20.04 LTS (desktop version) in a virtual machine as described in the relevant hypervisor documentation.
