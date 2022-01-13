@@ -286,7 +286,7 @@ HAproxy configuration is provisioned to the Consul key-value store in various fo
 
 ##### HAProxy TCP listeners
 
-The terraform module `deploy-haproxy-configuration` can be used to deploy key-values to Consul for configuring TCP listeners.
+The terraform module `deploy-ingress-proxy-configuration` can be used to deploy key-values to Consul for configuring TCP listeners.
 
 {{< more "secondary">}}
 
@@ -317,10 +317,10 @@ listen tcp_{{.Key}}
 For example, a TCP listener for a [Gitea server](/rollyourown/projects/single_server_projects/ryo-gitea/) can be deployed with the following code:
 
 ```tf
-module "deploy-gitea-ssh-haproxy-tcp-listener-configuration" {
-  source = "../../ryo-ingress-proxy/module-deployment/modules/deploy-haproxy-configuration"
+module "deploy-gitea-ssh-ingress-proxy-tcp-listener-configuration" {
+  source = "../../ryo-ingress-proxy/module-deployment/modules/deploy-ingress-proxy-configuration"
 
-  haproxy_tcp_listeners = {
+  ingress-proxy_tcp_listeners = {
     3022 = {service = "gitea-ssh"}
   }
 }
@@ -328,7 +328,7 @@ module "deploy-gitea-ssh-haproxy-tcp-listener-configuration" {
 
 ##### Backend services
 
-Using the terraform module `deploy-haproxy-backend-services`, the key-values for HAProxy backend service configuration can be deployed to the Consul key-value store.
+Using the terraform module `deploy-ingress-proxy-backend-services`, the key-values for HAProxy backend service configuration can be deployed to the Consul key-value store.
 
 {{< more "secondary">}}
 
@@ -363,7 +363,7 @@ For example, a backend service for a [Matrix server](/rollyourown/projects/singl
 
 ```tf
 module "deploy-synapse-backend-service" {
-  source = "../../ryo-ingress-proxy/module-deployment/modules/deploy-haproxy-backend-services"
+  source = "../../ryo-ingress-proxy/module-deployment/modules/deploy-ingress-proxy-backend-services"
 a [Gitea server](/rollyourown/projects/single_server_projects/ryo-gitea/)
   non_ssl_backend_services = [ "synapse" ]
 }
@@ -371,7 +371,7 @@ a [Gitea server](/rollyourown/projects/single_server_projects/ryo-gitea/)
 
 ##### HAProxy ACLs
 
-The terraform module `deploy-haproxy-configuration` can be used to deploy key-values to Consul for configuring HAProxy ACLs.
+The terraform module `deploy-ingress-proxy-configuration` can be used to deploy key-values to Consul for configuring HAProxy ACLs.
 
 {{< more "secondary">}}
 
@@ -383,17 +383,17 @@ Configuration for HAProxy ACLs are provisioned to the key-value folder `service/
   - a key-value pair of the form `<host,value>`, where `value` is the host to match
   - a key-value pair of the form `<path,value>`, where `value` is the path to match
 
-The ACL key-value configuration is then used to generate [HAProxy HTTP deny](#haproxy-http-deny-rules) and [use-backed](#haproxy-use-backed-rules) rules.
+The ACL key-value configuration is then used to generate [HAProxy HTTP deny](#ingress-proxy-http-deny-rules) and [use-backed](#ingress-proxy-use-backed-rules) rules.
 
 {{< /more >}}
 
 For example, ACLs for a [Matrix server](/rollyourown/projects/single_server_projects/ryo-matrix/) can be deployed with the following code:
 
 ```tf
-module "deploy-matrix-haproxy-acl-configuration-for-synapse" {
-  source = "../../ryo-ingress-proxy/module-deployment/modules/deploy-haproxy-configuration"
+module "deploy-matrix-ingress-proxy-acl-configuration-for-synapse" {
+  source = "../../ryo-ingress-proxy/module-deployment/modules/deploy-ingress-proxy-configuration"
 
-  haproxy_path_only_acls = {
+  ingress-proxy_path_only_acls = {
     path-synapse-admin  = {path = "/_synapse/admin"}
     path-synapse-client = {path = "/_synapse/client"}
     path-matrix         = {path = "/_matrix"}
@@ -403,7 +403,7 @@ module "deploy-matrix-haproxy-acl-configuration-for-synapse" {
 
 ##### HAProxy HTTP deny rules
 
-The terraform module `deploy-haproxy-configuration` can be used to deploy key-values to Consul for configuring HTTP deny rules.
+The terraform module `deploy-ingress-proxy-configuration` can be used to deploy key-values to Consul for configuring HTTP deny rules.
 
 {{< more "secondary">}}
 
@@ -437,16 +437,16 @@ For each `<ACL NAME>` found in the `service/haproxy/deny/` folder in the KV stor
 For example, HTTP deny rules for a [Matrix server](/rollyourown/projects/single_server_projects/ryo-matrix/) can be deployed with the following code:
 
 ```tf
-module "deploy-matrix-haproxy-deny-configuration-for-synapse" {
-  source = "../../ryo-ingress-proxy/module-deployment/modules/deploy-haproxy-configuration"
+module "deploy-matrix-ingress-proxy-deny-configuration-for-synapse" {
+  source = "../../ryo-ingress-proxy/module-deployment/modules/deploy-ingress-proxy-configuration"
 
-  haproxy_acl_denys = [ "path-synapse-admin" ]
+  ingress-proxy_acl_denys = [ "path-synapse-admin" ]
 }
 ```
 
 ##### HAProxy 'use-backed' rules
 
-The terraform module `deploy-haproxy-configuration` can be used to deploy key-values to Consul for configuring HAProxy `use-backend` rules.
+The terraform module `deploy-ingress-proxy-configuration` can be used to deploy key-values to Consul for configuring HAProxy `use-backend` rules.
 
 {{< more "secondary">}}
 
@@ -480,10 +480,10 @@ For each `<ACL NAME>` found in the `service/haproxy/use-backend/` folder in the 
 For example, `use-backend` rules for a [Matrix server](/rollyourown/projects/single_server_projects/ryo-matrix/) can be deployed with the following code:
 
 ```tf
-module "deploy-matrix-haproxy-backend-configuration-for-synapse" {
-  source = "../../ryo-ingress-proxy/module-deployment/modules/deploy-haproxy-configuration"
+module "deploy-matrix-ingress-proxy-backend-configuration-for-synapse" {
+  source = "../../ryo-ingress-proxy/module-deployment/modules/deploy-ingress-proxy-configuration"
 
-  haproxy_acl_use-backends = {
+  ingress-proxy_acl_use-backends = {
     path-synapse-client = {backend_service = "synapse"},
     path-matrix         = {backend_service = "synapse"}
   }
