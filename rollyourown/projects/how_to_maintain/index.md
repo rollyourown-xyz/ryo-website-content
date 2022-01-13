@@ -7,9 +7,11 @@ draft: false
 
 Each [rollyourown.xyz](https://rollyourown.xyz) project provides automation resources to minimise the number of manual steps needed to keep a project's components up to date.
 
-This page describes how to use these resources to build new images with upgraded software and deploy them to the host server.
-
 <!--more-->
+
+This page describes how to use these resources to build new project images with upgraded software and deploy them to the host server.
+
+Information on maintaining a control node can be found [here](/rollyourown/projects/control_node/#control-node-maintenance). Information on maintaining a host server can be found [here](/rollyourown/projects/host_server/#host-server-maintenance).
 
 ## How to maintain a project (tl;dr)
 

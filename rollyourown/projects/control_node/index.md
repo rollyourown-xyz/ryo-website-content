@@ -14,6 +14,7 @@ A control node is needed for executing automation scripts that set up a host ser
 {{< highlight "primary" "ToDo">}}
 
 - [ ] Add links in the text
+- [ ] Add section on control node backup
 
 {{< /highlight >}}
 
@@ -186,6 +187,21 @@ In detail, the following tasks are performed by the local-setup playbook:
 - [Consul](https://www.consul.io/) is installed to support service discovery of project component administration interfaces after deployment
 
 {{< /more >}}
+
+## Control node maintenance
+
+The `local-setup.sh` control node setup automation script can also be used to upgrade a control node and the software installed on it. To upgrade a control node, run the script again from the `ryo-control-node` directory:
+
+```bash
+cd ~/ryo-projects/ryo-control-node/
+./local-setup.sh
+```
+
+Always **reboot the control node** after upgrading.
+
+## Control node backup
+
+[**THIS SECTION IS TODO**]
 
 ## Control node deletion
 

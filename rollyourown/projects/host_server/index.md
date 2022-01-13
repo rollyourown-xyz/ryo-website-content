@@ -14,6 +14,7 @@ A host server is needed to run the various containers making up a project deploy
 {{< highlight "primary" "ToDo">}}
 
 - [ ] Add links in the text
+- [ ] Add section on host server backup
 - [ ] Move "Using Consul in a project" section to a separate developers' page
 
 {{< /highlight >}}
@@ -247,6 +248,23 @@ After setting up the host server, you are now ready to [deploy a rollyourown.xyz
 After setting up a [control node](rollyourown/projects/control_node/) and [host server](rollyourown/projects/host_server/), you now have a permanent, secure connection from the control node to the host server via a wireguard tunnel. Users familiar with the Linux command line can log in to the server for advanced diagnostics. A few useful commands can be found [here](/rollyourown/projects/host_server_advanced/).
 
 {{< /highlight >}}
+
+## Host server maintenance
+
+Along with the `host-setup.sh` script, the host server repository also contains a `host-upgrade.sh` script to automate host server maintenance. This script upgrades a host server and the software installed on it. Note: This script does **not** upgrade the containers deployed by rollyourown.xyz projects on the host server. To upgrade these, see [How to Maintain](/rollyourown/projects/how_to_maintain/#upgrading-a-project-deployment).
+
+To upgrade a host server, run the `host-upgrade.sh` script from the `ryo-host` directory, passing the name of the host chosen above via the flag `-n`:
+
+```bash
+cd ~/ryo-projects/ryo-host/
+./host-upgrade.sh -n <HOST_NAME>
+```
+
+It is recommended to upgrade a host server on a regular basis, to ensure that patches to the operating system and new versions of software are applied.
+
+## Host server backup
+
+[**THIS SECTION IS TODO**]
 
 ## Using Consul in a project (**Move this section to a separate page**)
 
