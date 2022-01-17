@@ -1,5 +1,5 @@
 ---
-title: "How to Back Up"
+title: "How to Back Up and Restore"
 weight: 3
 tags: [ ]
 draft: true
