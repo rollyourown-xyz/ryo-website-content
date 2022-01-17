@@ -25,15 +25,12 @@ project_id
 |   |-- ...
 |-- project-deployment
 |   |-- ...
-|-- scripts-modules
-|   |-- ...
 |-- scripts-project
 |   |-- ...
 |-- CONTRIBUTING.md
 |-- LICENSE
 |-- README.md
 |-- SECURITY.md
-|-- backup.sh (**TODO**)
 |-- deploy.sh
 |-- upgrade.sh
 ```
@@ -44,7 +41,7 @@ The `project_id` is a unique name for a rollyourown.xyz project and is also the 
 
 The `project_id` is always of the form `ryo-<NAME>` where `<NAME>` usually identifies the open source software to be deployed and, if relevant, the variation of the project (for example, `ryo-nextcloud` or `ryo-gitea`).
 
-The `project_id` is also added to the project's [configuration template](/collaborate/project_structure/#the-configuration-directory) and `deploy.sh` script.
+The `project_id` is also added to the project's [configuration template](/collaborate/project_structure/#the-configuration-directory).
 
 ## Licence and information
 
@@ -57,16 +54,13 @@ The top-level directory of a rollyourown.xyz project includes a `LICENSE`, `CONT
 
 ## The `deploy.sh` script
 
-The top-level directory of a rollyourown.xyz project includes a script `deploy.sh` for the user to execute in order to [deploy the project](/rollyourown/projects/how_to_deploy/).
+The top-level directory of a rollyourown.xyz project includes a script `deploy.sh` for the user to execute to [deploy the project](/rollyourown/projects/how_to_deploy/).
 
-Only the variables `PROJECT_ID` and `MODULES` in the `deploy.sh` script need to be modified for a specific project.
-
-- The `PROJECT_ID` variable should be set as described [above](#the-project_id)
-- The `MODULES` variable should be set to a space-separated list of all the modules that are required to be deployed for the project - e.g. in the form "module_1 module_2 module_3"
+Only the variable `MODULES` in the `deploy.sh` script needs to be modified for a specific project and should be set to a space-separated list of all the modules that are required to be deployed for the project - e.g. in the form "module_1 module_2 module_3"
 
 The `deploy.sh` script manages any modules required by the project, and builds and deploys the containers for the project itself.
 
-If the user selects `y` to include module deployment, then the `deploy.sh` script calls the four scripts in the [`/scripts-modules` directory](#the-scripts-modules-directory) to manage host setup, image build and deployment for any modules included in the project. These scripts are executed before the project's images and built and deployed.
+If the user selects `y` to include module deployment, then the `deploy.sh` script calls the [`deploy.sh` script](/collaborate/project_and_module_development/module_structure/#the-deploysh-script) for each module to be deployed.
 
 After (optional) module management, the `deploy.sh` script calls the three scripts in the [`/scripts-project` directory](#the-scripts-project-directory) to perform project-specific host setup, image build and deployment.
 
@@ -74,20 +68,13 @@ After (optional) module management, the `deploy.sh` script calls the three scrip
 
 The top-level directory of a rollyourown.xyz project includes a script `upgrade.sh` for the user to execute in order to [maintain the project](/rollyourown/projects/how_to_maintain/).
 
-Only the variables `PROJECT_ID` and `MODULES` in the `upgrade.sh` script need to be modified for a specific project, in the same way as for the [`deploy.sh` script](#the-deploysh-script).
-
-- The `PROJECT_ID` variable should be set as described [above](#the-project_id)
-- The `MODULES` variable should be set to a space-separated list of all the modules that are deployed for the project - e.g. in the form "module_1 module_2 module_3"
+Only the variable `MODULES` in the `upgrade.sh` script needs to be modified for a specific project, in the same way as for the [`deploy.sh` script](#the-deploysh-script). The `MODULES` variable should be set to a space-separated list of all the modules that are deployed for the project - e.g. in the form "module_1 module_2 module_3"
 
 The `upgrade.sh` script (optionally) manages the upgrade of any modules used by the project, and builds and deploys new containers for the project.
 
-For each module used in the project, the user is asked whether the module should also be upgraded. If the user selects `y` to upgrade a module, then the `upgrade.sh` script calls scripts in the [`/scripts-modules` directory](#the-scripts-modules-directory) to manage image build and deployment for the module. Modules are upgraded before the project's components are upgraded.
+For each module used in the project, the user is asked whether the module should also be upgraded. If the user selects `y` to upgrade a module, then the `upgrade.sh` script calls the [`upgrade.sh` script](/collaborate/project_and_module_development/module_structure/#the-upgradesh-script) for the module.
 
 After (optional) module upgrades, the `upgrade.sh` script calls scripts in the [`/scripts-project` directory](#the-scripts-project-directory) to perform project-specific image build and deployment.
-
-## The `backup.sh` script
-
-!!!TODO!!!
 
 ## The configuration directory
 
@@ -96,7 +83,7 @@ After (optional) module upgrades, the `upgrade.sh` script calls scripts in the [
 |   |-- configuration_TEMPLATE.yml
 ```
 
-The `configuration` directory contains a template configuration file for the project. In addition to the `project_id`, this [YAML](https://en.wikipedia.org/wiki/YAML) file includes any configuration parameters that the end-user of a project can set (such as the domain name or an administrator username).
+The `configuration` directory contains a template configuration file for the project. In addition to the `project_id`, this [YAML](https://en.wikipedia.org/wiki/YAML) file includes any configuration parameters that the end-user of a project can set (such as the domain name or administrator credentials).
 
 ## The host-setup directory
 
@@ -149,41 +136,16 @@ The `image-build` directory contains [Packer](https://www.packer.io/) templates 
 
 The `project-deployment` directory contains the [Terraform](https://www.terraform.io/) code to deploy the project on the host server and [cloud-init](https://cloud-init.io/) files for providing boot-time commands to container instances, if necessary.
 
-## The scripts-modules directory
-
-```console
-|-- scripts-modules
-|   |-- build-image-module.sh
-|   |-- deploy-module.sh
-|   |-- get-module.sh
-|   |-- host-setup-module.sh
-```
-
-The `deploy.sh` script calls these scripts in turn for each of the modules defined in the variable `MODULES`. These scripts do not need to be changed in a specific project.
-
-### The `get-module.sh` script
-
-The `get-module.sh` script clones (or updates) the module's dedicated [rollyourown.xyz](https://rollyourown.xyz) repository.
-
-### The `host-setup-module.sh` script
-
-The `host-setup-module.sh` script calls the `host-setup.sh` script [for the module](/collaborate/module_structure/#the-host-setupsh-script).
-
-### The `build-image-module.sh` script
-
-The `build-image-module.sh` script calls the `build-images.sh` script [for the module](/collaborate/module_structure/#the-build-imagessh-script).
-
-### The `deploy-module.sh` script
-
-The `deploy-module.sh` script calls the `deploy-module.sh` script [for the module](/collaborate/module_structure/#the-deploy-modulesh-script).
-
 ## The scripts-project directory
 
 ```console
 |-- scripts-project
 |   |-- build-images-project.sh
+|   |-- delete-terraform-state.sh
 |   |-- deploy-project.sh
 |   |-- host-setup-project.sh
+|   |-- start-project-containers.sh
+|   |-- stop-project-containers.sh
 ```
 
 The `deploy.sh` script calls these scripts, which may need to be modified for the specific project. These scripts are useful during project development, but the project user will not normally need to interact directly with the scripts.
@@ -211,3 +173,15 @@ This script typically does not need to be modified for the specific project.
 The `deploy-project.sh` script uses [Terraform](https://www.terraform.io/) and the [Terraform LXD Provider](https://registry.terraform.io/providers/terraform-lxd/lxd/) to launch the project's containers on the host machine. The version stamp provided to the `build-images.sh` script also needs to be provided to the `deploy-project.sh` script so that Terraform can identify the container images to launch.
 
 Component containers are launched as specified in the Terraform configuration. Terraform reads the current state on the host machine and makes changes to bring the host machine into the desired state. On the first execution of the `deploy-project.sh` script, no resources have been deployed to the host machine so that Terraform deploys the entire project. On a later execution, changes are only made where necessary (e.g. to upgrade a container to a newer version, built in a later build-images step).
+
+### The `delete-terraform-state.sh` script
+
+The script deletes the terraform state for the project on the control-node, so that a new deployment can be started from scratch. This script is used only in a restore process during disaster recovery and should otherwise never be used.
+
+### The `start-project-containers.sh` script
+
+This script starts each project container in turn. The script is used during backup and restore procedures and should otherwise never be needed.
+
+### The `stop-project-containers.sh` script
+
+This script stops each project container in turn. The script is used during backup and restore procedures and should otherwise never be needed.

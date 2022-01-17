@@ -25,13 +25,14 @@ module_id
 |   |-- ...
 |-- module-deployment
 |   |-- ...
+|-- scripts-module
+|   |-- ...
 |-- CONTRIBUTING.md
 |-- LICENSE
 |-- README.md
 |-- SECURITY.md
-|-- build-images.sh
-|-- deploy-module.sh
-|-- host-setup.sh
+|-- deploy.sh
+|-- upgrade.sh
 ```
 
 ## The module_id
@@ -51,37 +52,13 @@ The top-level directory of a rollyourown.xyz module includes a `LICENSE`, `CONTR
 - README.md: Provides a high-level description of the module and how to use it
 - SECURITY.md: Provides information on how to report security vulnerabilities in the module
 
-## Scripts
+## The `deploy.sh` script
 
-The top-level directory of a rollyourown.xyz module includes three scripts for [deploying the module](/rollyourown/projects/how_to_deploy/):
+The top-level directory of a rollyourown.xyz module includes a script `deploy.sh` to deploy the module. This script runs the host-setup, image build and deployment scripts from the [/scripts-module directory](#the-scripts-module-directory).
 
-- host-setup.sh: Performs module-specific configuration of the host server
-- build-images.sh: Creates an image for each of the module’s components
-- deploy-module.sh: Launches the module's containers and provides configuration parameters to the environment
+## The `upgrade.sh` script
 
-### The `host-setup.sh` script
-
-Generic host setup and configuration has already been done by the `host-setup.sh` script in the [host server](rollyourown/project_modules/host_server/) repository.
-
-Additional host configuration is performed for the individual module by the `host-setup.sh` script in the module's repository. This usually consists of setting up directories on the host server to provide persistent storage for the module's containers to enable component configuration and data to persist across container re-starts and replacements. Additional host setup steps may be needed, depending on the module.
-
-The `host-setup.sh` script is called by the `host-setup-module.sh` script of a project that uses the module.
-
-### The `build-images.sh` script
-
-The `build-images.sh` script calls [Packer](https://www.packer.io/) to create an image for each of the module's components and upload them to the host server ready to be deployed in the `deploy-module.sh` script. A version stamp (e.g. 20210301) needs to be passed to the `build-images.sh` script, which will be used in the name of each image created and uploaded and which will be used in the `deploy-module.sh` script to launch the correct container image version and later to upgrade containers in-life.
-
-The `build-images.sh` script is called by the `build-image-module.sh` script of a project that uses the module.
-
-For each image to be built, [Packer](https://www.packer.io/) uses [LXD](https://linuxcontainers.org/lxd/) to launch a base container on the control node (using an [ubuntu-minimal](https://wiki.ubuntu.com/Minimal) cloud image), executes a component-specific [Ansible](https://www.ansible.com/) playbook to provision the container with the necessary software and configuration, and then creates a container image from the fully provisioned container. Finally, packer triggers LXD to upload the container image to the remote host server ready for deployment.
-
-### The `deploy-module.sh` script
-
-The `deploy-module.sh` script uses [Terraform](https://www.terraform.io/) and the [Terraform LXD Provider](https://registry.terraform.io/providers/terraform-lxd/lxd/) to launch the module's containers on the host machine. The version stamp provided to the `build-images.sh` script also needs to be provided to the `deploy-module.sh` script so that Terraform can identify the container images to launch.
-
-The `deploy-module.sh` script is called by the `deploy-module.sh` script of a project that uses the module.
-
-Component containers are launched as specified in the Terraform configuration. Terraform reads the current state on the host machine and makes changes to bring the host machine into the desired state. On the first execution of the `deploy-module.sh` script, no resources have been deployed to the host machine so that Terraform deploys the entire project. On a later execution, changes are only made where necessary (e.g. to upgrade a container to a newer version, built in a later build-images step).
+The top-level directory of a rollyourown.xyz project includes an `upgrade.sh` script. This script builds and deploys new containers for the module and calls the image build and deployment scripts in the [/scripts-module directory](#the-scripts-module-directory).
 
 ## Directories
 
@@ -147,3 +124,57 @@ The `image-build` directory contains [Packer](https://www.packer.io/) templates 
 ```
 
 The `module-deployment` directory contains the [Terraform](https://www.terraform.io/) code to deploy the module on the host server and [cloud-init](https://cloud-init.io/) files for providing boot-time commands to container instances, if necessary. In addition, Terraform modules are provided to simplify the use of the module in a rollyourown.xyz project deployment.
+
+## The scripts-module directory
+
+```console
+|-- scripts-modules
+|   |-- build-images.sh
+|   |-- delete-terraform-state.sh
+|   |-- deploy-module.sh
+|   |-- host-setup.sh
+|   |-- start-module-containers.sh
+|   |-- stop-module-containers.sh
+```
+
+The `deploy.sh` script calls these scripts in turn. These scripts do not need to be changed in a specific project.
+
+### The `host-setup.sh` script
+
+This script typically does not need to be modified for the specific module.
+
+Generic host setup and configuration has already been done by the `host-setup.sh` script in the [host server](rollyourown/project_modules/host_server/) repository.
+
+Additional host configuration is performed for the individual module by the `host-setup.sh` script in the module's repository. This usually consists of setting up directories on the host server to provide persistent storage for the module's containers to enable component configuration and data to persist across container re-starts and replacements. Additional host setup steps may be needed, depending on the module.
+
+The `host-setup-project.sh` script executes Ansible playbooks in the [/host-setup directory](#the-host-setup-directory) to perform additional host configuration for the individual project.
+
+### The `build-images.sh` script
+
+This script **will need to be modified** for the specific module.
+
+The `build-images.sh` script calls [Packer](https://www.packer.io/) to create an image for each of the module's components and upload them to the host server ready to be deployed in the `deploy-module.sh` script. A version stamp (e.g. 20210301) needs to be passed to the `build-images.sh` script, which will be used in the name of each image created and uploaded and which will be used in the `deploy-module.sh` script to launch the correct container image version and later to upgrade containers in-life.
+
+For each image to be built, [Packer](https://www.packer.io/) uses [LXD](https://linuxcontainers.org/lxd/) to launch a base container on the control node (using an [ubuntu-minimal](https://wiki.ubuntu.com/Minimal) cloud image), executes a component-specific [Ansible](https://www.ansible.com/) playbook to provision the container with the necessary software and configuration, and then creates a container image from the fully provisioned container. Finally, packer triggers LXD to upload the container image to the remote host server ready for deployment.
+
+### The `deploy-module.sh` script
+
+This script typically does not need to be modified for the specific module.
+
+The `deploy-module.sh` script uses [Terraform](https://www.terraform.io/) and the [Terraform LXD Provider](https://registry.terraform.io/providers/terraform-lxd/lxd/) to launch the module's containers on the host machine. The version stamp provided to the `build-images.sh` script also needs to be provided to the `deploy-module.sh` script so that Terraform can identify the container images to launch.
+
+The `deploy-module.sh` script is called by the `deploy-module.sh` script of a project that uses the module.
+
+Component containers are launched as specified in the Terraform configuration. Terraform reads the current state on the host machine and makes changes to bring the host machine into the desired state. On the first execution of the `deploy-module.sh` script, no resources have been deployed to the host machine so that Terraform deploys the entire module. On a later execution, changes are only made where necessary (e.g. to upgrade a container to a newer version, built in a later build-images step).
+
+### The `delete-terraform-state.sh` script
+
+The script deletes the terraform state for the module on the control-node, so that a new deployment can be started from scratch. This script is used only in a restore process during disaster recovery and should otherwise never be used.
+
+### The `start-module-containers.sh` script
+
+This script starts each module container in turn. The script is used during backup and restore procedures and should otherwise never be needed.
+
+### The `stop-module-containers.sh` script
+
+This script stops each module container in turn. The script is used during backup and restore procedures and should otherwise never be needed.
