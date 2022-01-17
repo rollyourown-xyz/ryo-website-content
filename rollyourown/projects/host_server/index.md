@@ -66,7 +66,7 @@ This feature is used, for example, by [the Ingress Proxy module](/rollyourown/pr
 
 The Consul key-value store provides a store of configuration data for services that can be provisioned at deploy-time. If a container is dynamically configured, then a consul-template agent running on the container retrieves key-values and generates the container service's configuration file(s). This can be done at boot or at a later stage, as the consul-template agent monitors for changes in the specified branches of the key-value tree.
 
-This feature is used, for example, by [Certbot](/rollyourown/project_modules/ryo-ingress-proxy/#certbot) to dynamically load the configuration for certificates needed for a project and by [HAProxy](/rollyourown/project_modules/ryo-ingress-proxy/#haproxy) to load ACLs and backend configuration for a project's backend servers. A consul-template agent running on the [Ingress Proxy module](/rollyourown/project_modules/ryo-ingress-proxy) modifies the Haproxy and Cerbot configuration as and when project-specific services are added during project deployment.
+This feature is used, for example, by [Certbot](/rollyourown/project_modules/ryo-ingress-proxy/#certbot) to dynamically load the configuration for certificates needed for a project and by [HAProxy](/rollyourown/project_modules/ryo-ingress-proxy/#haproxy) to load ACLs and backend configuration for a project's backend servers. A consul-template agent running on the [Ingress Proxy module](/rollyourown/project_modules/ryo-ingress-proxy) modifies the HAProxy and Cerbot configuration as and when project-specific services are added during project deployment.
 
 {{< /more >}}
 
@@ -262,9 +262,13 @@ cd ~/ryo-projects/ryo-host/
 
 It is recommended to upgrade a host server on a regular basis, to ensure that patches to the operating system and new versions of software are applied.
 
-## Host server backup
+## Host server backup and restore
 
-[**THIS SECTION IS TODO**]
+A host server is a runtime for multiple project and module containers and provides no services to your users. Using the [host server setup automation scripts](#host-server-setup), a host server can be replicated / re-deployed at any time and therefore does not need any specific backup.
+
+Backing up a host server therefore means backing up the projects and modules deployed to it, so that these can be restored to a freshly-deployed host server if needed.
+
+The general backup and restore approach for rollyourown.xyz projects is described on a [dedicated page](/rollyourown/projects/how_to_back_up_and_restore).
 
 ## Using Consul in a project (**Move this section to a separate page**)
 
