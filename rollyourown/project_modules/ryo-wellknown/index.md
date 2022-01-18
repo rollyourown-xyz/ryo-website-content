@@ -54,7 +54,7 @@ A Consul agent is deployed on the well-known server module and joins the Consul 
 
 On container start, the [Consul-Template](https://github.com/hashicorp/consul-template/) application obtains service configuration information from the [Consul key-value store](#key-value-store) and uses it to populate the nginx configuration file for the specified well-known URIs. In addition, Consul-Template listens for changes to the configuration key-values and updates configuration files on-the-fly, reloading nginx when configuration has changed.
 
-After configuration has changed, consul-template triggers an update of HAProxy configuration parameters in the Consul key-value store, so that HAProxy can send traffic for the specified well-known URIs to the well-known service container.
+After configuration has changed, consul-template triggers an update of HAProxy configuration parameters in the Consul key-value store, so that the Ingress Proxy can send traffic for the specified well-known URIs to the well-known service container.
 
 ## How to deploy this module in a project or module
 
