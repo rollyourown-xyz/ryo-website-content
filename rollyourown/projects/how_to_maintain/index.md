@@ -52,6 +52,12 @@ With rollyourown.xyz, we bring a subset of these practices within the reach of p
 
 {{< /more >}}
 
+## Before upgrading a project
+
+Although unrecoverable failures during upgrades are uncommon, they cannot be discounted altogether. rollyourown.xyz is an open source project and cannot *guarantee* that the code published in a project or module repository is fully working.
+
+It is recommended to always [back up your host server](http://localhost:1313/rollyourown/projects/how_to_back_up_and_restore/) before upgrading a project, in case the upgrade procedure fails and you are unable to roll back to the previous version of the container images.
+
 ## Upgrading a project deployment
 
 Upgrading a rollyourown.xyz project deployment consists of a few steps:
