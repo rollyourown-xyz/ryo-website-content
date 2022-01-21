@@ -65,9 +65,9 @@ Further details about the host server building block can be found [here](/rollyo
 
 The project installation consists of a number of containers deployed on the host server.
 
-#### Loadbalancer / TLS proxy container
+#### Ingress proxy container
 
-The loadbalancer / TLS proxy container terminates HTTP, HTTPS and SSH connections and distributes traffic to the Gitea container. This component is provided by the [rollyourown.xyz](https://rollyourown.xyz) Ingress Proxy module and is a key building block for rollyourown.xyz projects. Further details can be found [here](/rollyourown/project_modules/ryo-ingress-proxy/).
+The ingress proxy container terminates HTTP, HTTPS and SSH connections and distributes traffic to the Gitea container. This component is provided by the [rollyourown.xyz](https://rollyourown.xyz) Ingress Proxy module and is a key building block for rollyourown.xyz projects. Further details can be found [here](/rollyourown/project_modules/ryo-ingress-proxy/).
 
 #### MariaDB container
 
