@@ -492,7 +492,7 @@ module "deploy-matrix-ingress-proxy-backend-configuration-for-synapse" {
 
 ## Software deployed
 
-The open source components used in this module are:
+The open source components deployed by this module are:
 
 {{< table tableclass="table table-bordered table-striped" theadclass="thead-dark" >}}
 

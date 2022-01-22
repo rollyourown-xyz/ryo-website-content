@@ -115,7 +115,7 @@ For example, this project has been successfully deployed on a €2,69/m entry-le
 
 ## Software deployed
 
-The open source components used in this project are:
+The open source components deployed by this project are:
 
 {{< table tableclass="table table-bordered table-striped" theadclass="thead-dark" >}}
 

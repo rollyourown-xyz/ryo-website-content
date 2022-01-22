@@ -120,7 +120,7 @@ Video conferencing can be a resource-intensive application, with the videobridge
 
 ## Software deployed
 
-The open source software deployed by the project is:
+The open source components deployed by this project are:
 
 {{< table tableclass="table table-bordered table-striped" theadclass="thead-dark" >}}
 
