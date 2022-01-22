@@ -85,7 +85,7 @@ The Nextcloud container provides the Nextcloud server for the project. [Nextclou
 
 ### Deploying the project
 
-To deploy the project, follow the generic [project deployment instructions](/rollyourown/projects/how_to_deploy/), using the project's Github mirror repository at [https://github.com/rollyourown-xyz/ryo-nextcloud/](https://github.com/rollyourown-xyz/ryo-nextcloud/).
+To deploy the project, follow the generic [project deployment instructions](/rollyourown/projects/how_to_deploy/), using the project's [mirror repositories](#repository-links).
 
 ### After deployment
 

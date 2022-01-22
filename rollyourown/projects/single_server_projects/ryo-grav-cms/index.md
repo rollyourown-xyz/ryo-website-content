@@ -56,7 +56,7 @@ The webserver container hosts an [nginx](https://nginx.org/) web server, configu
 
 ### Deploying the project
 
-To deploy the project, follow the generic [project deployment instructions](/rollyourown/projects/how_to_deploy/), using the project's Github mirror repository at [https://github.com/rollyourown-xyz/ryo-grav-cms/](https://github.com/rollyourown-xyz/ryo-grav-cms/).
+To deploy the project, follow the generic [project deployment instructions](/rollyourown/projects/how_to_deploy/), using the project's [mirror repositories](#repository-links).
 
 ### After deployment
 
