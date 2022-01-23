@@ -6,7 +6,7 @@ draft: true
 
 This project deploys an [nginx](https://nginx.org/) webserver to serve a static website along with [Hugo](https://gohugo.io/) to generate the static website from content stored in a version-controlled [Git](https://git-scm.com/) repository. The project also deploys a [webhook](https://github.com/adnanh/webhook) so that the Git repository can trigger a re-provisioning of the website whenever changes are made to the content.
 
-In addition, the project deploys an Ingress Proxy, including [Certbot](https://certbot.eff.org/) and [HAProxy](https://www.haproxy.org/), for [Let's Encrypt](https://letsencrypt.org/) certificate management and TLS/SSL termination.
+In addition, the project deploys an Ingress Proxy, including [Certbot](https://certbot.eff.org/) and [HAProxy](https://www.haproxy.org/), for [Let's Encrypt](https://letsencrypt.org/) certificate management and TLS/SSL termination. If an [IdP mode is selected](#identity-providers-and-single-sign-one), then the project also deploys the [oauth2-proxy](https://oauth2-proxy.github.io/oauth2-proxy/) to restrict the website to logged-in users.
 
 <!--more-->
 
@@ -15,7 +15,6 @@ In addition, the project deploys an Ingress Proxy, including [Certbot](https://c
 {{< highlight "primary" "ToDo">}}
 
 - [ ] Links on the page
-- [ ] Other mode than "standalone"? E.g. with oauth2-proxy to provide a protected website???
 - [ ] Section on using bare-bones theme repository, after creating this
 
 {{< /highlight >}}
@@ -52,6 +51,23 @@ The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is h
 
 This project depends on and deploys the [rollyourown.xyz](https://rollyourown.xyz) [Ingress Proxy](/rollyourown/project_modules/ryo-ingress-proxy/) module to provide certificate management by [Certbot](https://certbot.eff.org/) and HTTPS proxying by the [HAProxy](https://www.haproxy.org/) loadbalancer / TLS proxy.
 
+## Identity providers and single sign-on
+
+This project supports protecting your website with a login via an Identity Provider (IdP). This is useful for deploying a website that is only accessible to members of an organisation (for example, for accessing / testing draft content).
+
+The "IdP mode" of the project is selected in the project configuration file:
+
+- In the "public" mode (the default), your website is accessible to anyone without authorisation
+- In the ["gitea" mode](#gitea-idp-mode), your website can only be accessed after logging in via a [Gitea Git repository server](/rollyourown/projects/single_server_projects/ryo-gitea)
+
+Further IdP modes may be added at a later date.
+
+### Gitea IdP mode
+
+In "gitea" mode, the service is deployed together with a [Gitea Git repository server](/rollyourown/projects/single_server_projects/ryo-gitea) and the Gitea server is used as for [single sign-on (SSO)](https://en.wikipedia.org/wiki/Single_sign-on). This means that a user authenticates against the Gitea server via [OAuth2](https://oauth.net/2/) and only has access to the website after logging in.
+
+In this mode, the [Gitea Git repository server](/rollyourown/projects/single_server_projects/ryo-gitea) must be deployed and an OAuth2 application configured, before this project is deployed.
+
 ## Project components
 
 The components deployed in this project are shown in the following diagram:
@@ -74,7 +90,7 @@ The ingress proxy container terminates HTTP and HTTPS connections and distribute
 
 #### Website provisioner container
 
-The website provisioner container hosts the [Hugo](https://gohugo.io/) static site generator and a [webhook server](https://github.com/adnanh/webhook) providing the API to trigger the fetching and processing of the website content.
+The website provisioner container hosts the [Hugo](https://gohugo.io/) static site generator and a [webhook server](https://github.com/adnanh/webhook) providing the API to trigger the fetching and processing of the website content. If an [IdP mode is selected](#identity-providers-and-single-sign-one), then the container also hosts the [oauth2-proxy](https://oauth2-proxy.github.io/oauth2-proxy/) to restrict the website to logged-in users.
 
 The container shares a mounted directory from the host server with the [webserver container](#webserver-container), into which the generated static site content is provisioned.
 
@@ -91,6 +107,8 @@ The container shares a mounted directory from the host server with the [website 
 Before deploying the project, three [Git](https://git-scm.com/) repositories need to be available for storing your website content, theme and a scaffold for the [Hugo](https://gohugo.io/) site generator.
 
 In your content repository (and theme or scaffold repositories if you are customising these), a webhook needs to be configured to trigger the reprovisioning of the website when changes are made.
+
+In [gitea IDP mode](#gitea-idp-mode), your website will accessible only after loggin in via a [Gitea Git repository server](/rollyourown/projects/single_server_projects/ryo-gitea), which must be deployed and an OAuth2 application configured, before this project is deployed.
 
 #### Setting up the repository for your website content
 
@@ -302,6 +320,43 @@ project_webhook_secret: <SOME_SECRET_HERE>
 ...
 ```
 
+#### Setting up an OAuth2 Application for login
+
+If your website is to be public and accessible without login, then no OAuth2 application needs to be set up.
+
+For deploying your project in "gitea" IdP mode, a [Gitea Git repository server](/rollyourown/projects/single_server_projects/ryo-gitea) is deployed first and an OAuth2 application configured.
+
+{{< more "secondary" "Details: Configuring an OAuth2 application">}}
+
+After deployment of the [Gitea Git repository server](/rollyourown/projects/single_server_projects/ryo-gitea), the OAuth2 application is configured as follows:
+
+1. [Log in to the Gitea server](/rollyourown/projects/single_server_projects/ryo-gitea/#after-deployment)
+
+2. Go to the user's settings
+
+    ![Gitea Settings](Gitea_Settings_240.png)
+
+3. Add a new application under _Applications -> Manage OAuth2 Application_. Give the application a name -- e.g. "website" -- and set the "Redirect URL" to `https://<PROJECT DOMAIN NAME>/oauth2/callback` where `<PROJECT DOMAIN NAME>` is the domain you are configuring for this project
+
+    ![Gitea OAuth2 Application](Gitea_OAuth2_Application_800.png)
+
+Once the OAuth application has been created, Gitea will show a `Client ID` and `Client Secret`. Both of these should be noted down, as they are needed in the configuration for this project. The Client Secret will be shown **only once**, but can be regenerated later -- however, if the Client Secret is changed after configuring and deploying this project, then the project configuration will also need to be changed and [new container images built and deployed](/rollyourown/projects/how_to_maintain).
+
+![Gitea Client Credentials](Gitea_Client_Credentials_800.png)
+
+{{< /more >}}
+
+After configuring an OAuth2 application, this project can be [configured](/rollyourown/projects/how_to_deploy/#configuring-the-project) and [deployed](/rollyourown/projects/how_to_deploy/#running-the-automation-scripts).
+
+After configuring an OAuth2 application, add the `Client ID` and `Client Secret` as the values of the variables `project_idp_gitea_client_id` and `project_idp_gitea_client_secret` in your project configuration file:
+
+```yaml
+...
+project_idp_gitea_client_id: <CLIENT_ID_HERE>
+project_idp_gitea_client_secret: <CLIENT_SECRET_HERE>
+...
+```
+
 ### Deploying the project
 
 To deploy the project, follow the generic [project deployment instructions](/rollyourown/projects/how_to_deploy/), using the project's [mirror repositories](#repository-links).
@@ -330,6 +385,7 @@ The open source components deployed by this project are:
 | HAProxy | Load balancer, TCP and HTTP proxy, deployed by the [Ingress Proxy module](/rollyourown/project_modules/ryo-ingress-proxy/) | [https://www.haproxy.org/](https://www.haproxy.org/) | [GPL / LGPL](https://github.com/haproxy/haproxy/blob/master/LICENSE) |
 | Hugo | Static site generation for the [rollyourown.xyz](https://rollyourown.xyz) website | [https://gohugo.io/](https://gohugo.io/) | [Apache 2.0](https://github.com/gohugoio/hugo/blob/master/LICENSE) |
 | nginx | Open source webserver for the Element-Web installation | [https://nginx.org/](https://nginx.org/) | [2-clause BSD Licence](http://nginx.org/LICENSE) |
+| oauth2-proxy | Proxy for enabling OAuth2 login | [https://oauth2-proxy.github.io/oauth2-proxy/](https://oauth2-proxy.github.io/oauth2-proxy/) | [MIT](https://github.com/oauth2-proxy/oauth2-proxy/blob/master/LICENSE) |
 | Webhook | Light-weight, general purpose webhook server, deployed by the [Ingress Proxy module](/rollyourown/project_modules/ryo-ingress-proxy/) | [https://github.com/adnanh/webhook](https://github.com/adnanh/webhook) | [MIT](https://github.com/adnanh/webhook/blob/master/LICENSE) |
 
 {{< /table >}}
