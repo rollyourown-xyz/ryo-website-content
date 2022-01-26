@@ -64,7 +64,7 @@ Further IdP modes may be added at a later date.
 
 ### Gitea IdP mode
 
-In "gitea" mode, the service is deployed together with a [Gitea Git repository server](/rollyourown/projects/single_server_projects/ryo-gitea) and the Gitea server is used as for [single sign-on (SSO)](https://en.wikipedia.org/wiki/Single_sign-on). This means that a user authenticates against the Gitea server via [OAuth2](https://oauth.net/2/) and only has access to the website after logging in.
+In "gitea" mode, the service is deployed together with a [Gitea Git repository server](/rollyourown/projects/single_server_projects/ryo-gitea) and the Gitea server is used as and Identity Provider for [single sign-on (SSO)](https://en.wikipedia.org/wiki/Single_sign-on). This means that a user authenticates against the Gitea server via [OAuth2](https://oauth.net/2/) and only has access to the website after logging in.
 
 In this mode, the [Gitea Git repository server](/rollyourown/projects/single_server_projects/ryo-gitea) must be deployed and an OAuth2 application configured, before this project is deployed.
 
@@ -108,7 +108,7 @@ Before deploying the project, three [Git](https://git-scm.com/) repositories nee
 
 In your content repository (and theme or scaffold repositories if you are customising these), a webhook needs to be configured to trigger the reprovisioning of the website when changes are made.
 
-In [gitea IDP mode](#gitea-idp-mode), your website will accessible only after loggin in via a [Gitea Git repository server](/rollyourown/projects/single_server_projects/ryo-gitea), which must be deployed and an OAuth2 application configured, before this project is deployed.
+In [gitea IDP mode](#gitea-idp-mode), your website will accessible only after logging in via a [Gitea Git repository server](/rollyourown/projects/single_server_projects/ryo-gitea), which must be deployed and an OAuth2 application configured, before this project is deployed.
 
 #### Setting up the repository for your website content
 
@@ -346,11 +346,11 @@ Once the OAuth application has been created, Gitea will show a `Client ID` and `
 
 {{< /more >}}
 
-After configuring an OAuth2 application, this project can be [configured](/rollyourown/projects/how_to_deploy/#configuring-the-project) and [deployed](/rollyourown/projects/how_to_deploy/#running-the-automation-scripts).
-
-After configuring an OAuth2 application, add the `Client ID` and `Client Secret` as the values of the variables `project_idp_gitea_client_id` and `project_idp_gitea_client_secret` in your project configuration file:
+After configuring an OAuth2 application, set the variable `project_idp_mode` to "gitea" and add the `Client ID` and `Client Secret` as the values of the variables `project_idp_gitea_client_id` and `project_idp_gitea_client_secret` in your project configuration file:
 
 ```yaml
+...
+project_idp_mode: gitea
 ...
 project_idp_gitea_client_id: <CLIENT_ID_HERE>
 project_idp_gitea_client_secret: <CLIENT_SECRET_HERE>
