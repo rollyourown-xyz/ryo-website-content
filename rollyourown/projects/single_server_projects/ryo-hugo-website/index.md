@@ -346,11 +346,19 @@ Once the OAuth application has been created, Gitea will show a `Client ID` and `
 
 {{< /more >}}
 
-After configuring an OAuth2 application, set the variable `project_idp_mode` to "gitea" and add the `Client ID` and `Client Secret` as the values of the variables `project_idp_gitea_client_id` and `project_idp_gitea_client_secret` in your project configuration file:
+After configuring an OAuth2 application, the add the relevant settings to your project configuration file:
+
+- Set the variable `project_idp_mode` to "gitea"
+- Add the domain for the Gitea server in the variable `project_idp_gitea_domain_name`
+- Add the `Client ID` and `Client Secret` as the values of the variables `project_idp_gitea_client_id` and `project_idp_gitea_client_secret`, respectively
+
+For example:
 
 ```yaml
 ...
 project_idp_mode: gitea
+...
+project_idp_gitea_domain_name: git.example.com
 ...
 project_idp_gitea_client_id: <CLIENT_ID_HERE>
 project_idp_gitea_client_secret: <CLIENT_SECRET_HERE>
