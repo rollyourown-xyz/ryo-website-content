@@ -34,6 +34,7 @@ In alphabetical order, the projects powering rollyourown.xyz are:
 | LXD/LXC | Deploying system containers to our servers | [https://linuxcontainers.org/lxd/](https://linuxcontainers.org/lxd/) | [Apache 2.0](https://github.com/lxc/lxd/blob/master/COPYING) |
 | MariaDB | Databases behind various services | [https://mariadb.org/](https://mariadb.org/) | [GPL v2 / LGPL](https://mariadb.com/kb/en/mariadb-license/) |
 | nginx | Web server for various websites and services | [https://nginx.org/](https://nginx.org/) | [2-clause BSD Licence](http://nginx.org/LICENSE) |
+| oauth2-proxy | Proxy for enabling OAuth2 login for draft website | [https://oauth2-proxy.github.io/oauth2-proxy/](https://oauth2-proxy.github.io/oauth2-proxy/) | [MIT](https://github.com/oauth2-proxy/oauth2-proxy/blob/master/LICENSE) |
 | Pacḱer | Building container images for all of our services | [https://www.packer.io/](https://www.packer.io/) | [MPL 2.0](https://github.com/hashicorp/packer/blob/master/LICENSE) |
 | PostgreSQL | Databases behind various services | [https://www.postgresql.org/](https://www.postgresql.org/) | [PostgreSQL Licence](https://www.postgresql.org/about/licence/) |
 | Synapse | Homeserver for our [Matrix](https://matrix.org/) chatrooms and messaging system for our team and collaborators | [https://matrix-org.github.io/synapse/](https://matrix-org.github.io/synapse/) | [Apache 2.0](https://github.com/matrix-org/synapse/blob/develop/LICENSE) |
