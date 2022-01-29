@@ -1,4 +1,4 @@
-# hugo-content
+# rollyourown.xyz website content
 
 This repository contains the content for the [https://rollyourown.xyz](https://rollyourown.xyz) website for input to hugo static site generation.
 
