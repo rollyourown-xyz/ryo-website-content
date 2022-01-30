@@ -268,7 +268,7 @@ To set up a webhook for triggering website updates when changes are made in your
 
 5. Add:
 
-    - The target URL `https://<YOUR_HOOKS_DOMAIN>/<PROJECT_ID>/reploy-website` to match your project configuration (where the default for `project_id` is `ryo-hugo-website`)
+    - The target URL `https://<YOUR_HOOKS_DOMAIN>/<PROJECT_ID>/redeploy-website` to match your project configuration (where the default for `project_id` is `ryo-hugo-website`)
     - A secret token (which is also added to your project configuration as the variable `project_webhook_secret`)
 
     ![Codeberg Configure Webhook](Codeberg_Configure_Webhook_800.png)
@@ -299,7 +299,7 @@ To set up a webhook for triggering website updates when changes are made in your
 
 5. Add:
 
-    - The Payload URL `https://<YOUR_HOOKS_DOMAIN>/<PROJECT_ID>/reploy-website` to match your project configuration (where the default for `project_id` is `ryo-hugo-website`)
+    - The Payload URL `https://<YOUR_HOOKS_DOMAIN>/<PROJECT_ID>/redeploy-website` to match your project configuration (where the default for `project_id` is `ryo-hugo-website`)
     - A secret token (which is also added to your project configuration as the variable `project_webhook_secret`)
 
     ![GitHub Configure Webhook](GitHub_Configure_Webhook_800.png)
