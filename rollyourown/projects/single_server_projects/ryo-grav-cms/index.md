@@ -1,7 +1,7 @@
 ---
 title: "Roll Your Own Grav CMS"
 tags: [ "cms", "website" ]
-draft: false
+draft: true
 ---
 
 This project deploys a [Grav](https://getgrav.org) flat-file content management system on an [nginx](https://nginx.org/) web server, with [HAProxy](https://www.haproxy.org/) for TLS/SSL termination and [Certbot](https://certbot.eff.org/) for managing your [Let's Encrypt](https://letsencrypt.org/) certificate.
