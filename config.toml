@@ -1,0 +1,100 @@
+languageCode = "en-gb"
+
+# For private development of the site, use development webserver
+baseURL = "https://dev.rollyourown.xyz/"
+title = "DEVELOPMENT rollyourown.xyz"
+
+# For production, use production webserver
+#baseURL = "https://rollyourown.xyz/"
+#title = "rollyourown.xyz"
+
+theme = "rollyourown-theme"
+contentDir = "content"
+defaultContentLanguage = "en"
+
+# Disable languages that are present but not yet completed
+disableLanguages = ["de"]
+
+defaultContentLanguageInSubdir = "false"
+
+[params]
+  authorName = "xyzroller"
+  description = ""
+  dateFormat = "Jan 2, 2006"
+  homeText = "Coming soon"
+  
+[permalinks]
+  project = "/:sections/:filename/"
+
+[taxonomies]
+  tag = "tags"
+
+# See https://feathericons.com/
+# The value of 'pre' is the icon name
+[languages]
+
+  [languages.en]
+    languageName = 'English'
+    weight = 1
+    [[languages.en.menu.main]]
+      name = "Home"
+      pre = "home"
+      url = "/"
+      weight = 1
+    [[languages.en.menu.main]]
+      name = "Rollyourown..."
+      pre = "code"
+      url = "/rollyourown/"
+      weight = 2
+    [[languages.en.menu.main]]
+      name = "Collaborate"
+      pre = "git-pull-request"
+      url = "/collaborate/"
+      weight = 3
+    [[languages.en.menu.main]]
+      name = "About"
+      pre = "grid"
+      url = "/about/"
+      weight = 4
+
+  [languages.de]
+    languageName = 'Deutsch'
+    weight = 2
+    [[languages.de.menu.main]]
+      name = "Start"
+      pre = "home"
+      url = "/de/"
+      weight = 1
+    [[languages.de.menu.main]]
+      name = "Rollyourown..."
+      pre = "code"
+      url = "/de/rollyourown/"
+      weight = 2
+    [[languages.de.menu.main]]
+      name = "Mitwirken"
+      pre = "git-pull-request"
+      url = "/de/collaborate/"
+      weight = 3
+    [[languages.de.menu.main]]
+      name = "Über"
+      pre = "grid"
+      url = "/de/about/"
+      weight = 4
+
+
+##########################
+# Privacy-related features
+##########################
+[privacy]
+  [privacy.disqus]
+    disable = true
+  [privacy.googleAnalytics]
+    disable = true
+  [privacy.instagram]
+    disable = true
+  [privacy.twitter]
+    disable = true
+  [privacy.vimeo]
+    disable = true
+  [privacy.youtube]
+    disable = true
