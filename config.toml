@@ -11,11 +11,15 @@ title = "DEVELOPMENT rollyourown.xyz"
 theme = "rollyourown-theme"
 contentDir = "content"
 defaultContentLanguage = "en"
+copyright = "rollyourown.xyz 2022"
 
 # Disable languages that are present but not yet completed
 disableLanguages = ["de"]
 
 defaultContentLanguageInSubdir = "false"
+
+# Ignore git repository standard files and config.toml
+ignoreFiles = ['config.toml', 'CONTRIBUTING\.md', 'LICENSE', 'README\.md', 'SECURITY\.md']
 
 [params]
   authorName = "xyzroller"
