@@ -28,6 +28,7 @@ Following the principles of Configuration-as-Code, Infrastructure-as-Code and Im
 Upgrading a rollyourown project consists of:
 
 - Updating the code (either for the configuration of the nodes deployed or for the deployment itself) from the project's repository
+- Optionally, making a backup of the persistent storage for the project's containers (and its modules' containers)
 - Building new images for each node from the updated configuration code
 - Deploying **new** containers (launching from the new images) to **replace** the containers deployed previously
 
@@ -56,7 +57,7 @@ With rollyourown.xyz, we bring a subset of these practices within the reach of p
 
 Although unrecoverable failures during upgrades are uncommon, they cannot be discounted altogether. rollyourown.xyz is an open source project and cannot *guarantee* that the code published in a project or module repository is fully working.
 
-It is recommended to always [back up your host server](http://localhost:1313/rollyourown/projects/how_to_back_up_and_restore/) before upgrading a project, in case the upgrade procedure fails and you are unable to roll back to the previous version of the container images.
+It is recommended to always [back up the project](/rollyourown/projects/how_to_back_up_and_restore/#how-to-back-up-an-individual-project) or [back up your host server](/rollyourown/projects/how_to_back_up_and_restore/#how-to-back-up-a-host-server) before upgrading a project, in case the upgrade procedure fails and you are unable to roll back to the previous version of the container images.
 
 ## Upgrading a project deployment
 
@@ -69,9 +70,11 @@ Upgrading a rollyourown.xyz project deployment consists of a few steps:
     ./upgrade.sh -n <HOSTNAME> -v <NEW VERSION>
     ```
 
-2. The script will ask whether modules used by the project should also be upgraded. This is recommended, but can be skipped.
+2. The script will ask whether to back up the project before upgrading. It is recommended to do this.
 
-3. The `upgrade.sh` script will now pull up-to-date code from the [rollyourown.xyz repositories](/collaborate/repositories), build new images for the selected components and deploy them to the host server.
+3. The script will ask whether modules used by the project should also be upgraded. This is recommended, but can be skipped.
+
+4. The `upgrade.sh` script will now pull up-to-date code from the [rollyourown.xyz repositories](/collaborate/repositories), optionally back up the project, build new images for the selected components and deploy them to the host server.
 
 After this process, your project deployment has been upgraded.
 
