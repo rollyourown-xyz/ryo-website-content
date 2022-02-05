@@ -6,19 +6,13 @@ draft: false
 
 Thank you for taking an interest in collaborating with us on the rollyourown.xyz project!
 
-rollyourown.xyz is a collaborative open source project. All rollyourown.xyz [projects](/rollyourown/projects/) and [modules](/rollyourown/project_modules/) as well as the content of the website itself are developed in the open.
-
-We would be delighted if you would like to contribute and there are a number of ways you can collaborate on the project.
+This is the documentation for **collaborating** on rollyourown.xyz projects. You can browse the content via the menu on the left-hand side.
 
 <!--more-->
 
-## TODOs on this page
+rollyourown.xyz is a collaborative open source project. All rollyourown.xyz [projects](/rollyourown/projects/) and [modules](/rollyourown/project_modules/) as well as the content of the website itself are developed in the open.
 
-{{< highlight "primary" "ToDo">}}
-
-- [ ] Remove the "Resources in this Section" from the template or re-work it to make it more compact
-
-{{< /highlight >}}
+We would be delighted if you would like to contribute and there are a number of ways you can collaborate on the project.
 
 ## How to collaborate
 
