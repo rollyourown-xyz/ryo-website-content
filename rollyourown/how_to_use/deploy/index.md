@@ -21,20 +21,6 @@ This page describes how to use these resources to prepare a control machine, set
 
 {{< /highlight >}}
 
-## How to deploy a project (tl;dr)
-
-When you have chosen your [rollyourown.xyz](https://rollyourown.xyz) project to deploy, these are the steps to deploy the project:
-
-1. Prepare a [control node](#a-control-node) to deploy and manage your projects
-2. Order or set up a server to host your project, with Ubuntu 20.04 LTS installed
-3. Prepare the [host server](#a-host-server) to be ready to deploy your project
-4. Clone the [project's repository](https://github.com/rollyourown-xyz/) to the control machine
-5. Copy the project configuration files and add settings
-6. Run `./deploy.sh` from the project directory
-7. Choose `y` to also set up and deploy modules
-
-Now read on to understand each of these steps in more detail.
-
 ## Introduction
 
 Every [rollyourown.xyz](https://rollyourown.xyz) project follows the principles of **Configuration-as-Code**, **Infrastructure-as-Code** and **Immutable infrastructure**.
