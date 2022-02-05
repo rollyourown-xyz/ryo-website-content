@@ -4,11 +4,13 @@ tags: [ "git", "website" ]
 draft: true
 ---
 
-This project deploys an [nginx](https://nginx.org/) webserver to serve a static website along with [Hugo](https://gohugo.io/) to generate the static website from content stored in a version-controlled [Git](https://git-scm.com/) repository. The project also deploys a [webhook](https://github.com/adnanh/webhook) so that the Git repository can trigger a re-provisioning of the website whenever changes are made to the content.
-
-In addition, the project deploys an Ingress Proxy, including [Certbot](https://certbot.eff.org/) and [HAProxy](https://www.haproxy.org/), for [Let's Encrypt](https://letsencrypt.org/) certificate management and TLS/SSL termination. If an [IdP mode is selected](#identity-providers-and-single-sign-one), then the project also deploys the [oauth2-proxy](https://oauth2-proxy.github.io/oauth2-proxy/) to restrict the website to logged-in users.
+This project deploys an [nginx](https://nginx.org/) webserver to serve a static website along with [Hugo](https://gohugo.io/) to generate the static website from content stored in a version-controlled [Git](https://git-scm.com/) repository.
 
 <!--more-->
+
+The project also deploys a [webhook](https://github.com/adnanh/webhook) so that the Git repository can trigger a re-provisioning of the website whenever changes are made to the content.
+
+In addition, the project deploys an Ingress Proxy, including [Certbot](https://certbot.eff.org/) and [HAProxy](https://www.haproxy.org/), for [Let's Encrypt](https://letsencrypt.org/) certificate management and TLS/SSL termination. If an [IdP mode is selected](#identity-providers-and-single-sign-one), then the project also deploys the [oauth2-proxy](https://oauth2-proxy.github.io/oauth2-proxy/) to restrict the website to logged-in users.
 
 ## TODOs on this page
 

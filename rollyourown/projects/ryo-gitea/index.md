@@ -87,7 +87,7 @@ To deploy the project, follow the generic [project deployment instructions](/rol
 
 Your first step after deployment will be to create organisations and user accounts for using the Gitea service.
 
-Log in to the Gitea front-end at the domain name provided in your configuration file during project deployment (as the variable `project_git_domain_name`). The admin user's username and password were also defined in your configuration file (as the variables `project_admin_username` and `project_admin_password`).
+Log in to the Gitea front-end at the domain name provided in your configuration file during project deployment (as the variable `project_domain_name`). The admin user's username and password were also defined in your configuration file (as the variables `project_admin_username` and `project_admin_password`).
 
 ![Gitea Landing Page](Gitea_Landing_Page_1200.png)
 
