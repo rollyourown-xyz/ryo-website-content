@@ -148,7 +148,7 @@ During setup of Ubuntu 20.04 LTS, you will typically have been asked to specifiy
     cp configuration/configuration_TEMPLATE.yml configuration/configuration.yml
     ```
 
-5. Edit the new file `configuration.yml` and add the non-root username and password on the control node. If you aren't familiar with a different linux editor, use nano to edit the file with:
+5. Edit the new file `configuration.yml` and add the non-root username and password on the control node. If you aren't familiar with a different linux editor, use nano to edit the file:
 
     ```bash
     cd ~/ryo-projects/ryo-control-node
