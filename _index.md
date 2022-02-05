@@ -4,8 +4,10 @@ tags: [ ]
 draft: false
 ---
 
-Hello World!
+Welcome to rollyourown.xyz!
+
+Use our open source automation code to roll your own free, de-centralised and federated services. Keep your data and communications private and under your own control.
 
 <!--more-->
 
-ABC
+**rollyourown.xyz supports the _practical_ use of free and open source software. We [provide](/rollyourown/) code to automatically [configure, build, deploy](/rollyourown/projects/how_to_deploy/), [maintain](/rollyourown/projects/how_to_maintain/), [back up and restore](/rollyourown/projects/how_to_back_up_and_restore/) services based on open source software. Our goal is to make it easy to roll your own.**

@@ -25,7 +25,7 @@ ignoreFiles = ['config.toml', 'CONTRIBUTING\.md', 'LICENSE', 'README\.md', 'SECU
   authorName = "xyzroller"
   description = ""
   dateFormat = "Jan 2, 2006"
-  homeText = "Coming soon"
+  homeText = "Lowering the barriers to using great, open source projects."
   
 [permalinks]
   project = "/:sections/:filename/"
