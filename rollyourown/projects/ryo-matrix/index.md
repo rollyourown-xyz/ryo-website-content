@@ -1,5 +1,5 @@
 ---
-title: "Roll Your Own Matrix Homeserver"
+title: "Roll Your Own Matrix Service"
 tags: [ "privacy", "messaging" ]
 draft: true
 ---
@@ -9,7 +9,6 @@ This project deploys a [Synapse](https://github.com/matrix-org/synapse) [matrix]
 <!--more-->
 
 In addition, the project deploys a number of additional modules: [Certbot](https://certbot.eff.org/) and [HAProxy](https://www.haproxy.org/) for [Let's Encrypt](https://letsencrypt.org/) certificate management and TLS/SSL termination, a [PostgreSQL](https://www.postgresql.org/) database as backend for synapse, a [Coturn](https://github.com/coturn/coturn) TURN server to enable VoIP and a [.well-known server](/rollyourown/project_modules/ryo-wellknown/) for client service discovery and delegation.
-
 
 ## Matrix homeserver project introduction
 

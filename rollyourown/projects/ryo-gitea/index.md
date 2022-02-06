@@ -1,5 +1,5 @@
 ---
-title: "Roll Your Own Gitea Server"
+title: "Roll Your Own Git Repository Server"
 tags: [ "git" ]
 draft: true
 ---
@@ -22,12 +22,12 @@ This project deploys a [Gitea](https://gitea.io/) server, with a [MariaDB](https
 
 [Gitea](https://gitea.io/) is a lightweight, open source git repository implementation providing a central git instance for managing the canonical version of a project during project development and publishing. In addition to basic git version control, Gitea provides:
 
-- web- and SSH-based access to the repository
-- account management for users and organisations
-- bug tracking / issue management
-- task tracking
-- code review, contribution and release management features
-- a dashboard of activity.
+- Web- and SSH-based access to the repository
+- Account management for users and organisations
+- Bug tracking / issue management
+- Task tracking
+- Code review, contribution and release management features
+- A dashboard of activity.
 
 {{< highlight "info" "Control node">}}
 A [control node](/rollyourown/projects/control_node/) without a graphical desktop UI is sufficient for this project, as the Gitea administration interface is reachable via the public internet.
