@@ -2,7 +2,7 @@
 title: "How to Back Up and Restore"
 weight: 3
 tags: [ ]
-draft: true
+draft: false
 ---
 
 The rollyourown.xyz [host server](/rollyourown/projects/host_server) repository includes automation scripts for backing up and restoring all projects and modules deployed to a host server.
