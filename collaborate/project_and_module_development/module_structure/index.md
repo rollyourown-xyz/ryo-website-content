@@ -17,22 +17,26 @@ A rollyourown.xyz module is structured in the following top-level directories an
 
 ```console
 module_id
-|-- configuration
-|   |-- ...
-|-- host-setup
-|   |-- ...
-|-- image-build
-|   |-- ...
-|-- module-deployment
-|   |-- ...
-|-- scripts-module
-|   |-- ...
-|-- CONTRIBUTING.md
-|-- LICENSE
-|-- README.md
-|-- SECURITY.md
-|-- deploy.sh
-|-- upgrade.sh
+├─ backup-restore
+│   └─ ...
+├─ configuration
+│   └─ ...
+├─ host-setup
+│   └─ ...
+├─ image-build
+│   └─ ...
+├─ module-deployment
+│   └─ ...
+├─ scripts-module
+│   └─ ...
+├─ CONTRIBUTING.md
+├─ LICENSE
+├─ README.md
+├─ SECURITY.md
+├─ backup.sh
+├─ deploy.sh
+├─ restore.sh
+└─ upgrade.sh
 ```
 
 ## The module_id
@@ -41,7 +45,7 @@ The `module_id` is a unique name for a rollyourown.xyz module and is also the na
 
 The `module_id` is always of the form `ryo-<NAME>` where `<NAME>` usually identifies the open source software to be deployed.
 
-The `module_id` is also added to the module's [configuration template](/collaborate/module_structure/#the-configuration-directory).
+The `module_id` is also added as the default value to the module's [configuration template](/collaborate/module_structure/#the-configuration-directory).
 
 ## Licence and information
 
@@ -52,92 +56,143 @@ The top-level directory of a rollyourown.xyz module includes a `LICENSE`, `CONTR
 - README.md: Provides a high-level description of the module and how to use it
 - SECURITY.md: Provides information on how to report security vulnerabilities in the module
 
-## The `deploy.sh` script
+## Top-level scripts
 
-The top-level directory of a rollyourown.xyz module includes a script `deploy.sh` to deploy the module. This script runs the host-setup, image build and deployment scripts from the [/scripts-module directory](#the-scripts-module-directory).
-
-## The `upgrade.sh` script
-
-The top-level directory of a rollyourown.xyz project includes an `upgrade.sh` script. This script builds and deploys new containers for the module and calls the image build and deployment scripts in the [/scripts-module directory](#the-scripts-module-directory).
-
-## Directories
-
-### The configuration directory
+The top-level directory of a rollyourown.xyz module includes a number of scripts to deploy, upgrade, back up and restore the module:
 
 ```console
-|-- configuration
-|   |-- configuration.yml
+├─ backup.sh
+├─ deploy.sh
+├─ restore.sh
+└─ upgrade.sh
+```
+
+### The `deploy.sh` script
+
+The `deploy.sh` script automates the deployment of the module. The script builds and deploys the containers for the module by running the `host-setup.sh`, `build-images.sh` and `deploy-module.sh` scripts from the [/scripts-module directory](#the-scripts-module-directory).
+
+### The `upgrade.sh` script
+
+The `upgrade.sh` script automates the maintenance of the project module, specifically the upgrade of module containers. The script builds and deploys new containers for the module by calling the `build-images.sh` and `deploy-module.sh` scripts in the [/scripts-module directory](#the-scripts-module-directory).
+
+### The `backup.sh` script
+
+The `backup.sh` script automates the backup of a module, specifically the backup of module persistent data:
+
+- The script calls the `stop-module-containers.sh` script in the [/scripts-module directory](#the-scripts-module-directory) to stop the module's containers
+- The script then calls the `backup-module.sh` script in the [/scripts-module directory](#the-scripts-module-directory) to perform the backup
+- Finally, the script calls the `start-module-containers.sh` script in the [/scripts-module directory](#the-scripts-module-directory) to restart the module's containers
+
+### The `restore.sh` script
+
+The `restore.sh` script automates the restoration of a module from a backup, specifically restoring the module persistent data:
+
+- The script calls the `stop-module-containers.sh` script in the [/scripts-module directory](#the-scripts-module-directory) to stop the module's containers
+- The script then calls the `restore-module.sh` script in the [/scripts-module directory](#the-scripts-module-directory) to perform the restoration
+- Finally, the script calls the `start-module-containers.sh` script in the [/scripts-module directory](#the-scripts-module-directory) to restart the module's containers
+
+{{< highlight "warning" "User interaction">}}
+
+Due to the destructive nature of restoring a project, the user is asked multiple times to confirm that the restoration should take place and is also asked to confirm which backup to use.
+
+{{< /highlight >}}
+
+## The configuration directory
+
+```console
+¦
+├─ configuration
+¦   └─ configuration.yml
 ```
 
 The `configuration` directory contains a template configuration file for the module. In addition to the `module_id`, this [YAML](https://en.wikipedia.org/wiki/YAML) file includes any module-specific configuration parameters that need to be set.
 
-### The host-setup directory
+## The host-setup directory
 
 ```console
-|-- host-setup
-|   |-- roles
-|   |   |-- ansible-role
-|   |   |-- ansible-role
-|   |   |-- ...
-|   |-- ansible-playbook.yml
-|   |-- ansible-playbook.yml
-|   |-- ...
-|   |-- main.yml
+├─ host-setup
+│   ├─ roles
+│   │   ├─ ansible-role
+│   │   ├─ ansible-role
+│   │   └─ ...
+│   ├─ ansible-playbook.yml
+│   ├─ ansible-playbook.yml
+│   ├─ ...
+¦   └─ main.yml
 ```
 
 The `host-setup` directory contains [Ansible](https://www.ansible.com/) playbooks for configuring the [host server](/rollyourown/projects/host_server/) for module deployment. Generic host service configuration is done during the host setup step of a project deployment, but additional configuration may be needed (creating host directories for mounting to module containers, for example).
 
-### The image-build directory
+## The image-build directory
 
 ```console
-|-- image-build
-|   |-- playbooks
-|   |   |-- roles
-|   |   |   |-- ansible-role
-|   |   |   |-- ansible-role
-|   |   |   |-- ...
-|   |   |-- inventory.yml
-|   |   |-- ansible-playbook.yml
-|   |   |-- ansible-playbook.yml
-|   |   |-- ...
-|   |-- packer-template.pkr.hcl
-|   |-- packer-template.pkr.hcl
-|   |-- ...
+├─ image-build
+│   ├─ playbooks
+│   │   ├─ roles
+│   │   │   ├─ ansible-role
+│   │   │   ├─ ansible-role
+│   │   │   └─ ...
+│   │   ├─ inventory.yml
+│   │   ├─ ansible-playbook.yml
+│   │   ├─ ansible-playbook.yml
+│   │   └─ ...
+│   ├─ packer-template.pkr.hcl
+│   ├─ packer-template.pkr.hcl
+¦   └─ ...
 ```
 
 The `image-build` directory contains [Packer](https://www.packer.io/) templates and [Ansible](https://www.ansible.com/) playbooks for building container images to be deployed on the host server.
 
-### The module-deployment directory
+## The module-deployment directory
 
 ```console
-|-- module-deployment
-|   |-- cloud-init
-|   |   |-- cloud-init-file.yml
-|   |   |-- cloud-init-file.yml
-|   |   |-- ...
-|   |-- modules
-|   |   |-- terraform-module
-|   |   |-- terraform-module
-|   |-- terraform-file.tf
-|   |-- terraform-file.tf
-|   |-- ...
+├─ module-deployment
+│   ├─ cloud-init
+│   │   ├─ cloud-init-file.yml
+│   │   ├─ cloud-init-file.yml
+│   │   └─ ...
+│   ├─ modules
+│   │   ├─ terraform-module
+│   │   ├─ terraform-module
+│   │   └─ ...
+│   ├─ terraform-file.tf
+│   ├─ terraform-file.tf
+¦   └─ ...
 ```
 
 The `module-deployment` directory contains the [Terraform](https://www.terraform.io/) code to deploy the module on the host server and [cloud-init](https://cloud-init.io/) files for providing boot-time commands to container instances, if necessary. In addition, Terraform modules are provided to simplify the use of the module in a rollyourown.xyz project deployment.
 
+## The backup-restore directory
+
+```console
+├─ backup-restore
+¦  └─ backup-module.yml
+¦  └─ delete-module-persistent-storage.yml
+¦  └─ restore-module.yml
+```
+
+The `backup-restore` directory contains three [Ansible](https://www.ansible.com/) playbooks used in backup and restore procedures:
+
+- `backup-module.yml` archives the persistent storage for the module on the host server
+- `delete-module-persistent-storage.yml` deletes the persistent storage for the module on the host server
+- `restore-module.yml` uploads a backup of the persistent storage for the module to the host server and unarchives it into place
+
 ## The scripts-module directory
 
 ```console
-|-- scripts-modules
-|   |-- build-images.sh
-|   |-- delete-terraform-state.sh
-|   |-- deploy-module.sh
-|   |-- host-setup.sh
-|   |-- start-module-containers.sh
-|   |-- stop-module-containers.sh
+├─ scripts-modules
+│   ├─ backup-module.sh
+│   ├─ build-images.sh
+│   ├─ delete-module-containers.sh
+│   ├─ delete-terraform-state.sh
+│   ├─ deploy-module.sh
+│   ├─ host-setup.sh
+│   ├─ restore-module.sh
+│   ├─ start-module-containers.sh
+¦   └─ stop-module-containers.sh
 ```
 
-The `deploy.sh` script calls these scripts in turn. These scripts do not need to be changed in a specific project.
+The `deploy.sh`, `upgrade.sh`, `backup.sh` and `restore.sh` scripts call these scripts, which do not need to be changed for a specific project. The project user will not normally need to interact directly with these scripts, but they are useful during project development to run parts of the automation.
 
 ### The `host-setup.sh` script
 
@@ -167,14 +222,26 @@ The `deploy-module.sh` script is called by the `deploy-module.sh` script of a pr
 
 Component containers are launched as specified in the Terraform configuration. Terraform reads the current state on the host machine and makes changes to bring the host machine into the desired state. On the first execution of the `deploy-module.sh` script, no resources have been deployed to the host machine so that Terraform deploys the entire module. On a later execution, changes are only made where necessary (e.g. to upgrade a container to a newer version, built in a later build-images step).
 
+### The `stop-module-containers.sh` script
+
+This script will need to modified for a particular module and stops each module container in turn. The script is used during backup and restore procedures and should otherwise never be needed.
+
+### The `start-module-containers.sh` script
+
+This script will need to modified for a particular module and starts each module container in turn. The script is used during backup and restore procedures and should otherwise never be needed.
+
+### The `delete-module-containers.sh` script
+
+This script will need to modified for a particular module and stops and deletes a module's containers. The script also deletes the module container persistent storage. This script is used only in a restore process and should otherwise never be used.
+
 ### The `delete-terraform-state.sh` script
 
 The script deletes the terraform state for the module on the control-node, so that a new deployment can be started from scratch. This script is used only in a restore process during disaster recovery and should otherwise never be used.
 
-### The `start-module-containers.sh` script
+### The `backup-module.sh` script
 
-This script starts each module container in turn. The script is used during backup and restore procedures and should otherwise never be needed.
+This script calls the `backup-module.yml` [Ansible](https://www.ansible.com/) playbook in the [/backup-restore directory](#the-backup-restore-directory) to back up module container persistent storage to the control node. This script is used in a backup process and should otherwise never be used.
 
-### The `stop-module-containers.sh` script
+### The `restore-module.sh` script
 
-This script stops each module container in turn. The script is used during backup and restore procedures and should otherwise never be needed.
+This script calls the `restore-module.yml` [Ansible](https://www.ansible.com/) playbook in the [/backup-restore directory](#the-backup-restore-directory) to copy a backup from the control node to a host server and restore the module container persistent storage. This script is used in a backup process and should otherwise never be used.
