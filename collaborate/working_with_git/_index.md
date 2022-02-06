@@ -2,7 +2,7 @@
 title: "Working with Git"
 weight: 1
 tags: [ ]
-draft: true
+draft: false
 ---
 
 We use Git repositories to manage our [project](/rollyourown/projects/) and [module](/rollyourown/project_modules/) [code](/collaborate/project_and_module_development/) as well as the [content of this website](/collaborate/website_development/).
