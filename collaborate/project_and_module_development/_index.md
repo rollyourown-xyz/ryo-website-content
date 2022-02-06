@@ -2,7 +2,7 @@
 title: "Project and Module Development"
 weight: 2
 tags: [ ]
-draft: true
+draft: false
 ---
 
 Our projects and modules have a defined structure, and we want every rollyourown.xyz project and module to be structured in the same way to achieve maximum re-usability.
