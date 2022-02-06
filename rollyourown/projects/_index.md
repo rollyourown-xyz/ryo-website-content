@@ -1,20 +1,18 @@
 ---
 title: "Projects"
-weight: 1
+weight: 2
 tags: [ ]
 draft: false
 ---
 
-## Overview
+Use rollyourown.xyz projects to easily roll your own free, de-centralised and federated services. Each project contains automation code to configure, build, deploy, maintain, back up and restore services based on open source software.
 
-TODO: Here are the projects!
+<!--more-->
 
-## What is in a project?
+Select a project from the menu on the left to learn about:
 
-TODO: About the structure of the page and repository.
+* The software installed by the project
+* Where to find the repositories containin the project code
+* How to use the project
 
-TODO: About the underlying deployment philosophy / process (incl. immutable infrastructure).
-
-## How to use
-
-Browse our projects and [deploy](/rollyourown/projects/how_to_deploy/) using our automation scripts.
+When you have chosen a project to deploy, learn the steps to set up a [control node](/rollyourown/how_to_use/control_node/) and [host server](/rollyourown/how_to_use/host_server/) to run the project and [how to deploy](/rollyourown/how_to_use/deploy/) it.
