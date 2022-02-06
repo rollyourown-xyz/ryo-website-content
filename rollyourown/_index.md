@@ -20,3 +20,5 @@ Learn how to use a rollyourown.xyz project to deploy open source solutions:
 Choose a project to deploy and learn about the open source software deployed by our projects in the [projects](/rollyourown/projects/) section.
 
 Learn about the open source software deployed by our modules in the [project modules](/rollyourown/project_modules/) section.
+
+For an example of how to use rollyourown.xyz projects to provide services, see how we use our own projects to run [our own infrastructure](/about/our_infrastructure/).

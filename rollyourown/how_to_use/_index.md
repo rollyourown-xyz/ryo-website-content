@@ -27,3 +27,5 @@ The pages in this section describe these steps in more detail:
 * Project deployment is described [here](/rollyourown/how_to_use/deploy/)
 * Project maintenance is described [here]/rollyourown/how_to_use/maintain/)
 * Backing up and restoring is described [here](/rollyourown/how_to_use/back_up_and_restore/)
+
+For an example of how to use rollyourown.xyz project to provide different services, see how we use our own projects to run [our own infrastructure](/about/our_infrastructure/).
