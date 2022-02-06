@@ -2,7 +2,7 @@
 title: "Bug Reports, Feature Requests and Ideas"
 weight: 2
 tags: [ ]
-draft: true
+draft: false
 ---
 
 The easiest way to contribute to one of our projects or modules is to suggest an improvement or tell us about a bug. This is done via the Issues in the repositories for the project or module on our own Git repository server, or in the mirror repositories [on Codeberg](https://codeberg.org/rollyourown-xyz) or [on GitHub](https://github.com/rollyourown-xyz/).

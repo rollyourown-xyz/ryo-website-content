@@ -2,7 +2,7 @@
 title: "Improve Existing Projects and Modules"
 weight: 3
 tags: [ ]
-draft: true
+draft: false
 ---
 
 The rollyourown.xyz projects and modules are the heart of our project and improving or adding to them is one of the most valuable contributions you can make.
@@ -10,16 +10,6 @@ The rollyourown.xyz projects and modules are the heart of our project and improv
 If you would like to improve an existing project or module to the rollyourown.xyz project, then before all else: Thank you!
 
 <!--more-->
-
-## TODOs on this page
-
-{{< highlight "primary" "ToDo">}}
-
-- [ ] TODOs below
-- [ ] Check/change link to "Forking and Pull Requests"
-- [ ] Refer to Issue Templates
-
-{{< /highlight >}}
 
 ## Before working on the code
 

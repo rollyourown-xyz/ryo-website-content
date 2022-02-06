@@ -2,7 +2,7 @@
 title: "Security Vulnerabilities"
 weight: 1
 tags: [ ]
-draft: true
+draft: false
 ---
 
 This section describes how to inform us about security vulnerabilities you may have found anywhere in the rollyourown.xyz project.
