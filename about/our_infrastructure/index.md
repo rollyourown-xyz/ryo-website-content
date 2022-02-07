@@ -2,7 +2,7 @@
 title: "Our Infrastructure"
 weight: 9
 tags: []
-draft: true
+draft: false
 ---
 
 This section gives an overview of how we use our own projects to run our infrastructure. As our project grows, we aim to keep this up to date.
