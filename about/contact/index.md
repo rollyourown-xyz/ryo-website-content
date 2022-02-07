@@ -1,6 +1,6 @@
 ---
-title: "Contact us"
-weight: 3
+title: "Contact Us"
+weight: 5
 tags: []
 draft: true
 ---

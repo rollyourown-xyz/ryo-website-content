@@ -1,6 +1,6 @@
 ---
 title: "FAQs"
-weight: 5
+weight: 3
 tags: []
 draft: true
 ---

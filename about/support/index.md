@@ -1,6 +1,6 @@
 ---
-title: "Support us"
-weight: 4
+title: "Support Us"
+weight: 6
 tags: []
 draft: true
 ---

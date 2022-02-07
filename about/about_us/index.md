@@ -1,6 +1,6 @@
 ---
-title: "About us"
-weight: 2
+title: "About Us"
+weight: 8
 tags: []
 draft: true
 ---
