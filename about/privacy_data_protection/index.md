@@ -50,9 +50,9 @@ The following settings are made in the [Hugo](https://gohugo.io/) configuration 
 
 In addition, there is no integration of these, or any other external services, in the site's custom theme templates.
 
-### Notes on Bootstrap and JQuery
+### Notes on Bootstrap
 
-We use the [Bootstrap framework](https://getbootstrap.com/) and [jQuery library](https://jquery.com/) for the reponsive theme on our website. We include the bootstrap.min.css, bootstrap.bundle.min.js and jQuery javascript library resources directly from this website and not linked via an external source or CDN.
+We use the [Bootstrap framework](https://getbootstrap.com/) for the reponsive theme on our website. We include the bootstrap.min.css and bootstrap.bundle.min.js javascript library resources directly from this website and not linked via an external source or CDN.
 
 TODO: Anything else needed?
 

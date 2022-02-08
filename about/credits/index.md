@@ -29,7 +29,6 @@ In alphabetical order, the projects powering rollyourown.xyz are:
 | HAProxy | TLS termination, reverse proxying and loadbalancing | [https://www.haproxy.org/](https://www.haproxy.org/) | [GPL / LGPL](https://github.com/haproxy/haproxy/blob/master/LICENSE) |
 | Grav | Dynamic pages on the [rollyourown.xyz](https://rollyourown.xyz) website, such as contact forms | [https://getgrav.org/](https://getgrav.org/) | [MIT](https://github.com/getgrav/grav/blob/develop/LICENSE.txt) |
 | Hugo | Static site generation for the [rollyourown.xyz](https://rollyourown.xyz) website | [https://gohugo.io/](https://gohugo.io/) | [Apache 2.0](https://github.com/gohugoio/hugo/blob/master/LICENSE) |
-| jQuery | Javascript library used by the bootstrap framework | [https://jquery.com/](https://jquery.com/) | [MIT](https://github.com/jquery/jquery/blob/main/LICENSE.txt) |
 | Keycloak | Identity management and single sign-on | [https://www.keycloak.org/](https://www.keycloak.org/) | [Apache 2.0](https://github.com/keycloak/keycloak/blob/main/LICENSE.txt) |
 | LXD/LXC | Deploying system containers to our servers | [https://linuxcontainers.org/lxd/](https://linuxcontainers.org/lxd/) | [Apache 2.0](https://github.com/lxc/lxd/blob/master/COPYING) |
 | MariaDB | Databases behind various services | [https://mariadb.org/](https://mariadb.org/) | [GPL v2 / LGPL](https://mariadb.com/kb/en/mariadb-license/) |
