@@ -349,7 +349,7 @@
     <path fill="none" stroke="rgb(53,82,105)" d="M 5000,2000 C 3363,2000 2000,2229 2000,2505 L 2000,6495 C 2000,6771 3363,7001 5000,7001 6637,7001 8001,6771 8001,6495 L 8001,2505 C 8001,2229 6637,2000 5000,2000 Z"/>
     <path fill="rgb(116,143,165)" stroke="none" d="M 5000,2000 C 3363,2000 2000,2229 2000,2505 2000,2780 3363,3010 5000,3010 6637,3010 8001,2780 8001,2505 8001,2229 6637,2000 5000,2000 L 5000,2000 Z"/>
     <path fill="none" stroke="rgb(53,82,105)" d="M 5000,2000 C 3363,2000 2000,2229 2000,2505 2000,2780 3363,3010 5000,3010 6637,3010 8001,2780 8001,2505 8001,2229 6637,2000 5000,2000 Z"/>
-    <text class="TextShape"><tspan class="TextParagraph" font-family="Liberation Sans, sans-serif" font-size="423px" font-weight="400"><tspan class="TextPosition" x="2250" y="3520"><tspan fill="rgb(255,255,255)" stroke="none">rollyourown-xyzprimary</tspan></tspan></tspan><tspan class="TextParagraph" font-family="Liberation Sans, sans-serif" font-size="423px" font-weight="400"><tspan class="TextPosition" x="2250" y="3994"><tspan fill="rgb(255,255,255)" stroke="none">repository</tspan></tspan></tspan></text>
+    <text class="TextShape"><tspan class="TextParagraph" font-family="Liberation Sans, sans-serif" font-size="423px" font-weight="400"><tspan class="TextPosition" x="2250" y="3520"><tspan fill="rgb(255,255,255)" stroke="none">primary</tspan></tspan></tspan><tspan class="TextParagraph" font-family="Liberation Sans, sans-serif" font-size="423px" font-weight="400"><tspan class="TextPosition" x="2250" y="3994"><tspan fill="rgb(255,255,255)" stroke="none">repository</tspan></tspan></tspan></text>
    </g>
   </g>
   <g class="com.sun.star.drawing.CustomShape">
