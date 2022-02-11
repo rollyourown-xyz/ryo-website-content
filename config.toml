@@ -23,7 +23,7 @@ ignoreFiles = ['config.toml', 'CONTRIBUTING\.md', 'LICENSE', 'README\.md', 'SECU
 
 [params]
   authorName = "xyzroller"
-  description = ""
+  description = "Lowering the barriers to using great, open source projects."
   dateFormat = "Jan 2, 2006"
   homeText = "Lowering the barriers to using great, open source projects."
   
