@@ -31,7 +31,7 @@ Our infrastructure repositories are not yet public, not mirrored to [Codeberg](h
 
 {{< /highlight >}}
 
-{{< table tableclass="table table-bordered table-striped" theadclass="thead-dark" >}}
+{{< table tableclass="table table-bordered table-striped" theadclass="table-primary" >}}
 
 | Repository | Content | Private or public | Codeberg / Github links |
 | :--------- | :------ | :---------------- | :----- |
@@ -47,7 +47,7 @@ Our organisation repositories are generally not yet public, not mirrored to [Cod
 
 {{< /highlight >}}
 
-{{< table tableclass="table table-bordered table-striped" theadclass="thead-dark" >}}
+{{< table tableclass="table table-bordered table-striped" theadclass="table-primary" >}}
 
 | Repository | Content | Private or public | Codeberg / Github links |
 | :--------- | :------ | :---------------- | :----- |
@@ -63,7 +63,7 @@ Our project and module repositories are generally public and mirrored to [Codebe
 
 {{< /highlight >}}
 
-{{< table tableclass="table table-bordered table-striped" theadclass="thead-dark" >}}
+{{< table tableclass="table table-bordered table-striped" theadclass="table-primary" >}}
 
 | Repository | Content | Private or public | Codeberg / Github links |
 | :--------- | :------ | :---------------- | :----- |
@@ -94,7 +94,7 @@ Our test repositories are not yet public, not mirrored to [Codeberg](https://cod
 
 {{< /highlight >}}
 
-{{< table tableclass="table table-bordered table-striped" theadclass="thead-dark" >}}
+{{< table tableclass="table table-bordered table-striped" theadclass="table-primary" >}}
 
 | Repository | Content | Private or public | Codeberg / Github links |
 | :--------- | :------ | :---------------- | :----- |
@@ -117,7 +117,7 @@ The repositories for our website theme and forms server are private, not mirrore
 
 {{< /highlight >}}
 
-{{< table tableclass="table table-bordered table-striped" theadclass="thead-dark" >}}
+{{< table tableclass="table table-bordered table-striped" theadclass="table-primary" >}}
 
 | Repository | Content | Private or public | Codeberg / Github links |
 | :--------- | :------ | :---------------- | :----- |

@@ -11,7 +11,7 @@ This project builds on and would not be possible without a number of other open 
 
 In alphabetical order, the projects powering rollyourown.xyz are:
 
-{{< table tableclass="table table-bordered table-striped" theadclass="thead-dark" >}}
+{{< table tableclass="table table-bordered table-striped" theadclass="table-primary" >}}
 
 | Project | Used for... | Project homepage | Licence |
 | :------ | :---------- | :--------------- | :------ |

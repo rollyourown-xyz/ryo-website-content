@@ -195,7 +195,7 @@ In future, we plan to include [synapse workers](https://matrix-org.github.io/syn
 
 The open source components deployed by this project are:
 
-{{< table tableclass="table table-bordered table-striped" theadclass="thead-dark" >}}
+{{< table tableclass="table table-bordered table-striped" theadclass="table-primary" >}}
 
 | Project | What is it? | Homepage | Licence |
 | :------ | :---------- | :------- | :------ |
