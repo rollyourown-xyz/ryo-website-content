@@ -10,4 +10,4 @@ Use our open source automation code to roll your own free, de-centralised and fe
 
 <!--more-->
 
-**rollyourown.xyz supports the _practical_ use of free and open source software. We [provide](/rollyourown/) code to automatically [configure, build, deploy](/rollyourown/projects/how_to_deploy/), [maintain](/rollyourown/projects/how_to_maintain/), [back up and restore](/rollyourown/projects/how_to_back_up_and_restore/) services based on open source software. Our goal is to make it easy to roll your own.**
+**rollyourown.xyz supports the _practical_ use of free and open source software. We [provide](/rollyourown/) code to automatically [configure, build, deploy](/rollyourown/how_to_use/deploy/), [maintain](/rollyourown/how_to_use/maintain/), [back up and restore](/rollyourown/how_to_use/back_up_and_restore/) services based on open source software. Our goal is to make it easy to roll your own.**
