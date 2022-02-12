@@ -85,6 +85,10 @@ ignoreFiles = ['config.toml', 'CONTRIBUTING\.md', 'LICENSE', 'README\.md', 'SECU
       url = "/de/about/"
       weight = 4
 
+# Code syntax highlighting theme
+[markup]
+  [markup.highlight]
+    style = 'monokailight'
 
 ##########################
 # Privacy-related features
