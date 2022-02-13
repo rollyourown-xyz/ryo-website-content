@@ -26,7 +26,8 @@ ignoreFiles = ['config.toml', 'CONTRIBUTING\.md', 'LICENSE', 'README\.md', 'SECU
   description = "Lowering the barriers to using great, open source projects."
   dateFormat = "Jan 2, 2006"
   homeText = "Lowering the barriers to using great, open source projects."
-  
+  favicon = “/icons/favicon.png
+
 [permalinks]
   project = "/:sections/:filename/"
 
