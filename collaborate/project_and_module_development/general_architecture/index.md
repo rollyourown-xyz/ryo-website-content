@@ -25,7 +25,7 @@ A rollyourown.xyz deployment has a defined architecture, illustrated in the foll
 
 - One or more project repositores ('ryo-project') are downloaded to the control node (6). Automation scripts are included in the repository to:
   - Fetch further repositories (7) for modules that are needed for the project deployment
-  - Deploy modules (8) and projects (9)
+  - Build container images with [Packer](https://packer.io) and [Ansible](https://ansible.com), and deploy them for the respective modules (8) and projects (9) with [Terraform](https://terraform.io)
   - Later, maintain modules and projects, back them up and restore them
 
 ## Deployment flows
