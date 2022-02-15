@@ -4,7 +4,7 @@ tags: [ ]
 draft: false
 ---
 
-## Use our open source automation code to roll your own free, de-centralised and federated services
+## Use open source automation code to roll your own free, de-centralised and federated services
 
 ### Keep your data, communications and services private and under your own control
 
