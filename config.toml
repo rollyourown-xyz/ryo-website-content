@@ -24,7 +24,6 @@ ignoreFiles = ['config.toml', 'CONTRIBUTING\.md', 'LICENSE', 'README\.md', 'SECU
 [params]
   authorName = "rollyourown.xyz"
   description = "Lowering the barriers to open source software deployment."
-  homeText = "Deploy open source software easily"
   dateFormat = "Jan 2, 2006"
 
 [permalinks]
