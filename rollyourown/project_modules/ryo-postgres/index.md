@@ -1,7 +1,7 @@
 ---
 title: "Module: PostgreSQL Database"
 tags: [ "module" ]
-draft: true
+draft: false
 ---
 
 The PostgreSQL Database module is a re-usable module for other [rollyourown.xyz](https://rollyourown.xyz) projects. The module provides a PostgreSQL relational database server.

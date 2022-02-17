@@ -1,7 +1,7 @@
 ---
 title: "Roll Your Own Hugo Website"
 tags: [ "git", "website" ]
-draft: true
+draft: false
 ---
 
 This project deploys an [nginx](https://nginx.org/) webserver to serve a static website along with [Hugo](https://gohugo.io/) to generate the static website from content stored in a version-controlled [Git](https://git-scm.com/) repository.

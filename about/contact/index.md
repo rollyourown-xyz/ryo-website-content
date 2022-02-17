@@ -2,7 +2,7 @@
 title: "Contact Us"
 weight: 5
 tags: []
-draft: true
+draft: false
 ---
 
 There are various ways to contact us.

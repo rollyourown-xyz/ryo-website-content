@@ -1,7 +1,7 @@
 ---
 title: "Roll Your Own Git Repository Server"
 tags: [ "git" ]
-draft: true
+draft: false
 ---
 
 This project deploys a [Gitea](https://gitea.io/) server, with a [MariaDB](https://mariadb.org/) backend database, [HAProxy](https://www.haproxy.org/) for TLS/SSL termination and [Certbot](https://certbot.eff.org/) for managing your [Let's Encrypt](https://letsencrypt.org/) certificate.

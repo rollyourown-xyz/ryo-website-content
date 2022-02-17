@@ -2,7 +2,7 @@
 title: "Forking and Pull Requests"
 weight: 2
 tags: [ ]
-draft: true
+draft: false
 ---
 
 This section describes the basic collaboration model for working on code or website content for rollyourown.xyz, by forking a repository and submitting a pull request.

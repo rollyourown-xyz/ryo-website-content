@@ -2,7 +2,7 @@
 title: "Reviewing and Merging"
 weight: 3
 tags: [ ]
-draft: true
+draft: false
 ---
 
 This page gives and overview of the reviewing and merging steps taken by a maintainer after a contributor has submitted a Pull Request to a rollyourown.xyz repository.

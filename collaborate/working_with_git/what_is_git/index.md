@@ -2,21 +2,12 @@
 title: "What Git is and how we use it"
 weight: 1
 tags: [ ]
-draft: true
+draft: false
 ---
 
 [Git](https://git-scm.com/) is a software tool which can be used in different ways. This page explains the basic concepts of Git and how we use it to collaborate on the rollyourown.xyz project.
 
 <!--more-->
-
-## TODOs on this page
-
-{{< highlight "primary" "ToDo">}}
-
-- [ ] Links on the page
-- [ ] Link to Manifesto in "Primary and mirror repositories" section
-
-{{< /highlight >}}
 
 ## Git
 
@@ -155,15 +146,15 @@ In some situations, it can be useful to set up other repositories as a **mirror*
 
 #### rollyourown.xyz primary repositories
 
-Following our own aim [**LINK TO MANIFESTO**] to promote and enable the self-hosting of open source software as much as possible, we maintain our primary repositories on our own Git repository servers. For our project, these repositories are the "source of truth" and we use them, for example, as the source of the content for generating this website.
+Following [our own aim](/about/manifesto/#our-aims) to promote and enable the self-hosting of open source software as much as possible, we maintain our primary repositories on our own Git repository servers. For our project, these repositories are the "source of truth" and we use them, for example, as the source of the content for generating this website.
 
 Members of our organisation have accounts on our own Git repository servers. If you would like to join our project, please [contact us](/about/contact/).
 
 #### rollyourown.xyz mirror repositories
 
-Another goal of our project is to lower the barriers to using open source solutions [**LINK(S) TO MANIFESTO**], and this extends to lowering the barriers to _collaborating_ on our project by enabling collaboration where our collaborators already work.
+[Another goal](/about/manifesto/#our-approach) of our project is to lower the barriers to using open source solutions, and this extends to lowering the barriers to _collaborating_ on our project by enabling collaboration where our collaborators already work.
 
-To make our project and its repositories available for collaboration in a wider community, we also maintain mirrors of our public repositories on [Codeberg](https://codeberg.org/) and [GitHub](https://github.com/). Specifically, these are:
+To make our project and its repositories available for collaboration in a wider community, we maintain mirrors of our public repositories on [Codeberg](https://codeberg.org/) and [GitHub](https://github.com/). Specifically, these are:
 
 - The repositories for our [projects](/rollyourown/projects) and [modules](/rollyourown/project_modules)
 - The repository for the content of the [rollyourown.xyz](https://rollyourown.xyz) website

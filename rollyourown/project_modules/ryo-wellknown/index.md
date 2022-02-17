@@ -1,10 +1,10 @@
 ---
-title: "Module: Well-known Server"
+title: "Module: Well-known URI Server"
 tags: [ "module" ]
-draft: true
+draft: false
 ---
 
-The Well-known Server module is a re-usable module for other [rollyourown.xyz](https://rollyourown.xyz) projects. The module provides a webserver to host [well-known locations](https://www.rfc-editor.org/rfc/rfc8615) for returning site-wide metadata for services.
+The Well-known URI Server module is a re-usable module for other [rollyourown.xyz](https://rollyourown.xyz) projects. The module provides a webserver to host [well-known locations](https://www.rfc-editor.org/rfc/rfc8615) for returning site-wide metadata for services.
 
 <!--more-->
 
