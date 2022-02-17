@@ -1,5 +1,5 @@
 # rollyourown.xyz website content
 
-This repository contains the content for the [https://rollyourown.xyz](https://rollyourown.xyz) website for input to hugo static site generation.
+This repository contains the content and configuration for Hugo static site generation of the [https://rollyourown.xyz](https://rollyourown.xyz) website.
 
-In combination with the hugo-scaffold and hugo-theme repositories, this repository provides the full hugo directory structure for the rollyourown.xyz website provisioner service.
+This repository is used in combination with the hugo-scaffold and hugo-theme repositories to provide the full directory structure for the rollyourown.xyz website provisioner service to generate the rollyourown.xyz website.
