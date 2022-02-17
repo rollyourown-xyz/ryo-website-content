@@ -5,11 +5,11 @@ tags: [ ]
 draft: false
 ---
 
-A rollyourown.xyz module has a defined structure and every rollyourown.xyz module is structured in the same way. The structure is provided by the module template repository and the template [can be forked](/collaborate/working_with_git/forking_and_pull_requests/#forking) to form the basis of a [new rollyourown.xyz module](/collaborate/project_and_module_development).
-
-<!--more-->
+A rollyourown.xyz module has a defined structure and every rollyourown.xyz module is structured in the same way. The structure is provided by the [module template repository](https://git.rollyourown.xyz/ryo-projects/ryo-module-template) and the template [can be forked](/collaborate/working_with_git/forking_and_pull_requests/#forking) to form the basis of a [new rollyourown.xyz module](/collaborate/project_and_module_development).
 
 The rollyourown.xyz module template repository is mirrored [on Codeberg](https://codeberg.org/rollyourown-xyz/ryo-module-template) and [on GitHub](https://github.com/rollyourown-xyz/ryo-module-template).
+
+<!--more-->
 
 ## Module directory structure
 
