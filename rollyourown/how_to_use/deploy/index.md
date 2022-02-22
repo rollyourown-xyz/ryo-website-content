@@ -26,7 +26,7 @@ This page describes how to use these resources to prepare a control machine, set
 Every [rollyourown.xyz](https://rollyourown.xyz) project follows the principles of **Configuration-as-Code**, **Infrastructure-as-Code** and **Immutable infrastructure**.
 
 - **Configuration-as-Code** (CaC): so that the software and configuration of each element is described in code and under version control, allowing repeatable and automated setup of each element.
-- **Infrastructure-asCode** (IaC): so that the desired installation (e.g. networks, IP addresses, number and type of instances deployed) is described in code and under version control, allowing exactly repeatable, automated deployments and automated changes over time.
+- **Infrastructure-as-Code** (IaC): so that the desired installation (e.g. networks, IP addresses, number and type of instances deployed) is described in code and under version control, allowing exactly repeatable, automated deployments and automated changes over time.
 - **Immutable infrastructure**: so that, once deployed, no running container is ever modified in place but is rather *replaced* with a new version, allowing exact knowledge of the state of the deployed infrastructure and the ability to roll back to a known working version in case of a failed upgrade.
 
 Deploying a [rollyourown.xyz](https://rollyourown.xyz) project to a host server consists of a few steps:
@@ -193,4 +193,4 @@ After the project has been deployed, you are ready to perform any needed project
 
 Further information on further steps to take and how to use the project are given on the project's page.
 
-Over time, the software packages used for the project deployment need to be kept up to date, as security patches are released for the software or underlying operating systems or when new versions of the software packages are released. The `deploy.sh` automation script is also used to update the project's containers and deployment. More information can be found at ["How to Maintain"](/rollyourown/projects/how_to_maintain/).
+Over time, the software packages used for the project deployment need to be kept up to date, as security patches are released for the software or underlying operating systems or when new versions of the software packages are released. The `upgrade.sh` automation script is used to update the project's containers and deployment. More information can be found at ["How to Maintain"](/rollyourown/projects/how_to_maintain/).
