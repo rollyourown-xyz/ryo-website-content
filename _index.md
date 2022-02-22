@@ -7,7 +7,7 @@ draft: false
 <!-- The title of the website, shown as the title of the homepage, is in the config.toml `title` parameter-->
 
 <!-- h2 in this file is a "shout" for the site -->
-## Deploy open source software easily
+## Deploy open source software, easily
 
 <!-- h3 in this file is a first "call to action" for the site -->
 ### Keep your data, communications and services private and under your own control

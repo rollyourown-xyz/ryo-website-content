@@ -1,0 +1,12 @@
+---
+title: "Inlife"
+draft: true
+---
+
+## Inlife procedures
+
+Our automation code takes care of [upgrading](/rollyourown/how_to_use/maintain/#upgrading-a-project-deployment) your project's components as well as [backing them up](/rollyourown/how_to_use/back_up_and_restore/#how-to-back-up) and, if needed, [restoring](/rollyourown/how_to_use/back_up_and_restore/#how-to-restore). A rollyourown project provides three additional scripts to manage your project over time:
+
+- `./upgrade.sh` - Upgrades the project by building new images and replacing the deployed containers
+- `./backup.sh` - Backs up the project by backing up the deployed containers' persistent storage
+- `./restore.sh` - Restores the project, if necessary, from a backup
