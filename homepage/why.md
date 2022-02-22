@@ -1,6 +1,6 @@
 ---
 title: "Why"
-draft: true
+draft: false
 ---
 
 ## Why rollyourown? Why collaborate?

@@ -1,6 +1,6 @@
 ---
 title: "Step 1"
-draft: true
+draft: false
 ---
 
 ## Step 1

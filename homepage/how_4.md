@@ -1,6 +1,6 @@
 ---
 title: "Step 3b"
-draft: true
+draft: false
 ---
 
 ## Step 3b

@@ -1,6 +1,6 @@
 ---
 title: "How"
-draft: true
+draft: false
 ---
 
 ## How it works

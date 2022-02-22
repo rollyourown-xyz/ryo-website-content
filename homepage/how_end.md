@@ -1,6 +1,6 @@
 ---
 title: "Inlife"
-draft: true
+draft: false
 ---
 
 ## Inlife procedures
