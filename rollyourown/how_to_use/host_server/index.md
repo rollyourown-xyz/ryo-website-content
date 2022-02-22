@@ -100,6 +100,8 @@ For communication between the control node and the host server, these are:
 - TCP Port 2222 for SSH connections after host server setup
 - UDP Port 52222 for the wireguard tunnel between control node and host server
 
+TCP port 22 is the default port for SSH and configured by default by most hosting providers. If a different initial SSH port is needed, this can be set in the host server configuration file.
+
 TCP ports 2222 and 52222 are the default port numbers used by [rollyourown.xyz](https://rollyourown.xyz) projects. Change these if you have made manual changes in your configuration files.
 
 Additional ports (e.g. TCP ports 80 and 443 for HTTP/HTTPS) will also need to be opened for the specific project you are deploying - see the project description for further details.
