@@ -2,14 +2,14 @@
 title: "Privacy and Data Protection"
 weight: 10
 tags: []
-draft: true
+draft: false
 ---
 
 Summary.
 
 <!--more-->
 
-TODO: Add more descriptive content to explain what this is about and what is relevant.
+TODO: Only notes below...
 
 ## Data Protection
 
