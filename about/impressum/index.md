@@ -28,7 +28,7 @@ Phone / Telefon: +49 (0)89 35855476\
 Fax: +49 (0)89 35855477\
 Email: contact [at] rollyourown [dot] xyz
 
-### Responsible for content / Inhaltsverantwortlich
+## Responsible for content / Inhaltsverantwortlich
 
 Wilfred Nicoll\
 Hosigaustr. 10\
