@@ -2,10 +2,10 @@
 title: "About Us"
 weight: 8
 tags: []
-draft: false
+draft: true
 ---
 
-TODO: Impressum.
+TODO: Decide whether separate page is needed. Formal information is on Imprint/Impressum page.
 
 <!--more-->
 
