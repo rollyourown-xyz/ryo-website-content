@@ -1,5 +1,5 @@
 ---
-title: "Imprint/Impressum"
+title: "Imprint / Impressum"
 weight: 12
 tags: []
 draft: false
