@@ -1,6 +1,6 @@
 ---
 title: "Privacy and Data Protection"
-weight: 10
+weight: 11
 tags: []
 draft: false
 ---

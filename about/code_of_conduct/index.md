@@ -1,6 +1,6 @@
 ---
 title: "Code of Conduct"
-weight: 11
+weight: 10
 tags: []
 draft: false
 ---
