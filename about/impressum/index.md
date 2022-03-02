@@ -5,7 +5,7 @@ tags: []
 draft: false
 ---
 
-TODO: Impressum.
+As a website provided by a German resident, this page contains mandatory information according to German law, in particular Section 5 of the [Telemediengesetz (TMG, "German Telemedia Law")](https://dejure.org/gesetze/TMG/5.html).
 
 <!--more-->
 
@@ -13,9 +13,24 @@ TODO: Impressum.
 
 {{< highlight "primary" "ToDo">}}
 
-- [ ] A
-- [ ] B
+- [ ] Disclaimer / rechtliche Hinweise?
 
 {{< /highlight >}}
 
-TODO
+## Imprint / Impressum
+
+Wilfred Nicoll\
+Hosigaustr. 10\
+81375 Munich / München\
+Germany / Deutschland
+
+Phone / Telefon: +49 (0)89 35855476\
+Fax: +49 (0)89 35855477\
+Email: contact [at] rollyourown [dot] xyz
+
+### Responsible for content / Inhaltsverantwortlich
+
+Wilfred Nicoll\
+Hosigaustr. 10\
+81375 Munich / München\
+Germany / Deutschland
