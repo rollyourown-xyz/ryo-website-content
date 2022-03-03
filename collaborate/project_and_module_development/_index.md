@@ -4,6 +4,8 @@ weight: 2
 tags: [ ]
 draft: false
 ---
+<!-- SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz> -->
+<!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
 
 Our projects and modules have a defined structure, and we want every rollyourown.xyz project and module to be structured in the same way to achieve maximum re-usability.
 

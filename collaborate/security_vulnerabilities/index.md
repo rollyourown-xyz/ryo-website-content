@@ -4,6 +4,8 @@ weight: 1
 tags: [ ]
 draft: false
 ---
+<!-- SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz> -->
+<!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
 
 This section describes how to inform us about security vulnerabilities you may have found anywhere in the rollyourown.xyz project.
 

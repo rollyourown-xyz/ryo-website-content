@@ -4,6 +4,8 @@ weight: 8
 tags: [ ]
 draft: false
 ---
+<!-- SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz> -->
+<!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
 
 The code for all rollyourown.xyz projects and project modules, as well as the content of the rollyourown.xyz website itself, is hosted in repositories on our own Git repository servers and mirrored [to Codeberg](https://codeberg.org/rollyourown-xyz) and [to Github](https://github.com/rollyourown-xyz).
 

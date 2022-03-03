@@ -4,6 +4,8 @@ weight: 1
 tags: []
 draft: false
 ---
+<!-- SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz> -->
+<!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
 
 Our aim is to make **deploying and using** [open source](https://en.wikipedia.org/wiki/Open_source) software easy. We do this so that more people can deploy and use de-centralised and federated systems, to keep their data and communications private and under their own control.
 

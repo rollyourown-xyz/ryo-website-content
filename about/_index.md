@@ -3,6 +3,8 @@ title: "About"
 tags: [ ]
 draft: false
 ---
+<!-- SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz> -->
+<!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
 
 rollyourown.xyz is a collaborative open source project, with the goal of helping open source software to proliferate, providing automation code making the deployment and use of open source software easy. Learn more about the project in this section.
 

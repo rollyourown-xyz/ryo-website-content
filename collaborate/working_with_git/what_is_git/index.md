@@ -4,6 +4,8 @@ weight: 1
 tags: [ ]
 draft: false
 ---
+<!-- SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz> -->
+<!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
 
 [Git](https://git-scm.com/) is a software tool which can be used in different ways. This page explains the basic concepts of Git and how we use it to collaborate on the rollyourown.xyz project.
 

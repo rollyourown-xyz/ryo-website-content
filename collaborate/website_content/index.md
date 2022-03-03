@@ -4,6 +4,8 @@ weight: 5
 tags: [ ]
 draft: false
 ---
+<!-- SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz> -->
+<!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
 
 Our website content is managed from our own Git server repository and mirrored [to Codeberg](https://codeberg.org/rollyourown-xyz/ryo-website-hugo-content) and [to GitHub](https://github.com/rollyourown-xyz/ryo-website-hugo-content). Collaboration on our website content follows a similar pattern to collaboration on the code of our projects and modules. Your collaboration on improving, translating or extending our website will be much appreciated.
 
