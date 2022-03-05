@@ -4,8 +4,10 @@ weight: 2
 tags: [ ]
 draft: false
 ---
-<!-- SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz> -->
-<!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
+<!--
+SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
 
 The easiest way to contribute to one of our projects or modules is to suggest an improvement or tell us about a bug. This is done via the Issues in the repositories for the project or module on our own Git repository server, or in the mirror repositories [on Codeberg](https://codeberg.org/rollyourown-xyz) or [on GitHub](https://github.com/rollyourown-xyz/).
 

@@ -3,6 +3,10 @@ title: "Roll Your Own Matrix Service"
 tags: [ "privacy", "messaging" ]
 draft: false
 ---
+<!--
+SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
 
 This project deploys a [Synapse](https://github.com/matrix-org/synapse) [matrix](https://matrix.org/) homeserver and an [Element](https://github.com/vector-im/element-web/) web-based front-end. In [standalone IdP mode](#standalone-idp-mode), the project also deploys the [synapse-admin](https://github.com/Awesome-Technologies/synapse-admin) application for managing user accounts on the homeserver.
 

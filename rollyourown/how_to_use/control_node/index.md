@@ -4,6 +4,10 @@ weight: 4
 tags: [ ]
 draft: false
 ---
+<!--
+SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
 
 A control node is needed for executing automation scripts that set up a host server, building container images for the project and for deploying the containers and services on the host server. A control node can be used to deploy multiple projects, or you a dedicated control node per project can be used.
 

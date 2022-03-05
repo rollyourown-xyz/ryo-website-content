@@ -4,6 +4,10 @@ weight: 3
 tags: [ ]
 draft: false
 ---
+<!--
+SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
 
 The rollyourown.xyz [host server](/rollyourown/projects/host_server) repository includes automation scripts for backing up and restoring all projects and modules deployed to a host server.
 

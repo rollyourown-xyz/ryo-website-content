@@ -4,8 +4,10 @@ weight: 2
 tags: [ ]
 draft: false
 ---
-<!-- SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz> -->
-<!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
+<!--
+SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
 
 A rollyourown.xyz project has a defined, modular structure and every rollyourown.xyz project is structured in the same way. The structure is provided by the [project template repository](https://git.rollyourown.xyz/ryo-projects/ryo-project-template) and the template [can be forked](/collaborate/working_with_git/forking_and_pull_requests/#forking) to form the basis of a [new rollyourown.xyz project](/collaborate/project_and_module_development).
 

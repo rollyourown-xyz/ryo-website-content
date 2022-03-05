@@ -3,6 +3,10 @@ title: "Rollyourown..."
 tags: [ ]
 draft: false
 ---
+<!--
+SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
 
 This is the documentation for **using** rollyourown.xyz projects. You can browse the content via the menu on the left-hand side.
 

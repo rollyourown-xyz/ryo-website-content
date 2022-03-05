@@ -4,8 +4,10 @@ weight: 4
 tags: [ ]
 draft: false
 ---
-<!-- SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz> -->
-<!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
+<!--
+SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
 
 The rollyourown.xyz projects and modules are the heart of our project and improving or adding to them is one of the most valuable contributions you can make.
 

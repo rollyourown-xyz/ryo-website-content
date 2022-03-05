@@ -4,8 +4,10 @@ weight: 2
 tags: [ ]
 draft: false
 ---
-<!-- SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz> -->
-<!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
+<!--
+SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
 
 This section describes the basic collaboration model for working on code or website content for rollyourown.xyz, by forking a repository and submitting a pull request.
 

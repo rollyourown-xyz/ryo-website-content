@@ -4,8 +4,10 @@ weight: 7
 tags: []
 draft: false
 ---
-<!-- SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz> -->
-<!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
+<!--
+SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
 
 This project builds on and would not be possible without a number of other open source projects. We are intensely grateful to the communities developing and maintaining these amazing projects.
 

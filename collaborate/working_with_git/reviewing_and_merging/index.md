@@ -4,8 +4,10 @@ weight: 3
 tags: [ ]
 draft: false
 ---
-<!-- SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz> -->
-<!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
+<!--
+SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
 
 This page gives and overview of the reviewing and merging steps taken by a maintainer after a contributor has submitted a Pull Request to a rollyourown.xyz repository.
 

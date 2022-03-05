@@ -4,6 +4,10 @@ weight: 6
 tags: [ "module", "host" ]
 draft: true
 ---
+<!--
+SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
 
 Users familiar with the Linux command line can log in to a host server from a control node via the wireguard tunnel set up by the rollyourown.xyz automation scripts.
 

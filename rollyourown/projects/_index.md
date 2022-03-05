@@ -4,6 +4,10 @@ weight: 2
 tags: [ ]
 draft: false
 ---
+<!--
+SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
 
 Use rollyourown.xyz projects to easily roll your own free, de-centralised and federated services. Each project contains automation code to configure, build, deploy, maintain, back up and restore services based on open source software.
 

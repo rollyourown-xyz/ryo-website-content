@@ -3,6 +3,10 @@ title: "Module: PostgreSQL Database"
 tags: [ "module" ]
 draft: false
 ---
+<!--
+SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
 
 The PostgreSQL Database module is a re-usable module for other [rollyourown.xyz](https://rollyourown.xyz) projects. The module provides a PostgreSQL relational database server.
 

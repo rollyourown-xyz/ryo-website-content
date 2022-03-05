@@ -4,6 +4,10 @@ weight: 12
 tags: []
 draft: false
 ---
+<!--
+SPDX-FileCopyrightText: Translation 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
 
 The content on this page is based on the German-language [juraforum.de Impressums-Generator](https://www.juraforum.de/impressum-generator/) with translation into English by the author. The original German-language text falls under the copyright of juraforum.de.
 

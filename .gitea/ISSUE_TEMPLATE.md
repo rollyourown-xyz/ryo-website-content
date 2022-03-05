@@ -1,3 +1,8 @@
+<!--
+SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+
 This template is for suggesting a **new** project or module, giving us general feedback or asking a general question:
 
 - Please use the Issues in the specific [rollyourown.xyz repository](https://rollyourown.xyz/rollyourown/) for submitting bug reports, feature requests or suggestions for an existing project or module

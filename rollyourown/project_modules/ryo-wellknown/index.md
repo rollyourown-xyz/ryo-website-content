@@ -3,6 +3,10 @@ title: "Module: Well-known URI Server"
 tags: [ "module" ]
 draft: false
 ---
+<!--
+SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
 
 The Well-known URI Server module is a re-usable module for other [rollyourown.xyz](https://rollyourown.xyz) projects. The module provides a webserver to host [well-known locations](https://www.rfc-editor.org/rfc/rfc8615) for returning site-wide metadata for services.
 

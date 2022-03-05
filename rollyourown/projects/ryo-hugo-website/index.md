@@ -3,6 +3,10 @@ title: "Roll Your Own Hugo Website"
 tags: [ "git", "website" ]
 draft: false
 ---
+<!--
+SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
 
 This project deploys an [nginx](https://nginx.org/) webserver to serve a static website along with [Hugo](https://gohugo.io/) to generate the static website from content stored in a version-controlled [Git](https://git-scm.com/) repository.
 

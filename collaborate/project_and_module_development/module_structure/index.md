@@ -4,8 +4,10 @@ weight: 3
 tags: [ ]
 draft: false
 ---
-<!-- SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz> -->
-<!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
+<!--
+SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
 
 A rollyourown.xyz module has a defined structure and every rollyourown.xyz module is structured in the same way. The structure is provided by the [module template repository](https://git.rollyourown.xyz/ryo-projects/ryo-module-template) and the template [can be forked](/collaborate/working_with_git/forking_and_pull_requests/#forking) to form the basis of a [new rollyourown.xyz module](/collaborate/project_and_module_development).
 

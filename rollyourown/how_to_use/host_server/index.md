@@ -4,6 +4,10 @@ weight: 5
 tags: [ "module", "host" ]
 draft: false
 ---
+<!--
+SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
 
 A host server is needed to run the various containers making up a project deployment. A single host server can host multiple projects, or a dedicated host server can be used per project.
 
