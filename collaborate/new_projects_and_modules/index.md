@@ -54,4 +54,4 @@ During development, you can discuss your work with other developers using either
 
 ## Licencing
 
-Please be aware that all rollyourown.xyz projects are released under the open source [GPLv3 licence](https://spdx.org/licenses/GPL-3.0-or-later.html). If you are not comfortable with this, then we unfortunately cannot include your contribution.
+Please be aware that rollyourown.xyz projects are released under the open source [GPLv3 licence](https://spdx.org/licenses/GPL-3.0-or-later.html). If you are not comfortable with this, then we unfortunately cannot include your contribution.

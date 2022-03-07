@@ -25,4 +25,4 @@ The project maintainer can then provide feedback on the proposal in advance of y
 
 If, after discussing the change, you would like to proceed and implement it, then please fork the GitHub mirror repository and submit a Pull Request. Follow the workflow described in our section on [Forking and Pull Requests](/collaborate/working_with_git/forking_and_pull_requests/).
 
-Please be aware that all rollyourown.xyz projects are released under the open source [GPLv3 licence](https://spdx.org/licenses/GPL-3.0-or-later.html). If you are not comfortable with this, then we unfortunately cannot include your contribution.
+Please be aware that rollyourown.xyz projects are released under the open source [GPLv3 licence](https://spdx.org/licenses/GPL-3.0-or-later.html). If you are not comfortable with this, then we unfortunately cannot include your contribution.
