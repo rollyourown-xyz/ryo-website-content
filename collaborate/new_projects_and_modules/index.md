@@ -52,6 +52,24 @@ In both cases, the repositories will initially be private/non-public so that you
 
 During development, you can discuss your work with other developers using either the tools available on our Git repository servers, on Codeberg or on GitHub, or in a Matrix room we can set up for this.
 
-## Licencing
+## Licensing
 
 Please be aware that rollyourown.xyz projects are released under the open source [GPLv3 licence](https://spdx.org/licenses/GPL-3.0-or-later.html). If you are not comfortable with this, then we unfortunately cannot include your contribution.
+
+We use [Software Package Data Exchange (SPDX)](https://spdx.dev/) licensing and copyright information in each source file in our repositories. We request any contributor to add SPDX information to any new file submitted and to include additional copyright information in modified files, where applicable.
+
+In addition, when submitting a Pull Request to our project we ask contributors to agree with the terms of the [Developer Certificate of Origin (DCO)](https://developercertificate.org/) to certify that the contributor has the right to make the contribution to our project. As well as ticking the checkbox in the Pull Request template, we recommend signing off each commit. To do this, configure your Git username and email address for the repository with:
+
+```console
+git config user.name "<USERNAME>"
+git config user.email "<EMAIL ADDRESS>"
+```
+
+or globally with:
+
+```console
+git config --global user.name "<USERNAME>"
+git config --global user.email "<EMAIL ADDRESS>"
+```
+
+Signoff is then automatic when using the `-s` flag with the `git commit` command.

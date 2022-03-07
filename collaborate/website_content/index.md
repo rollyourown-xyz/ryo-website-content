@@ -41,6 +41,24 @@ Our site is currently available only in the English language, with [translation]
 
 Our website content is written in [Markdown](https://en.wikipedia.org/wiki/Markdown) format in a structure that can be processed by our [Hugo](https://gohugo.io/) static site generator. For more details on this, see the [documentation for the website content structure](/collaborate/website_development/content_structure/).
 
-## Licence
+## Licensing
 
 Please be aware that all rollyourown.xyz website content is released under a [Creative Commons licence](https://codeberg.org/rollyourown-xyz/ryo-website-hugo-content/src/branch/main/LICENSE). If you are not comfortable with this, then we unfortunately cannot include your contribution.
+
+We use [Software Package Data Exchange (SPDX)](https://spdx.dev/) licensing and copyright information in each source file in our repositories. We request any contributor to add SPDX information to any new file submitted and to include additional copyright information in modified files, where applicable.
+
+In addition, when submitting a Pull Request to our project we ask contributors to agree with the terms of the [Developer Certificate of Origin (DCO)](https://developercertificate.org/) to certify that the contributor has the right to make the contribution to our project. As well as ticking the checkbox in the Pull Request template, we recommend signing off each commit. To do this, configure your Git username and email address for the repository with:
+
+```console
+git config user.name "<USERNAME>"
+git config user.email "<EMAIL ADDRESS>"
+```
+
+or globally with:
+
+```console
+git config --global user.name "<USERNAME>"
+git config --global user.email "<EMAIL ADDRESS>"
+```
+
+Signoff is then automatic when using the `-s` flag with the `git commit` command.

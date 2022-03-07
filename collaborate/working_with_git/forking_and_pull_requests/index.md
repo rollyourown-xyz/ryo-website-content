@@ -85,7 +85,7 @@ Small changes in individual files can be done directly from the Codeberg website
 
 ![Codeberg Edit Button](Codeberg_Edit_Button_400.png)
 
-When you save your changes, please add a "commit message" that describes briefly what has changed. This will help reviewers and the repository maintainer to review your work later.
+When you save your changes, please add a "commit message" that describes briefly what has changed. This will help reviewers and the repository maintainer to review your work later. Please also add the text `Signed-off-by: YOUR NAME <YOUR EMAIL ADDRESS>` to confirm that you have read and agree to the [Developer Certificate of Origin (DCO)](https://developercertificate.org/).
 
 ### Making changes on GitHub
 
@@ -93,7 +93,7 @@ Small changes in individual files can be done directly from the GitHub website b
 
 ![Github Edit Button](Github_Edit_Button_400.png)
 
-When you save your changes, please add a "commit message" that describes briefly what has changed. This will help reviewers and the repository maintainer to review your work later.
+When you save your changes, please add a "commit message" that describes briefly what has changed. This will help reviewers and the repository maintainer to review your work later. Please also add the text `Signed-off-by: YOUR NAME <YOUR EMAIL ADDRESS>` to confirm that you have read and agree to the [Developer Certificate of Origin (DCO)](https://developercertificate.org/).
 
 ### Making changes on your computer
 
@@ -119,11 +119,27 @@ Choose a name for your branch that reflects the purpose of the changes you are a
 
 #### Making and committing changes
 
-Once your repository is cloned to your computer and you are working in a new feature branch, you are ready to make changes to the files in the repository.
+Once your repository is cloned to your computer and you are working in a new feature branch, then you are ready to make changes to the files in the repository.
 
 Changes can be made using any editor you choose, although it is convenient to use an editor with helpful features such as code highlighting, bracket matching etc. In the examples below, we use [Atom](https://atom.io/) (a cross-platform, open source editor with Git integration) for illustration. Other editors, such as [VSCode](https://code.visualstudio.com/), provide similar features.
 
 When you are finished working, or to bundle related changes as you progress with your work, commit your changes to your feature branch. You may want to commit multiple times as different, discrete steps are completed. For each commit, add a "commit message" that describes briefly what has changed. This will help reviewers and the repository maintainer to review your work later.
+
+When committing, please sign off your commit to confirm that you agree with the terms of the [Developer Certificate of Origin (DCO)](https://developercertificate.org/). To do this, configure your Git username and email address for the repository with:
+
+```console
+git config user.name "<USERNAME>"
+git config user.email "<EMAIL ADDRESS>"
+```
+
+or globally with:
+
+```console
+git config --global user.name "<USERNAME>"
+git config --global user.email "<EMAIL ADDRESS>"
+```
+
+Then sign off your commit by using the `-s` flag with the `git commit` command.
 
 {{< highlight "primary">}}
 
@@ -190,7 +206,7 @@ When you have made some changes and are ready to commit them, add your changes t
 ```bash
 cd ~/ryo-projects/ryo-example
 git add .
-git commit
+git commit -s
 ```
 
 The `git commit` command will open a text editor, where you can enter your commit message. Please add a short description of the change in the first line and, if necessary, further details in a second paragraph including a link to any Issue addressed by the changes.

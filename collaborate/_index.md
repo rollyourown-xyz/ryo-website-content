@@ -40,3 +40,9 @@ To take part in the general discussion around our project, you can join us in ou
 Before you start, you might like to read this general guide to contributing to open source projects: [How to Contribute to Open Source](https://opensource.guide/how-to-contribute/)
 
 {{< /highlight >}}
+
+## SPDX and DCO
+
+We use [Software Package Data Exchange (SPDX)](https://spdx.dev/) information in each source file in our repositories. We request any contributor to add SPDX information to any new file submitted and to include additional copyright information in modified files, where applicable.
+
+In addition, when submitting a Pull Request to our project we ask contributors to agree with the terms of the [Developer Certificate of Origin (DCO)](https://developercertificate.org/) to certify that the contributor has the right to make the contribution.
