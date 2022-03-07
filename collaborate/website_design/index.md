@@ -33,4 +33,4 @@ If, after discussing the change, you would like to proceed and implement it, the
 
 ## Licence
 
-Please be aware that the Hugo theme for the rollyourown.xyz website is released under the open source [MIT licence](https://codeberg.org/rollyourown-xyz/general-feedback/src/branch/main/LICENSE). If you are not comfortable with this, then we unfortunately cannot include your contribution.
+Please be aware that the Hugo theme for the rollyourown.xyz website is released under the open source [GPLv3 licence](https://spdx.org/licenses/GPL-3.0-or-later.html). If you are not comfortable with this, then we unfortunately cannot include your contribution.

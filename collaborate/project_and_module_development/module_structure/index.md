@@ -55,7 +55,7 @@ The `module_id` is also added as the default value to the module's [configuratio
 
 The top-level directory of a rollyourown.xyz module includes a `LICENSE`, `CONTRIBUTING.md`, `README.md` and `SECURITY.md` file:
 
-- LICENSE: Describes the licence under which the code in the repository may be copied or used. Only [open source](https://opensource.org/osd) licences (e.g. the [MIT](https://opensource.org/licenses/MIT) licence) may be used for a rollyourown.xyz module
+- LICENSE: Describes the licence under which the code in the repository may be copied or used. Only [open source](https://opensource.org/osd) licences (e.g. the [GPLv3](https://spdx.org/licenses/GPL-3.0-or-later.html) licence) may be used for a rollyourown.xyz module
 - CONTRIBUTING.md: Provides information on how to collaborate on the module
 - README.md: Provides a high-level description of the module and how to use it
 - SECURITY.md: Provides information on how to report security vulnerabilities in the module
