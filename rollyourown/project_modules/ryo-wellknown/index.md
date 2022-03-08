@@ -42,7 +42,7 @@ This module has no dependencies.
 
 This project module deploys a container with multiple services as shown in the following diagram:
 
-![Module Overview](Module_Overview.svg)
+{{< image src="Module_Overview.svg" title="Module Overview">}}
 
 The Well-known Server module contains three applications, together providing a well-known server to be used in other [rollyourown.xyz](https://rollyourown.xyz) projects.
 

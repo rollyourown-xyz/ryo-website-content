@@ -42,7 +42,7 @@ This module has no dependencies to other [rollyourown.xyz](https://rollyourown.x
 
 This project module deploys a container with multiple services as shown in the following diagram:
 
-![Module Overview](Module_Overview.svg)
+{{< image src="Module_Overview.svg" title="Module Overview">}}
 
 ### HAProxy
 

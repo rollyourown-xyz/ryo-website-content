@@ -75,7 +75,7 @@ In this mode, the [Gitea Git repository server](/rollyourown/projects/single_ser
 
 The components deployed in this project are shown in the following diagram:
 
-![Project Overview](Project_Overview.svg)
+{{< image src="Project_Overview.svg" title="Project Overview">}}
 
 ### Host server
 

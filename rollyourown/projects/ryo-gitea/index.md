@@ -57,7 +57,7 @@ This project depends on and deploys the following [rollyourown.xyz](https://roll
 
 The components deployed in this project are shown in the following diagram:
 
-![Project Overview](Project_Overview.svg)
+{{< image src="Project_Overview.svg" title="Project Overview">}}
 
 ### Host server
 
@@ -93,15 +93,15 @@ Your first step after deployment will be to create organisations and user accoun
 
 Log in to the Gitea front-end at the domain name provided in your configuration file during project deployment (as the variable `project_domain_name`). The admin user's username and password were also defined in your configuration file (as the variables `project_admin_username` and `project_admin_password`).
 
-![Gitea Landing Page](Gitea_Landing_Page_1200.png)
+{{< image src="Gitea_Landing_Page_1200.png" title="Gitea Landing Page">}}
 
 After login, user accounts can be created from the "Site Administration" item in the user's drop-down menu (along with other settings):
 
-![Gitea Login Page](Gitea_Login_Page_1200.png)
+{{< image src="Gitea_Login_Page_1200.png" title="Gitea Login Page">}}
 
 Each user is created from the "Create User Account" button:
 
-![Gitea Users Admin Page](Gitea_Users_1200.png)
+{{< image src="Gitea_Users_1200.png" title="Gitea Users Admin Page">}}
 
 Users can then log in to the Gitea front-end or access repositories via SSH (on TCP Port 3022) to create and contribute to projects.
 

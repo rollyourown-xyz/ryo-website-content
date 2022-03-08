@@ -20,6 +20,7 @@ A host server is needed to run the various containers making up a project deploy
 - [ ] Add links in the text
 - [ ] Add section on host server backup
 - [ ] Move "Using Consul in a project" section to a separate developers' page
+- [ ] Add an example in "Component configuration" section
 
 {{< /highlight >}}
 
@@ -43,7 +44,7 @@ If you are hosting your own host server within your home or office network, then
 
 The basic components of a host server are illustrated in the following diagram:
 
-![Host_Server](Host_Server.svg)
+{{< image src="Host_Server.svg" title="Host_Server">}}
 
 On top of the base operating system, the [rollyourown.xyz](https://rollyourown.xyz) [automated host server setup script](#automated-host-server-setup) configures the server, installs basic packages and installs two key components for enabling a [rollyourown.xyz](https://rollyourown.xyz) project deployment:
 

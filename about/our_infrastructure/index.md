@@ -33,7 +33,7 @@ If we need to move services to additional host servers, we will use our [backup 
 
 The projects and modules deployed to our host server are:
 
-![Our Infrastructure](Our_Infrastructure.svg)
+{{< image src="Our_Infrastructure.svg" title="Our Infrastructure">}}
 
 ### Projects
 

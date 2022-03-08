@@ -42,7 +42,7 @@ This module depends on the [rollyourown.xyz](https://rollyourown.xyz) [Ingress P
 
 This project module deploys a container with multiple services as shown in the following diagram:
 
-![Module Overview](Module_Overview.svg)
+{{< image src="Module_Overview.svg" title="Module Overview">}}
 
 The STUN/TURN Server module contains three applications, together providing a dynamically-configurable [STUN](https://en.wikipedia.org/wiki/STUN) and [TURN](https://en.wikipedia.org/wiki/Traversal_Using_Relays_around_NAT) server to be used in other [rollyourown.xyz](https://rollyourown.xyz) projects.
 

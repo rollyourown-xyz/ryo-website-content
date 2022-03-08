@@ -57,7 +57,7 @@ This project depends on and deploys the following [rollyourown.xyz](https://roll
 
 The components deployed in this project are shown in the following diagram:
 
-![Project Overview](Project_Overview.svg)
+{{< image src="Project_Overview.svg" title="Project Overview">}}
 
 ### Host server
 

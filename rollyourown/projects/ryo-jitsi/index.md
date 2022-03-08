@@ -52,7 +52,7 @@ The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is h
 
 The components deployed in this project are shown in the following diagram:
 
-![Project Overview](Project_Overview.svg)
+{{< image src="Project_Overview.svg" title="Project Overview">}}
 
 ### Host server
 

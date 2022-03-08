@@ -211,11 +211,11 @@ As [described above](#primary-and-mirror-repositories), we follow a different ap
 
 Issues and Pull Requests from the community are managed on the respective hosting service, as these are the places where collaborators already have their account. This means that the merging workflow involves an interaction between our own repositories and the mirror repositories. This is made possible by the distributed nature of Git.
 
-{{< more "secondary">}}
-
 A typical forking workflow is illustrated in the following diagram:
 
-![Forking Workflow](Forking_Workflow.svg)
+{{< image src="Forking_Workflow.svg" title="Forking Workflow">}}
+
+{{< more "secondary">}}
 
 1. A contributor forks a repository to their account (e.g. on Codeberg)
 2. The contributor clones the repository fork to their local computer
@@ -229,9 +229,13 @@ A typical forking workflow is illustrated in the following diagram:
 10. The maintainer commits the change and pushes the (changed) 'main' branch back to the origin repository. This commit **must not be** a squash commit (which would combine the contributor's commits into a single one), so that all the contributor's commits are recorded in the origin repository
 11. Because **all the contributor's commits are included**, the Pull Request on Codeberg (or GitHub) is automatically recognised as merged
 
+{{< /more >}}
+
 With the addition of mirroring, our workflow is illustrated in the following diagram:
 
-![RYO Workflow](RYO_Workflow.svg)
+{{< image src="RYO_Workflow.svg" title="RYO Workflow">}}
+
+{{< more "secondary">}}
 
 1. A contributor forks the **mirror** repository to their account (e.g. on Codeberg)
 2. The contributor clones the repository fork to their local computer
