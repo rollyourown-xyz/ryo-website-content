@@ -8,3 +8,7 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 This repository contains the content and configuration for Hugo static site generation of the [https://rollyourown.xyz](https://rollyourown.xyz) website.
 
 This repository is used in combination with the hugo-scaffold and hugo-theme repositories to provide the full directory structure for the rollyourown.xyz website provisioner service to generate the rollyourown.xyz website.
+
+## Copyright, Licences and Trademarks
+
+For information on copyright, licences and trademarks, see [https://rollyourown.xyz/about/copyright_licenses_trademarks/](https://rollyourown.xyz/about/copyright_licenses_trademarks/).
