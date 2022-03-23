@@ -234,6 +234,7 @@ HAProxy configuration is provisioned to the key-value store in multiple folders:
 - HAProxy TCP Listeners are provisioned to the key-value folder `service/haproxy/tcp-listeners/`
 - HAProxy ACLs are provisioned to the key-value folder `service/haproxy/acl/<ACL name>/`
 - HAProxy HTTP deny rules are provisioned to the key-value folder `service/haproxy/deny/`
+- HAProxy HTTP redirect rules are provisioned to the key-value folder `service/haproxy/redirect/`
 - HAProxy use-backend rules are provisioned to the key-value folder `service/haproxy/use-backend/`
 
 {{< /more >}}
@@ -445,6 +446,51 @@ module "deploy-matrix-ingress-proxy-deny-configuration-for-synapse" {
   source = "../../ryo-ingress-proxy/module-deployment/modules/deploy-ingress-proxy-configuration"
 
   ingress-proxy_acl_denys = [ "path-synapse-admin" ]
+}
+```
+
+##### HAProxy HTTP redirect rules
+
+The terraform module `deploy-ingress-proxy-configuration` can be used to deploy key-values to Consul for configuring HTTP redirect rules.
+
+{{< more "secondary">}}
+
+The configuration for HAProxy redirect rules is provisioned to the key-value folder `service/haproxy/redirect/`. Each entry is a key-value pair of the form `<key,value>` where:
+
+- the `key` is an [ACL name](#haproxy-acls)
+- the `value` is the prefix to use for the redirect
+
+For each `<ACL NAME>` found in the `service/haproxy/redirect/` folder in the KV store, the Consul-Template application generates an `http-request redirect` rule in the HTTPS frontend section of the HAProxy configuration file by looking up the configuration in the `service/haproxy/acl/<ACL NAME>/` folder.
+
+- For a host-only ACL:
+
+    ```bash
+    http-request redirect prefix <PREFIX> code 302 if { hdr(host) -i <HOST KEY> }
+    ```
+
+- For a path-only ACL:
+
+    ```bash
+    http-request redirect prefix <PREFIX> code 302 if { path_beg -i <PATH KEY>}
+    ```
+
+- For a host-path ACL:
+
+    ```bash
+    http-request redirect prefix <PREFIX> code 302 if { hdr(host) -i <HOST KEY> } { path_beg -i <PATH KEY>}
+    ```
+
+{{< /more >}}
+
+For example, a HTTP redirect rule for redirecting the `www` subdomain to the main domain can be deployed with the following code:
+
+```tf
+module "deploy-website-ingress-proxy-www-redirect" {
+  source = "../../ryo-ingress-proxy/module-deployment/modules/deploy-ingress-proxy-configuration"
+  
+  ingress-proxy_acl_redirects = {
+    join("-", [ local.project_id, "www-domain" ]) = {prefix = join("", ["https://", local.project_domain_name])}
+  }
 }
 ```
 
