@@ -1,5 +1,5 @@
 ---
-title: "Privacy and Data Protection"
+title: "Privacy Policy"
 weight: 11
 tags: []
 draft: false
