@@ -15,4 +15,10 @@ The [open source community](https://en.wikipedia.org/wiki/Open_source) is amazin
 
 For open source to scale up and reach more users, we need more than open source software. **We need free and open source automated deployment**.
 
+Automated deployments, with [Immutable Infrastructure](https://www.hashicorp.com/resources/what-is-mutable-vs-immutable-infrastructure) and configuration and infrastructure in code make system integration fast, repeatable and manageable.
+
+With rollyourown, we aim to make system integration a collaborative, open source activity. A canonical, working configuration for deploying any open source application or combination of open source applications can be developed collaboratively as code and this code made available for anyone to use. A working configuration can be deployed in minutes and is repeatable over any number of deployments.
+
+That's how we lower the barrier to using open source applications.
+
 Read more in our [Manifesto](/about/manifesto/).

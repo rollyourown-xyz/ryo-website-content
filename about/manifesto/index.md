@@ -56,7 +56,7 @@ The open source model of development has proven to be a great way to organise co
 
 By publishing our automation code as open source, experienced developers and system builders who develop good, working solutions for themselves can provide their solutions to the community in a re-usable way. Other developers and system builders can then improve these solutions, contributing their improvements back to the community via our open source projects.
 
-If the configuration and deployment of open source software is automated and the automation code is freely available, then:
+If the configuration and deployment of open source software is automated, and the automation code is freely available, then:
 
 - More people can deploy open source solutions, without themselves needing to invest the time and/or have the experience to solve integration problems and get things working
 - Developers and system builders can deploy open source solutions for many, many more friends and family, as the time needed to deploy and maintain a solution is hugely reduced
