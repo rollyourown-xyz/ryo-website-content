@@ -82,6 +82,33 @@ Upgrading a rollyourown.xyz project deployment consists of a few steps:
 
 After this process, your project deployment has been upgraded.
 
+## Rollback
+
+If, after an upgrade, one or more component fails to launch, or the service is disrupted for some reason, the `rollback.sh` script allows you to roll back to a previous working version.
+
+Before starting the rollback procedure, identify the version stamps of the images to roll back to. To see the images available on the [host server](/rollyourown/how_to_use/host_server), enter the following on the [control node](/rollyourown/how_to_use/control_node):
+
+```bash
+lxc image list <HOST_NAME>:
+```
+
+Here, `<HOST_NAME>` is the name you gave to your host server, which is used when calling the `deploy.sh` and `upgrade.sh` scripts. The output of the command provides a list of images on the host server, identified by their project, module and component names.
+
+As an example, the following diagram shows the project and module components for a [Grav CMS deployment](/rollyourown/projects/ryo-grav-cms), with two versions of the ingress-proxy module image and three versions of the grav-webserver project component image:
+
+{{< image src="lxc_image_list_example.png" title="lxc image list example">}}
+
+Typically, you will want to restore the image of the previous working version and only for the components which failed to upgrade. So, for example, if the `upgrade.sh` script was called with the version stamp `TEST03` and upgrading modules was not selected, then rolling back to the previous working version would mean rolling back the project components to version `TEST02` in the above example.
+
+Once the versions to roll back to have been identified, log in to the [control node](/rollyourown/projects/control_node) and run the `rollback.sh` script in your project's directory, passing the name of the host server via the `-n` flag:
+
+```bash
+cd ~/ryo-projects/<project_to_roll_back>/
+./rollback.sh -n <HOSTNAME>
+```
+
+The `rollback.sh` script will ask whether modules need to be rolled back and will ask for the version to use for each module (if applicable) and for the project.
+
 ## Manual changes
 
 {{< highlight "danger" "Warning!">}}

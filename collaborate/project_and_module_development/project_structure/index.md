@@ -40,6 +40,7 @@ project_id
 ├─ backup.sh
 ├─ deploy.sh
 ├─ restore.sh
+├─ rollback.sh
 └─ upgrade.sh
 ```
 
@@ -68,6 +69,7 @@ The top-level directory of a rollyourown.xyz project includes a number of script
 ├─ backup.sh
 ├─ deploy.sh
 ├─ restore.sh
+├─ rollback.sh
 └─ upgrade.sh
 ```
 
@@ -94,6 +96,18 @@ The `upgrade.sh` script (optionally) manages the upgrade of any modules used by 
 For each module used in the project, the user is asked whether the module should also be upgraded. If the user selects `y` to upgrade a module, then the `upgrade.sh` script calls the [`upgrade.sh` script](/collaborate/project_and_module_development/module_structure/#the-upgradesh-script) for the module.
 
 After (optional) module upgrades, the `upgrade.sh` script calls the `build-image-project.sh` and `deploy-project.sh` scripts in the [`/scripts-project` directory](#the-scripts-project-directory) to perform project-specific image build and deployment.
+
+### The `rollback.sh` script
+
+The `rollback.sh` script automates the [rollback](/rollyourown/how_to_use/maintain/#rollback) of project and (optionally) module containers in case of a failed upgrade.
+
+Only the variable `MODULES` in the `rollback.sh` script needs to be modified for a specific project, in the same way as for the [`deploy.sh` script](#the-deploysh-script). The `MODULES` variable should be set to a space-separated list of all the modules that are deployed for the project - e.g. in the form "module_1 module_2 module_3"
+
+The `rollback.sh` script deploys a previous version of the containers for the project and its modules.
+
+For each module used in the project, the user is asked whether the module should also be rolled back. If the user selects `y` to roll back a module, then the user is asked for the version to roll back to. The `rollback.sh` script then calls the [`deploy-module.sh` script](/collaborate/project_and_module_development/module_structure/#the-deploy-modulesh-script) for the module with the selected version stamp.
+
+After (optional) module rollbacks, the `rollback.sh` script asks for the version of the project components to roll back to. The script then calls the `deploy-project.sh` script in the [`/scripts-project` directory](#the-scripts-project-directory) to perform project-specific rollback.
 
 ### The `backup.sh` script
 
