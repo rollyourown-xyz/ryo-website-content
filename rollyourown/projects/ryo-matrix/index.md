@@ -161,13 +161,13 @@ In [gitea IdP mode](#gitea-idp-mode), no specific user configuration needs to be
 
 #### Using the web-based front-end
 
-Once user accounts have been created, users can interact with the service via the web-based element-web front-end. If your project domain is `example.com` (specified in your configuration file during project deployment as the variable `project_domain_name`), then the element-web front-end is available at `https://element.example.com`.
+Once user accounts have been created, users can interact with the service via the web-based [Element](https://element.io/) client. If your project domain is `example.com` (specified in your configuration file during project deployment as the variable `project_domain_name`), then the Element web client is available at `https://element.example.com`.
 
 ![Element Web Sign-In](Element_Web_Sign_In_1200.png)
 
 #### Using mobile client apps
 
-Users can also interact with the service via various mobile apps. The reference mobile app for matrix is Element, available from [f-droid](https://f-droid.org/app/im.vector.app) or the [Google Play Store](https://play.google.com/store/apps/details?id=im.vector.app) for Android and from the [Apple App Store](https://apps.apple.com/us/app/element/id1083446067) for iOS. Other [clients](https://matrix.org/clients/) are available, with a good alternative being [FluffyChat](https://fluffychat.im/), which provides a user interface more similar to other mobile messaging apps.
+Users can also interact with the service via various mobile apps. The reference mobile app for matrix is [Element](https://element.io/), available from [f-droid](https://f-droid.org/app/im.vector.app) or the [Google Play Store](https://play.google.com/store/apps/details?id=im.vector.app) for Android and from the [Apple App Store](https://apps.apple.com/us/app/element/id1083446067) for iOS. Other [clients](https://matrix.org/clients/) are available, with a good alternative being [FluffyChat](https://fluffychat.im/), which provides a user interface more similar to other mobile messaging apps.
 
 Users logging in via a mobile app **must enter your homeserver name** (e.g. `example.com`) before entering their username and password.
 
