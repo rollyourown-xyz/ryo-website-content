@@ -8,21 +8,29 @@ SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
+Do you want to deploy open source software, take control of your data and communications, but don't have the time or experience to read through documentation, configure and integrate components, build and maintain a solution manually?
+
+<!--more-->
+
+Our [projects](/rollyourown/projects/) lower the barrier to deploying integrated, open source software solutions by providing automation code to build and deploy all the components needed within a few minutes.
+
 This is the documentation for **using** rollyourown.xyz projects. You can browse the content via the menu on the left-hand side.
 
 ## How to use
 
-Learn how to use a rollyourown.xyz project to deploy open source solutions:
+Choose a [project](/rollyourown/projects/) to deploy and download the automation code for the project from our repositories. The automation code will set up your control node, set up your host server and deploy your project.
 
-* Learn how to set up a [control node](/rollyourown/how_to_use/control_node/) for managing your projects
-* Learn how to set up a [host server](/rollyourown/how_to_use/host_server/) to run your projects
-* Learn how to [deploy](/rollyourown/how_to_use/deploy/) a project to your host server
-* Learn how to [maintain](/rollyourown/how_to_use/maintain/), [back up and restore](/rollyourown/how_to_use/back_up_and_restore/) your projects
+{{< image src="Overview.svg" title="Overview">}}
 
-## Projects and modules
+## Steps to take
 
-Choose a project to deploy and learn about the open source software deployed by our projects in the [projects](/rollyourown/projects/) section.
+Browse the available [projects](/rollyourown/projects/) and choose a project to deploy. Then follow our guides to learn how to use our automation code to:
 
-Learn about the open source software deployed by our modules in the [project modules](/rollyourown/project_modules/) section.
+* Set up a [control node](/rollyourown/how_to_use/control_node/) for managing your projects
+* Set up a [host server](/rollyourown/how_to_use/host_server/) to run your projects
+* [Deploy](/rollyourown/how_to_use/deploy/) a project to your host server
+* [Maintain](/rollyourown/how_to_use/maintain/), [back up and restore](/rollyourown/how_to_use/back_up_and_restore/) your projects
 
-For an example of how to use rollyourown.xyz projects to provide services, see how we use our own projects to run [our own infrastructure](/about/our_infrastructure/).
+## How we roll our own
+
+See how we use rollyourown.xyz projects to provide [our own infrastructure](/about/our_infrastructure/).
