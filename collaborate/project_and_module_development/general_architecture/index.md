@@ -17,7 +17,7 @@ A rollyourown.xyz deployment has a defined architecture and each project is depl
 
 A rollyourown.xyz deployment has a defined architecture, illustrated in the following diagram:
 
-{{< image src="Repo_Control_Node_Host.svg" title="Repositores Control Node Host Server">}}
+{{< image src="Repo_Control_Node_Host.svg" title="Deployment Architecture">}}
 
 - Automation code is stored in the rollyourown.xyz Git repositories
 
