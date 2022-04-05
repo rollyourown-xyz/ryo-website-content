@@ -93,6 +93,8 @@ To deploy the project, follow the generic [project deployment instructions](/rol
 
 ### After deployment
 
+For a full overview of how to use Nextcloud, see the excellent documentation at [https://docs.nextcloud.com/](https://docs.nextcloud.com/).
+
 Your first steps after deployment will be to configure the Nextcloud service, optionally install apps and then create user accounts for using the service.
 
 #### Logging in
