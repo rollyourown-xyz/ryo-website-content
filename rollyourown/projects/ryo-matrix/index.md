@@ -67,7 +67,7 @@ In standalone IdP mode, user accounts are managed on the [Synapse homeserver](#s
 
 ### Gitea IdP mode
 
-In Gitea IdP mode, the matrix service is deployed together with a [Gitea Git repository server](/rollyourown/projects/single_server_projects/ryo-gitea) and the Gitea server is used as for [single sign-on (SSO)](https://en.wikipedia.org/wiki/Single_sign-on). This means that a matrix user authenticates against the Gitea server via [OAuth2](https://oauth.net/2/) and only has a single username/password for both services.
+In Gitea IdP mode, the matrix service is deployed together with a [Gitea Git repository server](/rollyourown/projects/single_server_projects/ryo-gitea) and the Gitea server is used for [single sign-on (SSO)](https://en.wikipedia.org/wiki/Single_sign-on). This means that a matrix user authenticates against the Gitea server via [OAuth2](https://oauth.net/2/) and only has a single username/password for both services.
 
 In this mode, the [Gitea Git repository server](/rollyourown/projects/single_server_projects/ryo-gitea) must be deployed and an OAuth2 application configured, before this project is deployed.
 
