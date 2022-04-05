@@ -87,6 +87,19 @@ The [rollyourown.xyz](https://rollyourown.xyz/) repository for the host server a
 
 The recommended way to run a [rollyourown.xyz](https://rollyourown.xyz) project is on a dedicated server or virtual private server (VPS) hosted by a hosting provider.
 
+### Host server resources
+
+The "size" of the host server needed for a [rollyourown.xyz](https://rollyourown.xyz) project depends on a number of parameters:
+
+- The number of different projects you intend to deploy on the host server
+- The complexity of the project(s) you want to deploy - the project page should give you an idea of the minimum resources the project needs to run well
+- The number of users of the service deployed by your project. The resources needed for a project providing a service for multiple people (e.g. a messaging server, a cloud service) will depend on the number of persons you want to support with your deployment. A project providing a service for a family or small group of friends will need fewer resources than a large deployment for hundreds or even thousands of people
+- The traffic you expect. This will depend on the number of people you want to support or, for a blog or internet site, on the number of visitors you expect
+
+The first projects published on [rollyourown.xyz](https://rollyourown.xyz) are simple projects intended for a small number of users. In future, we plan to publish more complex projects with architectures that can scale up to larger numbers of users or for higher traffic, by using multiple servers.
+
+With most hosting providers, you can start small and upgrade your VPS if needed.
+
 ### A hosted server or Virtual Private Server (VPS)
 
 There are many, many hosting providers in different countries offering servers and VPS at varying cost, starting at a couple of Euros or Dollars per month (or whatever your local currency may be). The cost usually depends on the resources available (CPUs, RAM, storage).
@@ -136,19 +149,6 @@ If your internet connection has a **dynamic** public IP address that changes at 
 If your internet connection does not have a public IP address (e.g. your provider uses Carrier Grade NAT), then you could, for example, set up a VPN server on a hosted VPS and proxy traffic via a VPN from the VPS public IP address to your home/office network. However, in this case you would need a VPS from a hoster and could just as well deploy your project there.
 
 {{< /more >}}
-
-### Host server resources
-
-The "size" of the host server needed for a [rollyourown.xyz](https://rollyourown.xyz) project depends on a number of parameters:
-
-- The number of different projects you intend to deploy on the host server
-- The complexity of the project(s) you want to deploy - the project page should give you an idea of the minimum resources the project needs to run well
-- The number of users of the service deployed by your project. The resources needed for a project providing a service for multiple people (e.g. a messaging server, a cloud service) will depend on the number of persons you want to support with your deployment. A project providing a service for a family or small group of friends will need fewer resources than a large deployment for hundreds or even thousands of people
-- The traffic you expect. This will depend on the number of people you want to support or, for a blog or internet site, on the number of visitors you expect
-
-The first projects published on [rollyourown.xyz](https://rollyourown.xyz) are simple projects intended for a small number of users. In future, we plan to publish more complex projects with architectures that can scale up, to larger numbers of users or for higher traffic, by using multiple servers.
-
-With most hosting providers, you can start small and upgrade your VPS if needed.
 
 ### Operating system
 
