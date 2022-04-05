@@ -206,7 +206,7 @@ So that the chosen theme is used, you need to modify the `config.toml` file in y
 
 3. Click on the config.toml file
 
-    ![Codeberg config.toml](Codeberg_config_toml_800.png)
+    ![Codeberg config TOML file](Codeberg_Config_TOML_800.png)
 
 4. Click on the "Edit" button
 
