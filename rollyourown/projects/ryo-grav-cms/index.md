@@ -70,8 +70,6 @@ After first-time deployment, the standard Grav welcome page will be available at
 
 ![Grav Default Site](Grav_Default_Site_1200.png)
 
-After deployment, next steps are described in the following sections.
-
 #### Log in as administrator and configure the site
 
 Log in using the pre-configured project administrator account at `https://<your_domain>/admin`. The administrator account's username and password are defined in your configuration file (as the variables `project_admin_username` and `project_admin_password`).
