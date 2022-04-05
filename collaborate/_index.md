@@ -8,17 +8,35 @@ SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
+Do you enjoy building solutions with open source software? Would you like to share the results so that others can benefit from your work? Do you want to help open source software proliferate by making solution deployments repeatable and easy?
+
+<!--more-->
+
 Thank you for taking an interest in collaborating with us on the rollyourown.xyz project!
 
 This is the documentation for **collaborating** on rollyourown.xyz projects. You can browse the content via the menu on the left-hand side.
 
-<!--more-->
+## Lower the barrier
 
-rollyourown.xyz is a collaborative open source project. All rollyourown.xyz [projects](/rollyourown/projects/) and [modules](/rollyourown/project_modules/) as well as the content of the website itself are developed in the open.
+We aim to lower the barrier to using great, open source projects by making the deployment and use of open source software easy for everyone.
 
-We would be delighted if you would like to contribute and there are a number of ways you can collaborate on the project.
+For open source to scale up and reach more users [we believe](/about/manifesto/#our-beliefs-and-the-problem-we-address) that, on top of great, open source software, we need free and open source **automated deployments**.
+
+Automated deployments make system integration fast, repeatable and manageable so that open source solutions can be used by anyone. A canonical, working configuration for any open source application (or usually a combination of open source applications) can be developed collaboratively as code and this code made available for anyone to use. A working configuration can be deployed in minutes and is repeatable over any number of deployments.
+
+## Collaborate on Infrastructure Code
+
+rollyourown.xyz is a collaborative open source project. Our projects and modules are developed within [a framework](/collaborate/project_and_module_development/general_architecture/) and all [projects](/rollyourown/projects/) and [modules](/rollyourown/project_modules/) as well as the content of the website itself are developed in the open.
+
+As an experienced developer and system builder, you have invested your time and experience in creating working solutions made of open source components. You have integrated and configured open source applications to provide usable and reliable services. However, the time and experience you have invested does not necessarily scale to help others use the same components.
+
+Collaborate with us to provide your solutions to the community in a re-usable way. Use our framework to create configuration- and infrastructure-as-code to make your solutions repeatable. Work with other developers and system builders to improve these solutions via our open source projects.
+
+Together, we can lower the barrier to using great, open source projects.
 
 ## How to collaborate
+
+We would be delighted if you would like to collaborate and there are a number of ways you can contribute to the project.
 
 There are many ways to collaborate, for example:
 
