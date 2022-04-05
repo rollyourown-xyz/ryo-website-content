@@ -12,6 +12,8 @@ The Well-known URI Server module is a re-usable module for other [rollyourown.xy
 
 <!--more-->
 
+This documentation is intended for developers of rollyourown.xyz projects.
+
 ## TODOs on this page
 
 {{< highlight "primary" "ToDo">}}

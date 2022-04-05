@@ -12,6 +12,8 @@ The Ingress Proxy module is a re-usable module for other [rollyourown.xyz](https
 
 <!--more-->
 
+This documentation is intended for developers of rollyourown.xyz projects.
+
 ## TODOs on this page
 
 {{< highlight "primary" "ToDo">}}
@@ -369,7 +371,7 @@ For example, a backend service for a [Matrix server](/rollyourown/projects/singl
 ```tf
 module "deploy-synapse-backend-service" {
   source = "../../ryo-ingress-proxy/module-deployment/modules/deploy-ingress-proxy-backend-services"
-a [Gitea server](/rollyourown/projects/single_server_projects/ryo-gitea/)
+
   non_ssl_backend_services = [ "synapse" ]
 }
 ```
