@@ -48,9 +48,13 @@ The [Github](https://github.com/) mirror repository for the control node automat
 
 The [rollyourown.xyz](https://rollyourown.xyz/) repository for the control node automation scripts is here: [https://git.rollyourown.xyz/ryo-projects/ryo-control-node](https://git.rollyourown.xyz/ryo-projects/ryo-control-node) (not publicly accessible)
 
-## Control node setup
+## Control node system requirements
 
-The steps for setting up a control node depend on your computer's operating system. The following sections describe the setup for [Windows](#control-node-setup-windows), [Linux](#control-node-setup-linux) and [MacOS](#control-node-setup-macos).
+A control node needs only a basic operating system installed and the software installed by our automation code is lightweight. Therefore, the minimum system requirements for a control node match the minimum system requirements for a Ubuntu 20.04 LTS based distribution.
+
+For example, for [xubuntu](https://xubuntu.org), the [recommended minimum system requirements](https://xubuntu.org/requirements/) are a 1.5GHz dual-core Intel or AMD 64-bit processor with 2GB memory and 20GB hard disk space.
+
+For the standard [Ubuntu desktop](https://ubuntu.com/download/desktop), the [recommended minimum system requirements](https://help.ubuntu.com/community/Installation/SystemRequirements) are a 2 GHz dual core processor with 4 GB RAM and 25 GB hard-drive space.
 
 {{< highlight "info" "Terminal or desktop?">}}
 
@@ -60,7 +64,11 @@ Even if the first project deployed does not require a control node with a graphi
 
 {{< /highlight >}}
 
-Once you have chosen and installed your virtual machine environment, install Ubuntu 20.04 LTS (desktop version) in a virtual machine as described in the relevant hypervisor documentation.
+## Control node setup
+
+The steps for setting up a control node depend on your computer's operating system. The following sections describe the setup for [Windows](#control-node-setup-windows), [Linux](#control-node-setup-linux) and [MacOS](#control-node-setup-macos).
+
+Once you have chosen and installed your virtual machine environment, install Ubuntu 20.04 LTS (desktop version is recommended) in a virtual machine as described in the relevant hypervisor documentation.
 
 ### Control node setup: Linux
 
@@ -82,7 +90,7 @@ A control node can be run in a virtual machine on a Windows computer. There are 
 
 {{< highlight "warning" "VMware Workstation Player">}}
 
-On Windows 10, testing has shown that the free, personal, non-commercial use version of [VMware Workstation Player](https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html) **does not work** with rollyourown.xyz due to networking issues for containers within a virtual machine preventing the image build process from succeeding. These problems *may* be solved with the VMWare Player Pro version by setting promiscuous mode on virtual network bridge, but we have been unable to test this. If you can verify this and provide step-by-step instructions how to solve these issues, please contribute [LINK TO CONTRIBUTION PAGE].
+On Windows 10, testing has shown that the free, personal, non-commercial use version of [VMware Workstation Player](https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html) **does not work** with rollyourown.xyz due to networking issues for containers within a virtual machine preventing the image build process from succeeding. These problems *may* be solved with the VMWare Player Pro version by setting promiscuous mode on virtual network bridge, but we have been unable to test this. If you can verify this and provide step-by-step instructions how to solve these issues, please [contribute](/collaborate).
 
 {{< /highlight >}}
 
@@ -108,7 +116,7 @@ Currently, only the x86 or amd64 architectures are supported (for control machin
 
 {{< /highlight >}}
 
-A control node can be run on a dedicated computer running Ubuntu 20.04 LTS. This could, for example, be an old Laptop or desktop computer, an [Intel NUC](https://www.intel.com/content/www/us/en/products/boards-kits/nuc.html) or other mini PC or barebones computer. Prerequisite is that the computer is running [Ubuntu 20.04 desktop](https://ubuntu.com/download/desktop) or, **for terminal-based control nodes with no graphical interface**, [Ubuntu 20.04 server](https://ubuntu.com/download/server).
+A control node can be run on a dedicated computer running Ubuntu 20.04 LTS. This could, for example, be an old Laptop or desktop computer, an [Intel NUC](https://www.intel.com/content/www/us/en/products/boards-kits/nuc.html) or other mini PC or barebones computer. Prerequisite is that the computer is running a Ubuntu 20.04 based desktop environment or, **for terminal-based control nodes with no graphical interface**, [Ubuntu 20.04 server](https://ubuntu.com/download/server).
 
 ## Automated control node configuration
 
