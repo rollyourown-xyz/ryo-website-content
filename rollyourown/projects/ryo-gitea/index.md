@@ -87,6 +87,12 @@ The Gitea container provides the Gitea server for the project. [Gitea](https://g
 
 To deploy the project, follow the generic [project deployment instructions](/rollyourown/projects/how_to_deploy/), using the project's [mirror repositories](#repository-links).
 
+For example, clone the project from the project's GitHub repository with:
+
+```bash
+git clone https://github.com/rollyourown-xyz/ryo-gitea
+```
+
 ### After deployment
 
 Your first step after deployment will be to create organisations and user accounts for using the Gitea service.

@@ -141,6 +141,12 @@ After configuring the OAuth2 application, this project can be [configured](/roll
 
 To deploy the project, follow the generic [project deployment instructions](/rollyourown/projects/how_to_deploy/), using the project's [mirror repositories](#repository-links).
 
+For example, clone the project from the project's GitHub repository with:
+
+```bash
+git clone https://github.com/rollyourown-xyz/ryo-matrix
+```
+
 ### After deployment
 
 #### Creating user accounts in standalone IdP mode

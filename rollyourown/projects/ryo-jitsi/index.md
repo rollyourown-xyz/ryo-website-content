@@ -82,6 +82,12 @@ The Jitsi server container hosts an [nginx](https://nginx.org/) web server with 
 
 To deploy the project, follow the generic [project deployment instructions](/rollyourown/projects/how_to_deploy/), using the project's [mirror repositories](#repository-links).
 
+For example, clone the project from the project's GitHub repository with:
+
+```bash
+git clone https://github.com/rollyourown-xyz/ryo-jitsi
+```
+
 ### After deployment
 
 For a full overview of how to use [jitsi video conferencing](https://jitsi.org/), see the Jitsi [user guide](https://jitsi.github.io/handbook/docs/user-guide/user-guide-start).

@@ -375,6 +375,12 @@ project_idp_gitea_client_secret: <CLIENT_SECRET_HERE>
 
 To deploy the project, follow the generic [project deployment instructions](/rollyourown/projects/how_to_deploy/), using the project's [mirror repositories](#repository-links).
 
+For example, clone the project from the project's GitHub repository with:
+
+```bash
+git clone https://github.com/rollyourown-xyz/ryo-hugo-website
+```
+
 ### After deployment
 
 After deployment, your website will be updated automatically whenever content (or theme) is changed in the content (or theme) repository. Editing your content (or theme) is done via the repository and can be managed by any [Git-based workflow](/collaborate/working_with_git/what_is_git/#git-based-workflow) you choose.
