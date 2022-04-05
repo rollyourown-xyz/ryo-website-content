@@ -198,3 +198,11 @@ After the project has been deployed, you are ready to perform any needed project
 Further information on further steps to take and how to use the project are given on the project's page.
 
 Over time, the software packages used for the project deployment need to be kept up to date, as security patches are released for the software or underlying operating systems or when new versions of the software packages are released. The `upgrade.sh` automation script is used to update the project's containers and deployment. More information can be found at ["How to Maintain"](/rollyourown/projects/how_to_maintain/).
+
+{{< highlight "warning" "Regular upgrades">}}
+
+A rollyourown.xyz project's components are configured with the [unattended-upgrades](https://wiki.debian.org/UnattendedUpgrades) package **disabled**. Our automation method follows the principle of [Immutable Infrastructure](https://www.hashicorp.com/resources/what-is-mutable-vs-immutable-infrastructure), so that a deployed container is exactly and always described by a version of the configuration and infrastructure code. Allowing a deployed component to run automatic upgrades, changing the version of packages deployed, would violate this principle and may lead to unexpected breakages.
+
+This means that, after deployment, the `upgrade.sh` automation script should be run from time to time to keep the deployed components up to date.
+
+{{< /highlight >}}
