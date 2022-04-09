@@ -3,180 +3,183 @@ title: "Privacy Policy"
 weight: 11
 tags: []
 draft: false
+numbered: true
 ---
 <!--
 SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
-Our policy is to collect as little personal data as necessary in providing this website and the services we offer to contributors to our project.
+_April 2022_
 
-This page provides information on the processing of personal data while visiting this and our related websites. In addition, this page provides information on the processing of personal data of members of our organisation while using our Git repository server or Matrix communication/collaboration service.
+Our policy is to collect as little personal data as necessary in providing this website and in providing the services we offer to members of our organisation.
 
 <!--more-->
 
-Protection of your data as a website visitor or member of our project is taken very seriously. Any personal data collected is handled confidentially and in accordance with European data protection regulations. We do not share personal data with third parties without your permission.
+The controller mentioned below (“we”), operates the website ”rollyourown” (the “Platform" or the “Site”), accessible at [https://rollyourown.xyz](https://rollyourown.xyz) and related subdomains. With this privacy policy, we inform you about the personal data we collect when you visit our Site and how we process it. Thereby, we also fulfil our obligation to inform you pursuant to Article 13 [General Data Protection Regulation](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679) (GDPR).
 
-## Data Controller
+Although this Privacy Policy is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International Public License](https://creativecommons.org/licenses/by-sa/4.0/), as is the majority of the content of this website, the policy has been formulated specifically for our project and the infrastructure we provide (the "Project"). This policy is therefore not universally valid and changes will need to be made if the text of this policy is used for other purposes.
 
-Data controller for our website and services is Wilfred Nicoll. The Data Controller can be contacted as follows:
-
-Contact form: [https://forms.rollyourown.xyz/data-protection](https://forms.rollyourown.xyz/data-protection/)
+## Identity of the Controller
 
 Wilfred Nicoll\
 Hosigaustr. 10\
-81375 Munich / München\
-Germany / Deutschland
+81375 Munich\
+Germany
 
-## Your rights
+Phone: +49 (0) 89 35855476\
+E-mail: contact [at] rollyourown [dot] xyz
 
-You have the right under European regulation to:
+Our contact form for data protection and privacy issues is at:\
+[https://forms.rollyourown.xyz/data-protection](https://forms.rollyourown.xyz/data-protection)
 
-- Be informed and request a copy of any personal data we store about you and the purpose of any processing of that data
-- Have any of your personal data corrected if incorrect
-- Have your personal data deleted
-- Withdraw any permission to process your personal information in future or object to the processing of your personal information
+## Purposes of processing, its legal basis and the period for which the data will be stored
 
-To request information about any personal data stored or to contact us regarding any of these rights, please use our [contact form](https://forms.rollyourown.xyz/data-protection/) or contact us in writing at the above address.
+### General use of the Site
 
-## Public Website
+Generally, we do not store personal data while you use our Site with the exception that our webserver registers all connections to the Site automatically and collects the following technical information about your visit:
 
-The main part of our website is generated from content stored in our repositories and mirrored [to Codeberg](https://codeberg.org/rollyourown-xyz/ryo-website-hugo-content) and [GitHub](https://github.com/rollyourown-xyz/ryo-website-hugo-content). This content is converted into static HTML files by the [Hugo](https://gohugo.io/) static site generator. As a static website, there is no database to store information of any kind.
+- IP address
+- Name of the files accessed
+- Information about the transmission
+- Date and time of the connection
+- Amount of data transmitted
+- Operating system and
+- Web browser/ user agent
 
-Contact forms are non-static pages that we serve from a [Grav CMS](https://getgrav.org/). Grav is a flat-file CMS which also uses no database, with all content and settings stored in files.
+We process this data to establish a connection to your device over the Internet. We store the aforementioned data in log files in order to ensure the security and integrity of our systems. The respective purposes of the processing also constitute the legitimate interests we pursue with it (Art. 6 par. 1 lit. f) GDPR). We retain our log files for 14 days and delete them thereafter.
 
-Public IP addresses and user agent strings from connecting computers used by visitors to access our website may be stored in server logs for a limited period of time and used to generate statistics.
+### Contact
 
-### Site generation settings
+You can contact us, for example, by sending us an e-mail or by using our contact forms. In such cases, we will process the personal data you provide us with in order to answer your request. This may include in particular your name, e-mail address, the subject of your message and the message itself.
 
-As described in the [Hugo documentation on the General Data Protection Regulation (GDPR)](https://gohugo.io/about/hugo-and-gdpr/), we have disabled all external services with the following settings in the Hugo configuration file:
+We will retain your messages until we have fulfilled your request. After that, we will delete them immediately unless legal provisions prevent deletion.
 
-```toml
-[privacy]
-  [privacy.disqus]
-    disable = true
-  [privacy.googleAnalytics]
-    disable = true
-  [privacy.instagram]
-    disable = true
-  [privacy.twitter]
-    disable = true
-  [privacy.vimeo]
-    disable = true
-  [privacy.youtube]
-    disable = true
-```
+Where the GDPR applies, we may store data in accordance with Art. 6 para. 1 lit. f) GDPR where necessary for the purpose of providing evidence or to comply with legal retention periods in accordance with Art. 6 para. 1 lit. c) GDPR.
 
-In addition, there is no integration of these, or any other external services, in the site's custom theme templates.
+If your request is made within the framework of an existing or prospective contractual relationship with us, the storage period shall be based on the underlying contractual relationship.
 
-### Contact forms
+We base the processing for such purposes on Art. 6 par. 1 lit. f) GDPR, while the purposes of the processing also constitute the legitimate interests we pursue with it.
 
-When you use one of our contact forms to contact us, we ask you to enter your name and email address along with your message so that we can respond. This information is processed for the sole purpose of responding to your message and is deleted once no further communication is needed with you.
+### Registration on the Platform
 
-### Cookies
+Members of our organisation are provided with an account on our Git repository server. This account is used to access our repository server as well as provide authorisation for accessing our non-public development website and our collaboration tools.
 
-No cookies are used on the public website at [https://rollyourown.xyz](https://rollyourown.xyz), which is why there is no cookie consent popup or banner.
+For this purpose, we will ask you for an e-mail address and a username.  We will issue an initial password during registration, which you will change on first login. We will use your e-mail address to send you a confirmation e-mail to validate your e-mail address and account. If not validated, your account will be deleted after 14 days. If you validate your account by logging in, your account will be active until you delete it, by using the functions of the platform, or request us to delete it for you.
 
-Our contact form server at [https://forms.rollyourown.xyz](https://forms.rollyourown.xyz) sets a session cookie. Since this session cookie is technically necessary for the correct functioning of the contact forms and is not used for any other purpose, there is no cookie consent popup or banner.
+The legal basis for the processing described above is Art. 6 par. 1 lit. b) GDPR.
 
-### Bootstrap framework
+When you use our services we will collect certain information from you (if you provide it) and associate it with your account, such as:
 
-We use the [Bootstrap framework](https://getbootstrap.com/) for the responsive theme on our website and forms server. We serve the bootstrap.min.css style sheet and bootstrap.bundle.min.js javascript resources directly from our web server and not linked via an external source or CDN.
+- your password for our Git repository server and our other platforms
+- your language preference (optional),
+- your legal name (optional),
+- one or more of your other e-mail addresses (optional),
+- a short biography text (optional),
+- a link to your personal website (optional),
+- your location (optional, no location tracking),
+- your avatar (optional),
+- your public SSH key (optional),
+- your GPG key (optional),
+- your IP address,
 
-### Feather icons
+and, if you use our Matrix communications platform,
 
-We use [Feather icons](https://feathericons.com/) on our website and forms server. The feather.min.js javascript resources are served directly from our web server and not linked via an external source or CDN.
+- your display name (optional),
+- an e-mail address for notifications (optional),
+- your phone number (optional),
+- chat contents, including pictures and other content (optional: end-to-end encryption).
 
-## Services for organisation members
+If you choose to grant access to an external application or service in order to authorise that application against your account, then authorisation tokens will be shared with that external service according to the OAuth2 standard. We store information on which external applications you granted access to and associate it with your account until you revoke access to the external application or service. We process this information to provide you with this authentication feature.
 
-Members of our organisation are provided with an account on our Git repository server. This account is used to access our repository server as well as provide credentials for accessing our non-public development website and our collaboration tools.
+The legal basis for the processing described above is Art. 6 par. 1 lit. b) GDPR.
 
-### Repository server
+We generally process your personal data for as long as you have an account with us and delete it afterwards.
 
-#### Account data
+### Services associated with the Project
 
-As the minimal personal information required to maintain an account on our Git repository server, accounts are created with a username, password and email address and these are stored for as long as the account is available. The user may modify these values.
+Throughout the Project, we offer you a range of services for which we process certain personal data.
 
-In addition, a user can freely add, change and delete the following personal information in their user profile via the user interface:
+#### Use of the website
 
-- The language for the user interface
-- A full name
-- Additional email addresses
-- A short text as Biography
-- A link to an external website
-- A location
-- A small graphic file as Avatar
-- Cryptographic key files
+You can read our website without giving us any personal data. However, if you wish to contact us or provide feedback using the contact forms (such as the [general contact form](https://forms.rollyourown.xyz/contact-us), the [data protection contact form](https://forms.rollyourown.xyz/data-protection), the [security vulnerability contact form](https://forms.rollyourown.xyz/security-vulnerability), the [translation contact form](https://forms.rollyourown.xyz/translation), or the [join us form](https://forms.rollyourown.xyz/join-us)) we will handle your data as stated in [Section 2.2](#contact).
 
-The user has full control over this information and may modify or delete it from the production system at any time. The user may also delete their entire account, leading to a deletion of all personal information from the production system.
+#### Collaboration: Our Git repository server
 
-The information may, however, continue to be stored in off-line backup files for a limited time (maximum 30 days) until these are destroyed.
+Should you choose to collaborate with us as a member of our organisation (for example to be a maintainer of one or more of our repositories), then you may contribute to the Project using our [Git repository server](https://git.rollyourown.xyz/). In this case, we display your username next to all of your contributions such as code commits, raised issues, comments and other contents.
 
-#### Repository server cookies
+If you choose to delete your account, then you will also delete your personal repositories or transfer them to the ownership of another user’s account. Any contributions (such as Issues, code commits, comments or Pull Requests) that you have made in repositories owned by other accounts will not be deleted. Your username in Issues, comments and Pull Requests will be replaced with the word “Ghost”. Your username in code commits in repository histories will not be changed. This serves to ensure the integrity of the commits and is inherent to the way Git repositories work.
 
-Our repository server sets technically necessary cookies needed for the functioning of the service. In addition, the user can optionally select "Remember me" to reduce the number of times a login is needed. This sets an additional cookie.
+Where the GDPR applies, the legal basis for the processing is Art. 6 para. 1 lit b) GDPR. In case you delete your account, we will retain your contributions as stated above based on our legitimate interest of a consistent git repository according to Art. 6 para. 1 lit. f) GDPR.
 
-#### User provided content
+#### Collaboration: Other Git repository servers
 
-With an account on our Git repository server, you may create your own repositories within your own account. As a user, you have access to and are fully responsible for the data you choose to store in your repositories. If you choose to delete your account, your personal repositories will also be deleted from the production systems.
+We maintain mirrors of our public repositories [on Codeberg](https://codeberg.org/rollyourown-xyz) and [on GitHub](https://github.com/rollyourown-xyz) and you may also collaborate with us using your pre-existing account on those platforms. When you collaborate with us on those platforms, you do so subject to those platforms' privacy policies.
 
-The information may, however, continue to be stored in off-line backup files for a limited time (maximum 30 days) until these are destroyed.
+#### Collaboration: Matrix
 
-If you contribute to other repositories, then any information you provide (Issues, code or content contributions, comments you make to issues or pull requests) is public and stored in these repositories. These become an integral part of the repository history and are **not** deleted if your account is deleted. This is inherent to the way Git repositories work.
+For collaboration purposes, we provide a [Matrix](https://matrix.org) communication system which our organisation members can access using their Git repository account.
 
-### Development website
+If you use the Matrix communication services we provide, by logging in with your Git repository account, we process your personal data to provide you with the Matrix functions.
 
-Our development website at [https://dev.rollyourown.xyz](https://dev.rollyourown.xyz), containing draft content not yet published to the public website, is only accessible by members of our organisation with an account on our Git repository server. Access to the site is authorised via [OAuth2](https://oauth.net/2/). After successful authorisation, a technically necessary cookie is set which enables the user to access further pages on the development website without re-authorisation.
+Where the GDPR applies, the legal basis for the processing is Art. 6 para. 1 lit. b) GDPR. We store the conversations for a proper documentation based on our legitimate interest according to Art. 6 para. 1 lit. f) GDPR. You can choose to use end-to-end encryption in personal 1-1 and group chats, in which case we will not be able to read the contents of your communication.
 
-### Collaboration tools
+If you request a deactivation of your Matrix account, your personal information will be deleted from our system.
 
-With an account on our repository server, a user may also optionally use our collaboration and communication systems.
+You may send messages to other Matrix system users. As a federated communication system, the recipients of your messages may be other users of our Matrix system or users of other Matrix systems that are federated with our system. As with other communications systems such as e-mail or SMS, messages you have sent and that have been received by other users are not deleted from those recipient users’ accounts when your account is deleted.
 
-#### Matrix homeserver
+While data storage and processing on our Matrix system is covered by this policy, this policy cannot apply to data storage and processing on other federated systems outside our control. The Matrix protocol is a federated communications protocol and anyone, anywhere in the world may run a Matrix homeserver. If you choose to communicate with users of other Matrix systems, then your data will be processed by systems outside our responsibility and according to the privacy policies of those systems’ operators. This is an inherent property of a federated communication system.
 
-Our communication and collaboration platform is a [Matrix](https://matrix.org/) homeserver. The personal data stored and processed by this system is described in detail in the [Matrix.org Homeserver Privacy Notice](https://matrix.org/legal/privacy-notice). The following provides a summary.
+In order to use and interact with our Matrix system, you will use client software. As an open protocol, there are many clients that may be used with our servers, for example those listed on [https://matrix.org/clients/](https://matrix.org/clients/). Our organisation is not responsible for the data stored and processed by any client software provided by other parties. Matrix clients typically store the user’s data locally on the device on which the client is running (for example, the laptop from which the user accesses a web-based client or the smartphone on which the user installs a client app). This is also the case for the Element web-based Matrix client that we host at [https://element.rollyourown.xyz/](https://element.rollyourown.xyz/).
 
-On first log in, an account is created on the system with the same username as the account on our repository server. No additional password is stored on this system, as login is always via the account on our repository server.
+### Donations
 
-In addition, a user can freely add, change and delete the following personal information in their user profile via a [client](#matrix-client) User Interface:
+We may, in future, implement ways for users to sponsor or donate to the Project – for example to help fund the running costs of our services. If and when we do this, we will update this page with information about privacy and data-protections aspects.
 
-- The language for the user interface
-- A "Display Name" - i.e. a nickname shown to other users in chats
-- An email address for notifications from the system
-- A telephone number
+## Storage Period
 
-A user can request a deactivation of their account, which will lead to a removal of personal information on the production system. The information may, however, continue to be stored in off-line backup files for a limited time (maximum 30 days) until these are destroyed.
+Unless explicitly stated otherwise, we will process and store your personal data for as long as it is required for the respective purpose and delete it thereafter.
 
-Once an account has been created, the user may use the system to communicate with other Matrix users, either on the same server or on other Matrix servers federated with it. Communication types are 1-1 or group chats as well as voice and video calls.
+## Categories of Recipients
 
-As a federated communication system, messages and content sent by a user are shared with the recipients. These recipients may be other users of the same system or users of other Matrix systems federated with it. As is the case with other communications systems such as email or SMS, messages or content that have been received by other users are **not** necessarily deleted from those recipient users' accounts when the sending user's account is deleted.
+We use external service providers if we are unable to provide services ourselves or if it is not reasonable to do so. These external service providers are primarily providers of IT services, such as our hosting service provider [netcup](https://www.netcup.de/) (netcup GmbH, Daimlerstraße 25, D-76185 Karlsruhe) and our domain hosting and e-mail provider [STRATO](https://www.strato.de/) (STRATO AG, Otto-Ostrowski-Straße 7, D-10249 Berlin).
 
-Furthermore, while data storage and processing on the rollyourown.xyz collaboration and communication systems are covered by this policy, our organisation cannot take responsibility for data storage and processing on other federated systems. The Matrix protocol is a federated communications protocol and anyone, anywhere in the world may run a Matrix homeserver. If a user of our system communicates with users of other systems, then our user's data will be processed by systems outside our responsibility. This is an inherent property of a federated communication system.
+## General Rights of Data Subjects
 
-#### Matrix client
+The GDPR guarantees you certain rights, which you can assert against us -- if the legal requirements are met:
 
-In order to use and interact with our Matrix collaboration and communication systems, a user needs to use **client** software. As an open protocol, there are many clients that can be used with our servers, for example those listed on [https://matrix.org/clients/](https://matrix.org/clients/). Our organisation is not responsible for the data stored and processed by any client software. Matrix clients typically store the user's data locally on the device on which the client is running (e.g. the laptop from which the user accesses the web-based client or the smartphone on which the user installs a client app). This is also the case for the [Element](https://element.io/) web-based Matrix client that we host at [https://element.rollyourown.xyz/](https://element.rollyourown.xyz/).
+- **Art. 15 GDPR - Right of access**: You have the right to obtain confirmation from us as to whether personal data relating to you are being processed and, if so, what these data are and the detailed circumstances of the processing.
 
-## Hosting
+- **Art. 16 GDPR - Right of rectification**: You have the right to ask us to immediately rectify incorrect personal data concerning you. You also have the right to request the completion of incomplete personal data, including by means of a supplementary declaration, taking into account the purposes of the processing.
 
-Our production services are hosted on virtual private servers rented from an external provider and located in Germany. The personal data described above is stored and processed on these servers. Our provider maintains log files for the management of their server infrastructure for a [maximum of 14 days](https://www.netcup-wiki.de/wiki/Wie_lange_werden_Logdateien_gespeichert) _(note: linked website is in German)_. Basic anonymized statistics are gathered on CPU, hard disk and network usage and made available to us.
+- **Art. 17 GDPR - Right to deletion**: You have the right to demand that we delete any personal data relating to you immediately.
 
-Our hosting provider is:
+- **Art. 18 GDPR - Right to restriction of processing**: You have the right to request us to restrict processing.
 
-netcup GmbH\
-Daimlerstraße 25\
-D-76185 Karlsruhe
+- **Art. 20 GDPR - Right to data portability**: You have the right, in the event of processing based on consent or for the fulfilment of a contract, to receive the personal data concerning you, which you have provided us with, in a structured, common and machine-readable format and to transfer this data to another responsible party without hindrance from us or to have the data transferred directly to the other responsible party, insofar as this is technically feasible.
 
-Our hosting provider's own data protection policy is here: [https://www.netcup.de/kontakt/datenschutzerklaerung.php](https://www.netcup.de/kontakt/datenschutzerklaerung.php) _(note: linked website is in German)_.
+- **Art. 77 GDPR in conjunction with Section 19 BDSG - Right to lodge a complaint with a supervisory authority**: You have the right to lodge a complaint with a supervisory authority at any time, in particular in the Member State in which you are resident, in which your place of work is located, or which is the place of the alleged infringement if you consider that the processing of personal data relating to you infringes data protection law.
 
-A standard contract with netcup GmbH is in place for the processing of data (Auftragsverarbeitung) in the context of server hosting.
+## Right to object and right to withdraw consent
 
-## Monitoring and improving our services
+- **Art. 21 GDPR - Right to object**: You have the right to object at any time, for reasons arising from your particular situation, to the processing of personal data concerning you which is necessary on the basis of a legitimate interest on our part or in order to carry out a task in the public interest, or which is carried out in the exercise of official authority.
 
-We do not use any external services (e.g. Google Analytics) for monitoring visitors' use of our website. As an open source project, feedback can be given (e.g. on design, usability etc.) voluntarily via our repositories and collaboration resources. We would highly appreciate any feedback or contributions you may have. See our [Collaboration pages](/collaborate) for more details.
+  If you object, we will no longer process your personal data unless we can prove compelling legitimate grounds for processing that override your interests, rights and freedoms, or unless the processing serves to assert, exercise or defend legal claims.
 
-In future, we may implement our own, more detailed, monitoring of our infrastructure (e.g. to monitor server status and performance, network status etc.). We will update this page with information about privacy and data-protections aspects if and when we do this.
+  If we process your personal data for direct marketing purposes, you have the right to object to the processing at any time. If you object to processing for direct marketing purposes, we will no longer process your personal data for these purposes.
 
-## Additional topics
+  In order to exercise your right of objection, you can, for example, send us an e-mail to the e-mail address mentioned above.
 
-We may, in future, implement ways for users to sponsor or donate to the project - e.g. to help fund the running costs of rollyourown.xyz services.  If and when we do this, then we will update this page with information about privacy and data-protections aspects.
+- **Art. 7 GDPR - Withdrawal of consent**: If you have given us your informed consent, you have the right to withdraw your consent at any time. In this case, all data processing that we have carried out until your withdrawal remains lawful.
+
+## Obligation to provide data
+
+You have no contractual or legal obligation to provide us with personal data. However, we then might not be able to offer you the requested services.
+
+## The existence of automated decision-making (including profiling)
+
+We will not make you subject to any automated decision-making, including profiling in accordance with Art. 22 para. 1 and 4 GDPR, which has legal effects on you or affects you.
+
+## Internet-specific Data Processing and Cookies
+
+We may store and access information on your end device if it is necessary to provide you with our services. In any other case we will ask for your informed consent.
