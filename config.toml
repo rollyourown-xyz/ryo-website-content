@@ -58,10 +58,15 @@ ignoreFiles = ['config.toml', 'CONTRIBUTING\.md', 'LICENSE', 'README\.md', 'SECU
       url = "/collaborate/"
       weight = 3
     [[languages.en.menu.main]]
+      name = "News"
+      pre = "message-square"
+      url = "/news/"
+      weight = 4
+    [[languages.en.menu.main]]
       name = "About"
       pre = "grid"
       url = "/about/"
-      weight = 4
+      weight = 5
 
   [languages.de]
     languageName = 'Deutsch'
@@ -82,10 +87,15 @@ ignoreFiles = ['config.toml', 'CONTRIBUTING\.md', 'LICENSE', 'README\.md', 'SECU
       url = "/de/collaborate/"
       weight = 3
     [[languages.de.menu.main]]
+      name = "Info"
+      pre = "message-square"
+      url = "/de/news/"
+      weight = 4
+    [[languages.de.menu.main]]
       name = "Über"
       pre = "grid"
       url = "/de/about/"
-      weight = 4
+      weight = 5
 
 # Code syntax highlighting theme
 [markup]
