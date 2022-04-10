@@ -2,6 +2,7 @@
 title: "Collaborate"
 tags: [ ]
 draft: false
+outputs: html
 ---
 <!--
 SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>

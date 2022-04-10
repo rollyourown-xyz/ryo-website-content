@@ -14,7 +14,7 @@ title = "rollyourown..."
 theme = "rollyourown-theme"
 contentDir = "content"
 defaultContentLanguage = "en"
-copyright = "rollyourown.xyz 2022"
+copyright = "rollyourown 2022"
 
 # Disable languages that are present but not yet completed
 disableLanguages = ["de"]
@@ -35,6 +35,15 @@ ignoreFiles = ['config.toml', 'CONTRIBUTING\.md', 'LICENSE', 'README\.md', 'SECU
 [taxonomies]
   tag = "tags"
 
+# Limit RSS output only to sections
+[outputs]
+  home = ["HTML"]
+  page = ["HTML"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML"]
+  term = ["HTML"]
+
+# Navbar Menu
 # See https://feathericons.com/
 # The value of 'pre' is the icon name
 [languages]

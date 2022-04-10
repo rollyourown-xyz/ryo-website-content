@@ -3,6 +3,7 @@ title: "Project Modules"
 weight: 3
 tags: [ ]
 draft: false
+outputs: html
 ---
 <!--
 SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
