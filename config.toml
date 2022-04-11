@@ -25,9 +25,10 @@ defaultContentLanguageInSubdir = "false"
 ignoreFiles = ['config.toml', 'CONTRIBUTING\.md', 'LICENSE', 'README\.md', 'SECURITY\.md']
 
 [params]
-  authorName = "rollyourown.xyz"
+  authorName = "rollyourown"
   description = "Lowering the barriers to open source software deployment."
   dateFormat = "Jan 2, 2006"
+  homepageNewsbar = true
 
 [permalinks]
   project = "/:sections/:filename/"
