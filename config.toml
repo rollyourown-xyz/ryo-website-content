@@ -35,11 +35,11 @@ ignoreFiles = ['config.toml', 'CONTRIBUTING\.md', 'LICENSE', 'README\.md', 'SECU
 [taxonomies]
   tag = "tags"
 
-# Limit RSS output only to sections
+# Set output to HTML-only by default
 [outputs]
   home = ["HTML"]
   page = ["HTML"]
-  section = ["HTML", "RSS"]
+  section = ["HTML"]
   taxonomy = ["HTML"]
   term = ["HTML"]
 
