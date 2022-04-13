@@ -66,7 +66,7 @@ These steps are described in more detail in the following. For more information 
 
 You will need a control node to run the automation scripts to deploy your [rollyourown.xyz](https://rollyourown.xyz) project and, later, to perform automated upgrades of your installation. A control node can manage multiple projects on multiple host servers.
 
-A control node should be run as a virtual machine (VM) on your personal computer or as a dedicated machine. In both cases, the control node should be running Ubuntu 20.04 LTS as operating system. The `local-setup.sh` scripts are written and tested for Ubuntu 20.04 LTS and will install and set up all needed software for you.
+A control node should be run as a virtual machine (VM) on your personal computer or as a dedicated machine. In both cases, the control node should be running Ubuntu 20.04 LTS or 22.04 LTS as operating system. The `local-setup.sh` scripts are written and tested for Ubuntu 20.04 LTS and 22.04 LTS and will install and set up all needed software for you.
 
 {{< highlight "info" "Setting up a control node">}}
 
@@ -82,7 +82,7 @@ It is our goal to eventually support a control node running as a WSL app on Wind
 
 {{< /highlight >}}
 
-As an alternative to a virtual machine, a dedicated computer (e.g. laptop, desktop, Intel NUC) running Ubuntu 20.04 LTS can be used. The `local-setup.sh` scripts are written and tested on this operating system and will install and set up all needed software for you.
+As an alternative to a virtual machine, a dedicated computer (e.g. laptop, desktop, Intel NUC) running Ubuntu 20.04 LTS or 22.04 LTS can be used. The `local-setup.sh` scripts are written and tested on this operating system and will install and set up all needed software for you.
 
 ### A host server
 
@@ -90,7 +90,7 @@ A host server is needed to run the various containers making up a [rollyourown.x
 
 The recommended host server is a server or virtual private server (VPS) provided by a hosting provider. A host server can also be a server or virtual machine hosted in your home or office.
 
-The host server must be reachable via a public IP address and should be running **Ubuntu 20.04 LTS** as operating system. [Rollyourown.xyz](https://rollyourown.xyz) projects are written and tested to set up and deploy to a Ubuntu 20.04 LTS Linux server.
+The host server must be reachable via a public IP address and should be running **Ubuntu 20.04 LTS or 22.04 LTS** as operating system. [Rollyourown.xyz](https://rollyourown.xyz) projects are written and tested to set up and deploy to a Ubuntu 20.04 LTS or 22.04 LTS Linux server.
 
 {{< highlight "danger" "Warning!">}}
 

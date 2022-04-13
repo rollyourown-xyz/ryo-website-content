@@ -16,7 +16,7 @@ Each [rollyourown.xyz](https://rollyourown.xyz) project provides automation reso
 After choosing a [rollyourown.xyz](https://rollyourown.xyz) project to deploy:
 
 1. Prepare a [control node](/rollyourown/how_to_use/control_node/) to deploy and manage your projects
-2. Order or set up a server to host your project, with Ubuntu 20.04 LTS installed
+2. Order or set up a server to host your project, with Ubuntu 20.04 LTS or 22.04 LTS installed
 3. Prepare the [host server](/rollyourown/how_to_use/host_server/) to be ready to deploy your project
 4. Clone the [project's repository](/rollyourown/projects/) to the control machine
 5. Add your project's settings (e.g. the domain name) to the project configuration files

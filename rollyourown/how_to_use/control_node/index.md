@@ -24,7 +24,7 @@ A control node is needed for executing automation scripts that set up a host ser
 
 ## Control node introduction
 
-To prevent the settings, software and configuration needed for the control node from interfering or otherwise conflicting with the software and configuration of your local computer, a [rollyourown.xyz](https://rollyourown.xyz) control node should be set up in a virtual machine on your computer, or on a completely separate, dedicated computer (such as an Intel NUC, an old laptop or a desktop computer). This keeps the [rollyourown.xyz](https://rollyourown.xyz) configuration separate from other software installed on your computer and also ensures that automation scripts and configuration of the control node are not affected by system upgrades or other software installed on the host computer. This also allows us to develop and test the [rollyourown.xyz](https://rollyourown.xyz) configuration scripts and guides for a single operating system (currently Ubuntu 20.04 LTS).
+To prevent the settings, software and configuration needed for the control node from interfering or otherwise conflicting with the software and configuration of your local computer, a [rollyourown.xyz](https://rollyourown.xyz) control node should be set up in a virtual machine on your computer, or on a completely separate, dedicated computer (such as an Intel NUC, an old laptop or a desktop computer). This keeps the [rollyourown.xyz](https://rollyourown.xyz) configuration separate from other software installed on your computer and also ensures that automation scripts and configuration of the control node are not affected by system upgrades or other software installed on the host computer. This also allows us to develop and test the [rollyourown.xyz](https://rollyourown.xyz) configuration scripts and guides for a single operating system (currently Ubuntu 20.04 LTS and 22.04 LTS).
 
 With the exception of the very first configuration steps for the host server, which are carried out over a plain SSH connection to the host server's public IP address, the control node interacts with the host server via a [wireguard](https://www.wireguard.com/) tunnel. This tunnel provides a permanent, encrypted connection to the host server and enables all communication between control node and host server to run via private IP address ranges.
 
@@ -50,7 +50,7 @@ The [rollyourown.xyz](https://rollyourown.xyz/) repository for the control node 
 
 ## Control node system requirements
 
-A control node needs only a basic operating system installed and the software installed by our automation code is lightweight. Therefore, the minimum system requirements for a control node match the minimum system requirements for a Ubuntu 20.04 LTS based distribution.
+A control node needs only a basic operating system installed and the software installed by our automation code is lightweight. Therefore, the minimum system requirements for a control node match the minimum system requirements for a Ubuntu 20.04 LTS or 22.04 LTS based distribution.
 
 For example, for [xubuntu](https://xubuntu.org), the [recommended minimum system requirements](https://xubuntu.org/requirements/) are a 1.5GHz dual-core Intel or AMD 64-bit processor with 2GB memory and 20GB hard disk space.
 
@@ -68,7 +68,7 @@ Even if the first project deployed does not require a control node with a graphi
 
 The steps for setting up a control node depend on your computer's operating system. The following sections describe the setup for [Windows](#control-node-setup-windows), [Linux](#control-node-setup-linux) and [MacOS](#control-node-setup-macos).
 
-Once you have chosen and installed your virtual machine environment, install Ubuntu 20.04 LTS (desktop version is recommended) in a virtual machine as described in the relevant hypervisor documentation.
+Once you have chosen and installed your virtual machine environment, install Ubuntu 20.04 LTS or 22.04 LTS (desktop version is recommended) in a virtual machine as described in the relevant hypervisor documentation.
 
 ### Control node setup: Linux
 
@@ -116,15 +116,15 @@ Currently, only the x86 or amd64 architectures are supported (for control machin
 
 {{< /highlight >}}
 
-A control node can be run on a dedicated computer running Ubuntu 20.04 LTS. This could, for example, be an old Laptop or desktop computer, an [Intel NUC](https://www.intel.com/content/www/us/en/products/boards-kits/nuc.html) or other mini PC or barebones computer. Prerequisite is that the computer is running a Ubuntu 20.04 based desktop environment or, **for terminal-based control nodes with no graphical interface**, [Ubuntu 20.04 server](https://ubuntu.com/download/server).
+A control node can be run on a dedicated computer running Ubuntu 20.04 LTS or 22.04 LTS. This could, for example, be an old Laptop or desktop computer, an [Intel NUC](https://www.intel.com/content/www/us/en/products/boards-kits/nuc.html) or other mini PC or barebones computer. Prerequisite is that the computer is running a Ubuntu 20.04 or 22.04 based desktop environment or, **for terminal-based control nodes with no graphical interface**, [Ubuntu 20.04 or 22.04 server](https://ubuntu.com/download/server).
 
 ## Automated control node configuration
 
-Once a [control node is up and running with Ubuntu 20.04 LTS](#control-node-setup), the control node needs to be configured and software needs to be installed to run your rollyourown.xyz project automation scripts. This software installation and configuration is itself automated.
+Once a [control node is up and running with Ubuntu 20.04 LTS or 22.04 LTS](#control-node-setup), the control node needs to be configured and software needs to be installed to run your rollyourown.xyz project automation scripts. This software installation and configuration is itself automated.
 
 {{< highlight "warning" "The non-root user">}}
 
-During setup of Ubuntu 20.04 LTS, you will typically have been asked to specifiy a username and password for a non-root user. In some cases, Ubuntu is already pre-setup with the non-root user `ubuntu`, typically with password `ubuntu`. This non-root user account should be used for executing the rollyourown.xyz scripts. The user-name and password need to be entered in the "Local user configuration" section of the `configuration.yml` file (Step 5 below) for the control-node configuration scripts to run.
+During setup of Ubuntu 20.04 LTS or 22.04 LTS, you will typically have been asked to specify a username and password for a non-root user. In some cases, Ubuntu is already pre-setup with the non-root user `ubuntu`, typically with password `ubuntu`. This non-root user account should be used for executing the rollyourown.xyz scripts. The user-name and password need to be entered in the "Local user configuration" section of the `configuration.yml` file (Step 5 below) for the control-node configuration scripts to run.
 
 {{< /highlight >}}
 

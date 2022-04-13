@@ -28,7 +28,7 @@ A host server is needed to run the various containers making up a project deploy
 
 The components of a [rollyourown.xyz](https://rollyourown.xyz) project need to run on a host server. A host server may be a virtual server (VPS) or dedicated server rented from a hosting provider, or may be a server or virtual machine hosted in your home or office.
 
-The host server should be running Ubuntu 20.04 LTS as operating system. Our projects are written and tested to set up and deploy to Ubuntu 20.04 LTS Linux servers.
+The host server should be running Ubuntu 20.04 LTS or 22.04 LTS as operating system. Our projects are written and tested to set up and deploy to Ubuntu 20.04 LTS or 22.04 LTS Linux servers.
 
 A [rollyourown.xyz](https://rollyourown.xyz) host server is controlled by a [control node](/rollyourown/projects/control_node/) via a secure [wireguard](https://www.wireguard.com/) tunnel. Usually, no manual management of the host server is needed and the host server command line does not need to be accessed. However, users familiar with the Linux command line can log in to the server *from the control node*, for example for advanced diagnostics. A few useful commands can be found [here](/rollyourown/projects/host_server_advanced/).
 
@@ -152,7 +152,7 @@ If your internet connection does not have a public IP address (e.g. your provide
 
 ### Operating system
 
-Unless stated otherwise on the project page, all [rollyourown.xyz](https://rollyourown.xyz) projects are written and tested to deploy to an Ubuntu Linux server, so unless you are sure you know what you are doing, make sure that your host server is running **Ubuntu 20.04 LTS**.
+Unless stated otherwise on the project page, all [rollyourown.xyz](https://rollyourown.xyz) projects are written and tested to deploy to an Ubuntu Linux server, so unless you are sure you know what you are doing, make sure that your host server is running **Ubuntu 20.04 LTS or 22.04 LTS**.
 
 ## Automated host server setup
 
