@@ -207,6 +207,7 @@ The Consul-Template application reads the key-values in the `service/wellknown/d
 
 ```conf
 {{ range ls "service/wellknown/domains" }}{{ $domain := printf .Key }}server {
+    listen [::]:80;
     listen 80;
     server_name {{ .Key }};
     
