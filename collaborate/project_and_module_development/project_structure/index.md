@@ -9,15 +9,15 @@ SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
-A rollyourown.xyz project has a defined, modular structure and every rollyourown.xyz project is structured in the same way. The structure is provided by the [project template repository](https://git.rollyourown.xyz/ryo-projects/ryo-project-template) and the template [can be forked](/collaborate/working_with_git/forking_and_pull_requests/#forking) to form the basis of a [new rollyourown.xyz project](/collaborate/project_and_module_development).
+A rollyourown project has a defined, modular structure and every rollyourown project is structured in the same way. The structure is provided by the [project template repository](https://git.rollyourown.xyz/ryo-projects/ryo-project-template) and the template [can be forked](/collaborate/working_with_git/forking_and_pull_requests/#forking) to form the basis of a [new rollyourown project](/collaborate/project_and_module_development).
 
-The rollyourown.xyz project template repository is mirrored [on Codeberg](https://codeberg.org/rollyourown-xyz/ryo-project-template) and [on GitHub](https://github.com/rollyourown-xyz/ryo-project-template).
+The rollyourown project template repository is mirrored [on Codeberg](https://codeberg.org/rollyourown-xyz/ryo-project-template) and [on GitHub](https://github.com/rollyourown-xyz/ryo-project-template).
 
 <!--more-->
 
 ## Project directory structure
 
-A rollyourown.xyz project is structured with the following top-level directories and scripts:
+A rollyourown project is structured with the following top-level directories and scripts:
 
 ```console
 project_id
@@ -46,7 +46,7 @@ project_id
 
 ## The project_id
 
-The `project_id` is a unique name for a rollyourown.xyz project and is the name of the project repository on the rollyourown.xyz Git server and on the rollyourown.xyz [Codeberg](https://codeberg.org/rollyourown-xyz) and [Github](https://github.com/rollyourown-xyz) mirrors.
+The `project_id` is a unique name for a rollyourown project and is the name of the project repository on the rollyourown Git server and on the rollyourown [Codeberg](https://codeberg.org/rollyourown-xyz) and [Github](https://github.com/rollyourown-xyz) mirrors.
 
 The `project_id` is always of the form `ryo-<NAME>` where `<NAME>` usually identifies the open source software or service to be deployed (for example, `ryo-nextcloud` or `ryo-gitea`).
 
@@ -54,16 +54,16 @@ The `project_id` is also added as default value to the project's [configuration 
 
 ## Licence and information
 
-The top-level directory of a rollyourown.xyz project includes a `LICENSE`, `CONTRIBUTING.md`, `README.md` and `SECURITY.md` file:
+The top-level directory of a rollyourown project includes a `LICENSE`, `CONTRIBUTING.md`, `README.md` and `SECURITY.md` file:
 
-- LICENSE: Describes the licence under which the code in the repository may be copied or used. Only [open source](https://opensource.org/osd) licences (e.g. the [GPLv3](https://spdx.org/licenses/GPL-3.0-or-later.html) licence) may be used for a rollyourown.xyz project
+- LICENSE: Describes the licence under which the code in the repository may be copied or used. Only [open source](https://opensource.org/osd) licences (e.g. the [GPLv3](https://spdx.org/licenses/GPL-3.0-or-later.html) licence) may be used for a rollyourown project
 - CONTRIBUTING.md: Provides information on how to collaborate on the project
 - README.md: Provides a high-level description of the project and how to use it
 - SECURITY.md: Provides information on how to report security vulnerabilities in the project
 
 ## Top-level scripts
 
-The top-level directory of a rollyourown.xyz project includes a number of scripts to deploy, upgrade, back up and restore the project:
+The top-level directory of a rollyourown project includes a number of scripts to deploy, upgrade, back up and restore the project:
 
 ```console
 ├─ backup.sh
@@ -277,7 +277,7 @@ For each image to be built, [Packer](https://www.packer.io/) uses [LXD](https://
 
 This script typically does not need to be modified for the specific project.
 
-The `deploy-project.sh` script uses [Terraform](https://www.terraform.io/) and the [Terraform LXD Provider](https://registry.terraform.io/providers/terraform-lxd/lxd/) to launch the project's containers on the host machine. The version stamp provided to the `build-images.sh` script also needs to be provided to the `deploy-project.sh` script so that Terraform can identify the container images to launch.
+The `deploy-project.sh` script uses [Terraform](https://www.terraform.io/) and the [Terraform LXD Provider](https://registry.terraform.io/providers/Terraform-lxd/lxd/) to launch the project's containers on the host machine. The version stamp provided to the `build-images.sh` script also needs to be provided to the `deploy-project.sh` script so that Terraform can identify the container images to launch.
 
 Component containers are launched as specified in the Terraform configuration. Terraform reads the current state on the host machine and makes changes to bring the host machine into the desired state. On the first execution of the `deploy-project.sh` script, no resources have been deployed to the host machine so that Terraform deploys the entire project. On a later execution, changes are only made where necessary (e.g. to upgrade a container to a newer version, built in a later build-images step).
 
@@ -295,7 +295,7 @@ This script will need to modified for a particular project and stops and deletes
 
 ### The `delete-terraform-state.sh` script
 
-The script deletes the terraform state for the project on the control-node, so that a new deployment can be started from scratch. This script is used only in a restore process during disaster recovery and should otherwise never be used.
+The script deletes the Terraform state for the project on the control-node, so that a new deployment can be started from scratch. This script is used only in a restore process during disaster recovery and should otherwise never be used.
 
 ### The `backup-project.sh` script
 
@@ -304,3 +304,141 @@ This script calls the `backup-project.yml` [Ansible](https://www.ansible.com/) p
 ### The `restore-project.sh` script
 
 This script calls the `restore-project.yml` [Ansible](https://www.ansible.com/) playbook in the [/backup-restore directory](#the-backup-restore-directory) to copy a backup from the control node to a host server and restore the project container persistent storage. This script is used in a backup process and should otherwise never be used.
+
+## Using Consul in a project
+
+The [Consul](https://www.consul.io/) server deployed to the host server is a general enabler for rollyourown module and project components to discover other components via the Consul [service registry](https://www.consul.io/docs/discovery/services) and to be configured via the Consul [key-value store](https://www.consul.io/docs/dynamic-app-config/kv).
+
+### Component discovery
+
+To make any component's service discoverable in the Consul service registry, the component must be registered with the Consul server (usually when the component is started).
+
+[Ansible roles](https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html) for installing and setting up a consul agent to register project components with the Consul service registry are provided in the `image-build/playbooks/roles/install-consul` and `image-build/playbooks/roles/set-up-consul` directories in the [ryo-project-template repository](https://github.com/rollyourown-xyz/ryo-project-template). These do not need to be modified.
+
+In the `image-build/playbooks/roles/set-up-TEMPLATE` directory, the file `templates/TEMPLATE-service.hcl.j2` provides an example of a component-specific consul service configuration for registering the specific component with the service registry:
+
+```hcl
+## Modify for this component's purpose
+
+services {
+  name = "TEMPLATE"
+  tags = [ "TEMPLATE" ]
+  port = SERVICE_PORT
+}
+```
+
+The service's `name` is then used by other components to resolve the component's IP address via DNS and avoid managing static IP address configurations across different modules and projects. The DNS name of a service `name` is `name.service.ryo`.
+
+{{< more "secondary" "Example">}}
+
+As an example, the [ryo-mariadb](/rollyourown/project_modules/ryo-mariadb/) relational database module registers the [`mariadb`](https://mariadb.org/) database service in the Consul service registry with the template:
+
+```hcl
+service {
+  name = "mariadb"
+  tags = [ "database" ]
+  port = 3306
+}
+```
+
+This then allows the database configuration for the [`nextcloud`](https://nextcloud.com/) service component in the [ryo-nextcloud](/rollyourown/projects/ryo-nextcloud/) project to use the DNS name `mariadb.service.ryo` in the nextcloud configuration file:
+
+```php
+<?php
+$AUTOCONFIG = array (
+  "dbtype"        => "mysql",
+  "dbname"        => "nextcloud",
+  "dbhost"        => "mariadb.service.ryo:3306",
+  ...
+);
+```
+
+The `nextcloud` service component itself registers with the Consul service registry with the template:
+
+```hcl
+services {
+  name = "nextcloud"
+  tags = [ "webserver", "nextcloud" ]
+  port = 80
+}
+```
+
+This then enables the [ryo-ingress-proxy](/rollyourown/project_modules/ryo-ingress-proxy/) module [HAProxy](https://www.haproxy.org/) component to be configured to [use DNS for service discovery](https://www.haproxy.com/blog/dns-service-discovery-haproxy/) to distribute incoming traffic to the nextcloud component backend server. This results in the HAProxy backend configuration:
+
+```cfg
+backend nextcloud
+   redirect scheme https if !{ ssl_fc }
+   http-request set-header X-SSL %[ssl_fc]
+   balance roundrobin
+   server-template nextcloud 1 _nextcloud._tcp.service.ryo resolvers consul resolve-prefer ipv6 init-addr none check
+```
+
+(Note: this HAProxy backend configuration is generated automatically by [consul-template](https://github.com/hashicorp/consul-template/), based on key-values provisioned to the Consul key-value store during project deployment.)
+
+{{< /more >}}
+
+### Component configuration
+
+Rollyourown modules use [consul-template](https://github.com/hashicorp/consul-template/) to read configuration parameters from the Consul [key-value store](https://www.consul.io/docs/dynamic-app-config/kv) and use these to generate service configuration files during component startup or to dynamically re-configure components during project deployments.
+
+For this to work, configuration key-values must be provisioned to the key-value store in a particular folder structure (as expected by the configuration of consul-template for the specific module). Any rollyourown module supporting dynamic configuration provides a [Terraform helper module](https://www.terraform.io/docs/language/modules/) to enable this configuration to be done during project deployment.
+
+{{< more "secondary" "Example">}}
+
+For example, the [ryo-mariadb](/rollyourown/project_modules/ryo-mariadb/) relational database module provides a Terraform module `deploy-mysql-db-and-user` to provision the Consul key-values for creating a database and user in the mariadb database for use by a project.
+
+The [ryo-nextcloud](/rollyourown/projects/ryo-nextcloud/) project deployment Terraform files then include a call to this module to provision the database needed by Nextcloud:
+
+```tf
+module "deploy-nextcloud-database-and-user" {
+  source = "../../ryo-mariadb/module-deployment/modules/deploy-mysql-db-and-user"
+  
+  mysql_db_name = "nextcloud"
+  mysql_db_default_charset = "utf8mb4"
+  mysql_db_default_collation = "utf8mb4_general_ci"
+  mysql_db_user = "nextcloud-db-user"
+  mysql_db_user_hosts = [ "localhost", join(".", [ local.lxd_host_network_part, "%" ]), join("", [ local.lxd_host_ipv6_prefix, "::", local.lxd_host_network_ipv6_subnet, ":%" ]) ]
+  mysql_db_user_password = local.mariadb_nextcloud_user_password
+  mysql_db_table = "*"
+  mysql_db_privileges = [ "ALL" ]
+}
+```
+
+{{< /more >}}
+
+To enable consul key-value configuration in rollyourown project deployment, the consul server's IP address must be made available within the project's Terraform code. This is done by adding a Terraform variable for the consul server's IP address:
+
+```tf
+# Consul variables
+locals {
+  consul_ip_address  = join("", [ local.lxd_host_ipv6_prefix, "::", local.lxd_host_network_ipv6_subnet, ":1" ])
+}
+```
+
+Then the Terraform consul provider is added to the project's Terraform configuration:
+
+```tf
+Terraform {
+  required_version = ">= 0.14"
+  required_providers {
+    lxd = {
+      source  = "Terraform-lxd/lxd"
+      version = "~> 1.5.0"
+    }
+    consul = {
+      source = "hashicorp/consul"
+      version = "~> 2.12.0"
+    }
+  }
+}
+```
+
+and the IP address variable is used to configure the provider:
+
+```tf
+provider "consul" {
+  address    = join("", [ "[", local.consul_ip_address, "]", ":8500" ])
+  scheme     = "http"
+  datacenter = var.host_id
+}
+```
