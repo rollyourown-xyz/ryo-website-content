@@ -1,6 +1,6 @@
 ---
 title: "rollyourown is published"
-date: 2022-04-11
+date: 2022-04-24
 author: "W. Nicoll"
 draft: true
 tags: []
