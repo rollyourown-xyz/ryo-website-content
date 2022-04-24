@@ -20,7 +20,7 @@ This post describes how and why the idea for this project came about. The main i
 
 ## The backstory
 
-The idea for rollyourown.xyz was born in March 2020, soon after the world began locking down in response to the COVID-19 pandemic. With schools and offices closed and social contact reduced, solutions needed to be found for communicating, sharing and keeping contact with loved ones and colleagues.
+The idea for rollyourown.xyz was born in March 2020, soon after the world began locking down in response to the COVID-19 pandemic. With schools and offices closed, and social contact reduced, solutions needed to be found for communicating, sharing and keeping contact with loved ones and colleagues.
 
 I was at home, with time on my hands after a cancelled holiday. Having an instinct to do things myself and some experience using open source software, the decision was made to set up a [Jitsi](https://jitsi.org/) video conferencing system and a [Matrix](https://matrix.org/) messaging service for my friends and family.
 
