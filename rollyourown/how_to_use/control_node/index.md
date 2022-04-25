@@ -9,22 +9,13 @@ SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
-A control node is needed for executing automation scripts that set up a host server, building container images for the project and for deploying the containers and services on the host server. A control node can be used to deploy multiple projects, or you a dedicated control node per project can be used.
+A control node is needed for executing automation scripts that set up a [host server](/rollyourown/how_to_use/host_server), build container images for the project and deploy the containers and services on the host server. A control node can be used to deploy multiple projects, or you can use a dedicated control node per project.
 
 <!--more-->
 
-## TODOs on this page
-
-{{< highlight "primary" "ToDo">}}
-
-- [ ] Add links in the text
-- [ ] Add section on control node backup
-
-{{< /highlight >}}
-
 ## Control node introduction
 
-To prevent the settings, software and configuration needed for the control node from interfering or otherwise conflicting with the software and configuration of your local computer, a [rollyourown.xyz](https://rollyourown.xyz) control node should be set up in a virtual machine on your computer, or on a completely separate, dedicated computer (such as an Intel NUC, an old laptop or a desktop computer). This keeps the [rollyourown.xyz](https://rollyourown.xyz) configuration separate from other software installed on your computer and also ensures that automation scripts and configuration of the control node are not affected by system upgrades or other software installed on the host computer. This also allows us to develop and test the [rollyourown.xyz](https://rollyourown.xyz) configuration scripts and guides for a single operating system (currently Ubuntu 22.04 LTS).
+To prevent the settings, software and configuration needed for the control node from interfering or otherwise conflicting with the software and configuration of your local computer, a rollyourown control node should be set up in a [virtual machine](https://en.wikipedia.org/wiki/Virtual_machine) on your computer, or on a completely separate, dedicated computer (such as an Intel [NUC](https://en.wikipedia.org/wiki/Next_Unit_of_Computing), an old laptop or a desktop computer). This keeps the rollyourown configuration separate from other software installed on your computer and also ensures that automation scripts and configuration of the control node are not affected by system upgrades or other software installed on the host computer. This also allows us to develop and test the rollyourown configuration scripts and guides for a single operating system (currently Ubuntu 22.04 LTS).
 
 Except for the very first configuration steps for the host server, which are carried out over a plain SSH connection to the host server's public IP address, the control node interacts with the host server via a [wireguard](https://www.wireguard.com/) tunnel. This tunnel provides a permanent, encrypted connection to the host server and enables all communication between control node and host server to run via private IP address ranges.
 
@@ -32,13 +23,13 @@ Except for the very first configuration steps for the host server, which are car
 
 Other than SSH and wireguard, the following software is installed on the control node:
 
-- [Ansible](https://www.ansible.com/): For automating the configuration of control node, host server and of the container images used in a [rollyourown.xyz](https://rollyourown.xyz) project
+- [Ansible](https://www.ansible.com/): For automating the configuration of control node, host server and of the container images used in a rollyourown project
 - [Consul](https://www.consul.io/): To provide service discovery for accessing project component administrative interfaces after deployment
-- [Pacḱer](https://www.packer.io/): For building the container images for each component of a [rollyourown.xyz](https://rollyourown.xyz) project
+- [Pacḱer](https://www.packer.io/): For building the container images for each component of a rollyourown project
 - [LXD/LXC](https://linuxcontainers.org/lxd/): The container runtime for building container images to be deployed on the host server
-- [Terraform](https://www.terraform.io/): For automating the deployment of a [rollyourown.xyz](https://rollyourown.xyz) project
+- [Terraform](https://www.terraform.io/): For automating the deployment of a rollyourown project
 
-A single control node can manage multiple [rollyourown.xyz](https://rollyourown.xyz) project deployments on multiple host servers. Alternatively, a dedicated control node can be run for each host server, with the applicable control node started when the projects on a particular host server need to be managed or administered.
+A single control node can manage multiple rollyourown project deployments on multiple host servers. Alternatively, a dedicated control node can be run for each host server, with the applicable control node started when the projects on a particular host server need to be managed or administered.
 
 ## Repository links
 
@@ -46,7 +37,7 @@ The [Codeberg](https://codeberg.org/) mirror repository for the control node aut
 
 The [Github](https://github.com/) mirror repository for the control node automation scripts is here: [https://github.com/rollyourown-xyz/ryo-control-node](https://github.com/rollyourown-xyz/ryo-control-node)
 
-The [rollyourown.xyz](https://rollyourown.xyz/) repository for the control node automation scripts is here: [https://git.rollyourown.xyz/ryo-projects/ryo-control-node](https://git.rollyourown.xyz/ryo-projects/ryo-control-node) (not publicly accessible)
+The rollyourown repository for the control node automation scripts is here: [https://git.rollyourown.xyz/ryo-projects/ryo-control-node](https://git.rollyourown.xyz/ryo-projects/ryo-control-node) (not publicly accessible)
 
 ## Control node system requirements
 
@@ -58,7 +49,7 @@ For the standard [Ubuntu desktop](https://ubuntu.com/download/desktop), the [rec
 
 {{< highlight "info" "Terminal or desktop?">}}
 
-For most [rollyourown.xyz](https://rollyourown.xyz) projects, a control node with a graphical desktop is needed. Project component administrative interfaces, typically accessible via web browser, are only accessible via the wireguard tunnel between control node and host server, ensuring that these interfaces are not exposed on the public internet.
+For most rollyourown projects, a control node with a graphical desktop is needed. Project component administrative interfaces, typically accessible via web browser, are only accessible via the wireguard tunnel between control node and host server, ensuring that these interfaces are not exposed on the public internet.
 
 Even if the first project deployed does not require a control node with a graphical desktop, it is recommended to choose one so that the control node can later be used for other projects that do require a graphical interface. Alternatively, each project can be managed from a separate control node.
 
@@ -85,12 +76,12 @@ A control node can be run in a virtual machine on a Linux computer. There are a 
 
 A control node can be run in a virtual machine on a Windows computer. There are a number of ways to run virtual machines on Windows, depending on your Windows version, such as:
 
-- [Hyper-V](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/), available in Windows 10 Enterprise, Pro, or Education versions, which can be managed from the Windows UI or, for **terminal-based control nodes with no graphical interface**, using [Multipass](https://multipass.run/), a lightweight, command-line VM launcher
+- [Hyper-V](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/), available in Windows 10 Enterprise, Pro, or Education versions, which can be managed from the Windows UI or, for **terminal-based control nodes with no graphical interface** using [Multipass](https://multipass.run/), a lightweight, command-line VM launcher
 - [VirtualBox](https://www.virtualbox.org/)
 
 {{< highlight "warning" "VMware Workstation Player">}}
 
-On Windows 10, testing has shown that the free, personal, non-commercial use version of [VMware Workstation Player](https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html) **does not work** with rollyourown.xyz due to networking issues for containers within a virtual machine preventing the image build process from succeeding. These problems *may* be solved with the VMWare Player Pro version by setting promiscuous mode on virtual network bridge, but we have been unable to test this. If you can verify this and provide step-by-step instructions how to solve these issues, please [contribute](/collaborate).
+On Windows 10, testing has shown that the free, personal, non-commercial use version of [VMware Workstation Player](https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html) **does not work** with rollyourown due to networking issues for containers within a virtual machine preventing the image build process from succeeding. These problems *may* be solved with the VMWare Player Pro version by setting promiscuous mode on virtual network bridge, but we have been unable to test this. If you can verify this and provide step-by-step instructions how to solve these issues, please [contribute](/collaborate).
 
 {{< /highlight >}}
 
@@ -98,7 +89,7 @@ On Windows 10, testing has shown that the free, personal, non-commercial use ver
 
 {{< highlight "warning" "macOS setup is untested">}}
 
-We have currently been unable to test any of the macOS-based virtual machine options for compatibility with a rollyourown.xyz control node and scripts. [Please consider contributing](/collaborate) if you can help us with this.
+We have currently been unable to test any of the macOS-based virtual machine options for compatibility with a rollyourown control node and scripts. [Please consider contributing](/collaborate) if you can help us with this.
 
 {{< /highlight >}}
 
@@ -120,11 +111,11 @@ A control node can be run on a dedicated computer running Ubuntu 22.04 LTS. This
 
 ## Automated control node configuration
 
-Once a [control node is up and running with Ubuntu 22.04 LTS](#control-node-setup), the control node needs to be configured and software needs to be installed to run your rollyourown.xyz project automation scripts. This software installation and configuration is itself automated.
+Once a [control node is up and running with Ubuntu 22.04 LTS](#control-node-setup), the control node needs to be configured and software needs to be installed to run your rollyourown project automation scripts. This software installation and configuration is itself automated.
 
 {{< highlight "warning" "The non-root user">}}
 
-During setup of Ubuntu 22.04 LTS, you will typically have been asked to specify a username and password for a non-root user. In some cases, Ubuntu is already pre-setup with the non-root user `ubuntu`, typically with password `ubuntu`. This non-root user account should be used for executing the rollyourown.xyz scripts. The user-name and password need to be entered in the "Local user configuration" section of the `configuration.yml` file (Step 5 below) for the control-node configuration scripts to run.
+During setup of Ubuntu 22.04 LTS, you will typically have been asked to specify a username and password for a non-root user. In some cases, Ubuntu is already pre-setup with the non-root user `ubuntu`, typically with password `ubuntu`. This non-root user account should be used for executing the rollyourown scripts. The user-name and password need to be entered in the "Local user configuration" section of the `configuration.yml` file (Step 5 below) for the control-node configuration scripts to run.
 
 {{< /highlight >}}
 
@@ -213,7 +204,7 @@ Always **reboot the control node** after upgrading.
 
 ## Control node backup
 
-[**THIS SECTION IS TODO**]
+It is recommended to back up your control node. With a control node in a virtual machine, use the snapshot / backup features of your chosen virtualisation technology.
 
 ## Control node deletion
 
@@ -230,8 +221,10 @@ After a project is deployed, the control node for the project is used to keep th
 If you consider running a control node on [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/about) or as an [LXD container](https://linuxcontainers.org/lxd/) on Linux, please be aware that **this is currently unsupported**, due to limitations of the two technologies:
 
 - In WSL, missing systemd functionality prevents the wireguard interface from starting automatically and prevents snapd from working which in turn prevents the installation of LXD via snap
-- With LXD containers, container nesting prevents the control node from working correctly for some projects. One of the roles of a control node is to build container images, which is done on the control node using LXD containers. The rollyourown.xyz image building playbooks do not always work reliably with nested containers
+- With LXD containers, container nesting prevents the control node from working correctly for some projects. One of the roles of a control node is to build container images, which is done on the control node using LXD containers. The rollyourown image building playbooks do not always work reliably with nested containers
 
 It is our goal to eventually support a control node running as a WSL app on Windows or as an LXD container on Linux, to provide a simple and fast setup of a control node. We will revisit this if and when the technologies have been updated to resolve these problems.
+
+If you have successfully used rollyourown automation code on either of these two technologies, please [contact us](/about/contact).
 
 {{< /highlight >}}
