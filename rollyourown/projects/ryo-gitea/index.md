@@ -12,14 +12,6 @@ This project deploys a [Gitea](https://gitea.io/) server, with a [MariaDB](https
 
 <!--more-->
 
-## TODOs on this page
-
-{{< highlight "primary" "ToDo">}}
-
-- [ ] Links on the page
-
-{{< /highlight >}}
-
 ## Gitea project introduction
 
 [Git](https://git-scm.com/) is a widely-used, [distributed version control](https://en.wikipedia.org/wiki/Distributed_version_control) system. Git is typically used by software developers to support collaborative code development, but can also be used for developing any text-based content, such as the content of this web-site.
@@ -43,11 +35,11 @@ The [Codeberg](https://codeberg.org/) mirror repository for this project is here
 
 The [Github](https://github.com/) mirror repository for this project is here: [https://github.com/rollyourown-xyz/ryo-gitea](https://github.com/rollyourown-xyz/ryo-gitea)
 
-The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-gitea](https://git.rollyourown.xyz/ryo-projects/ryo-gitea) (not publicly accessible)
+The rollyourown repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-gitea](https://git.rollyourown.xyz/ryo-projects/ryo-gitea) (not publicly accessible)
 
 ## Dependencies
 
-This project depends on and deploys the following [rollyourown.xyz](https://rollyourown.xyz) modules:
+This project depends on and deploys the following rollyourown modules:
 
 - The [Ingress Proxy module](/rollyourown/project_modules/ryo-ingress-proxy/) to provide certificate management by [Certbot](https://certbot.eff.org/) and HTTPS proxying by the [HAProxy](https://www.haproxy.org/) load balancer / TLS proxy
 
@@ -71,15 +63,15 @@ The project installation consists of a number of containers deployed on the host
 
 #### Ingress proxy container
 
-The ingress proxy container terminates HTTP, HTTPS and SSH connections and distributes traffic to the Gitea container. This component is provided by the [rollyourown.xyz](https://rollyourown.xyz) Ingress Proxy module and is a key building block for rollyourown.xyz projects. Further details can be found [here](/rollyourown/project_modules/ryo-ingress-proxy/).
+The ingress proxy container terminates HTTP, HTTPS and SSH connections and distributes traffic to the Gitea container. This component is provided by the rollyourown Ingress Proxy module and is a key building block for rollyourown projects. Further details can be found [here](/rollyourown/project_modules/ryo-ingress-proxy/).
 
 #### MariaDB container
 
-The MariaDB container provides a MariaDB relational database as backend for the Gitea server container. This component is provided by the [rollyourown.xyz](https://rollyourown.xyz) MariaDB Database module. Further details can be found [here](/rollyourown/project_modules/ryo-mariadb).
+The MariaDB container provides a MariaDB relational database as backend for the Gitea server container. This component is provided by the rollyourown MariaDB Database module. Further details can be found [here](/rollyourown/project_modules/ryo-mariadb).
 
 #### Gitea container
 
-The Gitea container provides the Gitea server for the project. [Gitea](https://gitea.io/) is a lightweight, open source git repository.
+The Gitea container provides the Gitea server for the project. [Gitea](https://gitea.io/) is a lightweight, open source git repository server.
 
 ## How to use this project
 
@@ -115,7 +107,7 @@ Users can then log in to the Gitea front-end or access repositories via SSH (on 
 
 After deploying the project, the installation needs to be maintained over time as, for example, new versions of the project's components are released.
 
-Maintentance is automated via the rollyourown.xyz project scripts. See [here](/rollyourown/projects/how_to_maintain/) for details.
+Maintentance is automated via the rollyourown project scripts. See [here](/rollyourown/projects/how_to_maintain/) for details.
 
 ## Project requirements
 
