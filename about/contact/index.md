@@ -1,6 +1,6 @@
 ---
 title: "Contact Us"
-weight: 5
+weight: 3
 tags: []
 draft: false
 ---
@@ -12,15 +12,6 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 There are various ways to contact us.
 
 <!--more-->
-
-## TODOs on this page
-
-{{< highlight "primary" "ToDo">}}
-
-- [ ] Links on this page
-- [ ] Section on Privacy and Data Protection
-
-{{< /highlight >}}
 
 ## Security vulnerabilities
 
@@ -36,11 +27,11 @@ General feedback, ideas or questions about the rollyourown.xyz project can be gi
 
 ## Website translation
 
-If you would like to help us translate our website into other languages, please use our dedicated [translation contact form](https://forms.rollyourown.xyz/translation). Please read our page on [website translation](/collaborate/website_translation) first.
+If you would like to help us translate our website into other languages, please use our dedicated [translation contact form](https://forms.rollyourown.xyz/translation).
 
 ## Privacy and Data Protection
 
-[**TODO: Summary of the privacy and data protection page. Link to contact form for data protection issues.**]
+Our privacy policy is described in detail [on a dedicated page](about/privacy_policy). To raise privacy or data protection issues, please use the dedicated [contact form](https://forms.rollyourown.xyz/data-protection).
 
 ## Joining us
 
