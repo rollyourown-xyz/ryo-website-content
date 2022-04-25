@@ -8,19 +8,11 @@ SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
-The MariaDB Database module is a re-usable module for other [rollyourown.xyz](https://rollyourown.xyz) projects. The module provides a MariaDB relational database server.
+The MariaDB Database module is a re-usable module for other rollyourown projects. The module provides a MariaDB [relational database](https://en.wikipedia.org/wiki/Relational_database) server.
 
 <!--more-->
 
-This documentation is intended for developers of rollyourown.xyz projects.
-
-## TODOs on this page
-
-{{< highlight "primary" "ToDo">}}
-
-- [ ] Links in text
-
-{{< /highlight >}}
+This documentation is intended for developers of rollyourown projects.
 
 ## Introduction
 
@@ -32,7 +24,7 @@ The [Codeberg](https://codeberg.org/) mirror repository for this module is here:
 
 The [Github](https://github.com/) mirror repository for this module is here: [https://github.com/rollyourown-xyz/ryo-mariadb](https://github.com/rollyourown-xyz/ryo-mariadb)
 
-The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-mariadb](https://git.rollyourown.xyz/ryo-projects/ryo-mariadb) (not publicly accessible)
+The rollyourown repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-mariadb](https://git.rollyourown.xyz/ryo-projects/ryo-mariadb) (not publicly accessible)
 
 ## Dependencies
 
@@ -44,11 +36,11 @@ This project module deploys a container with multiple services as shown in the f
 
 {{< image src="Module_Overview.svg" title="Module Overview">}}
 
-The MariaDB database module contains two applications, together providing a mariadb database server to be used in other [rollyourown.xyz](https://rollyourown.xyz) projects.
+The MariaDB database module contains two applications, together providing a mariadb database server to be used in other rollyourown projects.
 
 ### MariaDB
 
-The mariadb application is deployed from the [mariadb.org](https://mariadb.org) repositories and [`mysql_secure_installation`](https://mariadb.com/kb/en/mysql_secure_installation/) configuration is carried out to prevent root account access from outside the local host, remove anonymous user accounts and remove the test database. A dedicated database user is created so that further databases and users can be provisioned by terraform scripts from the control node as part of [rollyourown.xyz](https://rollyourown.xyz) project deployment.
+The mariadb application is deployed from the [mariadb.org](https://mariadb.org) repositories and [`mysql_secure_installation`](https://mariadb.com/kb/en/mysql_secure_installation/) configuration is carried out to prevent root account access from outside the local host, remove anonymous user accounts and remove the test database. A dedicated database user is created so that further databases and users can be provisioned by terraform scripts from the control node as part of rollyourown project deployment.
 
 ### Consul
 
@@ -56,7 +48,7 @@ A Consul agent is deployed on the MariaDB database module and joins the Consul s
 
 ## How to deploy this module in a project or module
 
-The [repository for this module](https://github.com/rollyourown-xyz/ryo-mariadb) contains a number of resources for including the module in a [rollyourown.xyz](https://rollyourown.xyz) project. The steps for including the module are:
+The [repository for this module](https://github.com/rollyourown-xyz/ryo-mariadb) contains a number of resources for including the module in a rollyourown project. The steps for including the module are:
 
 1. Add the MariaDB Database module to the `get-modules.sh` script in the project:
 
@@ -154,22 +146,7 @@ Configuration of mariadb databases and database users is done during the project
 
 #### Terraform configuration for provisioning MariaDB
 
-During a rollyourown.xyz project deployment, the terraform [mysql provider](https://github.com/hashicorp/terraform-provider-mysql/) is used to provision databases and database users to the mariadb module.
-
-To enable this, the mariadb container's IP address must be made available within the project's terraform code. This is done by adding a remote data source for the module and a Terraform variable for the mariadb container's IP address on the host:
-
-```tf
-data "terraform_remote_state" "ryo-mariadb" {
-  backend = "local"
-  config = {
-    path = join("", ["${abspath(path.root)}/../../ryo-mariadb/module-deployment/terraform.tfstate.d/", var.host_id, "/terraform.tfstate"])
-  }
-}
-
-locals {
-  mariadb_ip_address = data.terraform_remote_state.ryo-mariadb.outputs.mariadb_ip_address
-}
-```
+During a rollyourown project deployment, the terraform [mysql provider](https://github.com/hashicorp/terraform-provider-mysql/) is used to provision databases and database users to the mariadb module.
 
 The MariaDB Database module uses a special 'terraform' user to provision databases and users to the mariadb database for use by project components. The terraform user password for the MariaDB database is generated when building the mariadb container image and is stored in the file `/ryo-projects/ryo-mariadb/configuration/mariadb_terraform_user_password_<HOST_ID>.yml` on the control node.
 
@@ -201,11 +178,11 @@ terraform {
 }
 ```
 
-Finally, the IP address variable and `mariadb_terraform_user_password` variable are used to configure the provider:
+Finally, the `mariadb_terraform_user_password` variable is used to configure the provider, along with the DNS name `mariadb.service.<HOST_ID>.ryo`:
 
 ```tf
 provider "mysql" {
-  endpoint = join("", [ local.mariadb_ip_address, ":3306" ])
+  endpoint = join("", [ "mariadb.service.", var.host_id, ".ryo", ":3306" ])
   username = "terraform"
   password = local.mariadb_terraform_user_password
 }
