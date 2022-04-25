@@ -8,19 +8,11 @@ SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
-The Ingress Proxy module is a re-usable module for other [rollyourown.xyz](https://rollyourown.xyz) projects which is used to terminate HTTPS and TCP connections and route admissible traffic to the project's containers.
+The Ingress Proxy module is a re-usable module for other rollyourown projects which is used to terminate HTTPS and TCP connections and route admissible traffic to the project's containers.
 
 <!--more-->
 
-This documentation is intended for developers of rollyourown.xyz projects.
-
-## TODOs on this page
-
-{{< highlight "primary" "ToDo">}}
-
-- [ ] Add links in the text
-
-{{< /highlight >}}
+This documentation is intended for developers of rollyourown projects.
 
 ## Introduction
 
@@ -34,11 +26,11 @@ The [Codeberg](https://codeberg.org/) mirror repository for this module is here:
 
 The [Github](https://github.com/) mirror repository for this module is here: [https://github.com/rollyourown-xyz/ryo-ingress-proxy](https://github.com/rollyourown-xyz/ryo-ingress-proxy)
 
-The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-ingress-proxy](https://git.rollyourown.xyz/ryo-projects/ryo-ingress-proxy) (not publicly accessible)
+The rollyourown repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-ingress-proxy](https://git.rollyourown.xyz/ryo-projects/ryo-ingress-proxy) (not publicly accessible)
 
 ## Dependencies
 
-This module has no dependencies to other [rollyourown.xyz](https://rollyourown.xyz) modules.
+This module has no dependencies to other rollyourown modules.
 
 ## Module components
 
@@ -50,7 +42,7 @@ This project module deploys a container with multiple services as shown in the f
 
 The [HAProxy](https://www.haproxy.org/) load-balancer / TLS proxy listens on defined ports, terminates incoming connections and distributes this traffic to specified backends, based on rules specified in [Access Control Lists (ACLs)](https://www.haproxy.com/blog/introduction-to-haproxy-acls/). Depending on the project, backends can be scaled across multiple instances.
 
-HAProxy ACLs and backend rules are dynamically configured based on Key-Values retrieved from the [Consul server running on the host](/rollyourown/projects/host_server/). This allows the Ingress Proxy to be deployed as a generic module, with the project-specific backed and ACL configuration provisioned to the Consul KV-store during project deployment.
+HAProxy ACLs and backend rules are dynamically configured based on Key-Values retrieved from the [Consul server running on the host](/rollyourown/projects/host_server/). This allows the Ingress Proxy to be deployed as a generic module, with the project-specific backed and ACL configuration provisioned to the [Consul KV-store](https://www.consul.io/docs/dynamic-app-config/kv) during project deployment.
 
 In addition, HAProxy terminates TLS / SSL connections (typically, HTTPS), using certificates obtained by [Certbot](https://certbot.eff.org/), so that certificates can be provisioned in a single element and do not need to be distributed across backend applications.
 
@@ -60,11 +52,11 @@ The [Certbot](https://certbot.eff.org/) application uses the [ACME protocol](htt
 
 For [Let's Encrypt](https://letsencrypt.org/) domain validation via the [Let's Encrypt HTTP-01 challenge](https://letsencrypt.org/docs/challenge-types/#http-01-challenge), traffic to the ACME client `.well-known/acme-challenge` link is routed by HAProxy to Certbot. Any other traffic to the project domain(s) is routed to backends or rejected, as defined in the HAProxy ACLs.
 
-The domains for which Certbot aquires and manages certificates are retrieved from the [Consul server running on the host](/rollyourown/projects/host_server/). This allows the Ingress Proxy to be deployed as a generic module, with the project-specific domains provisioned to the Consul KV-store during project deployment.
+The domains for which Certbot aquires and manages certificates are retrieved from the [Consul server running on the host](/rollyourown/projects/host_server/). This allows the Ingress Proxy to be deployed as a generic module, with the project-specific domains provisioned to the [Consul KV-store](https://www.consul.io/docs/dynamic-app-config/kv) during project deployment.
 
 ### Consul-Template
 
-On container start, the [Consul-Template](https://github.com/hashicorp/consul-template/) application obtains service configuration information from the [Consul key-value store](#key-value-store) and uses it to populate configuration files for HAProxy and Certbot. In addition, Consul-Template listens for changes to the configuration key-values and updates configuration files on-the-fly, reloading HAProxy and/or Certbot when configuration has changed.
+On container start, the [Consul-Template](https://github.com/hashicorp/consul-template/) application obtains service configuration information from the [Consul key-value store](https://www.consul.io/docs/dynamic-app-config/kv) and uses it to populate configuration files for HAProxy and Certbot. In addition, Consul-Template listens for changes to the configuration key-values and updates configuration files on-the-fly, reloading HAProxy and/or Certbot when configuration has changed.
 
 ### Webhook
 
@@ -72,7 +64,7 @@ The [Webhook](https://github.com/adnanh/webhook) application creates an HTTP end
 
 ## How to deploy this module in a project
 
-The [repository for this module](https://github.com/rollyourown-xyz/ryo-ingress-proxy) contains a number of resources for including the module in a [rollyourown.xyz](https://rollyourown.xyz) project. The steps for including the module are:
+The [repository for this module](https://github.com/rollyourown-xyz/ryo-ingress-proxy) contains a number of resources for including the module in a rollyourown project. The steps for including the module are:
 
 1. Add the Ingress Proxy module to the `get-modules.sh` script in the project:
 
@@ -141,7 +133,7 @@ Furthermore, [Certbot](https://certbot.eff.org/) needs to be configured to obtai
 
 ### Image configuration
 
-The [ryo-project-template repository](https://github.com/rollyourown-xyz/ryo-ingress-proxy) includes Ansible roles for deploying and configuring the Consul agent and configuring the project component to register with the Consul server:
+The [ryo-project-template repository](https://github.com/rollyourown-xyz/ryo-ingress-proxy) includes [Ansible](https://www.ansible.com/) roles for deploying and configuring the Consul agent and configuring the project component to register with the Consul server:
 
 - The role `install-consul` installs the consul agent
 - The role `set-up-consul` configures the consul agent to join the Consul server running on the host and enable local application name resolution via Consul
@@ -187,9 +179,14 @@ During a rollyourown.xyz project deployment, the official terraform [consul prov
 To enable this, the consul server's IP address must be made available within the project's terraform code. This is done by adding a Terraform variable for the consul server's IP address on the host:
 
 ```tf
+# Calculated variables
+locals {
+  lxd_host_ipv6_prefix = ( local.lxd_host_public_ipv6 == true ? local.lxd_host_public_ipv6_prefix : local.lxd_host_private_ipv6_prefix )
+}
+
 # Consul variables
 locals {
-  consul_ip_address  = join("", [ local.lxd_host_network_part, ".1" ])
+  consul_ip_address  = join("", [ local.lxd_host_ipv6_prefix, "::", local.lxd_host_network_ipv6_subnet, ":1" ])
 }
 ```
 
@@ -215,7 +212,7 @@ Finally, the IP address variable is used to configure the provider:
 
 ```tf
 provider "consul" {
-  address    = join("", [ local.consul_ip_address, ":8500" ])
+  address    = join("", [ "[", local.consul_ip_address, "]", ":8500" ])
   scheme     = "http"
   datacenter = var.host_id
 }
