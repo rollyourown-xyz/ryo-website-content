@@ -12,15 +12,6 @@ This project deploys a [Nextcloud](https://nextcloud.com/) server, with a [Maria
 
 <!--more-->
 
-## TODOs on this page
-
-{{< highlight "primary" "ToDo">}}
-
-- [ ] Links on the page
-- [ ] Add nextcloud-gpodder to [Using the Nextcloud service](#using-the-nextcloud-service)
-
-{{< /highlight >}}
-
 ## Nextcloud project introduction
 
 [Nextcloud](https://nextcloud.com/) is an open-source, self-hosted solution for file syncing and sharing via web and between [desktop and mobile apps](https://nextcloud.com/clients/). Through the [Nextcloud App Store](https://apps.nextcloud.com/), a Nextcloud server can be extended for many other online collaboration use-cases can be supported, for example:
@@ -41,11 +32,11 @@ The [Codeberg](https://codeberg.org/) mirror repository for this project is here
 
 The [Github](https://github.com/) mirror repository for this project is here: [https://github.com/rollyourown-xyz/ryo-nextcloud](https://github.com/rollyourown-xyz/ryo-nextcloud)
 
-The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-nextcloud](https://git.rollyourown.xyz/ryo-projects/ryo-nextcloud) (not publicly accessible)
+The rollyourown repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-nextcloud](https://git.rollyourown.xyz/ryo-projects/ryo-nextcloud) (not publicly accessible)
 
 ## Dependencies
 
-This project depends on and deploys the following [rollyourown.xyz](https://rollyourown.xyz) modules:
+This project depends on and deploys the following rollyourown modules:
 
 - The [Ingress Proxy module](/rollyourown/project_modules/ryo-ingress-proxy/) to provide certificate management by [Certbot](https://certbot.eff.org/) and HTTPS proxying by the [HAProxy](https://www.haproxy.org/) load balancer / TLS proxy
 
@@ -61,7 +52,7 @@ The components deployed in this project are shown in the following diagram:
 
 ### Host server
 
-The [host server](/rollyourown/projects/host_server/) is controlled from your control machine via a [Wireguard](https://www.wireguard.com/) tunnel and is configured to run a [Consul server](https://www.consul.io/) and the [LXD container runtime](https://linuxcontainers.org/lxd/). Each container deployed performs a specific task in the installation.
+The [host server](/rollyourown/projects/host_server/) is controlled from your [control node](/rollyourown/how_to_use/control_node/) via a [Wireguard](https://www.wireguard.com/) tunnel and is configured to run a [Consul server](https://www.consul.io/) and the [LXD container runtime](https://linuxcontainers.org/lxd/). Each container deployed performs a specific task in the installation.
 
 Further details about the host server building block can be found [here](/rollyourown/projects/host_server/).
 
@@ -71,15 +62,15 @@ The project installation consists of a number of containers deployed on the host
 
 #### Ingress proxy container
 
-The ingress proxy container terminates HTTP and HTTPS connections and distributes traffic to the Nextcloud and Well-known containers. This component is provided by the [rollyourown.xyz](https://rollyourown.xyz) Ingress Proxy module and is a key building block for rollyourown.xyz projects. Further details can be found [here](/rollyourown/project_modules/ryo-ingress-proxy/).
+The ingress proxy container terminates HTTP and HTTPS connections and distributes traffic to the Nextcloud and Well-known containers. This component is provided by the rollyourown Ingress Proxy module and is a key building block for rollyourown.xyz projects. Further details can be found [here](/rollyourown/project_modules/ryo-ingress-proxy/).
 
 #### Well-known container
 
-The well-known container redirects the well-known URIs `https://example.com/.well-known/carddav` and `https://example.com/.well-known/caldav` to the path `https://example.com/remote.php/dav` to enable [service discovery](https://docs.nextcloud.com/server/latest/admin_manual/issues/general_troubleshooting.html#service-discovery-label) for [CardDAV](https://en.wikipedia.org/wiki/CardDAV) and [CalDAV](https://en.wikipedia.org/wiki/CalDAV) clients. This component is provided by the [rollyourown.xyz](https://rollyourown.xyz) Well-known Server module. Further details can be found [here](/rollyourown/project_modules/ryo-wellknown).
+The well-known container redirects the well-known URIs `https://example.com/.well-known/carddav` and `https://example.com/.well-known/caldav` to the path `https://example.com/remote.php/dav` to enable [service discovery](https://docs.nextcloud.com/server/latest/admin_manual/issues/general_troubleshooting.html#service-discovery-label) for [CardDAV](https://en.wikipedia.org/wiki/CardDAV) and [CalDAV](https://en.wikipedia.org/wiki/CalDAV) clients. This component is provided by the rollyourown Well-known Server module. Further details can be found [here](/rollyourown/project_modules/ryo-wellknown).
 
 #### MariaDB container
 
-The MariaDB container provides a MariaDB relational database as backend for the Nextcloud application. This component is provided by the [rollyourown.xyz](https://rollyourown.xyz) MariaDB Database module. Further details can be found [here](/rollyourown/project_modules/ryo-mariadb).
+The MariaDB container provides a MariaDB relational database as backend for the Nextcloud application. This component is provided by the rollyourown MariaDB Database module. Further details can be found [here](/rollyourown/project_modules/ryo-mariadb).
 
 #### Nextcloud container
 
@@ -141,6 +132,7 @@ Some individual [Nextcloud apps](#installing-nextcloud-apps) also have accompany
 - Notes can be edited and synced with [Nextcloud Notes](https://github.com/stefan-niedermann/nextcloud-notes) on Android or [CloudNotes](https://pbh.dev/cloudnotes/) on iOS
 - Deck Kanban boards can be edited and synced with [Nextcloud Deck](https://github.com/stefan-niedermann/nextcloud-deck) on Android
 - News can be read and synced with [Nextcloud News](https://github.com/nextcloud/news-android) on Android or with [CloudNews](https://pbh.dev/cloudnews/) or [NextNews](https://apps.apple.com/us/app/nextnews/id1573041539) on iOS
+- Podcast feeds and listening progress in the [AntennaPod Android app](https://antennapod.org/) can be synced with Nextcloud [GPodderSync](https://apps.nextcloud.com/apps/gpoddersync)
 
 Various desktop operating systems can sync natively or via desktop applications - details can be found [here](https://docs.nextcloud.com/server/latest/user_manual/en/pim/index.html).
 
