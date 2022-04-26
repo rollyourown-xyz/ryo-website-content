@@ -9,26 +9,20 @@ SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
-This section describes the basic collaboration model for working on code or website content for rollyourown.xyz, by forking a repository and submitting a pull request.
+This section describes the basic collaboration model for working on code or website content for rollyourown, by forking a repository and submitting a pull request.
 
 <!--more-->
 
-## TODOs on this page
-
-{{< highlight "primary" "ToDo">}}
-
-- [ ] Links
-- [ ] Illustration of forking from source repo to personal account and then to a computer for editing
-- [ ] Refer to Issue and Pull Request Templates
-
-{{< /highlight >}}
-
 ## General collaboration workflow
 
-The basic collaboration model for working on code or website content for rollyourown.xyz follows the forking workflow used in many open source projects. Two good overviews of this workflow are:
+The basic collaboration model for working on code or website content for rollyourown follows the forking workflow used in many open source projects. Two good overviews of this workflow are:
 
 - [Bitbucket guide to the forking workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow)
 - [GitHub guide to the forking workflow](https://docs.github.com/en/get-started/quickstart/contributing-to-projects)
+
+The following diagram illustrates the basic workflow:
+
+{{< image src="Basic_Forking_Workflow.svg" title="Basic Forking Workflow">}}
 
 In this workflow:
 
@@ -37,17 +31,23 @@ In this workflow:
   3. When the changes proposed are ready, the contributor issues a "Pull Request" back to the source repository
   4. The repository maintainer reviews the Pull Request and, when happy with it, merges it into the main branch of the source repository
 
-[**TODO: ADD AN ILLUSTRATION of forking from source repo to personal account and then to a computer for editing**]
-
 ## Which repository to fork
 
 Which repository is used as the source for forking and collaborating depends on where a collaborator has an account -- either in the repositories on our own Git repository server, or in our mirror repositories [on Codeberg](https://codeberg.org/rollyourown-xyz) or [on GitHub](https://github.com/rollyourown-xyz/). [Our workflow](/collaborate/working_with_git/what_is_git/#rollyourown-workflow) allows us to manage Issues and Pull Requests in multiple environments.
 
 Ideally, we would manage our projects entirely in our own environment. However, since this would require all collaborators to have an account on our servers, we also enable collaboration [on Codeberg](https://codeberg.org/rollyourown-xyz) and [on GitHub](https://github.com/rollyourown-xyz/) for many of our repositories and use the tools there to manage collaboration:
 
-- For rollyourown.xyz projects and modules, Issues and Pull Requests are managed on our servers, on Codeberg and on GitHub
-- For the rollyourown.xyz website content, Issues and Pull Requests are managed on our servers, on Codeberg and on GitHub
+- For rollyourown projects and modules, Issues and Pull Requests are managed on our servers, on Codeberg and on GitHub
+- For the rollyourown website content, Issues and Pull Requests are managed on our servers, on Codeberg and on GitHub
 - For all other repositories (especially non-public repositories or those not mirrored), we use our own repository server to manage Issues and Pull Requests
+
+## Before beginning a contribution
+
+Before beginning a major contribution, please first submit an Issue in our mirror repositories [on Codeberg](https://codeberg.org/rollyourown-xyz) or [on GitHub](https://github.com/rollyourown-xyz/) describing what you would like to change and why.
+
+The project maintainer can then provide feedback on the proposal in advance of you doing any work. There may be a reason why your proposal would not be accepted, or should be realised differently, so this avoids you doing work which will end up not being accepted and merged into the code.
+
+When submitting an issue, a template is available with the structure to use.
 
 ## Forking
 
@@ -104,6 +104,8 @@ A few steps are needed to make changes on your computer, synchronise them to you
 - Changes are made to the files on your computer
 - Changes are committed to the feature branch on your computer, with a short description of what has changed
 - The changes made on your computer are pushed back to your personal copy of the forked repository
+
+{{< image src="Forking_Workflow_with_PC.svg" title="Forking Workflow with changes on personal computer">}}
 
 How you do these steps will depend on whether you are comfortable working with the command line, or prefer working with graphical user interfaces. Step-by-step examples of both are below.
 
@@ -263,7 +265,7 @@ The [Atom](https://atom.io/) editor is developed by GitHub. As such, the integra
 
 #### Creating a feature branch using the Atom editor
 
-To create a new feature branch with the Atom editor, click the `main` label at the bottom right (the default branch in a rollyourown.xyz repository is called `main`) and click "New Branch", entering the name of your new feature branch:
+To create a new feature branch with the Atom editor, click the `main` label at the bottom right (the default branch in a rollyourown repository is called `main`) and click "New Branch", entering the name of your new feature branch:
 
 ![Atom Feature Branch](Atom_Feature_Branch_400.png)
 
@@ -305,28 +307,28 @@ The final step is to submit a Pull Request to the original "upstream" repository
 
 ### Submitting a Pull Request on Codeberg
 
-Log back into your account on Codeberg, go to your forked repository and use the "New Pull Request" button to submit your pull request to the original rollyourown.xyz repository:
+Log back into your account on Codeberg, go to your forked repository and use the "New Pull Request" button to submit your pull request to the original rollyourown repository:
 
 ![Codeberg Pull Request Button](Codeberg_Pull_Request_800.png)
 
-Make sure the pull request will be opened in the original rollyourown.xyz repository from your feature branch:
+Make sure the pull request will be opened in the original rollyourown repository from your feature branch:
 
 ![Codeberg Open Pull Request](Codeberg_New_Pull_Request_800.png)
 
-In the Pull Request, please describe what you have done in the comment field and reference any issues / feature requests related to the changes made, to help the maintainer assess the pull request.
+In the Pull Request, please describe what you have done in the comment field and reference any issues / feature requests related to the changes made, to help the maintainer assess the pull request. A template is available with the structure to use and a checklist of questions to answer when submitting the Pull Request.
 
 ### Submitting a Pull Request on GitHub
 
-Log back in to your account on GitHub, go to your forked repository and use the "Compare & pull request" button to submit your pull request to the original rollyourown.xyz repository:
+Log back in to your account on GitHub, go to your forked repository and use the "Compare & pull request" button to submit your pull request to the original rollyourown repository:
 
 ![GitHub Pull Request Button](GitHub_Pull_Request_800.png)
 
-Make sure the pull request will be opened in the original rollyourown.xyz repository from your feature branch:
+Make sure the pull request will be opened in the original rollyourown repository from your feature branch:
 
 ![GitHub Open Pull Request](GitHub_Open_Pull_Request_800.png)
 
-In the Pull Request, please describe what you have done in the comment field and reference any issues / feature requests related to the changes made, to help the maintainer assess the pull request.
+In the Pull Request, please describe what you have done in the comment field and reference any issues / feature requests related to the changes made, to help the maintainer assess the pull request. A template is available with the structure to use and a checklist of questions to answer when submitting the Pull Request.
 
 ## After submitting a Pull Request
 
-After you have submitted the Pull Request, the maintainer will be notified and can review it. The maintainer may discuss the change with you and, for example, request a review from other collaborators or request further changes. When the maintainer is happy with the change, then it can be merged into the main branch in the rollyourown.xyz repository.
+After you have submitted the Pull Request, the maintainer will be notified and can review it. The maintainer may discuss the change with you and, for example, request a review from other collaborators or request further changes. When the maintainer is happy with the change, then it can be merged into the main branch in the rollyourown repository.
