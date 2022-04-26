@@ -16,18 +16,9 @@ The project also deploys a [webhook](https://github.com/adnanh/webhook) so that 
 
 In addition, the project deploys an Ingress Proxy, including [Certbot](https://certbot.eff.org/) and [HAProxy](https://www.haproxy.org/), for [Let's Encrypt](https://letsencrypt.org/) certificate management and TLS/SSL termination. If an [IdP mode is selected](#identity-providers-and-single-sign-one), then the project also deploys the [oauth2-proxy](https://oauth2-proxy.github.io/oauth2-proxy/) to restrict the website to logged-in users.
 
-## TODOs on this page
-
-{{< highlight "primary" "ToDo">}}
-
-- [ ] Links on the page
-- [ ] Section on using bare-bones theme repository, after creating this
-
-{{< /highlight >}}
-
 ## Hugo website project introduction
 
-[Hugo](https://gohugo.io/) is a static site generator, written in [Go](https://go.dev/), that generates a static website from a set of files and folders. A static website is typically faster, needs fewer server-side resources and is more secure than a dynamic website. A static website is a good fit for websites (such as product sites, blogs or documentation) where the content is not personalised for the website user or dependent on dynamically-changing inputs. An introduction to static site generators and their advantages and disadvantages compared to other approaches can be found here: [An Introduction to Static Site Generators](https://davidwalsh.name/introduction-static-site-generators)
+[Hugo](https://gohugo.io/) is a [static site generator](https://gohugo.io/about/benefits/), written in [Go](https://go.dev/), that generates a static website from a set of files and folders. A static website is typically faster, needs fewer server-side resources and is more secure than a dynamic website. A static website is a good fit for websites (such as product sites, blogs or documentation) where the content is not personalised for the website user or dependent on dynamically-changing inputs. An introduction to static site generators and their advantages and disadvantages compared to other approaches can be found here: [An Introduction to Static Site Generators](https://davidwalsh.name/introduction-static-site-generators)
 
 This project deploys a website with the content and theme stored in version-controlled [Git](https://git-scm.com/) repositories. The project takes this content, generates a static site and deploys it to a webserver.
 
@@ -51,11 +42,11 @@ The [Codeberg](https://codeberg.org/) mirror repository for this project is here
 
 The [Github](https://github.com/) mirror repository for this project is here: [https://github.com/rollyourown-xyz/ryo-hugo-website](https://github.com/rollyourown-xyz/ryo-hugo-website)
 
-The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-hugo-website](https://git.rollyourown.xyz/ryo-projects/ryo-hugo-website) (not publicly accessible)
+The rollyourown repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-hugo-website](https://git.rollyourown.xyz/ryo-projects/ryo-hugo-website) (not publicly accessible)
 
 ## Dependencies
 
-This project depends on and deploys the [rollyourown.xyz](https://rollyourown.xyz) [Ingress Proxy](/rollyourown/project_modules/ryo-ingress-proxy/) module to provide certificate management by [Certbot](https://certbot.eff.org/) and HTTPS proxying by the [HAProxy](https://www.haproxy.org/) loadbalancer / TLS proxy.
+This project depends on and deploys the rollyourown [Ingress Proxy](/rollyourown/project_modules/ryo-ingress-proxy/) module to provide certificate management by [Certbot](https://certbot.eff.org/) and HTTPS proxying by the [HAProxy](https://www.haproxy.org/) loadbalancer / TLS proxy.
 
 ## Identity providers and single sign-on
 
@@ -92,7 +83,7 @@ The project installation consists of a number of containers deployed on the host
 
 #### Ingress proxy container
 
-The ingress proxy container terminates HTTP and HTTPS connections and distributes traffic to other containers. This component is provided by the [rollyourown.xyz](https://rollyourown.xyz) Ingress Proxy module and is a key building block for rollyourown.xyz projects. Further details can be found [here](/rollyourown/project_modules/ryo-ingress-proxy/).
+The ingress proxy container terminates HTTP and HTTPS connections and distributes traffic to other containers. This component is provided by the rollyourown Ingress Proxy module and is a key building block for rollyourown projects. Further details can be found [here](/rollyourown/project_modules/ryo-ingress-proxy/).
 
 #### Website provisioner container
 
@@ -186,11 +177,17 @@ For more information on how to structure your content repository and write conte
 
 #### Setting up the repository for your website theme
 
-For a quick start, choose one of the many publicly-available Hugo themes -- see, for example, [https://themes.gohugo.io/](https://themes.gohugo.io/). Alternatively, create a theme from scratch by cloning our bare-bones theme template repository [on Codeberg](https://codeberg.org/rollyourown-xyz/hugo-website-theme-template) or [on GitHub](https://github.com/rollyourown-xyz/hugo-website-theme-template) for the basic structure.
+For a quick start, choose one of the many publicly-available Hugo themes -- see, for example, [https://themes.gohugo.io/](https://themes.gohugo.io/).
+
+<!-- ADD THIS WHEN BARE-BONES THEME REPOSITORY IS AVAILABLE
+Alternatively, if you are experienced with Hugo theme development, create a theme from scratch by cloning our bare-bones theme template repository [on Codeberg](https://codeberg.org/rollyourown-xyz/hugo-website-theme-template) or [on GitHub](https://github.com/rollyourown-xyz/hugo-website-theme-template) for the basic structure.
+-->
 
 The theme you choose may determine the file naming and directory structure in your content repository, depending on the content types supported by the theme. Check the documentation for the theme you choose.
 
+<!-- ADD THIS WHEN BARE-BONES THEME REPOSITORY IS AVAILABLE
 If you are interested in creating your own theme, an introduction can be found [here](https://levelup.gitconnected.com/a-quick-tutorial-on-hugo-templates-creating-your-theme-a4102b42a85f?gi=1adcd183b670) or [here](https://retrolog.io/blog/creating-a-hugo-theme-from-scratch/).
+-->
 
 Depending on the theme you choose, you will need to modify the `config.toml` file in your [content repository](#setting-up-the-repository-for-your-website-content).
 
@@ -220,11 +217,11 @@ So that the chosen theme is used, you need to modify the `config.toml` file in y
 
 {{< /more >}}
 
+<!-- ADD THIS WHEN BARE-BONES THEME REPOSITORY IS AVAILABLE
 {{< more "secondary" "Details: Use your own theme">}}
-
-[**TODO -- SECTION ON USING BARE-BONES TEMPLATE -- WITH SCREENSHOTS HOW TO DO THIS**]
-
+SECTION ON HOW TO USE THE BARE-BONES TEMPLATE -- WITH SCREENSHOTS
 {{< /more >}}
+-->
 
 After preparing the `config.toml` file in your content repository, the parameters `project_theme_repository` and `project_hugo_theme_name` in your project configuration file need to be set to match the theme chosen, for example:
 
@@ -252,9 +249,13 @@ project_scaffold_repository: github.com/rollyourown-xyz/ryo-hugo-website-scaffol
 
 #### Setting up a webhook for automatic website updates
 
-So that your website is updated automatically whenever you change the content in your Git repository/ies, set up a [Webhook](https://wikipedia.org/wiki/Webhook) for your repository to trigger the update whenever a commit is pushed to the repository.
+Set up a [Webhook](https://wikipedia.org/wiki/Webhook) for your repository to trigger an update of the website whenever a commit is pushed to the repository, so that your website is updated automatically whenever you change the content in your Git repository/ies.
 
-A webhook can only be set up for your own repository -- i.e. your website content repository or the theme or scaffold repositories if you have cloned these to your own repositories.
+{{< highlight "warning">}}
+
+A webhook can only be set up for your own repository -- i.e. your website content repository or a theme or scaffold repository if you have cloned these.
+
+{{< /highlight >}}
 
 {{< more "secondary" "Details: Setting up a webhook on Codeberg">}}
 
@@ -389,7 +390,7 @@ After deployment, your website will be updated automatically whenever content (o
 
 As a static website server, [nginx](https://nginx.org/) does not need huge resources to run. Nor does the [Hugo](https://gohugo.io/) static site generator. Therefore, this project can be deployed on smaller, cheaper entry-level virtual servers or home servers.
 
-For example, this project has been successfully deployed on a €2,69/m entry-level Linux VPS with 1 vCore CPU, 2GB RAM and a 20GB SSD. Of course, if you plan to build a larger website or expect to serve large amounts of traffic, a higher-spec VPS or server would be needed.
+For example, this project has been successfully deployed on a €2,69/m entry-level Linux VPS with 1 vCore CPU, 2GB RAM and a 20GB SSD. Of course, if you plan to build a very large website with a lot of media, or expect to serve large amounts of traffic, a higher-spec VPS or server would be needed.
 
 ## Software deployed
 
