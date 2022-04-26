@@ -89,10 +89,10 @@ If a host server has failed or projects are to be moved to a new host server, th
 
 If the public IP address of the host server has changed, then the host server's configuration file will need to be updated with the new IP address in `/ryo-projects/ryo-host/configuration/configuration_<HOST NAME>.yml` and `/ryo-projects/ryo-host/configuration/inventory_<HOST NAME>`.
 
-Once the host server is set up, then the restoration is carried our by running the `host-restore.sh` script, providing the name of the host, a version name for the new images that will be built (this does not need to be the same as the previous version name used) and the "stamp" (e.g. date, time) identifying the backup to restore.
+Once the host server is set up, then the restoration is carried our by running the `host-restore.sh` script, providing the name of the host and the "stamp" (e.g. date, time) identifying the backup to restore.
 
 ```bash
-./host-restore.sh -n <HOST NAME> -v <VERSION> -s <BACKUP STAMP>
+./host-restore.sh -n <HOST NAME> -s <BACKUP STAMP>
 ```
 
 {{< highlight "warning" >}}
