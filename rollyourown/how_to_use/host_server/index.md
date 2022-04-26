@@ -15,11 +15,11 @@ A host server is needed to run the various containers that make up a project dep
 
 ## Host server introduction
 
-The components of a [rollyourown.xyz](https://rollyourown.xyz) project need to run on a host server. A host server may be a [virtual private server (VPS)](https://en.wikipedia.org/wiki/Virtual_private_server) or dedicated server rented from a [hosting provider](https://en.wikipedia.org/wiki/Internet_hosting_service), or may be a server or virtual machine hosted in your home or office.
+The components of a rollyourown project need to run on a host server. A host server may be a [virtual private server (VPS)](https://en.wikipedia.org/wiki/Virtual_private_server) or dedicated server rented from a [hosting provider](https://en.wikipedia.org/wiki/Internet_hosting_service), or may be a server or virtual machine hosted in your home or office.
 
 The host server should be running [Ubuntu](https://ubuntu.com/) 20.04 LTS or 22.04 LTS as operating system. Our projects are written and tested to set up and deploy to Ubuntu 20.04 LTS or 22.04 LTS Linux servers.
 
-A [rollyourown.xyz](https://rollyourown.xyz) host server is controlled by a [control node](/rollyourown/projects/control_node/) via a secure [wireguard](https://www.wireguard.com/) tunnel. Usually, no manual management of the host server is needed and the host server command line does not need to be accessed. However, users familiar with the Linux command line can log in to the server *from the control node*, for example for advanced diagnostics. A few useful commands can be found [here](/rollyourown/projects/host_server_advanced/).
+A rollyourown host server is controlled by a [control node](/rollyourown/projects/control_node/) via a secure [wireguard](https://www.wireguard.com/) tunnel. Usually, no manual management of the host server is needed and the host server command line does not need to be accessed. However, users familiar with the Linux command line can log in to the server *from the control node*, for example for advanced diagnostics. A few useful commands can be found [here](/rollyourown/how_to_use/host_server_advanced/).
 
 ## Host server IP address
 
@@ -43,7 +43,7 @@ The basic components of a host server are illustrated in the following diagram:
 
 {{< image src="Host_Server.svg" title="Host_Server">}}
 
-On top of the base operating system, the [rollyourown.xyz](https://rollyourown.xyz) [automated host server setup script](#automated-host-server-setup) configures the server, installs basic packages and installs two key components for enabling a rollyourown project deployment:
+On top of the base operating system, the rollyourown [automated host server setup script](#automated-host-server-setup) configures the server, installs basic packages and installs two key components for enabling a rollyourown project deployment:
 
 - [Consul](https://www.consul.io/) is installed to support service discovery and dynamic configuration of project components
 - [LXD](https://linuxcontainers.org/lxd/) is installed as container management system to launch and manage project components
@@ -78,15 +78,15 @@ The [Codeberg](https://codeberg.org/) mirror repository for the host server auto
 
 The [Github](https://github.com/) mirror repository for the host server automation scripts is here: [https://github.com/rollyourown-xyz/ryo-host](https://github.com/rollyourown-xyz/ryo-host)
 
-The [rollyourown.xyz](https://rollyourown.xyz/) repository for the host server automation scripts is here: [https://git.rollyourown.xyz/ryo-projects/ryo-host](https://git.rollyourown.xyz/ryo-projects/ryo-host) (not publicly accessible)
+The rollyourown repository for the host server automation scripts is here: [https://git.rollyourown.xyz/ryo-projects/ryo-host](https://git.rollyourown.xyz/ryo-projects/ryo-host) (not publicly accessible)
 
 ## Host server setup
 
-The recommended way to run a [rollyourown.xyz](https://rollyourown.xyz) project is on a dedicated server or virtual private server (VPS) hosted by a hosting provider.
+The recommended way to run a rollyourown project is on a dedicated server or virtual private server (VPS) hosted by a hosting provider.
 
 ### Host server resources
 
-The "size" of the host server needed for a [rollyourown.xyz](https://rollyourown.xyz) project depends on a number of parameters:
+The "size" of the host server needed for a rollyourown project depends on a number of parameters:
 
 - The number of different projects you intend to deploy on the host server
 - The complexity of the project(s) you want to deploy - the project page should give you an idea of the minimum resources the project needs to run well
@@ -210,12 +210,14 @@ If your VPS or server is assigned a public IPv6 prefix and address, then the con
     git clone https://github.com/rollyourown-xyz/ryo-host
     ```
 
-2. Choose a name (e.g. "host-1") for the host server, enter the `ryo-host` directory and copy the file `configuration/configuration_TEMPLATE.yml` to a new file `configuration/configuration_<HOST_NAME>.yml`, replacing <HOST_NAME> with the name chosen:
+2. Choose a name (e.g. "host1") for the host server, enter the `ryo-host` directory and copy the file `configuration/configuration_TEMPLATE.yml` to a new file `configuration/configuration_<HOST_NAME>.yml`, replacing <HOST_NAME> with the name chosen:
 
     ```bash
     cd ~/ryo-projects/ryo-host
     cp configuration/configuration_TEMPLATE.yml configuration/configuration_<HOST_NAME>.yml
     ```
+
+    **NOTE:** The host name should be a combination of ONLY upper and lower case letters and numbers, with no spaces, dashes or other symbols
 
 3. Edit the new file `configuration_<HOST_NAME>.yml` and add the host server's IP address information (see note above), the root username and password provided by your hosting provider (or configured yourself if you have set up your own server). Also choose a non-root username and password to be configured on the host server.
 
@@ -259,7 +261,7 @@ After setting up a [control node](rollyourown/projects/control_node/) and [host 
 
 ## Host server maintenance
 
-Along with the `host-setup.sh` script, the host server repository also contains a `host-upgrade.sh` script to automate host server maintenance. This script upgrades a host server and the software installed on it. Note: This script does **not** upgrade the containers deployed by rollyourown.xyz projects on the host server. To upgrade these, see [How to Maintain](/rollyourown/projects/how_to_maintain/#upgrading-a-project-deployment).
+Along with the `host-setup.sh` script, the host server repository also contains a `host-upgrade.sh` script to automate host server maintenance. This script upgrades a host server and the software installed on it. Note: This script does **not** upgrade the containers deployed by rollyourown projects on the host server. To upgrade these, see [How to Maintain](/rollyourown/projects/how_to_maintain/#upgrading-a-project-deployment).
 
 To upgrade a host server, run the `host-upgrade.sh` script from the `ryo-host` directory, passing the name of the host chosen above via the flag `-n`:
 
@@ -276,4 +278,4 @@ A host server is a runtime for multiple project and module containers and provid
 
 Backing up a host server therefore means backing up the projects and modules deployed to it, so that these can be restored to a freshly-deployed host server if needed.
 
-The general backup and restore approach for rollyourown.xyz projects is described on a [dedicated page](/rollyourown/how_to_use/back_up_and_restore/).
+The general backup and restore approach for rollyourown projects is described on a [dedicated page](/rollyourown/how_to_use/back_up_and_restore/).
