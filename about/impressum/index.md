@@ -1,6 +1,6 @@
 ---
 title: "Imprint / Impressum"
-weight: 12
+weight: 10
 tags: []
 draft: false
 ---

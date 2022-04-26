@@ -1,6 +1,6 @@
 ---
 title: "Copyright, Licences and Trademarks"
-weight: 13
+weight: 11
 tags: []
 draft: false
 ---

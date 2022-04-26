@@ -1,6 +1,6 @@
 ---
 title: "Credits"
-weight: 7
+weight: 6
 tags: []
 draft: false
 ---
