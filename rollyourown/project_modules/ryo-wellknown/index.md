@@ -8,25 +8,17 @@ SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
-The Well-known URI Server module is a re-usable module for other [rollyourown.xyz](https://rollyourown.xyz) projects. The module provides a webserver to host [well-known locations](https://www.rfc-editor.org/rfc/rfc8615) for returning site-wide metadata for services.
+The Well-known URI Server module is a re-usable module for other rollyourown projects. The module provides a webserver to host [well-known locations](https://www.rfc-editor.org/rfc/rfc8615) for returning site-wide metadata for services.
 
 <!--more-->
 
-This documentation is intended for developers of rollyourown.xyz projects.
-
-## TODOs on this page
-
-{{< highlight "primary" "ToDo">}}
-
-- [ ] Links in text
-
-{{< /highlight >}}
+This documentation is intended for developers of rollyourown projects.
 
 ## Introduction
 
-This module deploys and configures an [nginx](https://nginx.org/) webserver to respond to [well-known Uniform Resource Identifiers](https://en.wikipedia.org/wiki/Well-known_URI). This provides a central module for hosting well-known URIs for any [rollyourown.xyz](https://rollyourown.xyz) project.
+This module deploys and configures an [nginx](https://nginx.org/) webserver to respond to [well-known Uniform Resource Identifiers](https://en.wikipedia.org/wiki/Well-known_URI). This provides a central module for hosting well-known URIs for any rollyourown project.
 
-[Consul-Template](https://github.com/hashicorp/consul-template/) is used to dynamically load well-known configuration from kev-values in the [Consul](https://www.consul.io/) Key-Value Store running on the [host server](/rollyourown/projects/host_server/).
+[Consul-Template](https://github.com/hashicorp/consul-template/) is used to dynamically load well-known configuration from kev-values in the [Consul Key-Value Store](https://www.consul.io/docs/dynamic-app-config/kv) running on the [host server](/rollyourown/projects/host_server/).
 
 ## Repository links
 
@@ -34,7 +26,7 @@ The [Codeberg](https://codeberg.org/) mirror repository for this module is here:
 
 The [Github](https://github.com/) mirror repository for this module is here: [https://github.com/rollyourown-xyz/ryo-wellknown](https://github.com/rollyourown-xyz/ryo-wellknown)
 
-The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-wellknown](https://git.rollyourown.xyz/ryo-projects/ryo-wellknown) (not publicly accessible)
+The rollyourown repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-wellknown](https://git.rollyourown.xyz/ryo-projects/ryo-wellknown) (not publicly accessible)
 
 ## Dependencies
 
@@ -46,7 +38,7 @@ This project module deploys a container with multiple services as shown in the f
 
 {{< image src="Module_Overview.svg" title="Module Overview">}}
 
-The Well-known Server module contains three applications, together providing a well-known server to be used in other [rollyourown.xyz](https://rollyourown.xyz) projects.
+The Well-known Server module contains three applications, together providing a well-known server to be used in other rollyourown projects.
 
 ### nginx
 
@@ -64,7 +56,7 @@ After configuration has changed, consul-template triggers an update of HAProxy c
 
 ## How to deploy this module in a project or module
 
-The [repository for this module](https://github.com/rollyourown-xyz/ryo-wellknown) contains a number of resources for including the module in a [rollyourown.xyz](https://rollyourown.xyz) project. The steps for including the module are:
+The [repository for this module](https://github.com/rollyourown-xyz/ryo-wellknown) contains a number of resources for including the module in a rollyourown project. The steps for including the module are:
 
 1. Add the Well-known Server module to the `get-modules.sh` script in the project:
 
@@ -139,7 +131,7 @@ Configuration of well-known URIs to be served by the Well-known Server module is
 
 #### Terraform configuration for provisioning Consul key-values
 
-During a rollyourown.xyz project deployment, the official terraform [consul provider](https://registry.terraform.io/providers/hashicorp/consul/) is used to provision key-value configuration for HAProxy and Certbot to the Consul server running on the host.
+During a rollyourown project deployment, the official terraform [consul provider](https://registry.terraform.io/providers/hashicorp/consul/) is used to provision key-value configuration for HAProxy and Certbot to the Consul server running on the host.
 
 To enable this, the consul server's IP address must be made available within the project's terraform code. This is done by adding a Terraform variable for the consul server's IP address on the host:
 
