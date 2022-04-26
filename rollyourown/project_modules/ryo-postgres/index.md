@@ -8,23 +8,15 @@ SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
-The PostgreSQL Database module is a re-usable module for other [rollyourown.xyz](https://rollyourown.xyz) projects. The module provides a PostgreSQL relational database server.
+The PostgreSQL Database module is a re-usable module for other rollyourown projects. The module provides a PostgreSQL relational database server.
 
 <!--more-->
 
-This documentation is intended for developers of rollyourown.xyz projects.
-
-## TODOs on this page
-
-{{< highlight "primary" "ToDo">}}
-
-- [ ] Links in text
-
-{{< /highlight >}}
+This documentation is intended for developers of rollyourown projects.
 
 ## Introduction
 
-This module deploys [PostgreSQL](https://www.postgresql.org/). [PostgreSQL](https://www.postgresql.org/) is an open source, object-relational database system.
+This module deploys [PostgreSQL](https://www.postgresql.org/). PostgreSQL is an open source, [object-relational database system](https://en.wikipedia.org/wiki/Object-relational_database).
 
 ## Repository links
 
@@ -32,7 +24,7 @@ The [Codeberg](https://codeberg.org/) mirror repository for this module is here:
 
 The [Github](https://github.com/) mirror repository for this module is here: [https://github.com/rollyourown-xyz/ryo-postgres](https://github.com/rollyourown-xyz/ryo-postgres)
 
-The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-postgres](https://git.rollyourown.xyz/ryo-projects/ryo-postgres) (not publicly accessible)
+The rollyourown repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-postgres](https://git.rollyourown.xyz/ryo-projects/ryo-postgres) (not publicly accessible)
 
 ## Dependencies
 
@@ -44,11 +36,11 @@ This project module deploys a container with multiple services as shown in the f
 
 {{< image src="Module_Overview.svg" title="Module Overview">}}
 
-The PostgreSQL database module contains two applications, together providing a postgresql database server to be used in other [rollyourown.xyz](https://rollyourown.xyz) projects.
+The PostgreSQL database module contains two applications, together providing a postgresql database server to be used in other rollyourown projects.
 
 ### PostgreSQL
 
-The postgresql application is deployed from the [postgresql.org](https://www.postgresql.org/) repositories, a postgres user password is set and the database server configured to accept connections from the internal network on the host server. Furthermore, log in from the control node is enabled so that further databases and users can be provisioned by terraform scripts from the control node as part of [rollyourown.xyz](https://rollyourown.xyz) project deployment.
+The postgresql application is deployed from the [postgresql.org](https://www.postgresql.org/) repositories, a postgres user password is set and the database server configured to accept connections from the internal network on the host server. Furthermore, log in from the control node is enabled so that further databases and users can be provisioned by terraform scripts from the control node as part of rollyourown project deployment.
 
 ### Consul
 
@@ -56,7 +48,7 @@ A Consul agent is deployed on the PostgreSQL database module and joins the Consu
 
 ## How to deploy this module in a project or module
 
-The [repository for this module](https://github.com/rollyourown-xyz/ryo-postgres) contains a number of resources for including the module in a [rollyourown.xyz](https://rollyourown.xyz) project. The steps for including the module are:
+The [repository for this module](https://github.com/rollyourown-xyz/ryo-postgres) contains a number of resources for including the module in a rollyourown project. The steps for including the module are:
 
 1. Add the PostgreSQL Database module to the `get-modules.sh` script in the project:
 
@@ -155,22 +147,7 @@ Configuration of postgresql databases and database users is done during the proj
 
 #### Terraform configuration for provisioning PostgreSQL
 
-During a rollyourown.xyz project deployment, the terraform [postgresql provider](https://registry.terraform.io/providers/cyrilgdn/postgresql/latest/) is used to provision databases and database users to the postgresql module.
-
-To enable this, the postgresql container's IP address must be made available within the project's terraform code. This is done by adding a remote data source for the module and a Terraform variable for the postgresql container's IP address on the host:
-
-```tf
-data "terraform_remote_state" "ryo-postgres" {
-  backend = "local"
-  config = {
-    path = join("", ["${abspath(path.root)}/../../ryo-postgres/module-deployment/terraform.tfstate.d/", var.host_id, "/terraform.tfstate"])
-  }
-}
-
-locals {
-  postgres_ip_address = data.terraform_remote_state.ryo-postgres.outputs.postgres_ip_address
-}
-```
+During a rollyourown project deployment, the terraform [postgresql provider](https://registry.terraform.io/providers/cyrilgdn/postgresql/latest/) is used to provision databases and database users to the postgresql module.
 
 The PostgreSQL Database module uses the 'postgres' user to provision databases and users to the postgresql database for use by project components. The 'postgres' user password for the PostgreSQL database is generated when building the postgresql container image and is stored in the file `/ryo-projects/ryo-postgres/configuration/postgres_user_password_<HOST_ID>.yml` on the control node.
 
@@ -202,11 +179,11 @@ terraform {
 }
 ```
 
-Finally, the IP address variable and `postgres_user_password` variable are used to configure the provider:
+Finally, the `postgres_user_password` variable is used to configure the provider, along with the DNS name `postgres.service.<HOST_ID>.ryo`:
 
 ```tf
 provider "postgresql" {
-  host            = local.postgres_ip_address
+  host            = join("", [ "postgres.service.", var.host_id, ".ryo"])
   port            = 5432
   database        = "postgres"
   username        = "postgres"
