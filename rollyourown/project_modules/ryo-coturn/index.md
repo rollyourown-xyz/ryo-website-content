@@ -8,25 +8,17 @@ SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
-The STUN/TURN Server module is a re-usable module for other [rollyourown.xyz](https://rollyourown.xyz) projects and is used to provide [STUN](https://en.wikipedia.org/wiki/STUN), [TURN](https://en.wikipedia.org/wiki/Traversal_Using_Relays_around_NAT) and [ICE](https://en.wikipedia.org/wiki/Interactive_Connectivity_Establishment) services to enable peer-to-peer commmunications (such as [WebRTC](https://webrtc.org/) services or internet voice and video calls) for devices behind a [NAT](https://en.wikipedia.org/wiki/Network_address_translation).
+The STUN/TURN Server module is a re-usable module for other rollyourown projects and is used to provide [STUN](https://en.wikipedia.org/wiki/STUN), [TURN](https://en.wikipedia.org/wiki/Traversal_Using_Relays_around_NAT) and [ICE](https://en.wikipedia.org/wiki/Interactive_Connectivity_Establishment) services to enable peer-to-peer commmunications (such as [WebRTC](https://webrtc.org/) services or internet voice and video calls) for devices behind a [NAT](https://en.wikipedia.org/wiki/Network_address_translation).
 
 <!--more-->
 
-This documentation is intended for developers of rollyourown.xyz projects.
-
-## TODOs on this page
-
-{{< highlight "primary" "ToDo">}}
-
-- [ ] Links in text
-
-{{< /highlight >}}
+This documentation is intended for developers of rollyourown projects.
 
 ## Introduction
 
 This module deploys a [coturn](https://github.com/coturn/coturn) server.
 
-Coturn is an open source [STUN](https://en.wikipedia.org/wiki/STUN) and [TURN](https://en.wikipedia.org/wiki/Traversal_Using_Relays_around_NAT) server that is used by other services, including those deployed by other [rollyourown.xyz](https://rollyourown.xyz) projects, to enable [NAT traversal](https://en.wikipedia.org/wiki/NAT_traversal) for peer-to-peer communications.
+Coturn is an open source [STUN](https://en.wikipedia.org/wiki/STUN) and [TURN](https://en.wikipedia.org/wiki/Traversal_Using_Relays_around_NAT) server that is used by other services, including those deployed by other rollyourown projects, to enable [NAT traversal](https://en.wikipedia.org/wiki/NAT_traversal) for peer-to-peer communications.
 
 ## Repository links
 
@@ -34,11 +26,11 @@ The [Codeberg](https://codeberg.org/) mirror repository for this module is here:
 
 The [Github](https://github.com/) mirror repository for this module is here: [https://github.com/rollyourown-xyz/ryo-coturn](https://github.com/rollyourown-xyz/ryo-coturn)
 
-The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-coturn](https://git.rollyourown.xyz/ryo-projects/ryo-coturn) (not publicly accessible)
+The rollyourown repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-coturn](https://git.rollyourown.xyz/ryo-projects/ryo-coturn) (not publicly accessible)
 
 ## Dependencies
 
-This module depends on the [rollyourown.xyz](https://rollyourown.xyz) [Ingress Proxy](/rollyourown/project_modules/ryo-ingress-proxy/) module to provide certificate management by [Certbot](https://certbot.eff.org/).
+This module depends on the rollyourown [Ingress Proxy](/rollyourown/project_modules/ryo-ingress-proxy/) module to provide certificate management by [Certbot](https://certbot.eff.org/).
 
 ## Module components
 
@@ -46,7 +38,7 @@ This project module deploys a container with multiple services as shown in the f
 
 {{< image src="Module_Overview.svg" title="Module Overview">}}
 
-The STUN/TURN Server module contains three applications, together providing a dynamically-configurable [STUN](https://en.wikipedia.org/wiki/STUN) and [TURN](https://en.wikipedia.org/wiki/Traversal_Using_Relays_around_NAT) server to be used in other [rollyourown.xyz](https://rollyourown.xyz) projects.
+The STUN/TURN Server module contains three applications, together providing a dynamically-configurable [STUN](https://en.wikipedia.org/wiki/STUN) and [TURN](https://en.wikipedia.org/wiki/Traversal_Using_Relays_around_NAT) server to be used in other rollyourown projects.
 
 ### Coturn
 
@@ -64,7 +56,7 @@ On container start, the [Consul-Template](https://github.com/hashicorp/consul-te
 
 ## How to deploy this module in a project
 
-The [repository for this module](https://github.com/rollyourown-xyz/ryo-coturn) contains a number of resources for including the module in a [rollyourown.xyz](https://rollyourown.xyz) project. The steps for including the module are:
+The [repository for this module](https://github.com/rollyourown-xyz/ryo-coturn) contains a number of resources for including the module in a rollyourown project. The steps for including the module are:
 
 1. Add the STUN/TURN Server module as well as the [Ingress Proxy module](/rollyourown/project_modules/ryo-ingress-proxy/) dependency to the `get-modules.sh` script in the project:
 
