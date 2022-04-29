@@ -8,7 +8,7 @@ SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
-This project deploys a [Synapse](https://github.com/matrix-org/synapse) [matrix](https://matrix.org/) homeserver and an [Element](https://github.com/vector-im/element-web/) web-based front-end. In [standalone IdP mode](#standalone-idp-mode), the project also deploys the [synapse-admin](https://github.com/Awesome-Technologies/synapse-admin) application for managing user accounts on the homeserver.
+This project deploys a [Synapse](https://github.com/matrix-org/synapse) [matrix](https://matrix.org/) homeserver and an [Element](https://github.com/vector-im/element-web/) web-based front-end. The project also deploys the [synapse-admin](https://github.com/Awesome-Technologies/synapse-admin) application for managing the homeserver.
 
 <!--more-->
 
@@ -25,9 +25,12 @@ The matrix communications system enables real-time chat, VoIP, media sharing and
 When a room is created, the room creator may choose to enable end-to-end encryption for the room -- with 2-person, 1-1 chat rooms, this is on by default. In a private group chat, end-to-end encryption makes sense, whereas in large public community rooms, it is largely unnecessary. Encryption in the Matrix system is implemented using [olm and megolm](https://gitlab.matrix.org/matrix-org/olm), which are based on the [double ratchet algorithm](https://signal.org/docs/specifications/doubleratchet/) developed for the [Signal messenger](https://signal.org/).
 
 {{< highlight "info" "Control node">}}
-In [standalone IdP mode](#standalone-idp-mode), a [control node](/rollyourown/projects/control_node/) with a graphical desktop UI is necessary for this project, since synapse administration endpoints and the synapse-admin web-based administration interface are **not** reachable via the public internet. Users of the matrix homeserver can only be managed via web-browser from the control node.
+A [control node](/rollyourown/projects/control_node/) with a graphical desktop UI is necessary for this project, since synapse administration endpoints and the synapse-admin web-based administration interface are **not** reachable via the public internet.
 
-In [gitea IdP mode](#gitea-idp-mode), matrix homeserver users are managed on a previously-deployed [Gitea Git repository server](/rollyourown/projects/single_server_projects/ryo-gitea). As the administrative user can log in to the Gitea server via the internet and manages matrix user accounts on the Gitea server, a [control node](/rollyourown/projects/control_node/) with a graphical desktop UI is not necessary in this case.
+In [standalone IdP mode](#standalone-idp-mode), matrix homeserver users are managed via the synapse-admin application.
+
+In [gitea IdP mode](#gitea-idp-mode), matrix homeserver users are managed on a previously-deployed [Gitea Git repository server](/rollyourown/projects/single_server_projects/ryo-gitea).
+
 {{< /highlight >}}
 
 ## Repository links
@@ -113,7 +116,7 @@ The Element-web container hosts a [nginx](https://nginx.org/) web server and the
 
 #### Synapse-Admin container
 
-The Synapse admin container hosts a [nginx](https://nginx.org/) web server and the open source [synapse-admin](https://github.com/Awesome-Technologies/synapse-admin/) administration front-end for the synapse homeserver. This provides a web-based interface for administering the homeserver (e.g. for managing user accounts) and is only deployed in "standalone" IdP mode.
+The Synapse admin container hosts a [nginx](https://nginx.org/) web server and the open source [synapse-admin](https://github.com/Awesome-Technologies/synapse-admin/) administration front-end for the synapse homeserver. This provides a web-based interface for administering the homeserver (e.g. for managing user accounts).
 
 ## How to use this project
 
@@ -164,6 +167,12 @@ After login, user accounts can be created from the "+CREATE" button in the "User
 #### Creating user accounts in Gitea IdP mode
 
 In [gitea IdP mode](#gitea-idp-mode), no specific user configuration needs to be carried out for the matrix service. All users with an account on the Gitea server can log in and use the matrix service, using their username and password from the Gitea server.
+
+{{< highlight "warning">}}
+
+In Gitea IdP mode, users should **only** be created on the Gitea server. You **should not** create users via the synapse-admin administration front-end in gitea IdP mode. Users created this way will not be able to log in to the service, since their account on the Gitea server will not be present.
+
+{{< /highlight >}}
 
 #### Using the web-based front-end
 
