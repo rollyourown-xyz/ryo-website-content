@@ -39,4 +39,4 @@ If you are considering taking an active role in the rollyourown.xyz open source 
 
 ## Discuss in our matrix rooms
 
-Our [public Matrix rooms](https://rollyourown.xyz/about/public_matrix_rooms) provide a forum for discussion, asking questions and providing feedback. Feel free to explore and take part in the discussion, but please be aware of our [code of conduct](/about/code_of_conduct).
+Our [public Matrix rooms](/about/public_matrix_rooms) provide a forum for discussion, asking questions and providing feedback. Feel free to explore and take part in the discussion, but please be aware of our [code of conduct](/about/code_of_conduct).
