@@ -10,7 +10,7 @@ SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
-##### April 2022
+April 2022
 
 Our policy is to collect as little personal data as necessary in providing this website and in providing the services we offer to members of our organisation.
 
