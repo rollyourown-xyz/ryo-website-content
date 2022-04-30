@@ -8,7 +8,7 @@ SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
-This project deploys a [Synapse](https://github.com/matrix-org/synapse) [matrix](https://matrix.org/) homeserver and an [Element](https://github.com/vector-im/element-web/) web-based front-end. The project also deploys the [synapse-admin](https://github.com/Awesome-Technologies/synapse-admin) application for managing the homeserver.
+This project deploys a [Synapse](https://github.com/matrix-org/synapse) [matrix](https://matrix.org/) homeserver and an [Element](https://github.com/vector-im/element-web/) web-based front-end. In [standalone IdP mode](#standalone-idp-mode), the project also deploys the [synapse-admin](https://github.com/Awesome-Technologies/synapse-admin) application for managing user accounts on the homeserver.
 
 <!--more-->
 
@@ -25,11 +25,9 @@ The matrix communications system enables real-time chat, VoIP, media sharing and
 When a room is created, the room creator may choose to enable end-to-end encryption for the room -- with 2-person, 1-1 chat rooms, this is on by default. In a private group chat, end-to-end encryption makes sense, whereas in large public community rooms, it is largely unnecessary. Encryption in the Matrix system is implemented using [olm and megolm](https://gitlab.matrix.org/matrix-org/olm), which are based on the [double ratchet algorithm](https://signal.org/docs/specifications/doubleratchet/) developed for the [Signal messenger](https://signal.org/).
 
 {{< highlight "info" "Control node">}}
-A [control node](/rollyourown/projects/control_node/) with a graphical desktop UI is necessary for this project, since synapse administration endpoints and the synapse-admin web-based administration interface are **not** reachable via the public internet.
+In [standalone IdP mode](#standalone-idp-mode), a [control node](/rollyourown/projects/control_node/) with a graphical desktop UI is necessary for this project, since synapse administration endpoints and the synapse-admin web-based administration interface are **not** reachable via the public internet. Users of the matrix homeserver can only be managed via web-browser from the control node.
 
-In [standalone IdP mode](#standalone-idp-mode), matrix homeserver users are managed via the synapse-admin application.
-
-In [gitea IdP mode](#gitea-idp-mode), matrix homeserver users are managed on a previously-deployed [Gitea Git repository server](/rollyourown/projects/single_server_projects/ryo-gitea).
+In [gitea IdP mode](#gitea-idp-mode), matrix homeserver users are managed on a previously-deployed [Gitea Git repository server](/rollyourown/projects/single_server_projects/ryo-gitea). As the administrative user can log in to the Gitea server via the internet and manages matrix user accounts on the Gitea server, a [control node](/rollyourown/projects/control_node/) with a graphical desktop UI is not necessary in this case.
 
 {{< /highlight >}}
 
@@ -72,7 +70,13 @@ In standalone IdP mode, user accounts are managed on the [Synapse homeserver](#s
 
 In Gitea IdP mode, the matrix service is deployed together with a [Gitea Git repository server](/rollyourown/projects/single_server_projects/ryo-gitea) and the Gitea server is used for [single sign-on (SSO)](https://en.wikipedia.org/wiki/Single_sign-on). This means that a matrix user authenticates against the Gitea server via [OAuth2](https://oauth.net/2/) and only has a single username/password for both services.
 
-In this mode, the [Gitea Git repository server](/rollyourown/projects/single_server_projects/ryo-gitea) must be deployed and an OAuth2 application configured, before this project is deployed.
+In this mode, the [Gitea Git repository server](/rollyourown/projects/single_server_projects/ryo-gitea) must be deployed and [an OAuth2 application configured](#before-deployment), before this project is deployed.
+
+{{< highlight "warning" "Admin user">}}
+
+When configuring this project, the username entered for the parameter `project_admin_username` in the `configuration_<host_id>.yml` file should be **the same** as the administrator username entered for the Gitea server when deploying the `ryo-gitea` project. This user will also be given administration rights on the Synapse homeserver during the deployment of this project.
+
+{{< /highlight >}}
 
 ## Project components
 
@@ -116,7 +120,7 @@ The Element-web container hosts a [nginx](https://nginx.org/) web server and the
 
 #### Synapse-Admin container
 
-The Synapse admin container hosts a [nginx](https://nginx.org/) web server and the open source [synapse-admin](https://github.com/Awesome-Technologies/synapse-admin/) administration front-end for the synapse homeserver. This provides a web-based interface for administering the homeserver (e.g. for managing user accounts).
+The Synapse admin container hosts a [nginx](https://nginx.org/) web server and the open source [synapse-admin](https://github.com/Awesome-Technologies/synapse-admin/) administration front-end for the synapse homeserver. This provides a web-based interface for administering the homeserver (e.g. for managing user accounts) and is only deployed in "standalone" IdP mode.
 
 ## How to use this project
 
@@ -168,12 +172,6 @@ After login, user accounts can be created from the "+CREATE" button in the "User
 
 In [gitea IdP mode](#gitea-idp-mode), no specific user configuration needs to be carried out for the matrix service. All users with an account on the Gitea server can log in and use the matrix service, using their username and password from the Gitea server.
 
-{{< highlight "warning">}}
-
-In Gitea IdP mode, users should **only** be created on the Gitea server. You **should not** create users via the synapse-admin administration front-end in gitea IdP mode. Users created this way will not be able to log in to the service, since their account on the Gitea server will not be present.
-
-{{< /highlight >}}
-
 #### Using the web-based front-end
 
 Once user accounts have been created, users can interact with the service via the web-based [Element](https://element.io/) client. If your project domain is `example.com` (specified in your configuration file during project deployment as the variable `project_domain_name`), then the Element web client is available at `https://element.example.com`.
@@ -197,6 +195,66 @@ Users logging in via a desktop app **must enter your homeserver name** (e.g. `ex
 ![Element Desktop Sign-In](Element_Desktop_Sign_In_1200.png)
 
 ![FluffyChat Desktop Sign-In](FluffyChat_Enter_Homeserver_400.png)
+
+### Administering the Synapse homeserver
+
+In [standalone IdP mode](#standalone-idp-mode), the Synapse homeserver can be administered via the synapse-admin administration front-end. In [gitea IdP mode](#gitea-idp-mode), administration beyond adding user accounts via the Gitea server is currently not as straight-forward and the [Synaspe Admin API](https://matrix-org.github.io/synapse/latest/usage/administration/admin_api/index.html) must be used for any administration tasks.
+
+{{< more "secondary">}}
+
+In [gitea IdP mode](#gitea-idp-mode), administrative operations such as querying the rooms on the server or deleting rooms can be performed using the Synapse Admin API.
+
+In order to use the Admin API, log in to the Element-Web front-end as the administrator and go to `Settings -> Help & About`. Under the drop-down "Access Token", you will find and access token which is needed to use the Admin API. Remain logged in to the Element-Web front-end while performing API calls.
+
+From a terminal **on the control node**, use curl to call the admin APIs, for example:
+
+#### List accounts on the homeserver
+
+This API call lists all accounts of users from your Gitea server that have logged in to the matrix service at least once.
+
+```bash
+curl -X GET -H "Authorization: Bearer <ACCESS_TOKEN>" "http://synapse.service.<HOST_ID>.ryo:8008/_synapse/admin/v2/users"
+```
+
+#### List rooms on the homeserver
+
+This API call lists all rooms that have been created on the homeserver.
+
+```bash
+curl -X GET -H "Authorization: Bearer <ACCESS_TOKEN>" "http://synapse.service.<HOST_ID>.ryo:8008/_synapse/admin/v1/rooms"
+```
+
+#### Show details of a single room
+
+This API call shows the details of a specific room. The `<ROOM_ID>` is found in the [API call listing all rooms](#list-rooms-on-the-homeserver).
+
+```bash
+curl -X GET -H "Authorization: Bearer <ACCESS_TOKEN>" "http://synapse.service.<HOST_ID>.ryo:8008/_synapse/admin/v1/rooms/<ROOM_ID>"
+```
+
+Note that the `<ROOM_ID>` must be [URL encoded](https://www.w3schools.com/tags/ref_urlencode.asp) in the API call, which means substituting "!" with "%21", "." with "%2E" and ":" with "%3A".
+
+#### Show members in a room
+
+This API call shows the members of a specific room. The `<ROOM_ID>` is found in the [API call listing all rooms](#list-rooms-on-the-homeserver).
+
+```bash
+curl -X GET -H "Authorization: Bearer <ACCESS_TOKEN>" "http://synapse.service.<HOST_ID>.ryo:8008/_synapse/admin/v1/rooms/<ROOM_ID>/members"
+```
+
+Note that the `<ROOM_ID>` must be [URL encoded](https://www.w3schools.com/tags/ref_urlencode.asp) in the API call, which means substituting "!" with "%21", "." with "%2E" and ":" with "%3A".
+
+#### Delete a room
+
+This API call deletes a room from the homeserver. This is useful, for example, when all users have left a room. The `<ROOM_ID>` is found in the [API call listing all rooms](#list-rooms-on-the-homeserver).
+
+```bash
+curl -X DELETE -H "Authorization: Bearer <ACCESS_TOKEN>" -d '{"purge": true}' "http://synapse.service.<HOST_ID>.ryo:8008/_synapse/admin/v1/rooms/<ROOM_ID>"
+```
+
+Note that the `<ROOM_ID>` must be [URL encoded](https://www.w3schools.com/tags/ref_urlencode.asp) in the API call, which means substituting "!" with "%21", "." with "%2E" and ":" with "%3A".
+
+{{< /more >}}
 
 ### Maintaining the installation
 
