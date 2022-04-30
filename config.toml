@@ -1,50 +1,130 @@
-baseURL = "https://rollyourown.xyz/"
-languageCode = "en-us"
-title = "rollyourown.xyz"
+# SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
+# SPDX-License-Identifier: CC-BY-SA-4.0
+
+languageCode = "en-gb"
+
+# For private development of the site, use development webserver
+baseURL = "https://dev.rollyourown.xyz/"
+title = "rollyourown..."
+
+# For production, use production webserver
+#baseURL = "https://rollyourown.xyz/"
+#title = "rollyourown..."
+
+theme = "rollyourown-theme"
+contentDir = "content"
+defaultContentLanguage = "en"
+copyright = "rollyourown 2022"
+
+# Disable languages that are present but not yet completed
+disableLanguages = ["de"]
+
+defaultContentLanguageInSubdir = "false"
+
+# Ignore git repository standard files and config.toml
+ignoreFiles = ['config.toml', 'CONTRIBUTING\.md', 'LICENSE', 'README\.md', 'SECURITY\.md']
 
 [params]
+  authorName = "rollyourown"
+  description = "Lowering the barriers to open source software deployment."
   dateFormat = "Jan 2, 2006"
-  homeText = "Coming soon"
-  
+  homepageNewsbar = true
+
 [permalinks]
   project = "/:sections/:filename/"
 
 [taxonomies]
   tag = "tags"
-    
+
+# Set output to HTML-only by default
+[outputs]
+  home = ["HTML"]
+  page = ["HTML"]
+  section = ["HTML"]
+  taxonomy = ["HTML"]
+  term = ["HTML"]
+
+# Navbar Menu
 # See https://feathericons.com/
-# The value of pre is the icon name
-[menu]
-  [[menu.main]]
-    name = "home"
-    pre = "home"
-    url = "/"
+# The value of 'pre' is the icon name
+[languages]
+
+  [languages.en]
+    languageName = 'English'
     weight = 1
-#  [[menu.main]]
-#    name = "rollyourown..."
-#    #pre = "folder"
-#    #pre = "chevrons-down"
-#    pre = "code"
-#    url = "/rollyourown/"
-#    weight = 2
-#  [[menu.main]]
-#    name = "collaborate"
-#    #pre = "code"
-#    pre = "git-pull-request"
-#    #pre = "users"
-#    url = "/collaborate/"
-#    weight = 3
-#  [[menu.main]]
-#    name = "credits"
-#    pre = "heart"
-#    #pre = "smile"
-#    #pre = "star"
-#    #pre = "thumbs-up"
-#    url = "/credits/"
-#    weight = 4
-#  [[menu.main]]
-#    name = "contact"
-#    #pre = "at-sign"
-#    pre = "mail"
-#    url = "/contact/"
-#    weight = 5
+    [[languages.en.menu.main]]
+      name = "Home"
+      pre = "home"
+      url = "/"
+      weight = 1
+    [[languages.en.menu.main]]
+      name = "Rollyourown..."
+      pre = "code"
+      url = "/rollyourown/"
+      weight = 2
+    [[languages.en.menu.main]]
+      name = "Collaborate"
+      pre = "git-pull-request"
+      url = "/collaborate/"
+      weight = 3
+    [[languages.en.menu.main]]
+      name = "News"
+      pre = "message-square"
+      url = "/news/"
+      weight = 4
+    [[languages.en.menu.main]]
+      name = "About"
+      pre = "grid"
+      url = "/about/"
+      weight = 5
+
+  [languages.de]
+    languageName = 'Deutsch'
+    weight = 2
+    [[languages.de.menu.main]]
+      name = "Start"
+      pre = "home"
+      url = "/de/"
+      weight = 1
+    [[languages.de.menu.main]]
+      name = "Rollyourown..."
+      pre = "code"
+      url = "/de/rollyourown/"
+      weight = 2
+    [[languages.de.menu.main]]
+      name = "Mitwirken"
+      pre = "git-pull-request"
+      url = "/de/collaborate/"
+      weight = 3
+    [[languages.de.menu.main]]
+      name = "Info"
+      pre = "message-square"
+      url = "/de/news/"
+      weight = 4
+    [[languages.de.menu.main]]
+      name = "Über"
+      pre = "grid"
+      url = "/de/about/"
+      weight = 5
+
+# Code syntax highlighting theme
+[markup]
+  [markup.highlight]
+    style = 'monokailight'
+
+##########################
+# Privacy-related features
+##########################
+[privacy]
+  [privacy.disqus]
+    disable = true
+  [privacy.googleAnalytics]
+    disable = true
+  [privacy.instagram]
+    disable = true
+  [privacy.twitter]
+    disable = true
+  [privacy.vimeo]
+    disable = true
+  [privacy.youtube]
+    disable = true
