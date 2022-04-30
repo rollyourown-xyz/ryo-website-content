@@ -1,7 +1,7 @@
 ---
 title: "Roll Your Own Hugo Website"
 tags: [ "git", "website" ]
-draft: false
+draft: true
 ---
 <!--
 SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>

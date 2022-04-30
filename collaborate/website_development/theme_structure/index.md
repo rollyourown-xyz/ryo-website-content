@@ -1,6 +1,6 @@
 ---
 title: "Website Theme Structure"
-weight: 2
+weight: 4
 tags: [ ]
 draft: true
 ---
@@ -9,7 +9,7 @@ SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
-This section describes how the theme of the rollyourown.xyz website is structured in the Hugo theme repository.
+This section describes how the theme of the rollyourown.xyz website is structured in the website theme repository.
 
 <!--more-->
 
