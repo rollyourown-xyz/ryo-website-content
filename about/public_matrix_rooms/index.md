@@ -1,30 +1,39 @@
 ---
 title: "Public Matrix Rooms"
-weight: 4
+weight: 5
 tags: [ ]
-draft: true
+draft: false
 ---
 <!--
 SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
-ABC
+We operate a Matrix homeserver for communication within the rollyourown project organisation and to host public rooms for discussion of projects, modules and the website.
+
 <!--more-->
 
-## TODOs on this page
+To participate in discussion in our public rooms, you will need an account in the [Matrix](https://matrix.org/) ecosystem. The ideal way to join the ecosystem is to [run your own homseserver](/rollyourown/projects/single_server_projects/ryo-matrix/). Alternatively, you can create an account on a [public homeserver](https://joinmatrix.org/servers/) or use a [hosted homeserver](https://matrix.org/hosting/).
 
-{{< highlight "primary" "ToDo">}}
+## Our public rooms
 
-- [ ] Links on page
-- [ ] List of general public matrix rooms on rollyourown.xyz
+The public rooms hosted on our Matrix homeserver are as follows:
 
-{{< /highlight >}}
+{{< table tableclass="table table-bordered table-striped" theadclass="table-primary" >}}
 
-## Join the discussion in our public Matrix rooms
+| Room name | Purpose | Room address(es) |
+| :------ | :---------- | :--------------- |
+| News & Announcements | News and announcements for the rollyourown project and website | #news:rollyourown.xyz, #announcements:rollyourown.xyz |
+| General Discussion | General discussion about the rollyourown project and website | #general:rollyourown.xyz |
+| Collaboration | Discussions about collaborating on the rollyourown project | #collaboration:rollyourown.xyz |
+| Technical Discussion | Technical discussions about rollyourown projects and modules | #technical:rollyourown.xyz |
 
-We operate a Matrix homeserver for communication within the rollyourown.xyz project organisation and host public rooms for discussion of projects, modules and the website.
+{{< /table >}}
 
-To participate in discussion in our public rooms, you will need an account in the [Matrix](https://matrix.org/) ecosystem. The ideal way to join the ecosystem is to [run your own homseserver](/rollyourown/projects/single_server_projects/ryo-matrix/). Alternatively, you can create an account on a public homeserver such as the one [operated by the Matrix organisation](https://matrix.org/docs/projects/try-matrix-now) or one of [various others](https://www.hello-matrix.net/public_servers.php) or use a [hosted homeserver](https://matrix.org/hosting/).
+As the project grows, we plan to add additional public rooms to discuss individual projects and modules.
 
-[**TODOs: List of general public matrix rooms on rollyourown.xyz, how to find the room for a project, set up the rooms (incl. Spaces)**]
+## How to join the discussion
+
+From your [Matrix client of choice](https://matrix.org/clients/), join a room directly using the room address shown in the table above.
+
+Alternatively, if your client supports it, you can browse public rooms on the rollyourown.xyz homeserver and join from the published list of rooms.
