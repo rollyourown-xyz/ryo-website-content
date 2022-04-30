@@ -13,7 +13,7 @@ We operate a Matrix homeserver for communication within the rollyourown project 
 
 <!--more-->
 
-To participate in discussion in our public rooms, you will need an account in the [Matrix](https://matrix.org/) ecosystem. The ideal way to join the ecosystem is to [run your own homseserver](/rollyourown/projects/single_server_projects/ryo-matrix/). Alternatively, you can create an account on a [public homeserver](https://joinmatrix.org/servers/) or use a [hosted homeserver](https://matrix.org/hosting/).
+To participate in discussion in our public rooms, you will need an account in the [Matrix](https://matrix.org/) ecosystem. The ideal way to join the ecosystem is to [run your own homseserver](/rollyourown/projects/ryo-matrix/). Alternatively, you can create an account on a [public homeserver](https://joinmatrix.org/servers/) or use a [hosted homeserver](https://matrix.org/hosting/).
 
 ## Our public rooms
 

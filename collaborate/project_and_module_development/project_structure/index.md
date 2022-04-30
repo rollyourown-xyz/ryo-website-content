@@ -50,7 +50,7 @@ The `project_id` is a unique name for a rollyourown project and is the name of t
 
 The `project_id` is always of the form `ryo-<NAME>` where `<NAME>` usually identifies the open source software or service to be deployed (for example, `ryo-nextcloud` or `ryo-gitea`).
 
-The `project_id` is also added as default value to the project's [configuration template](/collaborate/project_structure/#the-configuration-directory).
+The `project_id` is also added as default value to the project's [configuration template](/collaborate/project_and_module_development/project_structure/#the-configuration-directory).
 
 ## Licence and information
 
@@ -188,7 +188,7 @@ The `configuration` directory contains a template configuration file for the pro
 ¦   └─ main.yml
 ```
 
-The `host-setup` directory contains [Ansible](https://www.ansible.com/) playbooks for configuring the [host server](/rollyourown/projects/host_server/) for project deployment. Generic host service configuration is done during the host setup step of project deployment, but additional configuration may be needed (creating host directories for mounting to project containers, for example).
+The `host-setup` directory contains [Ansible](https://www.ansible.com/) playbooks for configuring the [host server](/rollyourown/how_to_use/host_server/) for project deployment. Generic host service configuration is done during the host setup step of project deployment, but additional configuration may be needed (creating host directories for mounting to project containers, for example).
 
 ## The image-build directory
 
@@ -261,7 +261,7 @@ The `deploy.sh`, `upgrade.sh`, `backup.sh` and `restore.sh` scripts call these s
 
 This script typically does not need to be modified for the specific project.
 
-Generic host setup and configuration has already been done by the `host-setup.sh` script in the [host server](rollyourown/project_modules/host_server/) repository.
+Generic host setup and configuration has already been done by the `host-setup.sh` script in the [host server](/rollyourown/how_to_use/host_server/) repository.
 
 The `host-setup-project.sh` script executes Ansible playbooks in the [/host-setup directory](#the-host-setup-directory) to perform additional host configuration for the individual project. This usually consists of setting up directories on the host server to provide persistent storage for the project's containers to enable component configuration and data to persist across container re-starts and replacements. Additional host setup steps may be needed, depending on the project.
 

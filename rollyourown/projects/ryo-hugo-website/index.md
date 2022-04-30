@@ -26,14 +26,14 @@ After deployment, changes to the content or design of the website are made direc
 
 The deployment requires a **pre-existing** set of repositories. Three repositories need to be available:
 
-- The content repository needs to be created in advance on your own [Git repository server](/rollyourown/projects/single_server_projects/ryo-gitea) or on another Git-based code-hosting platform such as [Codeberg](https://codeberg.org/) or [GitHub](https://github.com/)
+- The content repository needs to be created in advance on your own [Git repository server](/rollyourown/projects/ryo-gitea) or on another Git-based code-hosting platform such as [Codeberg](https://codeberg.org/) or [GitHub](https://github.com/)
 - The theme repository can either be your own theme repository (if you want full control over the design of the website) or any publicly-available Hugo theme repository -- see, for example, [https://themes.gohugo.io/](https://themes.gohugo.io/)
 - The scaffold repository can be our scaffold template repository and typically does not need to be changed. Alternatively, you can clone our template repository in case you need to change something for a more advanced configuration
 
 More details are [below](#before-deployment).
 
 {{< highlight "info" "Control node">}}
-A [control node](/rollyourown/projects/control_node/) without a graphical desktop UI is sufficient for this project, as your repositories are managed via an external Git repository service.
+A [control node](/rollyourown/how_to_use/control_node/) without a graphical desktop UI is sufficient for this project, as your repositories are managed via an external Git repository service.
 {{< /highlight >}}
 
 ## Repository links
@@ -55,15 +55,15 @@ This project supports protecting your website with a login via an Identity Provi
 The "IdP mode" of the project is selected in the project configuration file:
 
 - In the "public" mode (the default), your website is accessible to anyone without authorisation
-- In the ["gitea" mode](#gitea-idp-mode), your website can only be accessed after logging in via a [Gitea Git repository server](/rollyourown/projects/single_server_projects/ryo-gitea)
+- In the ["gitea" mode](#gitea-idp-mode), your website can only be accessed after logging in via a [Gitea Git repository server](/rollyourown/projects/ryo-gitea)
 
 Further IdP modes may be added at a later date.
 
 ### Gitea IdP mode
 
-In "gitea" mode, the service is deployed together with a [Gitea Git repository server](/rollyourown/projects/single_server_projects/ryo-gitea) and the Gitea server is used as and Identity Provider for [single sign-on (SSO)](https://en.wikipedia.org/wiki/Single_sign-on). This means that a user authenticates against the Gitea server via [OAuth2](https://oauth.net/2/) and only has access to the website after logging in.
+In "gitea" mode, the service is deployed together with a [Gitea Git repository server](/rollyourown/projects/ryo-gitea) and the Gitea server is used as and Identity Provider for [single sign-on (SSO)](https://en.wikipedia.org/wiki/Single_sign-on). This means that a user authenticates against the Gitea server via [OAuth2](https://oauth.net/2/) and only has access to the website after logging in.
 
-In this mode, the [Gitea Git repository server](/rollyourown/projects/single_server_projects/ryo-gitea) must be deployed and an OAuth2 application configured, before this project is deployed.
+In this mode, the [Gitea Git repository server](/rollyourown/projects/ryo-gitea) must be deployed and an OAuth2 application configured, before this project is deployed.
 
 ## Project components
 
@@ -73,9 +73,9 @@ The components deployed in this project are shown in the following diagram:
 
 ### Host server
 
-The [host server](/rollyourown/projects/host_server/) is controlled from your control machine via a [Wireguard](https://www.wireguard.com/) tunnel and is configured to run a [Consul server](https://www.consul.io/) and the [LXD container runtime](https://linuxcontainers.org/lxd/). Each container deployed performs a specific task in the installation.
+The [host server](/rollyourown/how_to_use/host_server/) is controlled from your control machine via a [Wireguard](https://www.wireguard.com/) tunnel and is configured to run a [Consul server](https://www.consul.io/) and the [LXD container runtime](https://linuxcontainers.org/lxd/). Each container deployed performs a specific task in the installation.
 
-Further details about the host server building block can be found [here](/rollyourown/projects/host_server/).
+Further details about the host server building block can be found [here](/rollyourown/how_to_use/host_server/).
 
 ### Containers
 
@@ -105,11 +105,11 @@ Before deploying the project, three [Git](https://git-scm.com/) repositories nee
 
 In your content repository (and theme or scaffold repositories if you are customising these), a webhook needs to be configured to trigger the reprovisioning of the website when changes are made.
 
-In [gitea IDP mode](#gitea-idp-mode), your website will accessible only after logging in via a [Gitea Git repository server](/rollyourown/projects/single_server_projects/ryo-gitea), which must be deployed and an OAuth2 application configured, before this project is deployed.
+In [gitea IDP mode](#gitea-idp-mode), your website will accessible only after logging in via a [Gitea Git repository server](/rollyourown/projects/ryo-gitea), which must be deployed and an OAuth2 application configured, before this project is deployed.
 
 #### Setting up the repository for your website content
 
-A content repository needs to be created in advance on your own [Git repository server](/rollyourown/projects/single_server_projects/ryo-gitea) or on another Git-based code-hosting platform such as [Codeberg](https://codeberg.org/) or [GitHub](https://github.com/)
+A content repository needs to be created in advance on your own [Git repository server](/rollyourown/projects/ryo-gitea) or on another Git-based code-hosting platform such as [Codeberg](https://codeberg.org/) or [GitHub](https://github.com/)
 
 Clone our template repository [on Codeberg](https://codeberg.org/rollyourown-xyz/hugo-website-content-template) or [on GitHub](https://github.com/rollyourown-xyz/hugo-website-content-template) to obtain the basic structure for adding content to your Hugo website.
 
@@ -331,13 +331,13 @@ project_webhook_secret: <SOME_SECRET_HERE>
 
 If your website is to be public and accessible without login, then no OAuth2 application needs to be set up.
 
-For deploying your project in "gitea" IdP mode, a [Gitea Git repository server](/rollyourown/projects/single_server_projects/ryo-gitea) is deployed first and an OAuth2 application configured.
+For deploying your project in "gitea" IdP mode, a [Gitea Git repository server](/rollyourown/projects/ryo-gitea) is deployed first and an OAuth2 application configured.
 
 {{< more "secondary" "Details: Configuring an OAuth2 application">}}
 
-After deployment of the [Gitea Git repository server](/rollyourown/projects/single_server_projects/ryo-gitea), the OAuth2 application is configured as follows:
+After deployment of the [Gitea Git repository server](/rollyourown/projects/ryo-gitea), the OAuth2 application is configured as follows:
 
-1. [Log in to the Gitea server](/rollyourown/projects/single_server_projects/ryo-gitea/#after-deployment)
+1. [Log in to the Gitea server](/rollyourown/projects/ryo-gitea/#after-deployment)
 
 2. Go to the user's settings
 
@@ -347,7 +347,7 @@ After deployment of the [Gitea Git repository server](/rollyourown/projects/sing
 
     ![Gitea OAuth2 Application](Gitea_OAuth2_Application_800.png)
 
-Once the OAuth application has been created, Gitea will show a `Client ID` and `Client Secret`. Both of these should be noted down, as they are needed in the configuration for this project. The Client Secret will be shown **only once**, but can be regenerated later -- however, if the Client Secret is changed after configuring and deploying this project, then the project configuration will also need to be changed and [new container images built and deployed](/rollyourown/projects/how_to_maintain).
+Once the OAuth application has been created, Gitea will show a `Client ID` and `Client Secret`. Both of these should be noted down, as they are needed in the configuration for this project. The Client Secret will be shown **only once**, but can be regenerated later -- however, if the Client Secret is changed after configuring and deploying this project, then the project configuration will also need to be changed and [new container images built and deployed](/rollyourown/how_to_use/maintain).
 
 ![Gitea Client Credentials](Gitea_Client_Credentials_800.png)
 
@@ -374,7 +374,7 @@ project_idp_gitea_client_secret: <CLIENT_SECRET_HERE>
 
 ### Deploying the project
 
-To deploy the project, follow the generic [project deployment instructions](/rollyourown/projects/how_to_deploy/), using the project's [mirror repositories](#repository-links).
+To deploy the project, follow the generic [project deployment instructions](/rollyourown/how_to_use/deploy/), using the project's [mirror repositories](#repository-links).
 
 For example, clone the project from the project's GitHub repository with:
 
@@ -404,7 +404,7 @@ The open source components deployed by this project are:
 | Consul | Service registry and key-value store | [https://www.consul.io/](https://www.consul.io/) | [MPL 2.0](https://github.com/hashicorp/consul/blob/master/LICENSE) |
 | Git | Distributed version control system | [https://git-scm.com/](https://git-scm.com/) | [GPL v2](https://github.com/git/git/blob/master/COPYING) |
 | HAProxy | Load balancer, TCP and HTTP proxy, deployed by the [Ingress Proxy module](/rollyourown/project_modules/ryo-ingress-proxy/) | [https://www.haproxy.org/](https://www.haproxy.org/) | [GPL / LGPL](https://github.com/haproxy/haproxy/blob/master/LICENSE) |
-| Hugo | Static site generation for the [rollyourown.xyz](https://rollyourown.xyz) website | [https://gohugo.io/](https://gohugo.io/) | [Apache 2.0](https://github.com/gohugoio/hugo/blob/master/LICENSE) |
+| Hugo | Static site generation for the rollyourown website | [https://gohugo.io/](https://gohugo.io/) | [Apache 2.0](https://github.com/gohugoio/hugo/blob/master/LICENSE) |
 | nginx | Open source webserver for the Element-Web installation | [https://nginx.org/](https://nginx.org/) | [2-clause BSD Licence](http://nginx.org/LICENSE) |
 | oauth2-proxy | Proxy for enabling OAuth2 login | [https://oauth2-proxy.github.io/oauth2-proxy/](https://oauth2-proxy.github.io/oauth2-proxy/) | [MIT](https://github.com/oauth2-proxy/oauth2-proxy/blob/master/LICENSE) |
 | Webhook | Light-weight, general purpose webhook server, deployed by the [Ingress Proxy module](/rollyourown/project_modules/ryo-ingress-proxy/) | [https://github.com/adnanh/webhook](https://github.com/adnanh/webhook) | [MIT](https://github.com/adnanh/webhook/blob/master/LICENSE) |

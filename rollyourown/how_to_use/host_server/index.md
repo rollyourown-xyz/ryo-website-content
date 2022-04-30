@@ -19,7 +19,7 @@ The components of a rollyourown project need to run on a host server. A host ser
 
 The host server should be running [Ubuntu](https://ubuntu.com/) 20.04 LTS or 22.04 LTS as operating system. Our projects are written and tested to set up and deploy to Ubuntu 20.04 LTS or 22.04 LTS Linux servers.
 
-A rollyourown host server is controlled by a [control node](/rollyourown/projects/control_node/) via a secure [wireguard](https://www.wireguard.com/) tunnel. Usually, no manual management of the host server is needed and the host server command line does not need to be accessed. However, users familiar with the Linux command line can log in to the server *from the control node*, for example for advanced diagnostics. A few useful commands can be found [here](/rollyourown/how_to_use/host_server_advanced/).
+A rollyourown host server is controlled by a [control node](/rollyourown/how_to_use/control_node/) via a secure [wireguard](https://www.wireguard.com/) tunnel. Usually, no manual management of the host server is needed and the host server command line does not need to be accessed. However, users familiar with the Linux command line can log in to the server *from the control node*, for example for advanced diagnostics. A few useful commands can be found [here](/rollyourown/how_to_use/host_server_advanced/).
 
 ## Host server IP address
 
@@ -93,7 +93,7 @@ The "size" of the host server needed for a rollyourown project depends on a numb
 - The number of users of the service deployed by your project. A project providing a service for a family or small group of friends will need fewer resources than a large deployment for hundreds or even thousands of people
 - The traffic you expect. This will depend on the number of people you want to support or, for a blog or internet site, on the number of visitors you expect
 
-The first projects published on [rollyourown.xyz](https://rollyourown.xyz) are simple projects intended for a small number of users. In future, we plan to publish more complex projects with architectures that can scale up, by using multiple servers, to larger numbers of users or for higher traffic.
+The first projects published on rollyourown are simple projects intended for a small number of users. In future, we plan to publish more complex projects with architectures that can scale up, by using multiple servers, to larger numbers of users or for higher traffic.
 
 With most hosting providers, you can start small and upgrade your VPS if needed.
 
@@ -159,11 +159,11 @@ Server configuration and software installation is automated by the `host-setup.s
 
 {{< more "secondary">}}
 
-The `host-setup.sh` script uses the host server's initial root password to secure the server and then set it up to be controlled by the control node and to host [LXD](https://linuxcontainers.org/lxd/) containers for a project deployment. This script calls [ansible](https://www.ansible.com/) playbooks that execute tasks on the host server.
+The `host-setup.sh` script uses the host server's initial root password to secure the server and then set it up to be controlled by the control node and to host [LXD](https://linuxcontainers.org/lxd/) containers for a project deployment. This script calls [Ansible](https://www.ansible.com/) playbooks that execute tasks on the host server.
 
 In detail, the following tasks are performed by the host-setup playbooks:
 
-- A non-root user account is created. The SSH public key created on the control machine during [control node setup](/rollyourown/projects/ryo-control_node/) is added to the non-root user account, the account is added to the sudo group and the account is configured for password-less sudo. The non-root user account is then used with [SSH public key authetication](https://help.ubuntu.com/community/SSH/OpenSSH/Keys) for all further communication to the server and all further setup steps
+- A non-root user account is created. The SSH public key created on the control machine during [control node setup](/rollyourown/how_to_use/control_node/) is added to the non-root user account, the account is added to the sudo group and the account is configured for password-less sudo. The non-root user account is then used with [SSH public key authetication](https://help.ubuntu.com/community/SSH/OpenSSH/Keys) for all further communication to the server and all further setup steps
 
 - All packages on the system are upgraded
 
@@ -251,17 +251,17 @@ If your VPS or server is assigned a public IPv6 prefix and address, then the con
     ./host-setup.sh -n <HOST_NAME>
     ```
 
-After setting up the host server, you are now ready to [deploy a rollyourown project](/rollyourown/projects/how_to_deploy) on the server.
+After setting up the host server, you are now ready to [deploy a rollyourown project](/rollyourown/how_to_use/deploy) on the server.
 
 {{< highlight "info" "Advanced">}}
 
-After setting up a [control node](rollyourown/projects/control_node/) and [host server](rollyourown/projects/host_server/), you now have a permanent, secure connection from the control node to the host server via a wireguard tunnel. Users familiar with the Linux command line can log in to the server for advanced diagnostics. A few useful commands can be found [here](/rollyourown/projects/host_server_advanced/).
+After setting up a [control node](/rollyourown/how_to_use/control_node/) and [host server](/rollyourown/how_to_use/host_server), you now have a permanent, secure connection from the control node to the host server via a wireguard tunnel. Users familiar with the Linux command line can log in to the server for advanced diagnostics. A few useful commands can be found [here](/rollyourown/how_to_use/host_server_advanced/).
 
 {{< /highlight >}}
 
 ## Host server maintenance
 
-Along with the `host-setup.sh` script, the host server repository also contains a `host-upgrade.sh` script to automate host server maintenance. This script upgrades a host server and the software installed on it. Note: This script does **not** upgrade the containers deployed by rollyourown projects on the host server. To upgrade these, see [How to Maintain](/rollyourown/projects/how_to_maintain/#upgrading-a-project-deployment).
+Along with the `host-setup.sh` script, the host server repository also contains a `host-upgrade.sh` script to automate host server maintenance. This script upgrades a host server and the software installed on it. Note: This script does **not** upgrade the containers deployed by rollyourown projects on the host server. To upgrade these, see [How to Maintain](/rollyourown/how_to_use/maintain/#upgrading-a-project-deployment).
 
 To upgrade a host server, run the `host-upgrade.sh` script from the `ryo-host` directory, passing the name of the host chosen above via the flag `-n`:
 

@@ -26,7 +26,7 @@ This project deploys a [Gitea](https://gitea.io/) server, with a [MariaDB](https
 - A dashboard of activity.
 
 {{< highlight "info" "Control node">}}
-A [control node](/rollyourown/projects/control_node/) without a graphical desktop UI is sufficient for this project, as the Gitea administration interface is reachable via the public internet.
+A [control node](/rollyourown/how_to_use/control_node/) without a graphical desktop UI is sufficient for this project, as the Gitea administration interface is reachable via the public internet.
 {{< /highlight >}}
 
 ## Repository links
@@ -53,9 +53,9 @@ The components deployed in this project are shown in the following diagram:
 
 ### Host server
 
-The [host server](/rollyourown/projects/host_server/) is controlled from your control machine via a [wireguard](https://www.wireguard.com/) tunnel and is configured to run a [Consul server](https://www.consul.io/) and the [LXD container runtime](https://linuxcontainers.org/lxd/). Each container deployed performs a specific task in the installation.
+The [host server](/rollyourown/how_to_use/host_server/) is controlled from your control machine via a [wireguard](https://www.wireguard.com/) tunnel and is configured to run a [Consul server](https://www.consul.io/) and the [LXD container runtime](https://linuxcontainers.org/lxd/). Each container deployed performs a specific task in the installation.
 
-Further details about the host server building block can be found [here](/rollyourown/projects/host_server/).
+Further details about the host server building block can be found [here](/rollyourown/how_to_use/host_server/).
 
 ### Containers
 
@@ -77,7 +77,7 @@ The Gitea container provides the Gitea server for the project. [Gitea](https://g
 
 ### Deploying the project
 
-To deploy the project, follow the generic [project deployment instructions](/rollyourown/projects/how_to_deploy/), using the project's [mirror repositories](#repository-links).
+To deploy the project, follow the generic [project deployment instructions](/rollyourown/how_to_use/deploy/), using the project's [mirror repositories](#repository-links).
 
 For example, clone the project from the project's GitHub repository with:
 
@@ -107,7 +107,7 @@ Users can then log in to the Gitea front-end or access repositories via SSH (on 
 
 After deploying the project, the installation needs to be maintained over time as, for example, new versions of the project's components are released.
 
-Maintentance is automated via the rollyourown project scripts. See [here](/rollyourown/projects/how_to_maintain/) for details.
+Maintentance is automated via the rollyourown project scripts. See [here](/rollyourown/how_to_use/maintain/) for details.
 
 ## Project requirements
 

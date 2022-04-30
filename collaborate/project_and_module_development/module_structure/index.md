@@ -49,7 +49,7 @@ The `module_id` is a unique name for a rollyourown.xyz module and is also the na
 
 The `module_id` is always of the form `ryo-<NAME>` where `<NAME>` usually identifies the open source software to be deployed.
 
-The `module_id` is also added as the default value to the module's [configuration template](/collaborate/module_structure/#the-configuration-directory).
+The `module_id` is also added as the default value to the module's [configuration template](/collaborate/project_and_module_development/module_structure/#the-configuration-directory).
 
 ## Licence and information
 
@@ -125,7 +125,7 @@ The `configuration` directory contains a template configuration file for the mod
 ¦   └─ main.yml
 ```
 
-The `host-setup` directory contains [Ansible](https://www.ansible.com/) playbooks for configuring the [host server](/rollyourown/projects/host_server/) for module deployment. Generic host service configuration is done during the host setup step of a project deployment, but additional configuration may be needed (creating host directories for mounting to module containers, for example).
+The `host-setup` directory contains [Ansible](https://www.ansible.com/) playbooks for configuring the [host server](/rollyourown/how_to_use/host_server/) for module deployment. Generic host service configuration is done during the host setup step of a project deployment, but additional configuration may be needed (creating host directories for mounting to module containers, for example).
 
 ## The image-build directory
 
@@ -202,7 +202,7 @@ The `deploy.sh`, `upgrade.sh`, `backup.sh` and `restore.sh` scripts call these s
 
 This script typically does not need to be modified for the specific module.
 
-Generic host setup and configuration has already been done by the `host-setup.sh` script in the [host server](rollyourown/project_modules/host_server/) repository.
+Generic host setup and configuration has already been done by the `host-setup.sh` script in the [host server](/rollyourown/how_to_use/host_server/) repository.
 
 Additional host configuration is performed for the individual module by the `host-setup.sh` script in the module's repository. This usually consists of setting up directories on the host server to provide persistent storage for the module's containers to enable component configuration and data to persist across container re-starts and replacements. Additional host setup steps may be needed, depending on the module.
 

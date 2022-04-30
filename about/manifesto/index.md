@@ -21,7 +21,7 @@ The open source community is amazing. Myriad, high-quality software applications
 
 **Deploying and using** open source software should be easy so that more people can use free, de-centralised and federated systems to keep their data and communications private and under their own control.
 
-Our aim is to promote open source software and stimulate its proliferation. We aim to make it easy to deploy and run end-to-end solutions based on open source applications. For every open source internet solution, we hope there can be a [rollyourown.xyz](https://rollyourown.xyz) project to deploy it. Deployment of working and usable solutions should be as easy as `./deploy.sh -n servername` and maintenance as easy as `./upgrade.sh -n servername`.
+Our aim is to promote open source software and stimulate its proliferation. We aim to make it easy to deploy and run end-to-end solutions based on open source applications. For every open source internet solution, we hope there can be a rollyourown project to deploy it. Deployment of working and usable solutions should be as easy as `./deploy.sh -n servername` and maintenance as easy as `./upgrade.sh -n servername`.
 
 ## Our beliefs and the problem we address
 

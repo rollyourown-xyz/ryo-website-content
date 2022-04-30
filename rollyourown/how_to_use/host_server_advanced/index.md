@@ -19,8 +19,8 @@ The connection between the control node and the host server depends on a [wiregu
 
  The following assumes that:
 
-- The [control node](/rollyourown/projects/control_node/) has been set up using the `local-setup.sh` script
-- The [host server](/rollyourown/projects/host_server/) has been set up using the `host-setup.sh` script
+- The [control node](/rollyourown/how_to_use/control_node/) has been set up using the `local-setup.sh` script
+- The [host server](/rollyourown/how_to_use/host_server/) has been set up using the `host-setup.sh` script
 
 ## Logging in to the host server
 

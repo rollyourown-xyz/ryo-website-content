@@ -37,7 +37,7 @@ The projects and modules deployed to our host server are:
 
 ### Projects
 
-- [ryo-hugo-website](/rollyourown/projects/ryo-hugo-website/): Deployed twice - in public mode for the [rollyourown.xyz](https://rollyourown.xyz) website and with authentication for the development website at [dev.rollyourown.xyz](https://dev.rollyourown.xyz) accessible only to organisation members
+- [ryo-hugo-website](/rollyourown/projects/ryo-hugo-website/): Deployed twice - in public mode for the rollyourown website and with authentication for the development website at [dev.rollyourown.xyz](https://dev.rollyourown.xyz) accessible only to organisation members
 - [ryo-grav-cms](/rollyourown/projects/ryo-grav-cms/): Providing our contact forms
 - [ryo-gitea](/rollyourown/projects/ryo-gitea/): Providing our Git repositories at [git.rollyourown.xyz](https://git.rollyourown.xyz) and serving as identity provider for other services
 - [ryo-matrix](/rollyourown/projects/ryo-matrix/): Providing our communication servcies

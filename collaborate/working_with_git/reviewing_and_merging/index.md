@@ -19,7 +19,7 @@ Please [contact us](/about/contact) if you would consider becoming a maintainer 
 
 Our project maintainers have an account on our own Git servers, where the "source-of-truth" repositories are hosted and where project maintainers have "write" access to the repository/ies they maintain.
 
-Our maintainers also have accounts at [Codeberg](https://codeberg.org) and [GitHub](https://github.com) to be able to manage Issues and Pull Requests submitted on those platforms. Public repositories are mirrored to our [Codeberg]((https://codeberg.org/rollyourown-xyz)) and [GitHub](https://github.com/rollyourown-xyz) organization accounts and our repository maintainers' accounts have "write" access to the Issues and Pull Requests there. A maintainer **does not** have "write" access to the _code_ in the Codeberg and GitHub mirror repositories, to prevent accidental merges on these platforms. These would cause the mirrors to be out of sync with the primary repositories on our own Git server.
+Our maintainers also have accounts at [Codeberg](https://codeberg.org) and [GitHub](https://github.com) to be able to manage Issues and Pull Requests submitted on those platforms. Public repositories are mirrored to our [Codeberg](https://codeberg.org/rollyourown-xyz) and [GitHub](https://github.com/rollyourown-xyz) organization accounts and our repository maintainers' accounts have "write" access to the Issues and Pull Requests there. A maintainer **does not** have "write" access to the _code_ in the Codeberg and GitHub mirror repositories, to prevent accidental merges on these platforms. These would cause the mirrors to be out of sync with the primary repositories on our own Git server.
 
 ## Reviewing and discussing Issues
 

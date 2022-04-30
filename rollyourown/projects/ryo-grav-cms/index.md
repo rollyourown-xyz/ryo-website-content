@@ -17,7 +17,7 @@ This project deploys a [Grav](https://getgrav.org) flat-file content management 
 [Grav](https://getgrav.org) is an open source flat-file content management system (CMS), based on PHP, that uses only files and folders for managing content and no database. Grav provides a fast, more lightweight alternative to database-driven CMSs like [Wordpress](https://wordpress.org/) or [Drupal](https://www.drupal.org/), especially for simpler websites and blogs. Content is written in [Markdown](https://daringfireball.net/projects/markdown/) format and can be created/edited via Grav's [web-based editor](https://learn.getgrav.org/17/admin-panel/page/editor), uploaded to the server (e.g. via [SFTP](https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol)) or [synchronised from a git repository](#synchronise-with-a-git-repository).
 
 {{< highlight "info" "Control node">}}
-A [control node](/rollyourown/projects/control_node/) without a graphical desktop UI is sufficient for this project, as the Grav admin interface is reachable via the public internet.
+A [control node](/rollyourown/how_to_use/control_node/) without a graphical desktop UI is sufficient for this project, as the Grav admin interface is reachable via the public internet.
 {{< /highlight >}}
 
 ## Repository links
@@ -26,11 +26,11 @@ The [Codeberg](https://codeberg.org/) mirror repository for this project is here
 
 The [Github](https://github.com/) mirror repository for this project is here: [https://github.com/rollyourown-xyz/ryo-grav-cms](https://github.com/rollyourown-xyz/ryo-grav-cms)
 
-The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-grav-cms](https://git.rollyourown.xyz/ryo-projects/ryo-grav-cms) (not publicly accessible)
+The rollyourown repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-grav-cms](https://git.rollyourown.xyz/ryo-projects/ryo-grav-cms) (not publicly accessible)
 
 ## Dependencies
 
-This project depends on and deploys the [rollyourown.xyz](https://rollyourown.xyz) [Ingress Proxy](/rollyourown/project_modules/ryo-ingress-proxy/) module to provide certificate management by [Certbot](https://certbot.eff.org/) and HTTPS proxying by the [HAProxy](https://www.haproxy.org/) loadbalancer / TLS proxy.
+This project depends on and deploys the rollyourown [Ingress Proxy](/rollyourown/project_modules/ryo-ingress-proxy/) module to provide certificate management by [Certbot](https://certbot.eff.org/) and HTTPS proxying by the [HAProxy](https://www.haproxy.org/) loadbalancer / TLS proxy.
 
 ## Project components
 
@@ -40,9 +40,9 @@ The components deployed in this project are shown in the following diagram:
 
 ### Host server
 
-The [host server](/rollyourown/projects/host_server/) is controlled from your control machine via a [Wireguard](https://www.wireguard.com/) tunnel and is configured to run a [Consul server](https://www.consul.io/) and the [LXD container runtime](https://linuxcontainers.org/lxd/). Each container deployed performs a specific task in the installation.
+The [host server](/rollyourown/how_to_use/host_server/) is controlled from your control machine via a [Wireguard](https://www.wireguard.com/) tunnel and is configured to run a [Consul server](https://www.consul.io/) and the [LXD container runtime](https://linuxcontainers.org/lxd/). Each container deployed performs a specific task in the installation.
 
-Further details about the host server building block can be found [here](/rollyourown/projects/host_server/).
+Further details about the host server building block can be found [here](/rollyourown/how_to_use/host_server/).
 
 ### Containers
 
@@ -50,7 +50,7 @@ The project installation consists of a number of containers deployed on the host
 
 #### Ingress proxy container
 
-The ingress proxy container terminates HTTP and HTTPS connections and distributes traffic to other containers. This component is provided by the [rollyourown.xyz](https://rollyourown.xyz) Ingress Proxy module and is a key building block for rollyourown.xyz projects. Further details can be found [here](/rollyourown/project_modules/ryo-ingress-proxy/).
+The ingress proxy container terminates HTTP and HTTPS connections and distributes traffic to other containers. This component is provided by the rollyourown Ingress Proxy module and is a key building block for rollyourown.xyz projects. Further details can be found [here](/rollyourown/project_modules/ryo-ingress-proxy/).
 
 #### Webserver container
 
@@ -60,7 +60,7 @@ The webserver container hosts an [nginx](https://nginx.org/) web server, configu
 
 ### Deploying the project
 
-To deploy the project, follow the generic [project deployment instructions](/rollyourown/projects/how_to_deploy/), using the project's [mirror repositories](#repository-links).
+To deploy the project, follow the generic [project deployment instructions](/rollyourown/how_to_use/deploy/), using the project's [mirror repositories](#repository-links).
 
 For example, clone the project from the project's GitHub repository with:
 
@@ -112,7 +112,7 @@ Content can be [added and managed](https://learn.getgrav.org/admin-panel/page) v
 
 #### Synchronise with a git repository
 
-As a version-controlled backup for your content, or as an alternative method for managing content creation, Grav can be synchronised with a git repository. This could, for example, be a repository [on your own git server](/rollyourown/projects/single_server_projects/ryo-grav-cms/) or a repository at [Codeberg](https://codeberg.org/), [GitHub](https://github.com/), [GitLab](https://about.gitlab.com/), [Bitbucket](https://bitbucket.org/) or any other online git service.
+As a version-controlled backup for your content, or as an alternative method for managing content creation, Grav can be synchronised with a git repository. This could, for example, be a repository [on your own git server](/rollyourown/projects/ryo-grav-cms/) or a repository at [Codeberg](https://codeberg.org/), [GitHub](https://github.com/), [GitLab](https://about.gitlab.com/), [Bitbucket](https://bitbucket.org/) or any other online git service.
 
 To do this, create an empty repository on your git service. Then [install](#install-plugins) the [Grav git-sync plugin](https://github.com/trilbymedia/grav-plugin-git-sync). After installation, the plugin includes a wizard to walk you through the process of connecting to your repository.
 
@@ -128,7 +128,7 @@ The site can be backed up using Grav's built-in backup tool. This can be found v
 
 After deploying the project, the installation needs to be maintained over time as, for example, new versions of the project's components are released.
 
-Maintenance is automated via the rollyourown.xyz project scripts. See [here](/rollyourown/projects/how_to_maintain/) for details.
+Maintenance is automated via the rollyourown.xyz project scripts. See [here](/rollyourown/how_to_use/maintain/) for details.
 
 ## Project requirements
 

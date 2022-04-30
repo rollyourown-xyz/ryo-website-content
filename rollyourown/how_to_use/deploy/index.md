@@ -11,7 +11,7 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 Each rollyourown project provides automation resources to minimise the number of manual steps needed to deploy a project.
 
-This page describes the process of preparing a [control node](rollyourown/how_to_use/control_node), setting up a [host server](rollyourown/how_to_use/host_server), and deploying a [rollyourown project](rollyourown/projects) to the host server.
+This page describes the process of preparing a [control node](/rollyourown/how_to_use/control_node), setting up a [host server](/rollyourown/how_to_use/host_server), and deploying a [rollyourown project](/rollyourown/projects) to the host server.
 
 <!--more-->
 
@@ -27,11 +27,11 @@ Deploying a rollyourown project to a host server consists of a few steps:
 
 1. Prepare a [control node](#a-control-node) with the basic software to run the rollyourown automation scripts, or use an existing control node you have previously set up
 
-2. If you are setting up a new [control node](#a-control-node), clone the [control node repository](https://github.com/rollyourown-xyz/ryo-control-node) to the control node, set configuration parameters and run the `local-setup.sh` script. This installs further software and prepares the control node for managing rollyourown projects. This step can be skipped if you are using an existing control node that has already been set up for a different rollyourown project. Full, step-by-step instructions for setting up a control node can be found on [a dedicated page](rollyourown/how_to_use/control_node)
+2. If you are setting up a new [control node](#a-control-node), clone the [control node repository](https://github.com/rollyourown-xyz/ryo-control-node) to the control node, set configuration parameters and run the `local-setup.sh` script. This installs further software and prepares the control node for managing rollyourown projects. This step can be skipped if you are using an existing control node that has already been set up for a different rollyourown project. Full, step-by-step instructions for setting up a control node can be found on [a dedicated page](/rollyourown/how_to_use/control_node)
 
 3. Order or prepare a [host server](#a-host-server) for deploying the project on, or use an existing host server you have previously set up
 
-4. If you are setting up a new [host server](#a-host-server), clone the [host server repository](https://github.com/rollyourown-xyz/ryo-host) to the control node, set configuration parameters and run the `host-setup.sh` script. This sets up secure communication between the control node and the host server, configures the host server and installs software needed for deploying a rollyourown project. This step can be skipped if you are using an existing host server that has already been set up for a different rollyourown project. Full, step-by-step instructions for setting up a host server can be found on [a dedicated page](rollyourown/how_to_use/host_server)
+4. If you are setting up a new [host server](#a-host-server), clone the [host server repository](https://github.com/rollyourown-xyz/ryo-host) to the control node, set configuration parameters and run the `host-setup.sh` script. This sets up secure communication between the control node and the host server, configures the host server and installs software needed for deploying a rollyourown project. This step can be skipped if you are using an existing host server that has already been set up for a different rollyourown project. Full, step-by-step instructions for setting up a host server can be found on [a dedicated page](/rollyourown/how_to_use/host_server)
 
 5. Clone the [project's repository](https://github.com/rollyourown-xyz/) to the control node to obtain scripts, configuration code and infrastructure code needed to deploy the project. Details are [below](#getting-the-project-repository)
 
@@ -46,7 +46,7 @@ Deploying a rollyourown project to a host server consists of a few steps:
 
 {{< highlight "info">}}
 
-These steps are described in more detail in the following. For more information about the rollyourown automation scripts, see our [collaboration section](collaborate/project_and_module_development/project_structure).
+These steps are described in more detail in the following. For more information about the rollyourown automation scripts, see our [collaboration section](/collaborate/project_and_module_development/project_structure).
 
 {{< /highlight >}}
 
@@ -54,13 +54,13 @@ These steps are described in more detail in the following. For more information 
 
 ### A control node
 
-You will need a [control node](/rollyourown/projects/control_node/) to run the automation scripts to deploy your rollyourown project and, later, to perform automated upgrades of your installation. A control node can manage multiple projects on multiple host servers.
+You will need a [control node](/rollyourown/how_to_use/control_node/) to run the automation scripts to deploy your rollyourown project and, later, to perform automated upgrades of your installation. A control node can manage multiple projects on multiple host servers.
 
 A control node should be run as a virtual machine (VM) on your personal computer or as a dedicated machine. In both cases, the control node should be running Ubuntu 20.04 LTS or 22.04 LTS as operating system. The `local-setup.sh` scripts are written and tested for Ubuntu 20.04 LTS and 22.04 LTS and will install and set up all needed software for you.
 
 {{< highlight "info" "Setting up a control node">}}
 
-A detailed guide for setting up a control node, with step-by-step instructions, can be found [here](/rollyourown/projects/control_node/).
+A detailed guide for setting up a control node, with step-by-step instructions, can be found [here](/rollyourown/how_to_use/control_node/).
 
 {{< /highlight >}}
 
@@ -76,7 +76,7 @@ As an alternative to a virtual machine, a dedicated computer (e.g. laptop, deskt
 
 ### A host server
 
-A [host server](rollyourown/how_to_use/host_server) is needed to run the various containers making up a rollyourown project deployment. A host server can host multiple projects, or a dedicated host server per project can be used.
+A [host server](/rollyourown/how_to_use/host_server) is needed to run the various containers making up a rollyourown project deployment. A host server can host multiple projects, or a dedicated host server per project can be used.
 
 The recommended host server is a server or virtual private server (VPS) provided by a hosting provider. A host server can also be a server or virtual machine hosted in your home or office.
 
@@ -90,7 +90,7 @@ Unless you know what you are doing, exposing servers or computers in your home o
 
 {{< highlight "info">}}
 
-More details and a step-by-step guide for setting up a host server can be found [here](/rollyourown/projects/host_server/).
+More details and a step-by-step guide for setting up a host server can be found [here](/rollyourown/how_to_use/host_server/).
 
 {{< /highlight >}}
 
@@ -102,13 +102,13 @@ If you acquire your domain from a different provider than your host server, make
 
 ## Preparing to deploy the project
 
-After a [control node](rollyourown/project_modules/control_node/) and [host server](rollyourown/project_modules/host_server/) have been set up, container images for the project need to be built and uploaded to the host and the project's components need to be deployed on the host.
+After a [control node](/rollyourown/how_to_use/control_node/) and [host server](/rollyourown/how_to_use/host_server/) have been set up, container images for the project need to be built and uploaded to the host and the project's components need to be deployed on the host.
 
 ### Getting the project repository
 
 The first step is to fetch the automation code for the project.
 
-First, log in to the [**control node**](rollyourown/project_modules/control_node/), enter the `ryo-projects` directory and clone the [**project repository**](rollyourown/projects) to your control node. The repository used depends on the project to deploy and is linked from the project's page. For example:
+First, log in to the [**control node**](/rollyourown/how_to_use/control_node/), enter the `ryo-projects` directory and clone the [**project repository**](/rollyourown/projects) to your control node. The repository used depends on the project to deploy and is linked from the project's page. For example:
 
 ```bash
 cd ~/ryo-projects
@@ -121,7 +121,7 @@ The project can now be configured.
 
 Before running the project's automation scripts, some configuration is needed.
 
-First, enter the project directory `~/ryo-projects/<PROJECT_TO_DEPLOY>` and copy the file `configuration/configuration_TEMPLATE.yml` to `configuration/configuration_<HOST_NAME>.yml`, where `<HOST_NAME>` is the name you chose for your host server [when setting it up](rollyourown/project_modules/host_server/)
+First, enter the project directory `~/ryo-projects/<PROJECT_TO_DEPLOY>` and copy the file `configuration/configuration_TEMPLATE.yml` to `configuration/configuration_<HOST_NAME>.yml`, where `<HOST_NAME>` is the name you chose for your host server [when setting it up](/rollyourown/how_to_use/host_server/)
 
 ```bash
 cd ~/ryo-projects/<PROJECT_TO_DEPLOY>/
@@ -178,7 +178,7 @@ The `deploy.sh` script performs the following tasks:
 - Container images are built on the control node for the project's components and these are uploaded to the host server ready to be deployed
 - Project containers are launched on the host server
 
-Further details can be found [here](/collaborate/project_structure/).
+Further details can be found [here](/collaborate/project_and_module_development/project_structure/#the-deploysh-script).
 {{< /more >}}
 
 After the project has been deployed, you are ready to perform any needed project-specific setup and use the components deployed for your project.
@@ -187,7 +187,7 @@ After the project has been deployed, you are ready to perform any needed project
 
 Further information on steps to take after deploying and how to use the project are given on the project's page.
 
-Over time, the software packages used for the project deployment need to be kept up to date, as security patches are released for the software or underlying operating systems or when new versions of the software packages are released. The `upgrade.sh` automation script is used to update the project's containers and deployment. More information can be found at ["How to Maintain"](/rollyourown/projects/how_to_maintain/).
+Over time, the software packages used for the project deployment need to be kept up to date, as security patches are released for the software or underlying operating systems or when new versions of the software packages are released. The `upgrade.sh` automation script is used to update the project's containers and deployment. More information can be found at ["How to Maintain"](/rollyourown/how_to_use/maintain/).
 
 {{< highlight "warning" "Regular upgrades">}}
 

@@ -171,11 +171,11 @@ After setting up the control node, you are ready to clone the project repository
 
 {{< more "secondary">}}
 
-The `local-setup.sh` script prepares the control node for managing project deployments. This script simply calls an [ansible](https://www.ansible.com/) playbook that executes tasks on the control node itself.
+The `local-setup.sh` script prepares the control node for managing project deployments. This script simply calls an [Ansible](https://www.ansible.com/) playbook that executes tasks on the control node itself.
 
 In detail, the following tasks are performed by the local-setup playbook:
 
-- SSH keys are generated on the control node so that [ansible](https://www.ansible.com/) can log in securely to the host server and execute the commands triggered in the `host-setup-sh` step
+- SSH keys are generated on the control node so that [Ansible](https://www.ansible.com/) can log in securely to the host server and execute the commands triggered in the `host-setup-sh` step
 
 - A Certificate authority is set up on the Control Node for signing host SSL certificates in later steps
 

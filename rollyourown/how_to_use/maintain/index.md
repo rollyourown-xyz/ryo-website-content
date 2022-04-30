@@ -9,25 +9,25 @@ SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
-Each [rollyourown.xyz](https://rollyourown.xyz) project provides automation resources to minimise the number of manual steps needed to keep a project's components up to date.
+Each rollyourown project provides automation resources to minimise the number of manual steps needed to keep a project's components up to date.
 
 <!--more-->
 
 This page describes how to use these resources to build new project images with upgraded software and deploy them to the host server.
 
-Information on maintaining a control node can be found [here](/rollyourown/projects/control_node/#control-node-maintenance). Information on maintaining a host server can be found [here](/rollyourown/projects/host_server/#host-server-maintenance).
+Information on maintaining a control node can be found [here](/rollyourown/how_to_use/control_node/#control-node-maintenance). Information on maintaining a host server can be found [here](/rollyourown/how_to_use/host_server/#host-server-maintenance).
 
 ## How to maintain a project (tl;dr)
 
-Follow these steps to upgrade your deployed [rollyourown.xyz](https://rollyourown.xyz) project:
+Follow these steps to upgrade your deployed rollyourown project:
 
-1. Enter the project's directory on your [control node](/rollyourown/projects/control_node)
+1. Enter the project's directory on your [control node](/rollyourown/how_to_use/control_node/)
 2. Run `./upgrade.sh` from the project directory to build new images for deployment
 3. Select whether to upgrade modules used by the project
 
 ## Introduction
 
-Following the principles of Configuration-as-Code, Infrastructure-as-Code and Immutable infrastructure described on the [How to Deploy page](/rollyourown/projects/how_to_deploy/#introduction), project components are **never** upgraded in place. Rather, a new component image is built from an updated configuration and the component container is **replaced** with the new version.
+Following the principles of Configuration-as-Code, Infrastructure-as-Code and Immutable infrastructure described on the [How to Deploy page](/rollyourown/how_to_use/deploy/), project components are **never** upgraded in place. Rather, a new component image is built from an updated configuration and the component container is **replaced** with the new version.
 
 Upgrading a rollyourown project consists of:
 
@@ -53,21 +53,21 @@ If something needs to be changed, then changes are made in the code. The new ver
 
 These techniques are used to manage very large deployments in commercial situations (e.g. in enterprise data centres, telecommunications networks and large-scale internet services). They enable and go hand-in-hand with modern development practices such as [CI/CD](https://www.redhat.com/en/topics/devops/what-is-ci-cd), [blue-green deployments](https://martinfowler.com/bliki/BlueGreenDeployment.html) and [canary releases](https://martinfowler.com/bliki/CanaryRelease.html).
 
-With rollyourown.xyz, we bring a subset of these practices within the reach of private users and smaller organisations. We aim to lower the knowledge and effort needed to use and maintain self-hosted, open-source projects by providing the configuration and infrastructure code needed to deploy and upgrade them. By doing this, we aim to promote the use and propagation of open-source software.
+With rollyourown, we bring a subset of these practices within the reach of private users and smaller organisations. We aim to lower the knowledge and effort needed to use and maintain self-hosted, open-source projects by providing the configuration and infrastructure code needed to deploy and upgrade them. By doing this, we aim to promote the use and propagation of open-source software.
 
 {{< /more >}}
 
 ## Before upgrading a project
 
-Although unrecoverable failures during upgrades are uncommon, they cannot be discounted altogether. rollyourown.xyz is an open source project and cannot *guarantee* that the code published in a project or module repository is fully working.
+Although unrecoverable failures during upgrades are uncommon, they cannot be discounted altogether. rollyourown is an open source project and cannot *guarantee* that the code published in a project or module repository is fully working.
 
-It is recommended to always [back up the project](/rollyourown/projects/how_to_back_up_and_restore/#how-to-back-up-an-individual-project) or [back up your host server](/rollyourown/projects/how_to_back_up_and_restore/#how-to-back-up-a-host-server) before upgrading a project, in case the upgrade procedure fails and you are unable to roll back to the previous version of the container images.
+It is recommended to always [back up the project](/rollyourown/how_to_use/back_up_and_restore/#how-to-back-up-an-individual-project) or [back up your host server](/rollyourown/how_to_use/back_up_and_restore/#how-to-back-up-a-host-server) before upgrading a project, in case the upgrade procedure fails and you are unable to roll back to the previous version of the container images.
 
 ## Upgrading a project deployment
 
-Upgrading a rollyourown.xyz project deployment consists of a few steps:
+Upgrading a rollyourown project deployment consists of a few steps:
 
-1. Log in to the [control node](/rollyourown/projects/control_node) and run the `upgrade.sh` script in your project's directory:
+1. Log in to the [control node](/rollyourown/how_to_use/control_node/) and run the `upgrade.sh` script in your project's directory:
 
     ```bash
     cd ~/ryo-projects/<project_to_upgrade>/
@@ -78,7 +78,7 @@ Upgrading a rollyourown.xyz project deployment consists of a few steps:
 
 3. The script will ask whether modules used by the project should also be upgraded. This is recommended, but can be skipped.
 
-4. The `upgrade.sh` script will now pull up-to-date code from the [rollyourown.xyz repositories](/collaborate/repositories), optionally back up the project, build new images for the selected components and deploy them to the host server.
+4. The `upgrade.sh` script will now pull up-to-date code from the [rollyourown repositories](/collaborate/repositories), optionally back up the project, build new images for the selected components and deploy them to the host server.
 
 After this process, your project deployment has been upgraded.
 
@@ -100,7 +100,7 @@ As an example, the following diagram shows the project and module components for
 
 Typically, you will want to restore the image of the previous working version and only for the components which failed to upgrade. So, for example, if the `upgrade.sh` script was called with the version stamp `TEST03` and upgrading modules was not selected, then rolling back to the previous working version would mean rolling back the project components to version `TEST02` in the above example.
 
-Once the versions to roll back to have been identified, log in to the [control node](/rollyourown/projects/control_node) and run the `rollback.sh` script in your project's directory, passing the name of the host server via the `-n` flag:
+Once the versions to roll back to have been identified, log in to the [control node](/rollyourown/how_to_use/control_node) and run the `rollback.sh` script in your project's directory, passing the name of the host server via the `-n` flag:
 
 ```bash
 cd ~/ryo-projects/<project_to_roll_back>/
@@ -117,6 +117,6 @@ If you have made manual changes to a deployed component (configuration, software
 
 {{< /highlight >}}
 
-You are welcome to use the project code from the rollyourown.xyz repositories as the basis of your own projects and make your own changes in your local copy of the repository. The `deploy.sh` and `upgrade.sh` scripts will still work (if you haven't made mistakes in the code). However, be aware that your repository will have diverged from the rollyourown.xyz repository, and you will probably no longer be able to simply `git pull` a new version from rollyourown.xyz and benefit from any improvements made.
+You are welcome to use the project code from the rollyourown repositories as the basis of your own projects and make your own changes in your local copy of the repository. The `deploy.sh` and `upgrade.sh` scripts will still work (if you haven't made mistakes in the code). However, be aware that your repository will have diverged from the rollyourown repository, and you will probably no longer be able to simply `git pull` a new version from rollyourown and benefit from any improvements made.
 
 If you want to improve the project or have found a bug and need to change something to get things working, then please consider [collaborating with us](/collaborate) so that your improvements are available for everyone.

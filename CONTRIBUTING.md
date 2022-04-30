@@ -5,7 +5,7 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 # Contributing
 
-Thank you for taking an interest in collaborating with us on the [rollyourown.xyz](https://rollyourown.xyz) project and website!
+Thank you for taking an interest in collaborating with us on the rollyourown project and website!
 
 Your collaboration on improving, translating or extending our website will be much appreciated.
 

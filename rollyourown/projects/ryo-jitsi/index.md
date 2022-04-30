@@ -37,7 +37,7 @@ Components **not** installed by this project are:
 In additiona to the components of the jitsi video conferencing system, the project deploys the [rollyourown.xyz coturn module](/rollyourown/project_modules/ryo-coturn/) to enable [NAT traversal](https://en.wikipedia.org/wiki/NAT_traversal) for conference participants and the [rollyourown.xyz Ingress Proxy module](/rollyourown/project_modules/ryo-ingress-proxy/) to provide TLS termination and certificate management.
 
 {{< highlight "info" "Control node">}}
-A [control node](/rollyourown/projects/control_node/) without a graphical desktop UI is sufficient for this project, as the jitsi conferencing server is configurable only via command line.
+A [control node](/rollyourown/how_to_use/control_node/) without a graphical desktop UI is sufficient for this project, as the jitsi conferencing server is configurable only via command line.
 {{< /highlight >}}
 
 ## Repository links
@@ -46,7 +46,7 @@ The [Codeberg](https://codeberg.org/) mirror repository for this project is here
 
 The [Github](https://github.com/) mirror repository for this project is here: [https://github.com/rollyourown-xyz/ryo-jitsi](https://github.com/rollyourown-xyz/ryo-jitsi)
 
-The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-jitsi](https://git.rollyourown.xyz/ryo-projects/ryo-jitsi) (not publicly accessible)
+The rollyourown repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-jitsi](https://git.rollyourown.xyz/ryo-projects/ryo-jitsi) (not publicly accessible)
 
 ## Project components
 
@@ -56,9 +56,9 @@ The components deployed in this project are shown in the following diagram:
 
 ### Host server
 
-The [host server](/rollyourown/projects/host_server/) is configured to run [LXD containers](https://linuxcontainers.org/lxd/) and a [Consul server](https://www.consul.io/) and is controlled from your control machine via a [wireguard](https://www.wireguard.com/) tunnel. Each container deployed performs a specific task in the installation.
+The [host server](/rollyourown/how_to_use/host_server/) is configured to run [LXD containers](https://linuxcontainers.org/lxd/) and a [Consul server](https://www.consul.io/) and is controlled from your control machine via a [wireguard](https://www.wireguard.com/) tunnel. Each container deployed performs a specific task in the installation.
 
-Further details about the host server building block can be found [here](/rollyourown/projects/host_server/).
+Further details about the host server building block can be found [here](/rollyourown/how_to_use/host_server/).
 
 ### Containers
 
@@ -66,21 +66,21 @@ The project installation consists of a number of containers deployed on the host
 
 #### Coturn container
 
-The coturn container hosts an [coturn](https://github.com/coturn/coturn/) TURN server, providing NAT traversal for jitsi conference users. This component is provided by the [rollyourown.xyz](https://rollyourown.xyz) TURN server module and is a building block for other rollyourown.xyz projects providing p2p communications services. Further details can be found [here](/rollyourown/project_modules/ryo-coturn/).
+The coturn container hosts an [coturn](https://github.com/coturn/coturn/) TURN server, providing NAT traversal for jitsi conference users. This component is provided by the rollyourown TURN server module and is a building block for other rollyourown.xyz projects providing p2p communications services. Further details can be found [here](/rollyourown/project_modules/ryo-coturn/).
 
 #### Ingress proxy container
 
-The ingress proxy container terminates HTTP and HTTPS connections and distributes traffic to other containers. This component is provided by the [rollyourown.xyz](https://rollyourown.xyz) Ingress Proxy module and is a key building block for rollyourown.xyz projects. Further details can be found [here](/rollyourown/project_modules/ryo-ingress-proxy/).
+The ingress proxy container terminates HTTP and HTTPS connections and distributes traffic to other containers. This component is provided by the rollyourown Ingress Proxy module and is a key building block for rollyourown.xyz projects. Further details can be found [here](/rollyourown/project_modules/ryo-ingress-proxy/).
 
 #### Jitsi server container
 
-The Jitsi server container hosts an [nginx](https://nginx.org/) web server with the [jitsi-meet](https://github.com/jitsi/jitsi-meet) WebRTC video conferencing front-end as well as the jitsi video conferencing suite components [prosody]((https://prosody.im/)), [jitsi videobridge](https://github.com/jitsi/jitsi-videobridge) and [jicofo](https://github.com/jitsi/jicofo).
+The Jitsi server container hosts an [nginx](https://nginx.org/) web server with the [jitsi-meet](https://github.com/jitsi/jitsi-meet) WebRTC video conferencing front-end as well as the jitsi video conferencing suite components [prosody](https://prosody.im/), [jitsi videobridge](https://github.com/jitsi/jitsi-videobridge) and [jicofo](https://github.com/jitsi/jicofo).
 
 ## How to use this project
 
 ### Deploying the project
 
-To deploy the project, follow the generic [project deployment instructions](/rollyourown/projects/how_to_deploy/), using the project's [mirror repositories](#repository-links).
+To deploy the project, follow the generic [project deployment instructions](/rollyourown/how_to_use/deploy/), using the project's [mirror repositories](#repository-links).
 
 For example, clone the project from the project's GitHub repository with:
 
@@ -92,7 +92,7 @@ git clone https://github.com/rollyourown-xyz/ryo-jitsi
 
 For a full overview of how to use [jitsi video conferencing](https://jitsi.org/), see the Jitsi [user guide](https://jitsi.github.io/handbook/docs/user-guide/user-guide-start).
 
-Before using the conferencing service, user accounts need to be configured. The [rollyourown.xyz](https://rollyourown.xyz) jitsi project deployment is configured as a private deployment with a [Secure domain setup](https://jitsi.github.io/handbook/docs/devops-guide/secure-domain). This allows only authenticated and authorised users to create conferences and prevents the service from being used by anyone on the internet.
+Before using the conferencing service, user accounts need to be configured. The rollyourown jitsi project deployment is configured as a private deployment with a [Secure domain setup](https://jitsi.github.io/handbook/docs/devops-guide/secure-domain). This allows only authenticated and authorised users to create conferences and prevents the service from being used by anyone on the internet.
 
 #### Jitsi user management
 
@@ -120,7 +120,7 @@ User accounts can only be configured via the command line. This can be done dire
 
 After deploying the project, the installation needs to be maintained over time as, for example, new versions of the project's components are released.
 
-Maintentance is automated via the rollyourown.xyz project scripts. See [here](/rollyourown/projects/how_to_maintain/) for details.
+Maintentance is automated via the rollyourown.xyz project scripts. See [here](/rollyourown/how_to_use/maintain/) for details.
 
 ## Project requirements
 

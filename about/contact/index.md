@@ -31,7 +31,7 @@ If you would like to help us translate our website into other languages, please 
 
 ## Privacy and Data Protection
 
-Our privacy policy is described in detail [on a dedicated page](about/privacy_policy). To raise privacy or data protection issues, please use the dedicated [contact form](https://forms.rollyourown.xyz/data-protection).
+Our privacy policy is described in detail [on a dedicated page](/about/privacy_policy). To raise privacy or data protection issues, please use the dedicated [contact form](https://forms.rollyourown.xyz/data-protection).
 
 ## Joining us
 

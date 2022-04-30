@@ -161,7 +161,7 @@ Members of our organisation have accounts on our own Git repository servers. If 
 To make our project and its repositories available for collaboration in a wider community, we maintain mirrors of our public repositories on [Codeberg](https://codeberg.org/) and [GitHub](https://github.com/). Specifically, these are:
 
 - The repositories for our [projects](/rollyourown/projects) and [modules](/rollyourown/project_modules)
-- The repository for the content of the [rollyourown.xyz](https://rollyourown.xyz) website
+- The repository for the content of the rollyourown website
 
 Further repositories may be made public and mirrored at a later date, such as the repositories containing the deployment code for our infrastructure.
 

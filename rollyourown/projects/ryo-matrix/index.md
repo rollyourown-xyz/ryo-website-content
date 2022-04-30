@@ -25,9 +25,9 @@ The matrix communications system enables real-time chat, VoIP, media sharing and
 When a room is created, the room creator may choose to enable end-to-end encryption for the room -- with 2-person, 1-1 chat rooms, this is on by default. In a private group chat, end-to-end encryption makes sense, whereas in large public community rooms, it is largely unnecessary. Encryption in the Matrix system is implemented using [olm and megolm](https://gitlab.matrix.org/matrix-org/olm), which are based on the [double ratchet algorithm](https://signal.org/docs/specifications/doubleratchet/) developed for the [Signal messenger](https://signal.org/).
 
 {{< highlight "info" "Control node">}}
-In [standalone IdP mode](#standalone-idp-mode), a [control node](/rollyourown/projects/control_node/) with a graphical desktop UI is necessary for this project, since synapse administration endpoints and the synapse-admin web-based administration interface are **not** reachable via the public internet. Users of the matrix homeserver can only be managed via web-browser from the control node.
+In [standalone IdP mode](#standalone-idp-mode), a [control node](/rollyourown/how_to_use/control_node/) with a graphical desktop UI is necessary for this project, since synapse administration endpoints and the synapse-admin web-based administration interface are **not** reachable via the public internet. Users of the matrix homeserver can only be managed via web-browser from the control node.
 
-In [gitea IdP mode](#gitea-idp-mode), matrix homeserver users are managed on a previously-deployed [Gitea Git repository server](/rollyourown/projects/single_server_projects/ryo-gitea). As the administrative user can log in to the Gitea server via the internet and manages matrix user accounts on the Gitea server, a [control node](/rollyourown/projects/control_node/) with a graphical desktop UI is not necessary in this case.
+In [gitea IdP mode](#gitea-idp-mode), matrix homeserver users are managed on a previously-deployed [Gitea Git repository server](/rollyourown/projects/ryo-gitea). As the administrative user can log in to the Gitea server via the internet and manages matrix user accounts on the Gitea server, a [control node](/rollyourown/how_to_use/control_node/) with a graphical desktop UI is not necessary in this case.
 
 {{< /highlight >}}
 
@@ -37,11 +37,11 @@ The [Codeberg](https://codeberg.org/) mirror repository for this project is here
 
 The [Github](https://github.com/) mirror repository for this project is here: [https://github.com/rollyourown-xyz/ryo-matrix](https://github.com/rollyourown-xyz/ryo-matrix)
 
-The [rollyourown.xyz](https://rollyourown.xyz/) repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-matrix](https://git.rollyourown.xyz/ryo-projects/ryo-matrix) (not publicly accessible)
+The rollyourown repository for this project is here: [https://git.rollyourown.xyz/ryo-projects/ryo-matrix](https://git.rollyourown.xyz/ryo-projects/ryo-matrix) (not publicly accessible)
 
 ## Dependencies
 
-This project depends on and deploys the following [rollyourown.xyz](https://rollyourown.xyz) modules:
+This project depends on and deploys the following rollyourown modules:
 
 - The [Ingress Proxy module](/rollyourown/project_modules/ryo-ingress-proxy/) to provide certificate management by [Certbot](https://certbot.eff.org/) and HTTPS proxying by the [HAProxy](https://www.haproxy.org/) load balancer / TLS proxy
 
@@ -51,7 +51,7 @@ This project depends on and deploys the following [rollyourown.xyz](https://roll
 
 - The [STUN/TURN Server module](/rollyourown/project_modules/ryo-coturn) to provide [STUN](https://en.wikipedia.org/wiki/STUN), [TURN](https://en.wikipedia.org/wiki/Traversal_Using_Relays_around_NAT) and [ICE](https://en.wikipedia.org/wiki/Interactive_Connectivity_Establishment) enabling peer-to-peer communication for devices behind a [NAT](https://en.wikipedia.org/wiki/Network_address_translation)
 
-In "standalone" IdP mode, the project has no dependency to other rollyourown.xyz projects. In "gitea" IdP mode, the project depends on prior deployment of a [Gitea Git repository server](/rollyourown/projects/single_server_projects/ryo-gitea) and the configuration of an [OAuth2](https://oauth.net/2/) application on the Gitea server before deployment of this project.
+In "standalone" IdP mode, the project has no dependency to other rollyourown.xyz projects. In "gitea" IdP mode, the project depends on prior deployment of a [Gitea Git repository server](/rollyourown/projects/ryo-gitea) and the configuration of an [OAuth2](https://oauth.net/2/) application on the Gitea server before deployment of this project.
 
 ## Identity providers and single sign-on
 
@@ -68,9 +68,9 @@ In standalone IdP mode, user accounts are managed on the [Synapse homeserver](#s
 
 ### Gitea IdP mode
 
-In Gitea IdP mode, the matrix service is deployed together with a [Gitea Git repository server](/rollyourown/projects/single_server_projects/ryo-gitea) and the Gitea server is used for [single sign-on (SSO)](https://en.wikipedia.org/wiki/Single_sign-on). This means that a matrix user authenticates against the Gitea server via [OAuth2](https://oauth.net/2/) and only has a single username/password for both services.
+In Gitea IdP mode, the matrix service is deployed together with a [Gitea Git repository server](/rollyourown/projects/ryo-gitea) and the Gitea server is used for [single sign-on (SSO)](https://en.wikipedia.org/wiki/Single_sign-on). This means that a matrix user authenticates against the Gitea server via [OAuth2](https://oauth.net/2/) and only has a single username/password for both services.
 
-In this mode, the [Gitea Git repository server](/rollyourown/projects/single_server_projects/ryo-gitea) must be deployed and [an OAuth2 application configured](#before-deployment), before this project is deployed.
+In this mode, the [Gitea Git repository server](/rollyourown/projects/ryo-gitea) must be deployed and [an OAuth2 application configured](#before-deployment), before this project is deployed.
 
 {{< highlight "warning" "Admin user">}}
 
@@ -86,9 +86,9 @@ The components deployed in this project are shown in the following diagram:
 
 ### Host server
 
-The [host server](/rollyourown/projects/host_server/) is controlled from your control machine via a [Wireguard](https://www.wireguard.com/) tunnel and is configured to run a [Consul server](https://www.consul.io/) and the [LXD container runtime](https://linuxcontainers.org/lxd/). Each container deployed performs a specific task in the installation.
+The [host server](/rollyourown/how_to_use/host_server/) is controlled from your control machine via a [Wireguard](https://www.wireguard.com/) tunnel and is configured to run a [Consul server](https://www.consul.io/) and the [LXD container runtime](https://linuxcontainers.org/lxd/). Each container deployed performs a specific task in the installation.
 
-Further details about the host server can be found [here](/rollyourown/projects/host_server/).
+Further details about the host server can be found [here](/rollyourown/how_to_use/host_server/).
 
 ### Containers
 
@@ -96,19 +96,19 @@ The project installation consists of a number of containers deployed on the host
 
 #### Ingress proxy container
 
-The ingress proxy container terminates HTTP and HTTPS connections and distributes traffic to other containers. This component is provided by the [rollyourown.xyz](https://rollyourown.xyz) Ingress Proxy module and is a key building block for rollyourown.xyz projects. Further details can be found [here](/rollyourown/project_modules/ryo-ingress-proxy/).
+The ingress proxy container terminates HTTP and HTTPS connections and distributes traffic to other containers. This component is provided by the rollyourown Ingress Proxy module and is a key building block for rollyourown.xyz projects. Further details can be found [here](/rollyourown/project_modules/ryo-ingress-proxy/).
 
 #### Coturn container
 
-The Coturn container provides a STUN/TURN server for enabling peer-to-peer communication between devices behind a NAT gateway. This component is provided by the [rollyourown.xyz](https://rollyourown.xyz) STUN/TURN Server module. Further details can be found [here](/rollyourown/project_modules/ryo-coturn).
+The Coturn container provides a STUN/TURN server for enabling peer-to-peer communication between devices behind a NAT gateway. This component is provided by the rollyourown STUN/TURN Server module. Further details can be found [here](/rollyourown/project_modules/ryo-coturn).
 
 #### Well-known container
 
-The well-known container responds to the well-known URIs `https://example.com/.well-known/matrix/client` and `https://example.com/.well-known/matrix/server` to support Matrix homeserver [discovery](https://github.com/matrix-org/synapse/blob/develop/docs/setup/installation.md#client-well-known-uri) and [delegation](https://github.com/matrix-org/synapse/blob/develop/docs/delegate.md). This enables the synapse homeserver to be hosted at `matrix.example.com` while the homeserver name is `example.com` and users can have matrix user IDs `@user:example.com`. This component is provided by the [rollyourown.xyz](https://rollyourown.xyz) Well-known Server module. Further details can be found [here](/rollyourown/project_modules/ryo-wellknown).
+The well-known container responds to the well-known URIs `https://example.com/.well-known/matrix/client` and `https://example.com/.well-known/matrix/server` to support Matrix homeserver [discovery](https://github.com/matrix-org/synapse/blob/develop/docs/setup/installation.md#client-well-known-uri) and [delegation](https://github.com/matrix-org/synapse/blob/develop/docs/delegate.md). This enables the synapse homeserver to be hosted at `matrix.example.com` while the homeserver name is `example.com` and users can have matrix user IDs `@user:example.com`. This component is provided by the rollyourown Well-known Server module. Further details can be found [here](/rollyourown/project_modules/ryo-wellknown).
 
 #### Postgres container
 
-The Postgres container provides a PostgreSQL relational database as backend for the synapse homeserver container. This component is provided by the [rollyourown.xyz](https://rollyourown.xyz) PostgreSQL Database module. Further details can be found [here](/rollyourown/project_modules/ryo-postgres).
+The Postgres container provides a PostgreSQL relational database as backend for the synapse homeserver container. This component is provided by the rollyourown PostgreSQL Database module. Further details can be found [here](/rollyourown/project_modules/ryo-postgres).
 
 #### Synapse container
 
@@ -126,11 +126,11 @@ The Synapse admin container hosts a [nginx](https://nginx.org/) web server and t
 
 ### Before deployment
 
-If the project is to be deployed in [gitea IdP mode](#gitea-idp-mode), then a [Gitea Git repository server](/rollyourown/projects/single_server_projects/ryo-gitea) should be deployed and configured **before** deploying this project.
+If the project is to be deployed in [gitea IdP mode](#gitea-idp-mode), then a [Gitea Git repository server](/rollyourown/projects/ryo-gitea) should be deployed and configured **before** deploying this project.
 
 After deployment, the Gitea server needs to be configured with an [OAuth2](https://oauth.net/2/) application, so that it can act as a single sign-on provider for the matrix service.
 
-This configuration is done from a user's settings after [logging in on the Gitea server](/rollyourown/projects/single_server_projects/ryo-gitea/#after-deployment):
+This configuration is done from a user's settings after [logging in on the Gitea server](/rollyourown/projects/ryo-gitea/#after-deployment):
 
 ![Gitea Settings](Gitea_Settings_240.png)
 
@@ -138,15 +138,15 @@ Under _Applications -> Manage OAuth2 Application_ a new application is added and
 
 ![Gitea Create OAuth2 Application](Gitea_Create_OAuth2_Application_800.png)
 
-Once the OAuth application has been created, Gitea will show a `Client ID` and `Client Secret`. Both of these should be noted down, as they are needed in the configuration for this project. The Client Secret will be shown **only once**, but can be regenerated later -- however, if the Client Secret is changed after configuring and deploying this project, then the project configuration will also need to be changed and [new container images built and deployed](/rollyourown/projects/how_to_maintain).
+Once the OAuth application has been created, Gitea will show a `Client ID` and `Client Secret`. Both of these should be noted down, as they are needed in the configuration for this project. The Client Secret will be shown **only once**, but can be regenerated later -- however, if the Client Secret is changed after configuring and deploying this project, then the project configuration will also need to be changed and [new container images built and deployed](/rollyourown/how_to_use/maintain).
 
 ![Gitea Client ID and Secret](Gitea_Client_ID_and_Secret_800.png)
 
-After configuring the OAuth2 application, this project can be [configured](/rollyourown/projects/how_to_deploy/#configuring-the-project) and [deployed](/rollyourown/projects/how_to_deploy/#running-the-automation-scripts).
+After configuring the OAuth2 application, this project can be [configured](/rollyourown/how_to_use/deploy/#configuring-the-project) and [deployed](/rollyourown/how_to_use/deploy/#running-the-automation-scripts).
 
 ### Deploying the project
 
-To deploy the project, follow the generic [project deployment instructions](/rollyourown/projects/how_to_deploy/), using the project's [mirror repositories](#repository-links).
+To deploy the project, follow the generic [project deployment instructions](/rollyourown/how_to_use/deploy/), using the project's [mirror repositories](#repository-links).
 
 For example, clone the project from the project's GitHub repository with:
 
@@ -160,7 +160,7 @@ git clone https://github.com/rollyourown-xyz/ryo-matrix
 
 Your first step after deployment in [standalone IdP mode](#standalone-idp-mode) will be to create user accounts for using the matrix service.
 
-From the control node, log in to the synapse-admin administration front-end at `http://synapse-admin.service.<HOSTNAME>.ryo` where `<HOSTNAME>` is the name chosen for your host server [during setup](/rollyourown/projects/host_server/). This link will **only work from the control-node**, as the administration front-end is **not** available via the public internet. The administrator username and password were defined in your configuration file during project deployment (as the variables `project_admin_username` and `project_admin_password`).
+From the control node, log in to the synapse-admin administration front-end at `http://synapse-admin.service.<HOSTNAME>.ryo` where `<HOSTNAME>` is the name chosen for your host server [during setup](/rollyourown/how_to_use/host_server/). This link will **only work from the control-node**, as the administration front-end is **not** available via the public internet. The administrator username and password were defined in your configuration file during project deployment (as the variables `project_admin_username` and `project_admin_password`).
 
 ![Synapse-Admin Login](Synapse-Admin_Login_1200.png)
 
@@ -260,7 +260,7 @@ Note that the `<ROOM_ID>` must be [URL encoded](https://www.w3schools.com/tags/r
 
 After deploying the project, the installation needs to be maintained over time as, for example, new versions of the project's components are released.
 
-Maintenance is automated via the rollyourown.xyz project scripts. See [here](/rollyourown/projects/how_to_maintain/) for details.
+Maintenance is automated via the rollyourown.xyz project scripts. See [here](/rollyourown/how_to_use/maintain/) for details.
 
 ## Project requirements
 

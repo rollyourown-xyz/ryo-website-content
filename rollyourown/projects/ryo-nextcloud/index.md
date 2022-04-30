@@ -23,7 +23,7 @@ This project deploys a [Nextcloud](https://nextcloud.com/) server, with a [Maria
 - Forms and polls
 
 {{< highlight "info" "Control node">}}
-A [control node](/rollyourown/projects/control_node/) without a graphical desktop UI is sufficient for this project, as the Nextcloud administration interface is reachable via the public internet.
+A [control node](/rollyourown/how_to_use/control_node/) without a graphical desktop UI is sufficient for this project, as the Nextcloud administration interface is reachable via the public internet.
 {{< /highlight >}}
 
 ## Repository links
@@ -52,9 +52,9 @@ The components deployed in this project are shown in the following diagram:
 
 ### Host server
 
-The [host server](/rollyourown/projects/host_server/) is controlled from your [control node](/rollyourown/how_to_use/control_node/) via a [Wireguard](https://www.wireguard.com/) tunnel and is configured to run a [Consul server](https://www.consul.io/) and the [LXD container runtime](https://linuxcontainers.org/lxd/). Each container deployed performs a specific task in the installation.
+The [host server](/rollyourown/how_to_use/host_server/) is controlled from your [control node](/rollyourown/how_to_use/control_node/) via a [Wireguard](https://www.wireguard.com/) tunnel and is configured to run a [Consul server](https://www.consul.io/) and the [LXD container runtime](https://linuxcontainers.org/lxd/). Each container deployed performs a specific task in the installation.
 
-Further details about the host server building block can be found [here](/rollyourown/projects/host_server/).
+Further details about the host server building block can be found [here](/rollyourown/how_to_use/host_server/).
 
 ### Containers
 
@@ -80,7 +80,7 @@ The Nextcloud container provides the Nextcloud server for the project. [Nextclou
 
 ### Deploying the project
 
-To deploy the project, follow the generic [project deployment instructions](/rollyourown/projects/how_to_deploy/), using the project's [mirror repositories](#repository-links).
+To deploy the project, follow the generic [project deployment instructions](/rollyourown/how_to_use/deploy/), using the project's [mirror repositories](#repository-links).
 
 For example, clone the project from the project's GitHub repository with:
 
@@ -140,7 +140,7 @@ Various desktop operating systems can sync natively or via desktop applications 
 
 After deploying the project, the installation needs to be maintained over time as, for example, new versions of the project's components are released.
 
-Maintenance is automated via the rollyourown.xyz project scripts. See [here](/rollyourown/projects/how_to_maintain/) for details.
+Maintenance is automated via the rollyourown.xyz project scripts. See [here](/rollyourown/how_to_use/maintain/) for details.
 
 ## Project requirements
 

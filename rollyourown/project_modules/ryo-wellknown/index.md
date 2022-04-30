@@ -18,7 +18,7 @@ This documentation is intended for developers of rollyourown projects.
 
 This module deploys and configures an [nginx](https://nginx.org/) webserver to respond to [well-known Uniform Resource Identifiers](https://en.wikipedia.org/wiki/Well-known_URI). This provides a central module for hosting well-known URIs for any rollyourown project.
 
-[Consul-Template](https://github.com/hashicorp/consul-template/) is used to dynamically load well-known configuration from kev-values in the [Consul Key-Value Store](https://www.consul.io/docs/dynamic-app-config/kv) running on the [host server](/rollyourown/projects/host_server/).
+[Consul-Template](https://github.com/hashicorp/consul-template/) is used to dynamically load well-known configuration from kev-values in the [Consul Key-Value Store](https://www.consul.io/docs/dynamic-app-config/kv) running on the [host server](/rollyourown/how_to_use/host_server/).
 
 ## Repository links
 
@@ -229,7 +229,7 @@ The Consul-Template application reads the key-values in the `service/wellknown/d
 
 {{< /more >}}
 
-As an example, redirect responses for the well-known paths `https://example.com/.well-known/carddav` and `https://example.com/.well-known/caldav` for a [Nextcloud server](/rollyourown/projects/single_server_projects/ryo-nextcloud/) are deployed with the following code:
+As an example, redirect responses for the well-known paths `https://example.com/.well-known/carddav` and `https://example.com/.well-known/caldav` for a [Nextcloud server](/rollyourown/projects/ryo-nextcloud/) are deployed with the following code:
 
 ```tf
 module "deploy-nextcloud-wellknown-configuration" {
@@ -252,7 +252,7 @@ module "deploy-nextcloud-wellknown-configuration" {
 }
 ```
 
-As a further example, JSON responses for the well-known URIs `https://example.com/.well-known/matrix/client` and `https://example.com/.well-known/matrix/server` for a [Matrix server](/rollyourown/projects/single_server_projects/ryo-matrix/) [discovery](https://github.com/matrix-org/synapse/blob/develop/docs/setup/installation.md#client-well-known-uri) and [delegation](https://github.com/matrix-org/synapse/blob/develop/docs/delegate.md) are deployed with the following code:
+As a further example, JSON responses for the well-known URIs `https://example.com/.well-known/matrix/client` and `https://example.com/.well-known/matrix/server` for a [Matrix server](/rollyourown/projects/ryo-matrix/) [discovery](https://github.com/matrix-org/synapse/blob/develop/docs/setup/installation.md#client-well-known-uri) and [delegation](https://github.com/matrix-org/synapse/blob/develop/docs/delegate.md) are deployed with the following code:
 
 ```tf
 module "deploy-matrix-wellknown-configuration" {

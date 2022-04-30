@@ -9,11 +9,11 @@ SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
-Each [rollyourown.xyz](https://rollyourown.xyz) project provides automation resources to deploy and manage open source software, using Configuration-as-Code, Infrastructure-as-Code and Immutable infrastructure.
+Each rollyourown project provides automation resources to deploy and manage open source software, using Configuration-as-Code, Infrastructure-as-Code and Immutable infrastructure.
 
 <!--more-->
 
-After choosing a [rollyourown.xyz](https://rollyourown.xyz) project to deploy:
+After choosing a rollyourown project to deploy:
 
 1. Prepare a [control node](/rollyourown/how_to_use/control_node/) to deploy and manage your projects
 2. Order or set up a server to host your project, with Ubuntu 20.04 LTS or 22.04 LTS installed

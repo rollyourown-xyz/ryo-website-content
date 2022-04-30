@@ -9,9 +9,9 @@ SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
-The rollyourown.xyz [host server](/rollyourown/projects/host_server) repository includes automation scripts for backing up and restoring all projects and modules deployed to a host server.
+The rollyourown [host server](/rollyourown/how_to_use/host_server) repository includes automation scripts for backing up and restoring all projects and modules deployed to a host server.
 
-The rollyourown.xyz [project repositories](/rollyourown/projects/single_server_projects/) include automation scripts for backing up and restoring an individual project and its modules.
+The rollyourown [project repositories](/rollyourown/projects/) include automation scripts for backing up and restoring an individual project and its modules.
 
 It is recommended to regularly back up your project and module data from a host server.
 
@@ -19,15 +19,15 @@ It is recommended to regularly back up your project and module data from a host 
 
 ## Introduction
 
-Each [rollyourown.xyz](https://rollyourown.xyz) project and module deploys various containers to a [host server](/rollyourown/projects/host_server). The containers are *ephemeral*, which means that their filesystem is destroyed whenever the container is destroyed. Persistent data (for example configuration files, a user's media files or databases) are stored in directories on the host server that are mounted in a container when the container is launched from an image. This means that only the persistent storage directories from the host server need to be backed up and containers can be restored simply by building new container images, deploying them to the host server and then restoring their persistent data from a backup.
+Each rollyourown project and module deploys various containers to a [host server](/rollyourown/how_to_use/host_server). The containers are *ephemeral*, which means that their filesystem is destroyed whenever the container is destroyed. Persistent data (for example configuration files, a user's media files or databases) are stored in directories on the host server that are mounted in a container when the container is launched from an image. This means that only the persistent storage directories from the host server need to be backed up and containers can be restored simply by building new container images, deploying them to the host server and then restoring their persistent data from a backup.
 
 {{< highlight "danger" "Regular backups">}}
 
 Although server failures are uncommon, they cannot be discounted altogether. It is recommended to back up your host servers regularly in case of disaster and loss of your host server.
 
-Backing up a project or the entire host server before [upgrading a project](/rollyourown/projects/how_to_maintain/#upgrading-a-project-deployment) is also recommended.
+Backing up a project or the entire host server before [upgrading a project](/rollyourown/how_to_use/maintain/#upgrading-a-project-deployment) is also recommended.
 
-Your hosting provider may offer a backup service for your host server. You may prefer to also use this service to back up and restore your rollyourown.xyz projects. However, we recommend also backing up your projects and modules using the project or host server automation scripts.
+Your hosting provider may offer a backup service for your host server. You may prefer to also use this service to back up and restore your rollyourown projects. However, we recommend also backing up your projects and modules using the project or host server automation scripts.
 
 {{< /highlight >}}
 
@@ -37,7 +37,7 @@ Your hosting provider may offer a backup service for your host server. You may p
 
 A host server backup will back up the persistent storage of all projects and modules deployed on the host server.
 
-To back up a host server, log in to the [control node](/rollyourown/projects/control_node) and run the `host-backup.sh` script from the `/ryo-projects/ryo-host` directory (or the directory you chose during [control node setup](/rollyourown/projects/control_node/#automated-control-node-configuration)). As input parameters, specify the name of the host server and a "stamp" to identify the backup (for example, a date and time stamp such as 20220107-1835):
+To back up a host server, log in to the [control node](/rollyourown/how_to_use/control_node) and run the `host-backup.sh` script from the `/ryo-projects/ryo-host` directory (or the directory you chose during [control node setup](/rollyourown/how_to_use/control_node/#automated-control-node-configuration)). As input parameters, specify the name of the host server and a "stamp" to identify the backup (for example, a date and time stamp such as 20220107-1835):
 
 ```bash
 cd ~/ryo-projects/ryo-host/
@@ -56,7 +56,7 @@ Depending on the data stored in your projects, the archiving and copying procedu
 
 A project backup will back up the persistent storage of a project and its modules.
 
-To back up a project, log in to the [control node](/rollyourown/projects/control_node) and run the `backup.sh` script from the project's directory. As input parameters, specify the name of the host server and a "stamp" to identify the backup (for example, a date and time stamp such as 20220107-1835):
+To back up a project, log in to the [control node](/rollyourown/how_to_use/control_node) and run the `backup.sh` script from the project's directory. As input parameters, specify the name of the host server and a "stamp" to identify the backup (for example, a date and time stamp such as 20220107-1835):
 
 ```bash
 cd ~/ryo-projects/<PROJECT_NAME>/
@@ -85,7 +85,7 @@ A restore should normally only be carried out on a newly-configured host server.
 
 {{< /highlight >}}
 
-If a host server has failed or projects are to be moved to a new host server, then the first step of the restoration procedure is to set up a new host server from scratch, with the [same procedure](/rollyourown/projects/host_server/#automated-host-server-setup) followed as when setting up the host server in the first place. The new host server should have **the same name as the host server from which the backup was made**.
+If a host server has failed or projects are to be moved to a new host server, then the first step of the restoration procedure is to set up a new host server from scratch, with the [same procedure](/rollyourown/how_to_use/host_server/#automated-host-server-setup) followed as when setting up the host server in the first place. The new host server should have **the same name as the host server from which the backup was made**.
 
 If the public IP address of the host server has changed, then the host server's configuration file will need to be updated with the new IP address in `/ryo-projects/ryo-host/configuration/configuration_<HOST NAME>.yml` and `/ryo-projects/ryo-host/configuration/inventory_<HOST NAME>`.
 
@@ -112,7 +112,7 @@ If all projects and modules are to be restored, then the `host-restore.sh` scrip
 - Copy the backup archives to the host server and unpack them to the persistent data directories for each project and module
 - Start all containers on the host server
 
-If individual projects are selected, then the `host-restore.sh` script will use the [individual restore scripts](/rollyourown/projects/how_to_back_up_and_restore/#how-to-restore-an-individual-project) for each project.
+If individual projects are selected, then the `host-restore.sh` script will use the [individual restore scripts](/rollyourown/how_to_use/back_up_and_restore/#how-to-restore-an-individual-project) for each project.
 
 After this process has completed, the services on the host server should be running.
 

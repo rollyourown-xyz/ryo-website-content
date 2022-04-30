@@ -39,7 +39,7 @@ We will discuss, for example:
 - The documentation on the [rollyourown.xyz website](https://rollyourown.xyz) that will also need to be created for the project
 - Which other rollyourown.xyz collaborators would like to work with you on your project
 
-We will also discuss whether you would like to join the rollyourown.xyz [organisation](/about/about_us) and become the [maintainer](/collaborate/working_with_git/what_is_git/#project-maintainer) for your project. This would be recommended and highly appreciated.
+We will also discuss whether you would like to join the rollyourown.xyz [organisation](/about) and become the [maintainer](/collaborate/working_with_git/what_is_git/#project-maintainer) for your project. This would be recommended and highly appreciated.
 
 ## Creating a new project or module
 
