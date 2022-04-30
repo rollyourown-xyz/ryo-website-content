@@ -4,12 +4,12 @@
 languageCode = "en-gb"
 
 # For private development of the site, use development webserver
-baseURL = "https://dev.rollyourown.xyz/"
-title = "rollyourown..."
+#baseURL = "https://dev.rollyourown.xyz/"
+#title = "rollyourown..."
 
 # For production, use production webserver
-#baseURL = "https://rollyourown.xyz/"
-#title = "rollyourown..."
+baseURL = "https://rollyourown.xyz/"
+title = "rollyourown..."
 
 theme = "rollyourown-theme"
 contentDir = "content"
