@@ -167,8 +167,6 @@ During setup of Ubuntu 22.04 LTS, you will typically have been asked to specify 
 
 7. After running the local-setup script, **reboot the control node**. This is a prerequisite for running the project automation scrips.
 
-After setting up the control node, you are ready to clone the project repository and run the automation scrips to set up the host server, build images and deploy the project.
-
 {{< more "secondary">}}
 
 The `local-setup.sh` script prepares the control node for managing project deployments. This script simply calls an [Ansible](https://www.ansible.com/) playbook that executes tasks on the control node itself.
@@ -190,6 +188,8 @@ In detail, the following tasks are performed by the local-setup playbook:
 - [Consul](https://www.consul.io/) is installed to support service discovery of project component administration interfaces after deployment
 
 {{< /more >}}
+
+After setting up the control node, you are ready to clone the project repository and run the automation scrips to set up the host server, build images and deploy the project.
 
 ## Control node maintenance
 
