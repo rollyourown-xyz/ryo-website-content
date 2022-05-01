@@ -1,7 +1,7 @@
 ---
 title: "Module: Ingress Proxy"
 tags: [ "module" ]
-draft: true
+draft: false
 ---
 <!--
 SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
