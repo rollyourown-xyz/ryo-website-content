@@ -1,8 +1,8 @@
 ---
 title: "rollyourown is published"
-date: 2022-04-24
+date: 2022-05-01
 author: "W. Nicoll"
-draft: true
+draft: false
 tags: []
 ---
 <!--
@@ -10,17 +10,33 @@ SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
-After around two years of development, the rollyourown.xyz website and repositories (mirrored [on Codeberg](https://codeberg.org/rollyourown-xyz) and [on GitHub](https://github.com/rollyourown-xyz)) are published.
+After around two years of development, the rollyourown website and repositories (mirrored [on Codeberg](https://codeberg.org/rollyourown-xyz) and [on GitHub](https://github.com/rollyourown-xyz)) are published.
 
-Rollyourown is an open source project for collaborative development of automation code for deploying solutions based on open source software. This is the story of how we got here.
+Rollyourown is an open source project for collaborative development of automation code for deploying solutions based on open source software.
 
 <!--more-->
 
-This post describes how and why the idea for this project came about. The main ideas are summarised, a bit more concisely and without the backstory, in our [manifesto](/about/manifesto/).
+The [projects](/rollyourown/projects) published today are:
+
+- [Roll Your Own Git Repository Server](/rollyourown/projects/ryo-gitea)
+- [Roll Your Own Grav CMS](/rollyourown/projects/ryo-grav-cms)
+- [Roll Your Own Hugo Website](/rollyourown/projects/ryo-hugo-website)
+- [Roll Your Own Matrix Service](/rollyourown/projects/ryo-matrix)
+- [Roll Your Own Nextcloud Server](/rollyourown/projects/ryo-nextcloud)
+
+These projects use the following [modules](/rollyourown/project_modules), which are also published today:
+
+- [Ingress Proxy module](/rollyourown/project_modules/ryo-ingress-proxy)
+- [MariaDB Database module](/rollyourown/project_modules/ryo-mariadb)
+- [PostgreSQL Database module](/rollyourown/project_modules/ryo-postgres)
+- [STUN/TURN Server module](/rollyourown/project_modules/ryo-coturn)
+- [Well-known URI Server module](/rollyourown/project_modules/ryo-wellknown)
+
+The rest of this post tells the story of how we got here, how and why the idea for this project came about.
 
 ## The backstory
 
-The idea for rollyourown.xyz was born in March 2020, soon after the world began locking down in response to the COVID-19 pandemic. With schools and offices closed, and social contact reduced, solutions needed to be found for communicating, sharing and keeping contact with loved ones and colleagues.
+The idea for rollyourown was born in March 2020, soon after the world began locking down in response to the COVID-19 pandemic. With schools and offices closed, and social contact reduced, solutions needed to be found for communicating, sharing and keeping contact with loved ones and colleagues.
 
 I was at home, with time on my hands after a cancelled holiday. Having an instinct to do things myself and some experience using open source software, the decision was made to set up a [Jitsi](https://jitsi.org/) video conferencing system and a [Matrix](https://matrix.org/) messaging service for my friends and family.
 
