@@ -2,7 +2,7 @@
 title: "Repositories"
 weight: 8
 tags: [ ]
-draft: true
+draft: false
 ---
 <!--
 SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
@@ -55,7 +55,7 @@ Our organisation repositories are generally not yet public, not mirrored to [Cod
 
 | Repository | Content | Private or public | Codeberg / Github links |
 | :--------- | :------ | :---------------- | :----- |
-| [contact-details](https://git.rollyourown.xyz/ryo-organisation/contact-details) | A repository for documenting rollyourown.xyz email accounts and phone numbers | private | not mirrored |
+| [contact-details](https://git.rollyourown.xyz/ryo-organisation/contact-details) | A repository for documenting rollyourown.xyz email accounts, phone numbers and public Matrix rooms | private | not mirrored |
 | [general-feedback](https://git.rollyourown.xyz/ryo-organisation/general-feedback) | An issues-only repository for general feedback for the rollyourown.xyz project and for suggesting new projects or modules | public | [Codeberg](https://codeberg.org/rollyourown-xyz/general-feedback) / [GitHub](https://github.com/rollyourown-xyz/general-feedback) |
 
 {{< /table >}}
