@@ -25,7 +25,7 @@ Other than XFCE and xrdp, all software installed on the control node was install
 
 Our infrastructure is currently hosted on a single virtual server -- with 4 CPUs, 16 GB RAM and a 320 GB SSD -- hosted at [netcup](https://www.netcup.de/) in Germany.
 
-We use the [ryo-host](http://localhost:1313/rollyourown/how_to_use/host_server/) automation project to manage our host server from our control node.
+We use the [ryo-host](/rollyourown/how_to_use/host_server/) automation project to manage our host server from our control node.
 
 If we need to move services to additional host servers, we will use our [backup and restore](/rollyourown/how_to_use/back_up_and_restore/) procedures. We already used these procedures once to move our services to the current host server (and, of course, we use them to back up the host server regularly to the control node).
 

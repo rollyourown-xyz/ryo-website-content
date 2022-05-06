@@ -201,7 +201,7 @@ When the change is ready to be merged, the contributor cannot simply push or mer
 
 Therefore, the contributor opens a "Pull Request" to the original repository, which notifies the maintainer that a change is ready for merging. The maintainer (and optionally other project members) can then review the change. If the change is accepted, then the maintainer pulls the changes from the contributor's clone repository (hence the name "Pull Request"), and merges them into the 'main' branch of the primary repository.
 
-This procedure is described in more detail [here](http://localhost:1313/collaborate/working_with_git/forking_and_pull_requests/).
+This procedure is described in more detail [here](/collaborate/working_with_git/forking_and_pull_requests/).
 
 ## rollyourown workflow
 
@@ -250,7 +250,7 @@ With the addition of mirroring, our workflow is illustrated in the following dia
 11. **The change in the primary repository is then automatically pushed to the mirrors on Codeberg and GitHub**
 12. Because **all the contributor's commits are included**, the Pull Request on Codeberg (or GitHub) is automatically recognised as merged
 
-The procedure for forking and submitting Pull Requests is described in more detail [here](http://localhost:1313/collaborate/working_with_git/forking_and_pull_requests/). The merging procedure is described in more detail [here](http://localhost:1313/collaborate/working_with_git/reviewing_and_merging/).
+The procedure for forking and submitting Pull Requests is described in more detail [here](/collaborate/working_with_git/forking_and_pull_requests/). The merging procedure is described in more detail [here](/collaborate/working_with_git/reviewing_and_merging/).
 
 {{< /more >}}
 
