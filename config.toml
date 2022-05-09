@@ -5,7 +5,7 @@ languageCode = "en-gb"
 
 # For private development of the site, use development webserver
 #baseURL = "https://dev.rollyourown.xyz/"
-#title = "rollyourown..."
+#title = "rollyourown development..."
 
 # For production, use production webserver
 baseURL = "https://rollyourown.xyz/"
@@ -15,6 +15,8 @@ theme = "rollyourown-theme"
 contentDir = "content"
 defaultContentLanguage = "en"
 copyright = "rollyourown 2022"
+
+enableRobotsTXT = true
 
 # Disable languages that are present but not yet completed
 disableLanguages = ["de"]
