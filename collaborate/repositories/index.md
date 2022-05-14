@@ -132,5 +132,6 @@ The repositories for our website theme and forms server are private, not mirrore
 | [hugo-scaffold](https://git.rollyourown.xyz/ryo-website/hugo-scaffold) | Scaffold for [Hugo](https://gohugo.io/) static site generation of the rollyourown.xyz website | private | not mirrored |
 | [hugo-scaffold-template](https://git.rollyourown.xyz/ryo-website/hugo-scaffold-template) | Template repository for generating a scaffold repository for use with our [ryo-hugo-website](https://git.rollyourown.xyz/ryo-projects/ryo-hugo-website) project | public | [Codeberg](https://codeberg.org/rollyourown-xyz/ryo-hugo-website-scaffold-template) / [GitHub](https://github.com/rollyourown-xyz/ryo-hugo-website-scaffold-template) |
 | [hugo-theme](https://git.rollyourown.xyz/ryo-website/hugo-theme) | The [Bootstrap 5](https://getbootstrap.com/) based [Hugo](https://gohugo.io/) [theme](https://gohugo.io/hugo-modules/theme-components/) for the rollyourown.xyz website | private | not mirrored |
+| [maintenance-page](https://git.rollyourown.xyz/ryo-website/maintenance-page) | Maintenance page resources for the rollyourown website | private | not mirrored |
 
 {{< /table >}}
