@@ -174,7 +174,7 @@ Configuration of [HAProxy](https://www.haproxy.org/) and [Certbot](https://certb
 
 #### Terraform configuration for provisioning Consul key-values
 
-During a rollyourown.xyz project deployment, the official terraform [consul provider](https://registry.terraform.io/providers/hashicorp/consul/) is used to provision key-value configuration for HAProxy and Certbot to the Consul server running on the host.
+During a rollyourown project deployment, the official terraform [consul provider](https://registry.terraform.io/providers/hashicorp/consul/) is used to provision key-value configuration for HAProxy and Certbot to the Consul server running on the host.
 
 To enable this, the consul server's IP address must be made available within the project's terraform code. This is done by adding a Terraform variable for the consul server's IP address on the host:
 

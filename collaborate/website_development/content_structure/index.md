@@ -9,7 +9,7 @@ SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
-This section describes how the content of the rollyourown.xyz website is structured in the website content repository.
+This section describes how the content of the rollyourown website is structured in the website content repository.
 
 <!--more-->
 

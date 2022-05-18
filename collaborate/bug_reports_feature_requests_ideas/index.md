@@ -15,7 +15,7 @@ The easiest way to contribute to one of our projects or modules is to suggest an
 
 ## Where to raise an Issue
 
-Issues can be raised in the various rollyourown.xyz repositories and repository mirrors:
+Issues can be raised in the various rollyourown repositories and repository mirrors:
 
 - Members of our organisation can raise issues on our own Git repository server
 - Issues can be raised in the mirror repositories [on Codeberg](https://codeberg.org/rollyourown-xyz)
@@ -29,7 +29,7 @@ The repository to use for raising issues depends on the scope of the issue:
 
 - For the content of the website, please use the Issues in the repository for our website content -- [on Codeberg](https://codeberg.org/rollyourown-xyz/ryo-website-hugo-content/issues) or [on GitHub](https://github.com/rollyourown-xyz/ryo-website-hugo-content/issues).
 
-- In case of general feedback and ideas for rollyourown.xyz that are not specific to a [project or module](https://rollyourown.xyz/rollyourown/) or the [website](https://rollyourown.xyz) content, please use the Issues in the general feedback repository -- [on Codeberg](https://codeberg.org/rollyourown-xyz/general-feedback/issues) or [on GitHub](https://github.com/rollyourown-xyz/general-feedback/issues).
+- In case of general feedback and ideas for rollyourown that are not specific to a [project or module](https://rollyourown.xyz/rollyourown/) or the [website](https://rollyourown.xyz) content, please use the Issues in the general feedback repository -- [on Codeberg](https://codeberg.org/rollyourown-xyz/general-feedback/issues) or [on GitHub](https://github.com/rollyourown-xyz/general-feedback/issues).
 
 ## Before raising an Issue
 

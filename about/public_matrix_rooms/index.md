@@ -36,4 +36,4 @@ As the project grows, we plan to add additional public rooms to discuss individu
 
 From your [Matrix client of choice](https://matrix.org/clients/), join a room directly using the room address shown in the table above.
 
-Alternatively, if your client supports it, you can browse public rooms on the rollyourown.xyz homeserver and join from the published list of rooms.
+Alternatively, if your client supports it, you can browse public rooms on the rollyourown homeserver and join from the published list of rooms.

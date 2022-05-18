@@ -62,7 +62,7 @@ The project installation consists of a number of containers deployed on the host
 
 #### Ingress proxy container
 
-The ingress proxy container terminates HTTP and HTTPS connections and distributes traffic to the Nextcloud and Well-known containers. This component is provided by the rollyourown Ingress Proxy module and is a key building block for rollyourown.xyz projects. Further details can be found [here](/rollyourown/project_modules/ryo-ingress-proxy/).
+The ingress proxy container terminates HTTP and HTTPS connections and distributes traffic to the Nextcloud and Well-known containers. This component is provided by the rollyourown Ingress Proxy module and is a key building block for rollyourown projects. Further details can be found [here](/rollyourown/project_modules/ryo-ingress-proxy/).
 
 #### Well-known container
 
@@ -140,7 +140,7 @@ Various desktop operating systems can sync natively or via desktop applications 
 
 After deploying the project, the installation needs to be maintained over time as, for example, new versions of the project's components are released.
 
-Maintenance is automated via the rollyourown.xyz project scripts. See [here](/rollyourown/how_to_use/maintain/) for details.
+Maintenance is automated via the rollyourown project scripts. See [here](/rollyourown/how_to_use/maintain/) for details.
 
 ## Project requirements
 

@@ -9,17 +9,17 @@ SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
-A rollyourown.xyz deployment has a defined architecture and each project is deployed, updated, backed up and restored with a defined flow.
+A rollyourown deployment has a defined architecture and each project is deployed, updated, backed up and restored with a defined flow.
 
 <!--more-->
 
 ## Deployment architecture
 
-A rollyourown.xyz deployment has a defined architecture, illustrated in the following diagram:
+A rollyourown deployment has a defined architecture, illustrated in the following diagram:
 
 {{< image src="Repo_Control_Node_Host.svg" title="Deployment Architecture">}}
 
-- Automation code is stored in the rollyourown.xyz Git repositories
+- Automation code is stored in the rollyourown Git repositories
 
 - The 'ryo-control-node' repository is cloned/copied to a control node (1). [Ansible](https://ansible.com) playbooks (2) in the repository are used to configure the control node and, later, to maintain it
 
@@ -34,7 +34,7 @@ A rollyourown.xyz deployment has a defined architecture, illustrated in the foll
 
 ## Deployment flows
 
-Each rollyourown.xyz project includes a `deploy.sh` script to orchestrate the deployment of the project on a host server. Each project uses the same flow to deploy services, as illustrated in the following diagram. All steps are carried out from the control node:
+Each rollyourown project includes a `deploy.sh` script to orchestrate the deployment of the project on a host server. Each project uses the same flow to deploy services, as illustrated in the following diagram. All steps are carried out from the control node:
 
 ![Deployment Flow](Deploy_Flow.svg)
 
@@ -58,7 +58,7 @@ Each rollyourown.xyz project includes a `deploy.sh` script to orchestrate the de
 
 Upgrade flows are similar to deployment flows. Since project and module containers are ephemeral, with persistent storage mounted at launch, an upgrade consists of **replacing** each applicable container with a newer version. Already-deployed containers are never changed or re-configured in place, being discarded and replaced.
 
-Each rollyourown.xyz project includes an `upgrade.sh` script to orchestrate the upgrade of the project on a host server. Each project uses the same flow to upgrade services, as illustrated in the following diagram. All steps are carried out from the control node:
+Each rollyourown project includes an `upgrade.sh` script to orchestrate the upgrade of the project on a host server. Each project uses the same flow to upgrade services, as illustrated in the following diagram. All steps are carried out from the control node:
 
 ![Upgrade Flow](Upgrade_Flow.svg)
 
@@ -80,7 +80,7 @@ Each rollyourown.xyz project includes an `upgrade.sh` script to orchestrate the 
 
 Being ephemeral, deployed project or module containers do not themselves need to be backed up. New containers can be launched to replace failed containers at any time. Only the persistent data stored in mounted directories on the host server need to be backed up.
 
-Each rollyourown.xyz project includes a `backup.sh` script to orchestrate the backup of the project on a host server. Each project uses the same flow to back up services, as illustrated in the following diagram. All steps are carried out from the control node:
+Each rollyourown project includes a `backup.sh` script to orchestrate the backup of the project on a host server. Each project uses the same flow to back up services, as illustrated in the following diagram. All steps are carried out from the control node:
 
 ![Project Backup Flow](Project_Backup_Flow.svg)
 
@@ -100,7 +100,7 @@ Each rollyourown.xyz project includes a `backup.sh` script to orchestrate the ba
 
 Restoration of a project involves replacing the project's persistent storage, and optionally associated modules' persistent storage, with the contents of a previous backup.
 
-Each rollyourown.xyz project includes a `restore.sh` script to orchestrate the restoration of a project on a host server. Each project uses the same flow to restore services, as illustrated in the following diagram. All steps are carried out from the control node:
+Each rollyourown project includes a `restore.sh` script to orchestrate the restoration of a project on a host server. Each project uses the same flow to restore services, as illustrated in the following diagram. All steps are carried out from the control node:
 
 ![Project Restore Flow](Project_Restore_Flow.svg)
 

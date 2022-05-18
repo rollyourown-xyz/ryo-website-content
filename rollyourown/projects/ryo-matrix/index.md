@@ -51,7 +51,7 @@ This project depends on and deploys the following rollyourown modules:
 
 - The [STUN/TURN Server module](/rollyourown/project_modules/ryo-coturn) to provide [STUN](https://en.wikipedia.org/wiki/STUN), [TURN](https://en.wikipedia.org/wiki/Traversal_Using_Relays_around_NAT) and [ICE](https://en.wikipedia.org/wiki/Interactive_Connectivity_Establishment) enabling peer-to-peer communication for devices behind a [NAT](https://en.wikipedia.org/wiki/Network_address_translation)
 
-In "standalone" IdP mode, the project has no dependency to other rollyourown.xyz projects. In "gitea" IdP mode, the project depends on prior deployment of a [Gitea Git repository server](/rollyourown/projects/ryo-gitea) and the configuration of an [OAuth2](https://oauth.net/2/) application on the Gitea server before deployment of this project.
+In "standalone" IdP mode, the project has no dependency to other rollyourown projects. In "gitea" IdP mode, the project depends on prior deployment of a [Gitea Git repository server](/rollyourown/projects/ryo-gitea) and the configuration of an [OAuth2](https://oauth.net/2/) application on the Gitea server before deployment of this project.
 
 ## Identity providers and single sign-on
 
@@ -96,7 +96,7 @@ The project installation consists of a number of containers deployed on the host
 
 #### Ingress proxy container
 
-The ingress proxy container terminates HTTP and HTTPS connections and distributes traffic to other containers. This component is provided by the rollyourown Ingress Proxy module and is a key building block for rollyourown.xyz projects. Further details can be found [here](/rollyourown/project_modules/ryo-ingress-proxy/).
+The ingress proxy container terminates HTTP and HTTPS connections and distributes traffic to other containers. This component is provided by the rollyourown Ingress Proxy module and is a key building block for rollyourown projects. Further details can be found [here](/rollyourown/project_modules/ryo-ingress-proxy/).
 
 #### Coturn container
 
@@ -260,7 +260,7 @@ Note that the `<ROOM_ID>` must be [URL encoded](https://www.w3schools.com/tags/r
 
 After deploying the project, the installation needs to be maintained over time as, for example, new versions of the project's components are released.
 
-Maintenance is automated via the rollyourown.xyz project scripts. See [here](/rollyourown/how_to_use/maintain/) for details.
+Maintenance is automated via the rollyourown project scripts. See [here](/rollyourown/how_to_use/maintain/) for details.
 
 ## Project requirements
 
