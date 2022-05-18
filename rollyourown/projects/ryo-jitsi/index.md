@@ -34,7 +34,7 @@ Components **not** installed by this project are:
 - The [jigasi](https://github.com/jitsi/jigasi) SIP gateway
 - The [jibri](https://github.com/jitsi/jibri) broadcasting server
 
-In additiona to the components of the jitsi video conferencing system, the project deploys the [rollyourown.xyz coturn module](/rollyourown/project_modules/ryo-coturn/) to enable [NAT traversal](https://en.wikipedia.org/wiki/NAT_traversal) for conference participants and the [rollyourown.xyz Ingress Proxy module](/rollyourown/project_modules/ryo-ingress-proxy/) to provide TLS termination and certificate management.
+In additiona to the components of the jitsi video conferencing system, the project deploys the [rollyourown coturn module](/rollyourown/project_modules/ryo-coturn/) to enable [NAT traversal](https://en.wikipedia.org/wiki/NAT_traversal) for conference participants and the [rollyourown Ingress Proxy module](/rollyourown/project_modules/ryo-ingress-proxy/) to provide TLS termination and certificate management.
 
 {{< highlight "info" "Control node">}}
 A [control node](/rollyourown/how_to_use/control_node/) without a graphical desktop UI is sufficient for this project, as the jitsi conferencing server is configurable only via command line.
@@ -66,11 +66,11 @@ The project installation consists of a number of containers deployed on the host
 
 #### Coturn container
 
-The coturn container hosts an [coturn](https://github.com/coturn/coturn/) TURN server, providing NAT traversal for jitsi conference users. This component is provided by the rollyourown TURN server module and is a building block for other rollyourown.xyz projects providing p2p communications services. Further details can be found [here](/rollyourown/project_modules/ryo-coturn/).
+The coturn container hosts an [coturn](https://github.com/coturn/coturn/) TURN server, providing NAT traversal for jitsi conference users. This component is provided by the rollyourown TURN server module and is a building block for other rollyourown projects providing p2p communications services. Further details can be found [here](/rollyourown/project_modules/ryo-coturn/).
 
 #### Ingress proxy container
 
-The ingress proxy container terminates HTTP and HTTPS connections and distributes traffic to other containers. This component is provided by the rollyourown Ingress Proxy module and is a key building block for rollyourown.xyz projects. Further details can be found [here](/rollyourown/project_modules/ryo-ingress-proxy/).
+The ingress proxy container terminates HTTP and HTTPS connections and distributes traffic to other containers. This component is provided by the rollyourown Ingress Proxy module and is a key building block for rollyourown projects. Further details can be found [here](/rollyourown/project_modules/ryo-ingress-proxy/).
 
 #### Jitsi server container
 
@@ -120,7 +120,7 @@ User accounts can only be configured via the command line. This can be done dire
 
 After deploying the project, the installation needs to be maintained over time as, for example, new versions of the project's components are released.
 
-Maintentance is automated via the rollyourown.xyz project scripts. See [here](/rollyourown/how_to_use/maintain/) for details.
+Maintentance is automated via the rollyourown project scripts. See [here](/rollyourown/how_to_use/maintain/) for details.
 
 ## Project requirements
 

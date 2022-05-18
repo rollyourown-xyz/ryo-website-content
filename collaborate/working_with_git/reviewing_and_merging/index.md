@@ -9,7 +9,7 @@ SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
-This page gives and overview of the reviewing and merging steps taken by a maintainer after a contributor has submitted a Pull Request to a rollyourown.xyz repository.
+This page gives and overview of the reviewing and merging steps taken by a maintainer after a contributor has submitted a Pull Request to a rollyourown repository.
 
 Please [contact us](/about/contact) if you would consider becoming a maintainer for one of our repositories.
 
@@ -39,7 +39,7 @@ The procedure for reviewing a pull request submitted on Codeberg (or GitHub) is 
 
 {{< highlight "primary">}}
 
-Since the source-of-truth for all rollyourown.xyz projects is the primary repository on our own Git servers, merging is **not** done directly on the Codeberg (or GitHub) mirror repository. Instead, the feature branch is merged into the primary repository on our servers and mirrored back to Codeberg and GitHub.
+Since the source-of-truth for all rollyourown projects is the primary repository on our own Git servers, merging is **not** done directly on the Codeberg (or GitHub) mirror repository. Instead, the feature branch is merged into the primary repository on our servers and mirrored back to Codeberg and GitHub.
 
 {{< /highlight >}}
 

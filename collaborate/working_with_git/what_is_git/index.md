@@ -9,7 +9,7 @@ SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
-[Git](https://git-scm.com/) is a software tool which can be used in different ways. This page explains the basic concepts of Git and how we use it to collaborate on the rollyourown.xyz project.
+[Git](https://git-scm.com/) is a software tool which can be used in different ways. This page explains the basic concepts of Git and how we use it to collaborate on the rollyourown project.
 
 <!--more-->
 
@@ -55,9 +55,9 @@ A Git repository (or multiple repositories) can be used to manage anything that 
 
 - Text-based projects, such as: [Website content and documentation](/collaborate/website_content); books -- such as [here](https://joebuhlig.com/writing-a-book-with-github/) or [here](https://github.com/cosmicpython/book); [legal documents](https://docs.openlaw.io/); [songs and music mixing](https://www.lorenzosmusic.com/2019/05/how-we-came-up-with-way-to-use-github.html); [general writing](https://opensource.com/article/19/4/write-git)
 
-#### Repositories for the rollyourown.xyz project
+#### Repositories for the rollyourown project
 
-At the rollyourown.xyz project, we use a number of repositories for different purposes:
+At the rollyourown project, we use a number of repositories for different purposes:
 
 - We manage the code for our [projects](/rollyourown/projects) and [modules](/rollyourown/project_modules) in dedicated public repositories (one for each project or module)
 
@@ -85,7 +85,7 @@ Cloning allows a contributor in a collaborative project to obtain a copy of the 
 
 When finished, changes are contributed back to the original project. After the changes are incorporated, the cloned repository can be deleted.
 
-[The forking workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow) is commonly used for open source projects and we [use it for collaboration on the rollyourown.xyz project](#rollyourown-workflow). In this workflow, a **fork** is a server-side clone, which then _itself_ is cloned by a contributor as basis for their work. In combination with [branching](#branching-and-merging) and [pull requests](#pull-request), this enables project maintainers to manage multiple, independent contributions to a project. For more details on this workflow, see [below](#rollyourown-workflow)
+[The forking workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow) is commonly used for open source projects and we [use it for collaboration on the rollyourown project](#rollyourown-workflow). In this workflow, a **fork** is a server-side clone, which then _itself_ is cloned by a contributor as basis for their work. In combination with [branching](#branching-and-merging) and [pull requests](#pull-request), this enables project maintainers to manage multiple, independent contributions to a project. For more details on this workflow, see [below](#rollyourown-workflow)
 
 {{< /more >}}
 
@@ -119,8 +119,8 @@ Depending on how an organisation sets itself up and publishes its work, branches
 
 With this approach, a new branch is created whenever a change is to be made (e.g., a new feature is to be added or a page on a website is to be re-written). A contributor makes changes within this new branch and can review and test them independently of the main branch. Changes are only merged into the 'main' branch after work is completed. During development, changes made by one contributor do not affect changes being made by another as they are worked on in separate branches
 
-The model we use for rollyourown.xyz repositories is the
-[trunk-based model with short-lived feature branches](https://trunkbaseddevelopment.com/short-lived-feature-branches/). The **main** branch in a rollyourown.xyz repository represents the current 'official' or 'stable' version of the project. Each 'unit of change' is done in a **feature branch** and merged back to the main branch when finished (and after review). This way, the main branch develops over time.
+The model we use for rollyourown repositories is the
+[trunk-based model with short-lived feature branches](https://trunkbaseddevelopment.com/short-lived-feature-branches/). The **main** branch in a rollyourown repository represents the current 'official' or 'stable' version of the project. Each 'unit of change' is done in a **feature branch** and merged back to the main branch when finished (and after review). This way, the main branch develops over time.
 
 {{< /more >}}
 
@@ -148,13 +148,13 @@ In some situations, it can be useful to set up other repositories as a **mirror*
 
 {{< more "secondary">}}
 
-#### rollyourown.xyz primary repositories
+#### rollyourown primary repositories
 
 Following [our own aim](/about/manifesto/#our-aims) to promote and enable the self-hosting of open source software as much as possible, we maintain our primary repositories on our own Git repository servers. For our project, these repositories are the "source of truth" and we use them, for example, as the source of the content for generating this website.
 
 Members of our organisation have accounts on our own Git repository servers. If you would like to join our project, please [contact us](/about/contact/).
 
-#### rollyourown.xyz mirror repositories
+#### rollyourown mirror repositories
 
 [Another goal](/about/manifesto/#our-approach) of our project is to lower the barriers to using open source solutions, and this extends to lowering the barriers to _collaborating_ on our project by enabling collaboration where our collaborators already work.
 
@@ -193,7 +193,7 @@ A project maintainer therefore has a key role in an open source project. The mai
 
 ### Pull Request
 
-As [discussed above](#cloning), the collaboration workflow for the rollyourown.xyz project follows the [forking workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow).
+As [discussed above](#cloning), the collaboration workflow for the rollyourown project follows the [forking workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow).
 
 When a contributor would like to make a change, then the first step is to fork the repository to their own account. Changes are then made in this copy (either directly or via cloning the fork to their local computer).
 
@@ -254,4 +254,4 @@ The procedure for forking and submitting Pull Requests is described in more deta
 
 {{< /more >}}
 
-For this procedure to work, project [maintainers](#project-maintainer) require a rollyourown.xyz account to have write-access to the primary repository. If you would like to join our organisation, maintain a project or otherwise help us with managing the project, please [contact us](/about/contact/).
+For this procedure to work, project [maintainers](#project-maintainer) require a rollyourown account to have write-access to the primary repository. If you would like to join our organisation, maintain a project or otherwise help us with managing the project, please [contact us](/about/contact/).

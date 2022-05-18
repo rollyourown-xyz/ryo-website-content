@@ -15,7 +15,7 @@ There are various ways to contact us.
 
 ## Security vulnerabilities
 
-If you have found a security vulnerability in any rollyourown.xyz service or any of the rollyourown.xyz projects, modules or other repositories, please report this via our [security vulnerability report form](https://forms.rollyourown.xyz/security-vulnerability). Please first read our [security disclosure policy](/collaborate/security_vulnerabilities/#security-disclosure-policy).
+If you have found a security vulnerability in any rollyourown service or any of the rollyourown projects, modules or other repositories, please report this via our [security vulnerability report form](https://forms.rollyourown.xyz/security-vulnerability). Please first read our [security disclosure policy](/collaborate/security_vulnerabilities/#security-disclosure-policy).
 
 ## Bug reports, feature requests and ideas
 
@@ -23,7 +23,7 @@ General information about reporting bugs or requesting features can be found on 
 
 ## General feedback or questions about our project
 
-General feedback, ideas or questions about the rollyourown.xyz project can be given via the Issues in the general feedback repository [on Codeberg](https://codeberg.org/rollyourown-xyz/general-feedback/issues) or [on GitHub](https://github.com/rollyourown-xyz/general-feedback/issues) or, alternatively, via our [contact form](https://forms.rollyourown.xyz/contact-us).
+General feedback, ideas or questions about the rollyourown project can be given via the Issues in the general feedback repository [on Codeberg](https://codeberg.org/rollyourown-xyz/general-feedback/issues) or [on GitHub](https://github.com/rollyourown-xyz/general-feedback/issues) or, alternatively, via our [contact form](https://forms.rollyourown.xyz/contact-us).
 
 ## Website translation
 
@@ -35,7 +35,7 @@ Our privacy policy is described in detail [on a dedicated page](/about/privacy_p
 
 ## Joining us
 
-If you are considering taking an active role in the rollyourown.xyz open source project, beyond collaboration on bugs and features or submitting Pull Requests, please contact us via our [join us form](https://forms.rollyourown.xyz/join-us).
+If you are considering taking an active role in the rollyourown open source project, beyond collaboration on bugs and features or submitting Pull Requests, please contact us via our [join us form](https://forms.rollyourown.xyz/join-us).
 
 ## Discuss in our matrix rooms
 

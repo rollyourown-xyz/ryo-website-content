@@ -12,9 +12,9 @@ Do you enjoy building solutions with open source software? Would you like to sha
 
 <!--more-->
 
-Thank you for taking an interest in collaborating with us on the rollyourown.xyz project!
+Thank you for taking an interest in collaborating with us on the rollyourown project!
 
-This is the documentation for **collaborating** on rollyourown.xyz projects. You can browse the content via the menu on the left-hand side.
+This is the documentation for **collaborating** on rollyourown projects. You can browse the content via the menu on the left-hand side.
 
 ## Lower the barrier
 
@@ -26,7 +26,7 @@ Automated deployments make system integration fast, repeatable and manageable so
 
 ## Collaborate on Infrastructure Code
 
-rollyourown.xyz is a collaborative open source project. Our projects and modules are developed within [a framework](/collaborate/project_and_module_development/general_architecture/) and all [projects](/rollyourown/projects/) and [modules](/rollyourown/project_modules/) as well as the content of the website itself are developed in the open.
+rollyourown is a collaborative open source project. Our projects and modules are developed within [a framework](/collaborate/project_and_module_development/general_architecture/) and all [projects](/rollyourown/projects/) and [modules](/rollyourown/project_modules/) as well as the content of the website itself are developed in the open.
 
 As an experienced developer and system builder, you have invested your time and experience in creating working solutions made of open source components. You have integrated and configured open source applications to provide usable and reliable services. However, the time and experience you have invested does not necessarily scale to help others use the same components.
 
@@ -44,12 +44,12 @@ There are many ways to collaborate, for example:
 - [Contributing bug reports, feature requests and ideas](/collaborate/bug_reports_feature_requests_ideas/)
 - [Collaboration on an existing project or module](/collaborate/existing_projects_and_modules/) - e.g. to provide fixes or improvements
 - [Contributing a new project or module](/collaborate/new_projects_and_modules/)
-- [Contributing to rollyourown.xyz website content](/collaborate/website_content/)
-- [Maintaining a rollyourown.xyz repository](/collaborate/working_with_git/what_is_git/#project-maintainer)
+- [Contributing to rollyourown website content](/collaborate/website_content/)
+- [Maintaining a rollyourown repository](/collaborate/working_with_git/what_is_git/#project-maintainer)
 
 Each of these are described in more detail on the pages linked.
 
-Code and content of the rollyourown.xyz project is stored in our [public repositories](/collaborate/repositories/), and collaboration is organised around these. We use the Issue tracking features of our own Git repository servers, [on Codeberg](https://codeberg.org/rollyourown-xyz) or [on GitHub](https://github.com/rollyourown-xyz) to raise, discuss and track ideas, feature requests and bugs, and we use [git-based workflows](/collaborate/working_with_git/), to manage changes to code and content.
+Code and content of the rollyourown project is stored in our [public repositories](/collaborate/repositories/), and collaboration is organised around these. We use the Issue tracking features of our own Git repository servers, [on Codeberg](https://codeberg.org/rollyourown-xyz) or [on GitHub](https://github.com/rollyourown-xyz) to raise, discuss and track ideas, feature requests and bugs, and we use [git-based workflows](/collaborate/working_with_git/), to manage changes to code and content.
 
 To take part in the general discussion around our project, you can join us in our [public Matrix rooms](/about/public_matrix_rooms).
 

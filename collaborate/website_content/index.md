@@ -43,7 +43,7 @@ Our website content is written in [Markdown](https://en.wikipedia.org/wiki/Markd
 
 ## Licensing
 
-Please be aware that all rollyourown.xyz website content is released under a [Creative Commons licence](https://codeberg.org/rollyourown-xyz/ryo-website-hugo-content/src/branch/main/LICENSE). If you are not comfortable with this, then we unfortunately cannot include your contribution.
+Please be aware that all rollyourown website content is released under a [Creative Commons licence](https://codeberg.org/rollyourown-xyz/ryo-website-hugo-content/src/branch/main/LICENSE). If you are not comfortable with this, then we unfortunately cannot include your contribution.
 
 We use [Software Package Data Exchange (SPDX)](https://spdx.dev/) licensing and copyright information in each source file in our repositories. We request any contributor to add SPDX information to any new file submitted and to include additional copyright information in modified files, where applicable.
 

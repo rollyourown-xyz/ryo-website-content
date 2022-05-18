@@ -9,15 +9,15 @@ SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
-The rollyourown.xyz projects and modules are the heart of our project and improving or adding to them is one of the most valuable contributions you can make.
+The rollyourown projects and modules are the heart of our project and improving or adding to them is one of the most valuable contributions you can make.
 
-If you would like to improve an existing project or module to the rollyourown.xyz project, then before all else: Thank you!
+If you would like to improve an existing project or module to the rollyourown project, then before all else: Thank you!
 
 <!--more-->
 
 ## Before working on the code
 
-If you would like to improve the code yourself for a particular rollyourown.xyz [project](/rollyourown/projects) or [module](/rollyourown/project_modules), please first submit an Issue in our mirror repositories [on Codeberg](/collaborate/bug_reports_feature_requests_ideas/#raising-issues-on-codeberg) or [on GitHub](/collaborate/bug_reports_feature_requests_ideas/#raising-issues-on-github) describing what you would like to change and why.
+If you would like to improve the code yourself for a particular rollyourown [project](/rollyourown/projects) or [module](/rollyourown/project_modules), please first submit an Issue in our mirror repositories [on Codeberg](/collaborate/bug_reports_feature_requests_ideas/#raising-issues-on-codeberg) or [on GitHub](/collaborate/bug_reports_feature_requests_ideas/#raising-issues-on-github) describing what you would like to change and why.
 
 The project maintainer can then provide feedback on the proposal in advance of you doing any work. There may be a reason why your proposal would not be accepted, or should be realised differently, so this avoids you doing work which will end up not being accepted and merged into the code.
 
@@ -27,7 +27,7 @@ If, after discussing the change, you would like to proceed and implement it, the
 
 ## Licensing
 
-Please be aware that rollyourown.xyz projects are released under the open source [GPLv3 licence](https://spdx.org/licenses/GPL-3.0-or-later.html). If you are not comfortable with this, then we unfortunately cannot include your contribution.
+Please be aware that rollyourown projects are released under the open source [GPLv3 licence](https://spdx.org/licenses/GPL-3.0-or-later.html). If you are not comfortable with this, then we unfortunately cannot include your contribution.
 
 We use [Software Package Data Exchange (SPDX)](https://spdx.dev/) licensing and copyright information in each source file in our repositories. We request any contributor to add SPDX information to any new file submitted and to include additional copyright information in modified files, where applicable.
 

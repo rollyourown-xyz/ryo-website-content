@@ -5,8 +5,8 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 This template is for suggesting a **new** project or module, giving us general feedback or asking a general question:
 
-- Please use the Issues in the specific [rollyourown.xyz repository](https://rollyourown.xyz/rollyourown/) for submitting bug reports, feature requests or suggestions for an existing project or module
-- Please use the Issues in the website [content repository](https://codeberg.org/rollyourown-xyz/ryo-website-hugo-content) for bug reports or suggestions for [rollyourown.xyz website](https://rollyourown.xyz) content
+- Please use the Issues in the specific [rollyourown repository](https://rollyourown.xyz/rollyourown/) for submitting bug reports, feature requests or suggestions for an existing project or module
+- Please use the Issues in the website [content repository](https://codeberg.org/rollyourown-xyz/ryo-website-hugo-content) for bug reports or suggestions for [rollyourown website](https://rollyourown.xyz) content
 
 Please use the template in the relevant section below, depending on the feedback you would like to give us.
 

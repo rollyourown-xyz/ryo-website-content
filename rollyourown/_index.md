@@ -14,7 +14,7 @@ Do you want to deploy open source software, take control of your data and commun
 
 Our [projects](/rollyourown/projects/) lower the barrier to deploying integrated, open source software solutions by providing automation code to build and deploy all the components needed within a few minutes.
 
-This is the documentation for **using** rollyourown.xyz projects. You can browse the content via the menu on the left-hand side.
+This is the documentation for **using** rollyourown projects. You can browse the content via the menu on the left-hand side.
 
 ## How to use
 
@@ -33,4 +33,4 @@ Browse the available [projects](/rollyourown/projects/) and choose a project to 
 
 ## How we roll our own
 
-See how we use rollyourown.xyz projects to provide [our own infrastructure](/about/our_infrastructure/).
+See how we use rollyourown projects to provide [our own infrastructure](/about/our_infrastructure/).

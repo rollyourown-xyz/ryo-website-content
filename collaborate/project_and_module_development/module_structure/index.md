@@ -9,15 +9,15 @@ SPDX-FileCopyrightText: 2022 Wilfred Nicoll <xyzroller@rollyourown.xyz>
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
-A rollyourown.xyz module has a defined structure and every rollyourown.xyz module is structured in the same way. The structure is provided by the [module template repository](https://git.rollyourown.xyz/ryo-projects/ryo-module-template) and the template [can be forked](/collaborate/working_with_git/forking_and_pull_requests/#forking) to form the basis of a [new rollyourown.xyz module](/collaborate/project_and_module_development).
+A rollyourown module has a defined structure and every rollyourown module is structured in the same way. The structure is provided by the [module template repository](https://git.rollyourown.xyz/ryo-projects/ryo-module-template) and the template [can be forked](/collaborate/working_with_git/forking_and_pull_requests/#forking) to form the basis of a [new rollyourown module](/collaborate/project_and_module_development).
 
-The rollyourown.xyz module template repository is mirrored [on Codeberg](https://codeberg.org/rollyourown-xyz/ryo-module-template) and [on GitHub](https://github.com/rollyourown-xyz/ryo-module-template).
+The rollyourown module template repository is mirrored [on Codeberg](https://codeberg.org/rollyourown-xyz/ryo-module-template) and [on GitHub](https://github.com/rollyourown-xyz/ryo-module-template).
 
 <!--more-->
 
 ## Module directory structure
 
-A rollyourown.xyz module is structured in the following top-level directories and scripts:
+A rollyourown module is structured in the following top-level directories and scripts:
 
 ```console
 module_id
@@ -45,7 +45,7 @@ module_id
 
 ## The module_id
 
-The `module_id` is a unique name for a rollyourown.xyz module and is also the name of the module repository on the rollyourown.xyz Git server and on the rollyourown.xyz [Codeberg](https://codeberg.org/rollyourown-xyz) and [Github](https://github.com/rollyourown-xyz) mirrors.
+The `module_id` is a unique name for a rollyourown module and is also the name of the module repository on the rollyourown Git server and on the rollyourown [Codeberg](https://codeberg.org/rollyourown-xyz) and [Github](https://github.com/rollyourown-xyz) mirrors.
 
 The `module_id` is always of the form `ryo-<NAME>` where `<NAME>` usually identifies the open source software to be deployed.
 
@@ -53,16 +53,16 @@ The `module_id` is also added as the default value to the module's [configuratio
 
 ## Licence and information
 
-The top-level directory of a rollyourown.xyz module includes a `LICENSE`, `CONTRIBUTING.md`, `README.md` and `SECURITY.md` file:
+The top-level directory of a rollyourown module includes a `LICENSE`, `CONTRIBUTING.md`, `README.md` and `SECURITY.md` file:
 
-- LICENSE: Describes the licence under which the code in the repository may be copied or used. Only [open source](https://opensource.org/osd) licences (e.g. the [GPLv3](https://spdx.org/licenses/GPL-3.0-or-later.html) licence) may be used for a rollyourown.xyz module
+- LICENSE: Describes the licence under which the code in the repository may be copied or used. Only [open source](https://opensource.org/osd) licences (e.g. the [GPLv3](https://spdx.org/licenses/GPL-3.0-or-later.html) licence) may be used for a rollyourown module
 - CONTRIBUTING.md: Provides information on how to collaborate on the module
 - README.md: Provides a high-level description of the module and how to use it
 - SECURITY.md: Provides information on how to report security vulnerabilities in the module
 
 ## Top-level scripts
 
-The top-level directory of a rollyourown.xyz module includes a number of scripts to deploy, upgrade, back up and restore the module:
+The top-level directory of a rollyourown module includes a number of scripts to deploy, upgrade, back up and restore the module:
 
 ```console
 ├─ backup.sh
@@ -164,7 +164,7 @@ The `image-build` directory contains [Packer](https://www.packer.io/) templates 
 ¦   └─ ...
 ```
 
-The `module-deployment` directory contains the [Terraform](https://www.terraform.io/) code to deploy the module on the host server and [cloud-init](https://cloud-init.io/) files for providing boot-time commands to container instances, if necessary. In addition, Terraform modules are provided to simplify the use of the module in a rollyourown.xyz project deployment.
+The `module-deployment` directory contains the [Terraform](https://www.terraform.io/) code to deploy the module on the host server and [cloud-init](https://cloud-init.io/) files for providing boot-time commands to container instances, if necessary. In addition, Terraform modules are provided to simplify the use of the module in a rollyourown project deployment.
 
 ## The backup-restore directory
 

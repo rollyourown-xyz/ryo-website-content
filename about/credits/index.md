@@ -13,7 +13,7 @@ This project builds on and would not be possible without a number of other open 
 
 <!--more-->
 
-In alphabetical order, the projects powering rollyourown.xyz are:
+In alphabetical order, the projects powering rollyourown are:
 
 {{< table tableclass="table table-bordered table-striped" theadclass="table-primary" >}}
 
